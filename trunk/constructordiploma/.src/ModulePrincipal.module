@@ -23,7 +23,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   '
   '
   If InStr(nombre, "(") <> 0 Or InStr(nombre, ")") <> 0 Then 
-    Message.Error("Nombre no valido de archivo, contiene parentesis en su nombre")
+    Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
     Return False
   Endif
   ' listar contenido del fichero -> para obtener rutas relativas
@@ -94,7 +94,7 @@ Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
     Try Copy "transparente.png" To rutaprograma & "temporales/FotosRegistros/transparente.png"
     
   Else
-    Message.Error("No encuentro fichero de datos")
+    Message.Error(("No encuentro fichero de datos"))
     Return False
   Endif
   
@@ -113,7 +113,7 @@ Public Sub guardarDatos() As Boolean
   Dim resultado As Boolean
   'creo fichero de datos...
   If RutaDatosDiplomas = "" Then 
-    Message.Error("Nombre de archivo incorrecto")
+    Message.Error(("Nombre de archivo incorrecto"))
     Return False
   Endif
   
@@ -128,9 +128,9 @@ Public Sub guardarDatos() As Boolean
   
   'copia de plantillas...
   resultado = copiarplantillas()
-  If resultado = False Then Message.Error("Problemas al copiar las plantillas")
+  If resultado = False Then Message.Error(("Problemas al copiar las plantillas"))
   resultado = comprimirDatos() 
-  If resultado = False Then Message.Error("Problemas al comprimir datos")
+  If resultado = False Then Message.Error(("Problemas al comprimir datos"))
   Return resultado
   
 End
@@ -170,7 +170,7 @@ Public Sub comprimirDatos() As Boolean
   
   Try Copy User.home & "/temporal.zip" To RutaDatosDiplomas & ".ConstructorDiplomas"
   If Error Then 
-    Message.Error("Error al intentar copiar el archivo comprimido temporal al archivo final")
+    Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
     Return False
   Endif
   ModuleGestionAlumno.guardado = True

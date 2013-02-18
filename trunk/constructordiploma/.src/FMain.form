@@ -13,7 +13,7 @@
     { TextLabelPantallaPresentacion3 TextLabel
       MoveScaled(5,2,66,52)
       Background = Color.Background
-      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
+      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
       Border = Border.Sunken
     }
@@ -355,7 +355,7 @@
       ToolTip = ("Convirtiendo fotografias")
     }
     { ToolButtonGenerar ToolButton
-      MoveScaled(25,32,20,7)
+      MoveScaled(50,31,20,7)
       Text = ("Generar Pdf")
       Picture = Picture["icon:/22/exec"]
       Border = True
@@ -406,6 +406,11 @@
         MoveScaled(4,7,27,4)
         Text = ("dd mmmm yyyy")
       }
+    }
+    { CheckBoxUnir CheckBox
+      MoveScaled(11,33,32,3)
+      Text = ("Unir todos los pdf en uno")
+      Value = CheckBox.True
     }
     Index = 9
     Text = ("Salir")

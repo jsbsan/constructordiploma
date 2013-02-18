@@ -54,14 +54,12 @@ Public Sub creandoPNg(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   
 End
 
-Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String) As Boolean
-  
-  '  Dim contador As Integer 'contador para llevar el numero de carnet que se estan creando
-  '  Dim contadorEnUnaPagina As Integer 'paginas que llevamos creadas
+Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean) As Boolean
   
   Dim a As Integer 'bucle
   Dim regtmp As ClassRegistroAlumno
   Dim nombrefinal As String 
+  Dim comando As String
   
   Moduleimprimir.EstadoDelTrabajo = 0
   
@@ -77,8 +75,16 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, nombrefinal)
     Moduleimprimir.EstadoDelTrabajo = a
   Next
+  'unir todos los pdf en uno...
+  Wait 0.1
+  If unir = True Then 
+    comando = "pdftk /home/uno/ConstructorDiplomas/trabajotmp/pdf/* cat output /home/uno/ConstructorDiplomas/trabajotmp/pdf/resultado.pdf"
+    Shell comando Wait
+  Endif
   
-  Desktop.Open(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
+  Exec ["pcmanfm", ModulePrincipal.rutaprograma & "trabajotmp/pdf"]
+  
+  'Desktop.Open(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
   
 End
 
@@ -258,7 +264,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
   Return True
-
+  
 End
 
 Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, rejilla As ClassSuperGridview) As Boolean

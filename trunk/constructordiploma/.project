@@ -3,13 +3,13 @@
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.11
+Version=0.0.12
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Component=gb.qt4.ext
-Description="Beta: Importar y  Exportar\nRecorta fondo de imagen\nCopia tipos de letra"
+Description="traducible"
 TabSize=2
 Translate=1
 Language=es

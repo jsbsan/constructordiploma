@@ -73,7 +73,7 @@ Public Sub CargarDatos() As Boolean
     Return Lista.LecturaDatos(cadenas)
     
   Else
-    Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
+    Message.Error(("El fichero no lo puedo leer.\n Versión Desconocida."))
     Return False
   Endif
   

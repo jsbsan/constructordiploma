@@ -32,7 +32,7 @@ Public Sub AbrirDiplomasIniciales()
     IconPanel1_click()  
     
   Else
-    Message.Error("Problemas al abrir el archivo...")
+    Message.Error(("Problemas al abrir el archivo..."))
     Try Kill rutacopia 
     IconPanel1.Index = 0
     IconPanel1_Click()
@@ -99,9 +99,9 @@ Public Sub IconPanel1_Click()
   
   If IconPanel1.text = ("Abrir Grupo") Then
     If ModuleGestionAlumno.guardado = False Or ModuleGestionDiploma.guardado = False Then 
-      Message.Warning("Los datos anteriores no se guardaron," & "\n" & "si crea un Grupo nuevo, se borrarán!!")
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
-    Dialog.title = "Indique archivo de datos para abrir..."
+    Dialog.title = ("Indique archivo de datos para abrir...")
     Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
     If Not Dialog.OpenFile() Then 
       resultado = ModulePrincipal.AbrirFichero(Dialog.Path, "ConstructorDiplomas")
@@ -111,7 +111,7 @@ Public Sub IconPanel1_Click()
         IconPanel1.index = 6
         IconPanel1_click()    
       Else
-        Message.Error("Problemas al abrir el archivo...")
+        Message.Error(("Problemas al abrir el archivo..."))
         IconPanel1.Index = 0
         IconPanel1_Click()
         Return
@@ -142,7 +142,7 @@ Public Sub IconPanel1_Click()
       Endif
       
     Else
-      Message.Info("Debe de Abrir o Crear un grupo")
+      Message.Info(("Debe de Abrir o Crear un grupo"))
       IconPanel1.index = 0
       IconPanel1_click()
     Endif
@@ -151,7 +151,7 @@ Public Sub IconPanel1_Click()
   If IconPanel1.text = ("Introducir Datos Alumnos") Then 
     'comprobar que existe al menos un diploma tematico, si no, no deja añadir....
     If ModuleGestionDiploma.lista.Registros.count = 0 Then 
-      Message.Info(("No existen Diplomas Temático, debes definir al menos uno" & gb.CrLf & " ve a la opción de:  Gestor Plantillas de Diplomas"))
+      Message.Info(("No existen Diplomas Temático, debes definir al menos uno") & gb.CrLf & (" ve a la opción de:  Gestor Plantillas de Diplomas"))
       IconPanel1.index = 6
       IconPanel1_click()    
     Else
@@ -175,7 +175,7 @@ Public Sub IconPanel1_Click()
         Return 'cancelado guardar como...
       Endif
     Else
-      Message.Info("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo")
+      Message.Info(("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"))
     Endif
     
   Endif
@@ -193,9 +193,9 @@ Public Sub IconPanel1_Click()
       resultado = ModulePrincipal.GuardarDatos()
       If resultado Then 
         ModulePrincipal.RutaDatosDiplomas = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") 
-        Message.Info("Guardado correctamente" & gb.CrLf & ModulePrincipal.RutaDatosDiplomas & ".ConstructorDiplomas")
+        Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaDatosDiplomas & ".ConstructorDiplomas")
       Else
-        Message.Error("No he podido guardar los datos")
+        Message.Error(("No he podido guardar los datos"))
       Endif
       IconPanel1.index = 0
       IconPanel1_Click()
@@ -210,18 +210,14 @@ End
 Public Sub Form_Close()
   
   If ModuleGestionAlumno.Guardado = False Or ModuleGestionDiploma.guardado = False Then 
-    If Message.Warning("¿Seguro que desea cerrar?" & "\n" & "Todos cambios no guardados se perderan",
-        "Cerrar", "Cancelar") = 1 Then
+    If Message.Warning(("¿Seguro que desea cerrar?") & "\n" & ("Todos cambios no guardados se perderan"),
+        ("Cerrar"), ("Cancelar")) = 1 Then
       Me.Close
     Else
       Stop Event
       
     Endif
   Endif
-  
-End
-
-Public Sub TextLabel1_MouseDown()
   
 End
 
@@ -244,7 +240,7 @@ Public Sub ToolButtonEditar_Click()
     
     ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
   Else
-    Message.Info("No se puede editar un registro vacío")
+    Message.Info(("No se puede editar un registro vacío"))
   Endif
   
 End
@@ -271,7 +267,7 @@ Public Sub ToolButtonBorrar_Click()
   Dim res As Integer
   
   If GridViewRegistros.indice.count > GridViewRegistros.row Then 
-    res = Message.Question("Seguro que desea borrar..", "Si", "Cancelar")
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
       ModuleGestionAlumno.BorrarRegistro(GridViewRegistros.indice[GridViewRegistros.row])
       'refrescar el gridviews
@@ -323,7 +319,7 @@ Public Sub ToolButtonEditarTematico_Click()
     feditar.Showmodal()
     ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
   Else
-    Message.Info("Seleciones una fila que tenga información de un Diploma" & gb.CrLf & " ¡¡¡ no tienes seleccionado nada!!!")
+    Message.Info(("Seleciones una fila que tenga información de un Diploma") & gb.CrLf & (" ¡¡¡ no tienes seleccionado nada!!!"))
   Endif
   
 End
@@ -333,7 +329,7 @@ Public Sub ToolButtonBorrarTematico_Click()
   Dim res As Integer
   
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row Then 
-    res = Message.Question("Seguro que desea borrar..", "Si", "Cancelar")
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
       'Hacer comprobación de que no se borra ningun Diplomatematico que sea usado por los datos de alumnos...
       res = ModuleIntermedio.compruebaUso(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
@@ -343,19 +339,11 @@ Public Sub ToolButtonBorrarTematico_Click()
         'refrescar el gridviews
         ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
       Else
-        Message.Info(("No es posible borrar esta plantilla," & gb.CrLf & " ya que la esta usando, " & gb.crlf & "visite  la pestaña: Introducción de datos de Alumnos," & gb.CrLf & " y borre el registro que usa la plantilla para poder borrarla"))
+        Message.Info(("No es posible borrar esta plantilla,") & gb.CrLf & (" ya que la esta usando, ") & gb.crlf & ("visite  la pestaña: Introducción de datos de Alumnos,") & gb.CrLf & (" y borre el registro que usa la plantilla para poder borrarla"))
         
       Endif
     Endif
   Endif
-  
-End
-
-Public Sub ToolButtonPegarTematico_Click()
-  
-End
-
-Public Sub ToolButtonCopiarTematico_Click()
   
 End
 
@@ -381,12 +369,12 @@ Public Sub ToolButtonPrevisualizar_Click()
     
     Try ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
     If Error Then 
-      Message.Info("Se ha producido un error al intentar previsualizar una plantilla")
+      Message.Info(("Se ha producido un error al intentar previsualizar una plantilla"))
       
     Endif
     
   Else
-    Message.Info("Debe de seleccionar un Diploma Temático")
+    Message.Info(("Debe de seleccionar un Diploma Temático"))
   Endif
   
 End
@@ -410,7 +398,7 @@ Public Sub ButtonPlantillaPrimeraReg_Click()
   operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
   
   If operacion = True Then
-    LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
   Else
     'intento invalido de realizar la previsualizacion
     contadorVistaPreliminar -= 1
@@ -429,7 +417,7 @@ Public Sub ButtonPlantillaAnteriorReg_Click()
     operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
     
     If operacion = True Then
-      LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+      LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
     Else
       'intento invalido de realizar la previsualizacion
       contadorVistaPreliminar += 1
@@ -452,7 +440,7 @@ Public Sub ButtonPlantillaSiguienteReg_Click()
     operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
     
     If operacion = True Then
-      LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+      LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
     Else
       'intento invalido de realizar la previsualizacion
       contadorVistaPreliminar -= 1
@@ -471,7 +459,7 @@ Public Sub ButtonPlantillaUltimaReg_Click()
   operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
   
   If operacion = True Then
-    LabelRegistro.text = "Registro: " & Str$(contadorVistaPreliminar + 1)
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
   Else
     'intento invalido de realizar la previsualizacion
   Endif
@@ -486,7 +474,7 @@ Public Sub ToolButtonVerImagen_Click()
   Dim proceso As Process
   Dim nombreRegistro As String
   
-  If LabelRegistro.text <> "Registro:" Then
+  If LabelRegistro.text <> ("Registro:") Then
     
     'borrado de todas las imagenes del directorio temporal..
     ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp/", "*.png")
@@ -504,7 +492,7 @@ Public Sub ToolButtonVerImagen_Click()
     'lo veo con el visor predeterminado...lxde
     Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
   Else
-    Message.Info("Debe de tener al menos un registro")
+    Message.Info(("Debe de tener al menos un registro"))
   Endif
   
 End
@@ -514,7 +502,7 @@ Public Sub ToolButtonCrear_Click()
   Dim respuesta As Integer
   
   If TextBoxNombreFicheroNuevo.Text = "" Then
-    Message.Error("Necesita poner un nombre")
+    Message.Error(("Necesita poner un nombre"))
   Else
     'comprobar que si existe...
     If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas") Then
@@ -524,7 +512,7 @@ Public Sub ToolButtonCrear_Click()
       IconPanel1.index = 6
       IconPanel1_click()
     Else
-      respuesta = Message.Question("Existe el fichero:" & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & "¿que desea hacer?", " SobreEscribir ", " Cancelar ")
+      respuesta = Message.Question(("Existe el fichero:") & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & ("¿que desea hacer?"), (" SobreEscribir "), (" Cancelar "))
       If respuesta = 1 Then 
         ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
         ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
@@ -533,7 +521,7 @@ Public Sub ToolButtonCrear_Click()
         IconPanel1_click()
       Else
         'ha cancelado la operacion...
-        Print "Cancelado Crear Grupo"
+        'Print "Cancelado Crear Grupo"
         
       Endif
       
@@ -603,9 +591,10 @@ Public Sub ToolButtonGenerar_Click()
   longitudTrabajo = registrofin - registroinicio
   longitudPaginas = Round((registrofin + 2 - registroinicio) / (Val(TextBoxTileV.text) * Val(TextBoxTileH.text)), 0) 
   'relojes para controlar el estado de las barras...
+  
   Timer1.Start()
   
-  ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text)
+  ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value)
   ProgressBarBarraEstado.Visible = False
   
 End
@@ -695,7 +684,7 @@ Public Sub ToolButtonExportaDiploma_Click()
   Dim resultado As Boolean
   'miro que diploma esta seleccinado
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then 
-    Dialog.Title = "Exportar diploma: Introduzca nombre"
+    Dialog.Title = ("Exportar diploma: Introduzca nombre")
     Dialog.Path = User.home & "/" & ModuleGestionDiploma.lista.Registros[GridViewDiplomaTematico.row].NombrePlantilla & ".Diploma"
     If Not Dialog.SaveFile() Then 
       
@@ -708,7 +697,7 @@ Public Sub ToolButtonExportaDiploma_Click()
       Endif
     Else
       'se ha cancelado la operacion por el usuario
-      Print "Exportacion cancelada..."
+      'Print "Exportacion cancelada..."
       Return 
     Endif
   Else
@@ -720,7 +709,7 @@ End
 Public Sub ToolButtonImportarDiploma_Click()
   
   Dialog.path = User.Home
-  Dialog.Title = "Importar diploma: Elija el archivo"
+  Dialog.Title = ("Importar diploma: Elija el archivo")
   Dialog.Filter = ["*.Diploma", "*.Diploma"]
   If Not Dialog.OpenFile() Then 
     ModuleExportarImportarDiplomas.importar(Dialog.path)
@@ -728,7 +717,7 @@ Public Sub ToolButtonImportarDiploma_Click()
     ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
     
   Else
-    Debug "El usuario a cancelado la operacion"
+    'Debug "El usuario a cancelado la operacion"
     
   Endif
   

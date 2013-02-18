@@ -309,7 +309,7 @@ Public Sub anadirPlantilla()
     'copio el archivo elegido al directorio donde se guardan las plantillas...
     Try Copy Dialog.path To ModulePrincipal.RutaPrograma & "PlantillasBases/" & ModuleUtilidadesDisco.extraedesdebarra(Dialog.path)
     If Error Then 
-      Message.Error("Se ha producido un error, al intentar copiar la plantilla")
+      Message.Error(("Se ha producido un error, al intentar copiar la plantilla"))
     Endif
     
   Endif
