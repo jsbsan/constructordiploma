@@ -190,7 +190,7 @@ Public Sub ToolButtonPrevisualizar_Click()
     reg.Foto05 = PictureBoxFoto05.Tag
     ModuleImprimir.PrevisualizarPlantillaTematicaRegistro(reg, DrawingAreaPrevisualizarMini)
   Else
-    Message.Error("Deberá especificar una maquetación para el Diploma")
+    Message.Error(("Deberá especificar una maquetación para el Diploma"))
   Endif
   
 End
@@ -243,10 +243,10 @@ Public Sub ToolButtonCrearPlantilla_Click()
         ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
         
       Else
-        Message.Error("Existe una plantilla con el mismo nombre")
+        Message.Error(("Existe una plantilla con el mismo nombre"))
       Endif
     Else
-      Message.Error("Existe una plantilla con el mismo nombre")
+      Message.Error(("Existe una plantilla con el mismo nombre"))
     Endif
     
   Until (Not Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva))

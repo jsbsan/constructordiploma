@@ -42,7 +42,7 @@ Public Function exportar(indice As Integer, ruta As String) As Boolean
   
   Try Copy User.home & "/temporal.zip" To ruta
   If Error Then 
-    Message.Error("Error al intentar copiar el archivo comprimido temporal al archivo final")
+    Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
     Return False
   Endif
   Return True
@@ -68,7 +68,7 @@ Public Function importar(fichero As String) As Boolean
   'creo un nuevo objeto tipo ClassDiplomaTematico
   ''TODO: comprobar extraeRutaZip
   If InStr(fichero, "(") <> 0 Or InStr(fichero, ")") <> 0 Then 
-    Message.Error("Nombre no valido de archivo, contiene parentesis en su nombre")
+    Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
     Return False
   Endif
   rutazip = ModulePrincipal.RutaPrograma & "trabajotmp/importar/" & zip.extraeRutaZip(fichero, "ConstructorDiplomas")
