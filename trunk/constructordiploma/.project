@@ -1,0 +1,17 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.3.4
+Title=ConstructorDiplomas
+Startup=FMain
+Icon=diploma-icono.png
+Version=0.0.11
+Component=gb.image
+Component=gb.qt4
+Component=gb.form
+Component=gb.desktop
+Component=gb.qt4.ext
+Description="Beta: Importar y  Exportar\nRecorta fondo de imagen\nCopia tipos de letra"
+TabSize=2
+Translate=1
+Language=es
+ExecPath=/home/uno/ConstructorDiplomas.gambas
+Packager=1

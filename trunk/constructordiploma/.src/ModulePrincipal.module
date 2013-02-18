@@ -1,0 +1,180 @@
+' Gambas module file
+
+Public RutaPrograma As String = User.Home & "/ConstructorDiplomas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
+Public RutaDatosDiplomas As String '' ruta de los datos del proyecto (diplomas tematicos / datos)
+
+'rutas donde trabaja el program...
+
+'rutaprograma & "temporales/PlantillasBases"
+'rutaprograma & "temporales/FotosPlantillasTematica"
+'rutaprograma & "temporales/FotosRegistros"
+'rutaprograma & "temporales"
+'rutaprograma & "trabajotmp"
+
+Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Boolean
+  ' NombreCarpetaPrograma:  "GeneradorCarnets", depende de la estructura donde se almacena la informacion: /home/uno/GeneradorCarnets/datos
+  
+  Dim zip As New ClassZip
+  Dim borrasubruta As String
+  Dim rutaDescomprimida As String
+  Dim resultado As Boolean
+  Dim nombreRutaAntinua As String
+  'Operaciones a realizar
+  '
+  '
+  If InStr(nombre, "(") <> 0 Or InStr(nombre, ")") <> 0 Then 
+    Message.Error("Nombre no valido de archivo, contiene parentesis en su nombre")
+    Return False
+  Endif
+  ' listar contenido del fichero -> para obtener rutas relativas
+  nombreRutaAntinua = zip.extraeRutaZip(nombre, NombreCarpetaPrograma)
+  ModuleIntermedio.BorradoDatosAnteriores()
+  
+  If nombreRutaAntinua = "" Then 
+    Return False ' a fallado la extracion de informacion del fichero
+  Endif
+  
+  Shell "rm -r " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/home/" Wait
+  ' extraer en algun lugar temporal...
+  Shell "cd " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & " && unzip " & nombre Wait
+  'borro los datos temporales que haya
+  ModuleIntermedio.BorradoDatosAnteriores()
+  Wait 0.5
+  rutaDescomprimida = User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & nombreRutaAntinua & "/" & NombreCarpetaPrograma & "/temporales/"
+  ' copiar ficheros desde ruta descomprimida hasta la ruta relativa
+  
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.txt")
+  ModuleUtilidadesDisco.CopiarFicheros(rutaDescomprimida, rutaprograma & "temporales", "*.t*")
+  'copio letras al sistema...
+  Try Mkdir User.home & "/.fonts"
+  ModuleUtilidadesDisco.CopiarFicheros(rutaprograma & "temporales", User.home & "/.fonts", "*.ttf")
+  
+  ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & "FotosRegistros/", RutaPrograma & "temporales/FotosRegistros")
+  ModuleUtilidadesDisco.MoverFicheros(rutaprograma & "temporales/FotosRegistros/", rutaprograma & "temporales/FotosRegistros")
+  
+  ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & "PlantillasBases", RutaPrograma & "temporales/PlantillasBases")
+  'ModuleUtilidadesDisco.MoverFicheros(User.Home & "/" & NombreCarpetaPrograma & "temporales/PlantillasBases/", User.Home & "/" & NombreCarpetaPrograma & "/temporales")
+  
+  ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & "FotosPlantillasTematica", rutaprograma & "/temporales/FotosPlantillasTematica")
+  'ModuleUtilidadesDisco.MoverFicheros(User.Home & "/" & NombreCarpetaPrograma & "temporales/FotosPlantillasTematica/", User.Home & "/" & NombreCarpetaPrograma & "/temporales")
+  
+  Wait 2 'doy tiempo a que se muevan los archivos...
+  
+  Try Rmdir rutaDescomprimida 
+  borrasubruta = Mid$(rutaDescomprimida, 1, Len(rutaDescomprimida) - 1)
+  ' Print "siguiente directorio: "; ModuleIntermedio.extraedesdebarra(borrasubruta)
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleUtilidadesDisco.extraedesdebarra(borrasubruta)) - 1)
+  ' Print "siguiente directorio: "; borrasubruta
+  Try Rmdir borrasubruta
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleUtilidadesDisco.extraedesdebarra(borrasubruta)) - 1)
+  '  Print "siguiente directorio: "; borrasubruta
+  Try Rmdir borrasubruta
+  borrasubruta = Mid$(borrasubruta, 1, Len(borrasubruta) - Len(ModuleUtilidadesDisco.extraedesdebarra(borrasubruta)) - 1)
+  '  Print "siguiente directorio: "; borrasubruta
+  Try Rmdir borrasubruta
+  
+  ' ************************************************************************
+  'TODO: AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
+  ' ************************************************************************
+  RutaDatosDiplomas = nombre '
+  Return True
+  
+End
+
+Public Sub CargarDatos() As Boolean ''fichero de datos a cargar
+  'NombreFicheroDatos: seria "datos.txt"
+  ' NombreCarpetaPrograma: "GeneradorCarnets"
+  
+  Dim resultado As Boolean
+  
+  If Exist(rutaprograma & "temporales/datosRegistros.txt") Then 
+    resultado = ModuleGestionAlumno.CargarDatos() '<- carga el fichero de datos
+    resultado = ModuleGestionDiploma.CargarDatos() '<- carga el fichero de datos
+    Try Copy "transparente.png" To rutaprograma & "temporales/FotosPlantillasTematica/transparente.png"
+    Try Copy "transparente.png" To rutaprograma & "temporales/FotosRegistros/transparente.png"
+    
+  Else
+    Message.Error("No encuentro fichero de datos")
+    Return False
+  Endif
+  
+  Return resultado
+  
+End
+
+' ---------------------------------------------------
+' Guardar Datos
+' ---------------------------------------------------
+Public Sub guardarDatos() As Boolean
+  
+  Dim contenidDiplomas As String
+  Dim contenidRegistroTexto As String
+  
+  Dim resultado As Boolean
+  'creo fichero de datos...
+  If RutaDatosDiplomas = "" Then 
+    Message.Error("Nombre de archivo incorrecto")
+    Return False
+  Endif
+  
+  contenidRegistroTexto = "version 1" & "\n" & ModuleGestionAlumno.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosRegistros.txt", contenidRegistroTexto)
+  
+  contenidDiplomas = "version 1" & "\n" & ModuleGestionDiploma.Lista.contenido()
+  File.Save(rutaprograma & "temporales/datosDimplomasTematicos.txt", contenidDiplomas)
+  
+  'copiar tipos de letras (todos...)
+  'ModuleUtilidadesDisco.CopiarFicheros(User.home & "/.fonts", rutaprograma & "temporales", "*.*")
+  
+  'copia de plantillas...
+  resultado = copiarplantillas()
+  If resultado = False Then Message.Error("Problemas al copiar las plantillas")
+  resultado = comprimirDatos() 
+  If resultado = False Then Message.Error("Problemas al comprimir datos")
+  Return resultado
+  
+End
+
+Public Sub copiarplantillas() As Boolean
+  
+  Dim file As String
+  
+  For Each File In Dir(rutaprograma & "PlantillasBases", "*.svg")
+    Try Exec ["cp", rutaprograma & "PlantillasBases/" & file, rutaprograma & "temporales/PlantillasBases/"] Wait
+  Next
+  
+  If Error Then 
+    Return False 'se ha producido un error, devuelvo fallo
+  Else
+    Return True 'todo ha ido bien
+    
+  Endif
+  
+End
+
+Public Sub comprimirDatos() As Boolean
+  
+  Dim zip As New ClassZip
+  
+  If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
+  
+  zip.comprimirDatos(rutaprograma & "temporales/PlantillasBases")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosPlantillasTematica")
+  zip.comprimirDatos(rutaprograma & "temporales/FotosRegistros")
+  zip.comprimirDatos(rutaprograma & "temporales")
+  
+  If Exist(RutaDatosDiplomas & ".ConstructorDiplomas") Then 
+    'existe, lo borro para actualizarlo
+    Try Kill RutaDatosDiplomas & ".ConstructorDiplomas"
+  Endif
+  
+  Try Copy User.home & "/temporal.zip" To RutaDatosDiplomas & ".ConstructorDiplomas"
+  If Error Then 
+    Message.Error("Error al intentar copiar el archivo comprimido temporal al archivo final")
+    Return False
+  Endif
+  ModuleGestionAlumno.guardado = True
+  ModuleGestionDiploma.guardado = True
+  Return True
+  
+End
