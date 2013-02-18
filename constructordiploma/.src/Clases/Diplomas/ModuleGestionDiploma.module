@@ -1,0 +1,80 @@
+' Gambas module file
+
+Public lista As New ClassListaDiploma
+Public rutaFicheroDatosDiplomas As String
+Public guardado As Boolean '' true: esta guardado , false, no estan guardado los datos
+
+Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
+  'borramos archivos anteriores.....
+  
+  ModuleUtilidadesDisco.vaciarDirectori(ModulePrincipal.RutaPrograma & "/temporales/fotos", "*.*")
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.RutaPrograma & "/temporales/plantillas", "*.*")
+  'limpio datos contenidos en el Lista
+  Lista.registros.Clear()
+  
+  rutaFicheroDatosDiplomas = ruta
+  guardado = False
+  Return True
+  
+End
+
+Public Sub anadirRegistro(registro As ClassDiplomaTematico)
+  
+  registro.id = Lista.generarId()
+  Lista.registros.Add(registro)
+  Guardado = False
+  
+End
+
+Public Sub EditarRegistro(reg As ClassDiplomaTematico, id As Integer)
+  
+  Dim listaArrayReg As New ClassDiplomaTematico[]
+  Dim indice As Integer
+  
+  indice = Lista.buscar(id)
+  If indice <> -1 Then 
+    reg.id = indice
+    listaArrayReg.add(reg)
+    Lista.registros.Delete(indice)
+    Lista.registros.Insert(listaArrayReg, indice)
+    guardado = False
+  Endif
+  
+End
+
+Public Sub BorrarRegistro(id As Integer)
+  
+  Dim indice As Integer
+  
+  indice = Lista.buscar(id)
+  If indice <> -1 Then 
+    Lista.registros.Delete(indice)
+    guardado = False
+  Endif
+  
+End
+
+'---------------------------------------------
+'Carga de datos desde el fichero "datos"
+'
+Public Sub CargarDatos() As Boolean
+  'NombreFicheroDatos: seria "datos.txt"
+  ' NombreCarpetaPrograma: "GeneradorCarnets"
+  
+  '  Dim resultado As Boolean
+  Dim contenido As String
+  Dim cadenas As New String[]
+  
+  contenido = file.Load(ModulePrincipal.rutaprograma & "temporales/datosDimplomasTematicos.txt")
+  cadenas = Split(contenido, "\n")
+  
+  If cadenas[0] = "version 1" Then
+    cadenas.Delete(0) 'borro la primera linea,que solo me sirve para averiguar la version
+    Return Lista.LecturaDatos(cadenas)
+    
+  Else
+    Message.Error("El fichero no lo puedo leer.\n Versión Desconocida.")
+    Return False
+  Endif
+  
+End

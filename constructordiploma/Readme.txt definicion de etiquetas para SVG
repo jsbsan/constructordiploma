@@ -1,0 +1,18 @@
+ETIQUETA EN SVG............. SIGNIFICADO
+
+PLANTILLA01 ..................... TEXTO DEL DIPLOMA: "Al mejor compañero", "al mejor ajedrecista"...
+FOTO01............................. imagen que forma el fondo
+FOTO02............................ imagen que forma el marco
+FOTO03............................ imagen logo del diploma( figura de ajedrez, etc.)
+FOTO04............................. foto opcional
+FOTO05.............................. foto opcional
+PLANTILLA02...................... campo extra para texto
+
+CAMPO01................................. Nombre del alumno
+CAMPO02................................. nombre tutor/a
+CAMPO03................................. nombre colegio
+CAMPO04................................. nombre ciudad
+CAMPO05................................. fecha del diploma
+FOTO06.................................... foto del alumno (opcional)
+FOTO07..................................... foto del tutor/a (opcional)
+CAMPO06.................................. texto
