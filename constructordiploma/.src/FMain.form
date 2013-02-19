@@ -5,7 +5,7 @@
   Icon = Picture["diploma-icono24.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(1,1,124,84)
+    MoveScaled(1,1,124,82)
     Count = 11
     Index = 0
     Text = ("Constructor de Diplomas")
@@ -78,7 +78,7 @@
     Text = ("Crear Grupo")
     Picture = Picture["icon:/22/new"]
     { DirChooserElegirDirectorioCrearGrupo DirChooser
-      MoveScaled(1,0,68,73)
+      MoveScaled(5,0,68,73)
     }
     { TextBoxNombreFicheroNuevo TextBox
       MoveScaled(10,74,24,5)
@@ -139,7 +139,7 @@
     Text = ("Guardar Grupo")
     Picture = Picture["icon:/22/save"]
     { LabelNombreFichero Label
-      MoveScaled(10,45,72,4)
+      MoveScaled(28,45,41,4)
     }
     { TextLabel2 TextLabel
       MoveScaled(18,12,37,26)
@@ -147,7 +147,7 @@
       Alignment = Align.Center
     }
     { Label12 Label
-      MoveScaled(1,40,36,4)
+      MoveScaled(23,40,36,4)
       Font = Font["Bitstream Charter,Bold,+1"]
       Text = ("Nombre fichero de Datos:")
     }
@@ -219,7 +219,7 @@
     { HBox2 VBox
       MoveScaled(45,45,36,36)
       { ToolButtonEditarTematico ToolButton
-        MoveScaled(0,3,35,5)
+        MoveScaled(0,3,34,5)
         ToolTip = ("edita una plantilla existentes, podras guardarla como ... para obtener otra plantilla")
         Text = ("Editar Diploma ")
         Picture = Picture["icon:/22/edit"]
