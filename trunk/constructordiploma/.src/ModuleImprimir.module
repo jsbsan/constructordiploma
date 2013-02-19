@@ -263,6 +263,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   'AreaDibujo.Refresh()
   
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
+  
   Return True
   
 End

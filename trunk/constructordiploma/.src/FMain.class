@@ -138,7 +138,9 @@ Public Sub IconPanel1_Click()
       If GridViewDiplomaTematico.rows.count > 0 Then 
         GridViewDiplomaTematico.row = 0
         'previsualizar 1º diploma
+        
         ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[0], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+        
       Endif
       
     Else
@@ -161,7 +163,7 @@ Public Sub IconPanel1_Click()
     Endif
   Endif
   
-  If IconPanel1.text = ("Guardar como....") Then
+  If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
       Dialog.Title = ("Guardar como....")
@@ -180,7 +182,7 @@ Public Sub IconPanel1_Click()
     
   Endif
   
-  If IconPanel1.text = ("Guardar Grupo") Or IconPanel1.text = ("Guardar como....") Then 
+  If IconPanel1.text = ("Guardar Grupo") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
     
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") & ".ConstructorDiplomas"
     
@@ -509,6 +511,8 @@ Public Sub ToolButtonCrear_Click()
       ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
       ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
       AbrirDiplomasIniciales()
+      'borrar datos de personas
+      ModuleGestionAlumno.Lista.Registros.clear()
       IconPanel1.index = 6
       IconPanel1_click()
     Else
@@ -517,6 +521,8 @@ Public Sub ToolButtonCrear_Click()
         ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
         ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
         AbrirDiplomasIniciales()
+        'borrar datos de personas
+        ModuleGestionAlumno.Lista.Registros.clear()
         IconPanel1.index = 6
         IconPanel1_click()
       Else
@@ -552,6 +558,11 @@ Public Sub ToolButtonGenerar_Click()
   Dim registroinicio As Integer
   Dim registrofin As Integer
   Dim valorInicialNumero As Integer
+  
+  If ModuleGestionAlumno.Lista.Registros.count <= 0 Then 
+    Message.Info(("Debe de tener al menos un registro (alumno)"))
+    Return 
+  Endif
   
   ProgressBarBarraEstado.Visible = True
   ProgressBarBarraEstado.Value = 0
@@ -740,3 +751,6 @@ Public Sub ValueBoxNumeroRegistroImprimir_GotFocus()
   RadioButtonUnRegistro.value = True
   
 End
+'--------------------------
+' activar pensando
+' -------------------------
