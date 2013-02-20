@@ -70,19 +70,19 @@
     Border = Border.Plain
   }
   { TextBoxAlumno TextBox
-    MoveScaled(12,8,35,4)
+    MoveScaled(12,8,31,4)
   }
   { TextBoxTutor TextBox
-    MoveScaled(12,13,35,4)
+    MoveScaled(12,13,31,4)
   }
   { TextBoxColegio TextBox
-    MoveScaled(12,18,35,4)
+    MoveScaled(12,18,31,4)
   }
   { TextBoxCiudad TextBox
-    MoveScaled(12,23,35,4)
+    MoveScaled(12,23,31,4)
   }
   { TextBoxTag TextBox
-    MoveScaled(13,33,34,4)
+    MoveScaled(13,33,30,4)
   }
   { DateBoxFecha DateBox
     MoveScaled(12,28,21,4)
@@ -150,5 +150,35 @@
     ToolTip = ("Poner Fondo Transparente")
     Picture = Picture["icono_transparente.png"]
     Border = True
+  }
+  { ButtonIgualTutor Button
+    MoveScaled(43,13,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
+  }
+  { ButtonIgualColegio Button
+    MoveScaled(43,18,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
+  }
+  { ButtonIgualCiudad Button
+    MoveScaled(43,23,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
+  }
+  { ButtonIgualNombre Button
+    MoveScaled(43,8,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
+  }
+  { ButtonIgualFecha Button
+    MoveScaled(34,28,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
+  }
+  { ButtonIgualOtro Button
+    MoveScaled(43,33,4,4)
+    ToolTip = ("Poner el mismo texto del registro anterior")
+    Text = ("=")
   }
 }

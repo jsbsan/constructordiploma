@@ -6,6 +6,7 @@
   Resizable = False
   { IconPanel1 IconPanel
     MoveScaled(1,1,124,82)
+    ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
     Count = 11
     Index = 0
     Text = ("Constructor de Diplomas")
@@ -205,7 +206,7 @@
     }
     { ToolButtonPrevisualizar ToolButton
       MoveScaled(52,35,21,5)
-      ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
+      ToolTip = ("Hacer que la plantilla que se muestra sea la actual\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
       Text = ("Previsualizar")
       Picture = Picture["ojo22.png"]
       Border = True
@@ -213,6 +214,7 @@
     { DrawingAreaPrevisualizarMini DrawingArea
       MoveScaled(45,12,32,22)
       Background = &HFFFFFF&
+      ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
       Border = Border.Plain
       Cached = True
     }
@@ -281,6 +283,7 @@
     { DrawingAreaPrevisualizar DrawingArea
       MoveScaled(0,9,85,60)
       Background = &HFFFFFF&
+      ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
       Border = Border.Plain
     }
     { ToolButtonVerImagen ToolButton
@@ -298,6 +301,11 @@
     { Label15 Label
       MoveScaled(2,5,52,4)
       Text = ("para mejor definición pulse en el botón Ver Imagen")
+    }
+    { TextLabel7 TextLabel
+      MoveScaled(2,75,78,5)
+      Font = Font["Bitstream Charter,-1"]
+      Text = ("<b>Nota:</b><br>\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.\n")
     }
     Index = 8
     Text = ("Crear Pdf para imprimir")
