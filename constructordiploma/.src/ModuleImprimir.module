@@ -3,7 +3,7 @@
 Public EstadoDelTrabajo As Integer 'para el control del proceso del avance de un trabajo
 Public EstadoDelTrabajoPaginas As Integer 'para el control del proceso del avance impresion de paginas
 
-Public Sub creandoPNg(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer) As String
+Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer) As String
   
   'de la previsualizacion actual, muestra imagen...
   
@@ -230,9 +230,12 @@ End
 '--------------------------
 Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As DrawingArea, rejilla As ClassSuperGridview) As Boolean
   
-  '  Dim proceso As Process 
+  Dim comando As String
   Dim regtmp As New ClassDiplomaTematico
-  ' Dim contadorPosicionFilaGrid As Integer  
+  Dim rutamini As String
+  Dim fpensando As New FormPensando
+  
+  FormPensando.Show
   
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
@@ -242,6 +245,16 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   regtmp.Foto04 = ModuleGestionDiploma.lista.Registros[indice].Foto04
   regtmp.foto05 = ModuleGestionDiploma.lista.Registros[indice].Foto05
   regtmp.tag = ModuleGestionDiploma.lista.Registros[indice].tag
+  regtmp.NombrePlantilla = ModuleGestionDiploma.lista.Registros[indice].NombrePlantilla
+  
+  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.NombrePlantilla, " ", "_") & "mini.png"
+  'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
+  If Exist(rutamini) Then
+    dibujarPNG(areadibujo, rutamini)
+    FormPensando.parar = True
+    FormPensando.DELETE
+    Return
+  Endif
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
@@ -264,7 +277,11 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
   
-  Return True
+  '  convierto la plantilla en imagen...
+  comando = "convert -resize 200x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
+  Shell comando
+  FormPensando.parar = True
+  FormPensando.Delete
   
 End
 
@@ -275,8 +292,10 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   Dim plantillaBase As String
   Dim regDiplomaTmp As ClassDiplomaTematico
   Dim regAlumnotmp As ClassRegistroAlumno
-  ' Dim himage As Image
-  'Dim hbrush As PaintBrush
+  Dim fpensando As New FormPensando
+  
+  FormPensando.Show
+  
   '0º Paso: borrado de archivos anteriores
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
@@ -288,7 +307,10 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   
   Try regAlumnotmp = ModuleGestionAlumno.Lista.Registros[indice]
   If Error Then 
+    fpensando.parar = True
+    FormPensando.Delete
     Message.Error("No se pueden mostrar previsualizaciones, necesita añadir datos en los registros de alumnos")
+    
     Return False
   Endif
   
@@ -310,12 +332,18 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
     dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
     
     Wait 0.01
+    fpensando.parar = True
+    FormPensando.Delete
     Return True
   Else
     
     Message.Error(("No se ha podido crear la imagen de la previsualización"))
+    fpensando.parar = True
+    FormPensando.Delete
     Return False
   Endif
+  fpensando.parar = True
+  FormPensando.Delete
   
 End
 
@@ -350,9 +378,12 @@ End
 
 Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, Areadibujo As DrawingArea) As Boolean
   
-  '  Dim proceso As Process 
   Dim regtmp As New ClassDiplomaTematico
-  ' Dim contadorPosicionFilaGrid As Integer  
+  Dim fpensando As New FormPensando
+  Dim rutamini As String
+  Dim comando As String
+  
+  FormPensando.Show
   
   regtmp.PlantillaBase = reg.PlantillaBase
   regtmp.Tema = reg.Tema
@@ -362,6 +393,8 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   regtmp.Foto04 = reg.Foto04
   regtmp.foto05 = reg.Foto05
   regtmp.tag = reg.tag
+  
+  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"))) & "mini.png"
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
@@ -375,13 +408,38 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   
   rellenarPlantillaConValoresDiplomaTematico(regtmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
   
-  ' proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"] Wait
-  
-  '  ModuleUtilidadesDisco.EsperarProceso(proceso)
-  'Areadibujo.Picture = Null
-  'Areadibujo.Picture = Picture[ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"]
-  'AreaDibujo.Refresh()
-  
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
+  '  convierto la plantilla en imagen...
+  comando = "convert -resize 200x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
+  Shell comando
+  
+  FormPensando.parar = True
+  FormPensando.Delete
+  
+End
+
+Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
+  
+  Dim hbrush As PaintBrush
+  Dim himage As Image
+  Dim escalax As Float
+  
+  himage = Image.Load(ruta)
+  
+  AreaDibujo.Cached = True
+  AreaDibujo.Border = 1
+  AreaDibujo.Painted = True
+  
+  Paint.Begin(AreaDibujo)
+  
+  hbrush = Paint.Image(himage)
+  hbrush.Translate(0, 0)
+  escalax = AreaDibujo.W / himage.Width
+  paint.Scale(escalax, escalax)
+  
+  Paint.Brush = hbrush
+  Paint.Rectangle(0, 0, himage.w, himage.h)
+  Paint.Fill()
+  Paint.End
   
 End

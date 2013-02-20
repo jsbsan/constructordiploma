@@ -159,3 +159,86 @@ Public Sub botontransparente_Click()
   End Select
   
 End
+
+Public Sub ButtonIgualTutor_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.NombreTutor = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreTutor
+    TextBoxTutor.text = reg.NombreTutor
+  Else
+    reg.NombreTutor = ModuleGestionAlumno.Lista.Registros[modo - 1].NombreTutor
+    TextBoxTutor.text = reg.NombreTutor
+    
+  Endif
+  
+End
+
+Public Sub ButtonIgualColegio_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.Colegio = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Colegio
+    TextBoxColegio.text = reg.Colegio
+  Else
+    reg.Colegio = ModuleGestionAlumno.Lista.Registros[modo - 1].Colegio
+    TextBoxColegio.text = reg.Colegio
+    
+  Endif
+  
+End
+
+Public Sub ButtonIgualCiudad_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.Ciudad = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Ciudad
+    TextBoxCiudad.text = reg.Ciudad
+  Else
+    reg.Ciudad = ModuleGestionAlumno.Lista.Registros[modo - 1].Ciudad
+    TextBoxCiudad.text = reg.Ciudad
+    
+  Endif
+  
+End
+
+Public Sub ButtonIgualNombre_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.NombreAlumno = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreAlumno
+    TextBoxAlumno.text = reg.NombreAlumno
+  Else
+    reg.NombreAlumno = ModuleGestionAlumno.Lista.Registros[modo - 1].NombreAlumno
+    TextBoxAlumno.text = reg.NombreAlumno
+    
+  Endif
+  
+End
+
+Public Sub ButtonIgualFecha_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.Fecha = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].fecha
+    
+  Else
+    reg.fecha = ModuleGestionAlumno.Lista.Registros[modo - 1].fecha
+  Endif
+  DateBoxFecha.value = Val(reg.Fecha)    
+  
+End
+
+Public Sub ButtonIgualOtro_Click()
+
+  If modo = 0 Then Return
+  If modo = -1 Then 
+    reg.tag = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].tag
+    
+  Else
+    reg.tag = ModuleGestionAlumno.Lista.Registros[modo - 1].tag
+  Endif
+  
+  TextBoxTag.text = reg.tag
+  
+End

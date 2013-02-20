@@ -54,6 +54,13 @@ Public Sub Form_Open()
 End
 
 Public Sub ToolButtonCancelarDiploma2_Click()
+  'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
+
+  Dim rutamini As String
+  
+  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
+  
+  Try Kill rutamini 
   
   Me.Close
   
@@ -265,6 +272,13 @@ Public Sub ToolButtonBorrarPlantilla_Click()
 End
 
 Public Sub ToolButtonAceptarDiploma2_Click()
+  'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
+
+  Dim rutamini As String
+  
+  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
+  
+  Try Kill rutamini 
   
   'Guardamo como un registro nuevo...
   modo = anadir
