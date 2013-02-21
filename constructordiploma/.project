@@ -3,13 +3,13 @@
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.12
+Version=0.0.13
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Component=gb.qt4.ext
-Description="traducible"
+Description="traducible."
 TabSize=2
 Translate=1
 Language=es

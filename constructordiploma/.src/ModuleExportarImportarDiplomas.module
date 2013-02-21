@@ -33,6 +33,7 @@ Public Function exportar(indice As Integer, ruta As String) As Boolean
   zip.comprimirDatos(ModulePrincipal.RutaPrograma & "trabajotmp/exportar")
   'cambio caracteres " " por "_", para validar el nombre
   cambionombre = Replace$(ModuleUtilidadesDisco.extraedesdebarra(ruta), " ", "_")
+  
   ruta = Mid$(ruta, 1, Len(ruta) - Len(cambionombre)) & cambionombre
   'el archivo comprimido, le cambio al path que han introducido
   If Exist(ruta) Then 

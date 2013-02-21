@@ -44,6 +44,8 @@ End
 
 Public Sub Form_Open()
   
+  comun.comprobarEntorno()
+  
   Label16.text = "Versión: Beta " & Application.Version
   Me.Center
   'inicio el programa: creo directorios y copio archivos...
@@ -751,6 +753,33 @@ Public Sub ValueBoxNumeroRegistroImprimir_GotFocus()
   RadioButtonUnRegistro.value = True
   
 End
-'--------------------------
-' activar pensando
-' -------------------------
+'--------------------------------------------
+'comprobar entorno de programas necearios
+' -------------------------------------------
+'
+
+Public Sub comprobarEntorno()
+  
+  Dim texto As String
+  Dim falta As Boolean = False
+  
+  If Not comun.instalado("zip") Then 
+    texto = ("zip") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("pdftk") Then 
+    texto &= ("pdftk") & "\n"
+    falta = True
+  Endif
+  
+  If Not comun.instalado("imagemagick") Then 
+    texto &= ("imagemagick") & "\n"
+    falta = True
+  Endif
+  
+  If falta = True Then
+    Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
+  Endif
+  
+End
