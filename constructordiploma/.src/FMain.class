@@ -785,3 +785,9 @@ Public Sub comprobarEntorno()
   Endif
   
 End
+
+Public Sub ToolButtonNube_Click()
+  
+  Desktop.Open("https://docs.google.com/folder/d/0B7uxDVszpXK2VHhFMDdleW1HMGM/edit?usp=sharing")
+  
+End
