@@ -295,7 +295,7 @@ Public Sub ToolButtonAnadirTematico_Click()
   Dim regtemp As New ClassDiplomaTematico
   
   fdiplomatematico.modo = fdiplomatematico.anadir
-  
+  fdiplomatematico.nuevaplantilla = True
   fdiplomatematico.reg = regtemp
   
   fdiplomatematico.Showmodal()
@@ -322,6 +322,8 @@ Public Sub ToolButtonEditarTematico_Click()
     feditar.reg.tag = ModuleGestionDiploma.lista.Registros[feditar.modo].tag
     feditar.Showmodal()
     ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+    'realizar previsualizacion 
+    ToolButtonPrevisualizar_Click()
   Else
     Message.Info(("Seleciones una fila que tenga información de un Diploma") & gb.CrLf & (" ¡¡¡ no tienes seleccionado nada!!!"))
   Endif

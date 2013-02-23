@@ -155,6 +155,7 @@
   }
   { ToolButtonCancelarDiploma2 ToolButton
     MoveScaled(74,37,20,4)
+    ToolTip = ("Salir sin guardar los cambios")
     Text = ("Cancelar")
     Picture = Picture["icon:/22/cancel"]
     Border = True
@@ -221,24 +222,28 @@
     }
     { ToolButtonAnadirPlantilla ToolButton
       MoveScaled(1,6,14,5)
+      ToolTip = ("Añadir una plantilla .svg existente a la lista")
       Text = ("Añadir")
       Picture = Picture["icon:/22/add"]
       Border = True
     }
     { ToolButtonCrearPlantilla ToolButton
       MoveScaled(24,6,14,5)
+      ToolTip = ("Crea una plantilla con todas las opciones posibles")
       Text = ("Crear ")
       Picture = Picture["icon:/22/edit"]
       Border = True
     }
     { ToolButtonBorrarPlantilla ToolButton
       MoveScaled(1,14,14,5)
+      ToolTip = ("borra una plantilla")
       Text = ("Quitar")
       Picture = Picture["icon:/22/trash"]
       Border = True
     }
     { ToolButtonEditaPlantilla ToolButton
       MoveScaled(24,14,14,5)
+      ToolTip = ("Edita plantilla de maquetacion")
       Text = ("Editar")
       Picture = Picture["icon:/22/pen"]
       Border = True
