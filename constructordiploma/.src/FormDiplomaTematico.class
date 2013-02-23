@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Public nuevaplantilla As Boolean
+Public modificado As Boolean = False
 Public modo As Integer 'modo añadir=-1, editar=nº de id
 Public anadir As Integer = -1
 Public reg As New ClassDiplomaTematico
@@ -8,6 +10,7 @@ Public actualizarMaq As String = "no"
 Public Sub Form_Open()
   'cargar en el combo los ficheros plantillaBase que haya...
   
+  If nuevaplantilla = True Then ExpanderMaquetacion.Hidden = False
   '
   
   If modo > -1 Then 
@@ -55,12 +58,8 @@ End
 
 Public Sub ToolButtonCancelarDiploma2_Click()
   'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
-
-  Dim rutamini As String
   
-  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
-  
-  Try Kill rutamini 
+  borradoMiniatura()
   
   Me.Close
   
@@ -68,6 +67,7 @@ End
 
 Public Sub ToolButtonAceptarDiploma_Click()
   
+  borradoMiniatura()
   reg.NombrePlantilla = TextBoxNombreDiploma.text
   reg.PlantillaBase = TextBoxMaquetacion.text
   reg.Tag = TextBoxTag.Text
@@ -107,8 +107,9 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   
   Dialog.Title = "Elija el archivo gráfico"
   
-  Dialog.Filter = ["*.png", "png", "*.jpg", "jpg"]
+  Dialog.Filter = ["*.*", "todos", "*.png", "png", "*.jpg", "jpg"]
   If Not Dialog.OpenFile() Then 
+    
     PictureBoxElegido.Picture = Picture[Dialog.Path]
     PictureBoxElegido.tag = Dialog.Path
     copiar = "si"
@@ -234,29 +235,32 @@ End
 Public Sub ToolButtonCrearPlantilla_Click()
   '  Dim tex As String
   
+  Dim salir As Boolean = True
   Dim comando As String
   Dim nombrePlantillaNueva As String
   'repetir hasta conseguir un nombre que no sea igual...
-  Repeat
-    nombrePlantillaNueva = InputBox("Introduce un nombre de la nueva plantilla:", "Crear una plantilla", "personalizada.svg")
+  While (salir = True)
+    
+    nombrePlantillaNueva = Replace(InputBox("Introduce un nombre de la nueva plantilla:", "Crear una plantilla", "personalizada.svg"), " ", "_")
     If nombrePlantillaNueva = "" Then Return 
     If Lower(nombrePlantillaNueva) Not Ends ".svg" Then nombrePlantillaNueva = Lower(nombrePlantillaNueva) & ".svg"
-    
-    If Not Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva) Then 
-      Try Copy ModulePrincipal.RutaPrograma & "PlantillasBases/plantilla0.svg" To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
-      If Not Error Then 
-        comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
-        Shell comando Wait
-        ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
-        
-      Else
-        Message.Error(("Existe una plantilla con el mismo nombre"))
-      Endif
-    Else
+    If Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva) Then 
       Message.Error(("Existe una plantilla con el mismo nombre"))
+      
+    Else
+      salir = False
     Endif
+  Wend
+  
+  Try Copy ModulePrincipal.RutaPrograma & "PlantillasBases/plantilla0.svg" To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
+  If Not Error Then 
+    comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
+    Shell comando Wait
+    ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+  Else
     
-  Until (Not Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva))
+    Message.Info(("Error al copiar palntilla"))
+  Endif
   
 End
 
@@ -273,12 +277,6 @@ End
 
 Public Sub ToolButtonAceptarDiploma2_Click()
   'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
-
-  Dim rutamini As String
-  
-  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
-  
-  Try Kill rutamini 
   
   'Guardamo como un registro nuevo...
   modo = anadir
@@ -297,18 +295,35 @@ Public Sub botontransparente_Click()
     Case 1
       reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
       PictureBoxFondo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo]
+      PictureBoxFondo.tag = reg.ImagenFondo 
     Case 2
       reg.ImagenMarco = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
       PictureBoxMarco.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco]
+      PictureBoxMarco.tag = reg.ImagenMarco
     Case 3
       reg.ImagenLogo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
       PictureBoxLogo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo]
+      PictureBoxlogo.tag = reg.ImagenLogo
     Case 4
       reg.Foto04 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
       PictureBoxFoto04.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04]
+      PictureBoxfoto04.tag = reg.Foto04
     Case 5
       reg.Foto05 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
       PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05]
+      PictureBoxfoto05.tag = reg.Foto05
   End Select
+  
+End
+
+Public Sub borradoMiniatura()
+  
+  Dim rutamini As String
+  
+  'rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
+  
+  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
+  
+  Kill rutamini 
   
 End

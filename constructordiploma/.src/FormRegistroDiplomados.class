@@ -105,7 +105,7 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim nombresimple As String
   
   Dialog.Title = "Elija el archivo gráfico"
-  Dialog.Filter = ["*.png", "png", "*.jpg", "jpg"]
+  Dialog.Filter = ["*.*", "todos", "*.png", "png", "*.jpg", "jpg"]
   If Not Dialog.OpenFile() Then 
     PictureBoxElegido.Picture = Picture[Dialog.Path]
     PictureBoxElegido.tag = Dialog.Path
@@ -153,15 +153,17 @@ Public Sub botontransparente_Click()
     Case 1
       reg.FotoAlumno = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosRegistros/" & reg.FotoAlumno)
       PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosRegistros/" & reg.FotoAlumno]
+      PictureBoxFoto05.tag = reg.FotoAlumno
     Case 2
       reg.Foto07 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosRegistros/" & reg.Foto07)
       PictureBoxFoto06.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosRegistros/" & reg.Foto07]
+      PictureBoxFoto06.tag = reg.Foto07
   End Select
   
 End
 
 Public Sub ButtonIgualTutor_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.NombreTutor = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreTutor
@@ -175,7 +177,7 @@ Public Sub ButtonIgualTutor_Click()
 End
 
 Public Sub ButtonIgualColegio_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Colegio = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Colegio
@@ -189,7 +191,7 @@ Public Sub ButtonIgualColegio_Click()
 End
 
 Public Sub ButtonIgualCiudad_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Ciudad = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Ciudad
@@ -203,7 +205,7 @@ Public Sub ButtonIgualCiudad_Click()
 End
 
 Public Sub ButtonIgualNombre_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.NombreAlumno = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreAlumno
@@ -217,7 +219,7 @@ Public Sub ButtonIgualNombre_Click()
 End
 
 Public Sub ButtonIgualFecha_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Fecha = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].fecha
@@ -230,7 +232,7 @@ Public Sub ButtonIgualFecha_Click()
 End
 
 Public Sub ButtonIgualOtro_Click()
-
+  
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.tag = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].tag
