@@ -221,34 +221,42 @@
     { HBox2 VBox
       MoveScaled(45,45,36,36)
       { ToolButtonEditarTematico ToolButton
-        MoveScaled(0,3,34,5)
+        MoveScaled(0,2,34,5)
         ToolTip = ("edita una plantilla existentes, podras guardarla como ... para obtener otra plantilla")
         Text = ("Editar Diploma ")
         Picture = Picture["icon:/22/edit"]
         Border = True
       }
       { ToolButtonBorrarTematico ToolButton
-        MoveScaled(0,9,34,5)
+        MoveScaled(0,7,34,5)
         Text = ("Borrar Diploma")
         Picture = Picture["icon:/22/erase"]
         Border = True
       }
       { ToolButtonAnadirTematico ToolButton
-        MoveScaled(0,15,34,5)
+        MoveScaled(0,13,34,5)
         Text = ("Definir Diploma desde Cero")
         Picture = Picture["icon:/22/add"]
         Border = True
       }
       { ToolButtonExportaDiploma ToolButton
-        MoveScaled(0,21,34,5)
+        MoveScaled(0,18,34,5)
         Text = ("Exportar Diploma")
         Picture = Picture["exportar.png"]
         Border = True
       }
       { ToolButtonImportarDiploma ToolButton
-        MoveScaled(0,27,34,5)
+        MoveScaled(0,23,34,5)
         Text = ("Importar Diploma")
         Picture = Picture["importar.png"]
+        Border = True
+      }
+      { ToolButtonNube ToolButton
+        MoveScaled(0,29,34,7)
+        Font = Font["Bitstream Charter,Italic,-1"]
+        Tag = "Se accede a una direccion web, donde hay material compartido"
+        Text = ("Compartidos en la Nube")
+        Picture = Picture["googledriveacceso.png"]
         Border = True
       }
     }
