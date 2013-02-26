@@ -43,7 +43,8 @@ Public Sub AbrirDiplomasIniciales()
 End
 
 Public Sub Form_Open()
-  
+
+  ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
   comun.comprobarEntorno()
   
   Label16.text = "Versión: Beta " & Application.Version
@@ -94,6 +95,12 @@ End
 Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
+  
+  If IconPanel1.index = 11 Then 
+    ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html")
+    IconPanel1.index = 0
+    IconPanel1_Click()
+  Endif
   
   If IconPanel1.text = ("Crear Pdf para imprimir") Then 
     ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
