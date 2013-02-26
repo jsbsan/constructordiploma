@@ -72,8 +72,9 @@
       Stretch = True
     }
     { Label16 Label
-      MoveScaled(49,10,19,3)
-      Font = Font["Bitstream Charter,-1"]
+      MoveScaled(44,10,19,3)
+      Font = Font["Bitstream Charter,Bold,+2"]
+      AutoResize = True
     }
     Index = 1
     Text = ("Crear Grupo")

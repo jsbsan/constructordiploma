@@ -6,6 +6,7 @@ Public modo As Integer 'modo añadir=-1, editar=nº de id
 Public anadir As Integer = -1
 Public reg As New ClassDiplomaTematico
 Public actualizarMaq As String = "no"
+Private nombreInicial As String
 
 Public Sub Form_Open()
   'cargar en el combo los ficheros plantillaBase que haya...
@@ -66,6 +67,10 @@ Public Sub ToolButtonCancelarDiploma2_Click()
 End
 
 Public Sub ToolButtonAceptarDiploma_Click()
+  
+  If TextBoxNombreDiploma.text <> nombreInicial Then 
+    modo = anadir 'guardar como...
+  Endif
   
   borradoMiniatura()
   reg.NombrePlantilla = TextBoxNombreDiploma.text
@@ -325,5 +330,15 @@ Public Sub borradoMiniatura()
   rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
   
   Kill rutamini 
+  
+End
+
+Public Sub TextBoxNombreDiploma_LostFocus()
+  
+  If TextBoxNombreDiploma.text <> nombreInicial Then
+    'anulo boton guardar, y solo dejo boton guardar como
+    ToolButtonAceptarDiploma.Enabled = False
+    '
+  Endif
   
 End

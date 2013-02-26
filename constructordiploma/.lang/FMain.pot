@@ -46,259 +46,259 @@ msgstr ""
 msgid "http://www.jsbsan.blogspot.com.es/"
 msgstr ""
 
-#: FMain.form:172
+#: FMain.form:173
 msgid "Crear Grupo"
 msgstr ""
 
-#: FMain.form:185
+#: FMain.form:186
 msgid ".ConstructorDiplomas"
 msgstr ""
 
-#: FMain.form:190
+#: FMain.form:191
 msgid "Nombre:"
 msgstr ""
 
-#: FMain.form:196
+#: FMain.form:197
 msgid "Crear"
 msgstr ""
 
-#: FMain.form:201
+#: FMain.form:202
 msgid "Abrir Grupo"
 msgstr ""
 
-#: FMain.form:206
+#: FMain.form:207
 msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
 msgstr ""
 
-#: FMain.form:210
+#: FMain.form:211
 msgid "Introducir Datos Alumnos"
 msgstr ""
 
-#: FMain.form:218
+#: FMain.form:219
 msgid "Añadir"
 msgstr ""
 
-#: FMain.form:225
+#: FMain.form:226
 msgid "Editar"
 msgstr ""
 
-#: FMain.form:232
+#: FMain.form:233
 msgid "Borrar"
 msgstr ""
 
-#: FMain.form:239
+#: FMain.form:240
 msgid "Titulos"
 msgstr ""
 
-#: FMain.form:244
+#: FMain.form:245
 msgid "Guardar Grupo"
 msgstr ""
 
-#: FMain.form:253
+#: FMain.form:254
 msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
 msgstr ""
 
-#: FMain.form:260
+#: FMain.form:261
 msgid "Nombre fichero de Datos:"
 msgstr ""
 
-#: FMain.form:263
+#: FMain.form:264
 msgid "Guardar como...."
 msgstr ""
 
-#: FMain.form:268
+#: FMain.form:269
 msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
 msgstr ""
 
-#: FMain.form:272
+#: FMain.form:273
 msgid "Gestor Plantillas de Diplomas"
 msgstr ""
 
-#: FMain.form:278
+#: FMain.form:279
 msgid "Añadir Plantilla"
 msgstr ""
 
-#: FMain.form:286
+#: FMain.form:287
 msgid "Quitar Plantilla"
 msgstr ""
 
-#: FMain.form:300
+#: FMain.form:301
 msgid "Plantillas Base Disponibles:"
 msgstr ""
 
-#: FMain.form:305
+#: FMain.form:306
 msgid "Previsualización<br>\nDiploma<br>"
 msgstr ""
 
-#: FMain.form:312
+#: FMain.form:313
 msgid "Editar Plantilla"
 msgstr ""
 
-#: FMain.form:320
+#: FMain.form:321
 msgid "Diplomas Temáticos"
 msgstr ""
 
-#: FMain.form:325
+#: FMain.form:326
 msgid "Hacer que la plantilla que se muestra sea la actual\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador."
 msgstr ""
 
-#: FMain.form:326
+#: FMain.form:327
 msgid "Previsualizar"
 msgstr ""
 
-#: FMain.form:344
+#: FMain.form:345
 msgid "edita una plantilla existentes, podras guardarla como ... para obtener otra plantilla"
 msgstr ""
 
-#: FMain.form:345
+#: FMain.form:346
 msgid "Editar Diploma "
 msgstr ""
 
-#: FMain.form:352
+#: FMain.form:353
 msgid "Borrar Diploma"
 msgstr ""
 
-#: FMain.form:359
+#: FMain.form:360
 msgid "Definir Diploma desde Cero"
 msgstr ""
 
-#: FMain.form:366
+#: FMain.form:367
 msgid "Exportar Diploma"
 msgstr ""
 
-#: FMain.form:373
+#: FMain.form:374
 msgid "Importar Diploma"
 msgstr ""
 
-#: FMain.form:382
+#: FMain.form:383
 msgid "Compartidos en la Nube"
 msgstr ""
 
-#: FMain.form:390
+#: FMain.form:391
 msgid "Nota:<br>\nEdite un Diploma, luego lo \"guardas como...\", asi obtendras un nuevo diploma."
 msgstr ""
 
-#: FMain.form:408
+#: FMain.form:409
 msgid "Registro:"
 msgstr ""
 
-#: FMain.form:431
+#: FMain.form:432
 msgid "Ver Imagen"
 msgstr ""
 
-#: FMain.form:439
+#: FMain.form:440
 msgid "Previsualización"
 msgstr ""
 
-#: FMain.form:445
+#: FMain.form:446
 msgid "para mejor definición pulse en el botón Ver Imagen"
 msgstr ""
 
-#: FMain.form:451
+#: FMain.form:452
 msgid "<b>Nota:</b><br>\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.\n"
 msgstr ""
 
-#: FMain.form:454
+#: FMain.form:455
 msgid "Crear Pdf para imprimir"
 msgstr ""
 
-#: FMain.form:460
+#: FMain.form:461
 msgid "Parámetros Avanzados"
 msgstr ""
 
-#: FMain.form:464
+#: FMain.form:465
 msgid "geometría:"
 msgstr ""
 
-#: FMain.form:470
+#: FMain.form:471
 msgid "1052x744+10"
 msgstr ""
 
-#: FMain.form:476
+#: FMain.form:477
 msgid "Diplomas Horizontales"
 msgstr ""
 
-#: FMain.form:483
+#: FMain.form:484
 msgid "1"
 msgstr ""
 
-#: FMain.form:490
+#: FMain.form:491
 msgid "Diplomas Verticales"
 msgstr ""
 
-#: FMain.form:504
+#: FMain.form:505
 msgid "Por página que se cree:"
 msgstr ""
 
-#: FMain.form:515
+#: FMain.form:516
 msgid "Convirtiendo fotografias"
 msgstr ""
 
-#: FMain.form:520
+#: FMain.form:521
 msgid "Generar Pdf"
 msgstr ""
 
-#: FMain.form:527
+#: FMain.form:528
 msgid "Imprimir"
 msgstr ""
 
-#: FMain.form:531
+#: FMain.form:532
 msgid "Todos los diplomas"
 msgstr ""
 
-#: FMain.form:537
+#: FMain.form:538
 msgid "El registro número"
 msgstr ""
 
-#: FMain.form:542
+#: FMain.form:543
 msgid "ValueBox1"
 msgstr ""
 
-#: FMain.form:548
+#: FMain.form:549
 msgid "Desde el número"
 msgstr ""
 
-#: FMain.form:559
+#: FMain.form:560
 msgid "al número"
 msgstr ""
 
-#: FMain.form:564
+#: FMain.form:565
 msgid "ValueBox2"
 msgstr ""
 
-#: FMain.form:570
+#: FMain.form:571
 msgid "Fecha:"
 msgstr ""
 
-#: FMain.form:574
+#: FMain.form:575
 msgid "Formato:"
 msgstr ""
 
-#: FMain.form:579
+#: FMain.form:580
 msgid "dd mmmm yyyy"
 msgstr ""
 
-#: FMain.form:585
+#: FMain.form:586
 msgid "Unir todos los pdf en uno"
 msgstr ""
 
-#: FMain.form:589
+#: FMain.form:590
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:592
+#: FMain.form:593
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:597
+#: FMain.form:598
 msgid "<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nETIQUETA EN SVG............. SIGNIFICADO<br>\n<br>\nPLANTILLA01 ..................... texto del diploma: \"Al mejor compañero\", \"al mejor ajedrecista\"...<br>\nFOTO01............................. imagen que forma el fondo<br>\nFOTO02............................ imagen que forma el marco<br>\nFOTO03............................ imagen logo del diploma( figura de ajedrez, etc.)<br>\nFOTO04............................. foto opcional<br>\nFOTO05.............................. foto opcional<br>\nPLANTILLA02...................... campo extra para texto<br>\n<br>\nCAMPO01................................. Nombre del alumno<br>\nCAMPO02................................. nombre tutor/a<br>\nCAMPO03................................. nombre colegio<br>\nCAMPO04................................. nombre ciudad<br>\nCAMPO05................................. fecha del diploma<br>\nFOTO06.................................... foto del alumno (opcional)<br>\nFOTO07..................................... foto del tutor/a (opcional)<br>\nCAMPO06.................................. texto<br>"
 msgstr ""
 
-#: FMain.form:600
+#: FMain.form:601
 msgid "Buscar Actualizaciones"
 msgstr ""
 
-#: FMain.form:605
+#: FMain.form:606
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 

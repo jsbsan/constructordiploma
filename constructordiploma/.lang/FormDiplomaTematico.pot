@@ -154,15 +154,15 @@ msgstr ""
 msgid "Editar"
 msgstr ""
 
-#: FormDiplomaTematico.class:201
+#: FormDiplomaTematico.class:206
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:248
+#: FormDiplomaTematico.class:253
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:262
+#: FormDiplomaTematico.class:267
 msgid "Error al copiar palntilla"
 msgstr ""
 
