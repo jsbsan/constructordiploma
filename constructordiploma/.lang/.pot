@@ -679,15 +679,15 @@ msgstr ""
 msgid "Edita plantilla de maquetacion"
 msgstr ""
 
-#: FormDiplomaTematico.class:206
+#: FormDiplomaTematico.class:207
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:253
+#: FormDiplomaTematico.class:254
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:267
+#: FormDiplomaTematico.class:268
 msgid "Error al copiar palntilla"
 msgstr ""
 
@@ -798,11 +798,11 @@ msgstr ""
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:340
+#: ModuleImprimir.module:342
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:360
+#: ModuleImprimir.module:364
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
