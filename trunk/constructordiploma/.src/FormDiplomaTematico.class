@@ -45,6 +45,7 @@ Public Sub Form_Open()
     TextBoxTag.text = reg.Tag
     TextBoxMaquetacion.text = reg.PlantillaBase
     TextBoxNombreDiploma.text = reg.NombrePlantilla
+    nombreInicial = reg.NombrePlantilla
   Else
     TextBoxMaquetacion.text = reg.PlantillaBase
     
