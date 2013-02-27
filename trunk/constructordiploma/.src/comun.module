@@ -43,3 +43,39 @@ Public Function instalado(paquete As String) As Boolean
   Endif 
   
 End 
+
+Public Function BetweenLista(Datos As String, Cadena1 As String, Cadena2 As String) As String[]
+  
+  Dim lista As New String[]
+  Dim subcadena As String
+  Dim iinf As Integer
+  Dim isup As Integer
+  Dim a As Integer
+  
+  For a = 0 To Len(datos) - Len(cadena2) - Len(cadena1)
+    
+    iinf = InStr(Datos, Cadena1, a) + Len(Cadena1)
+    isup = InStr(Datos, Cadena2, iinf)
+    
+    If iinf <= (isup - iinf) Then
+      subcadena = Mid(Datos, iinf, isup - iinf)
+      lista.add(subcadena)
+      a = isup + Len(cadena2)
+    Endif
+    
+  Next
+  
+  Return lista
+  
+End
+
+Public Function Between(Datos As String, Cadena1 As String, Cadena2 As String) As String
+  
+  Dim iinf As Integer
+  Dim isup As Integer
+  
+  iinf = InStr(Datos, Cadena1) + Len(Cadena1)
+  isup = InStr(Datos, Cadena2, iinf)
+  Return Mid(Datos, iinf, isup - iinf)
+  
+End
