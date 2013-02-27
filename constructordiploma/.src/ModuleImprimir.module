@@ -235,7 +235,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   Dim rutamini As String
   Dim fpensando As New FormPensando
   
-  FormPensando.Show
+  fpensando.Show
   
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
@@ -251,20 +251,20 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
   If Exist(rutamini) Then
     dibujarPNG(areadibujo, rutamini)
-    FormPensando.parar = True
-    FormPensando.DELETE
+    fpensando.parar = True
+    fpensando.DELETE
     Return
   Endif
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
-    Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
+    Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
-    Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
+    Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
   
-  Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
+  Try Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   
   rellenarPlantillaConValoresDiplomaTematico(regtmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
   
@@ -277,11 +277,13 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
   
-  '  convierto la plantilla en imagen...
-  comando = "convert -resize 200x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
+  '  convierto la plantilla en imagen...aumento a 400
+  comando = "convert -resize 400x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
   Shell comando
-  FormPensando.parar = True
-  FormPensando.Delete
+  fpensando.parar = True
+  fpensando.Delete
+Catch
+  mensajeErrorPrevisualizacion()
   
 End
 
@@ -294,7 +296,7 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   Dim regAlumnotmp As ClassRegistroAlumno
   Dim fpensando As New FormPensando
   
-  FormPensando.Show
+  fpensando.Show
   
   '0º Paso: borrado de archivos anteriores
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
@@ -308,7 +310,7 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   Try regAlumnotmp = ModuleGestionAlumno.Lista.Registros[indice]
   If Error Then 
     fpensando.parar = True
-    FormPensando.Delete
+    fpensando.Delete
     Message.Error("No se pueden mostrar previsualizaciones, necesita añadir datos en los registros de alumnos")
     
     Return False
@@ -333,18 +335,20 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
     
     Wait 0.01
     fpensando.parar = True
-    FormPensando.Delete
+    fpensando.Delete
     Return True
   Else
     
     Message.Error(("No se ha podido crear la imagen de la previsualización"))
     fpensando.parar = True
-    FormPensando.Delete
+    fpensando.Delete
     Return False
   Endif
   fpensando.parar = True
-  FormPensando.Delete
-  
+  fpensando.Delete
+Catch
+  mensajeErrorPrevisualizacion()
+
 End
 
 Public Sub copiarImagenesATmp(indice As Integer)
@@ -383,7 +387,7 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   Dim rutamini As String
   Dim comando As String
   
-  FormPensando.Show
+  fpensando.Show
   
   regtmp.PlantillaBase = reg.PlantillaBase
   regtmp.Tema = reg.Tema
@@ -397,14 +401,14 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"))) & "mini.png"
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
-    Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
+    Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
-    Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
+    Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
   
-  Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
+  Try Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   
   rellenarPlantillaConValoresDiplomaTematico(regtmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
   
@@ -413,8 +417,10 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   comando = "convert -resize 200x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
   Shell comando
   
-  FormPensando.parar = True
-  FormPensando.Delete
+  fpensando.parar = True
+  fpensando.Delete
+Catch
+  mensajeErrorPrevisualizacion()
   
 End
 
@@ -441,5 +447,11 @@ Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
   Paint.Rectangle(0, 0, himage.w, himage.h)
   Paint.Fill()
   Paint.End
+  
+End
+
+Private Sub mensajeErrorPrevisualizacion()
+  
+  Message.Info("Se ha producido un error al intentar crear una previsualizacion")
   
 End
