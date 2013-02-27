@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
+
 Public GridViewRegistros As ClassSuperGridview
 Public Observador1 As Observer
 
@@ -15,35 +17,10 @@ Public Sub _new()
   
 End
 
-Public Sub AbrirDiplomasIniciales()
-  
-  Dim resultado As Boolean  
-  Dim rutacopia As String
-  
-  rutacopia = User.home & "/Base.ConstructorDiplomas"
-  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
-  
-  resultado = ModulePrincipal.AbrirFichero(rutacopia, "ConstructorDiplomas")
-  If resultado Then
-    resultado = ModulePrincipal.CargarDatos()
-    ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")
-    Try Kill rutacopia 
-    IconPanel1.index = 0
-    IconPanel1_click()  
-    
-  Else
-    Message.Error(("Problemas al abrir el archivo..."))
-    Try Kill rutacopia 
-    IconPanel1.Index = 0
-    IconPanel1_Click()
-    
-    Return
-  Endif
-  
-End
-
 Public Sub Form_Open()
-
+  
+  listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
+  
   ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
   comun.comprobarEntorno()
   
@@ -195,7 +172,7 @@ Public Sub IconPanel1_Click()
     
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") & ".ConstructorDiplomas"
     
-    If LabelNombreFichero.text = User.home & "/Base.ConstructorDiplomas" Then 
+    If LabelNombreFichero.text = "/tmp/Base.ConstrucuctorDiplomas" Then 
       'tenemos que pedir nombre, para no machar al fichero que nos sirve de base..
       IconPanel1.index = 5
       IconPanel1_click()    
@@ -796,5 +773,32 @@ End
 Public Sub ToolButtonNube_Click()
   
   Desktop.Open("https://docs.google.com/folder/d/0B7uxDVszpXK2VHhFMDdleW1HMGM/edit?usp=sharing")
+  
+End
+
+Public Sub AbrirDiplomasIniciales()
+  
+  Dim resultado As Boolean  
+  Dim rutacopia As String
+  
+  rutacopia = "/tmp/Base.ConstructorDiplomas"
+  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
+  
+  resultado = ModulePrincipal.AbrirFichero(rutacopia, "ConstructorDiplomas")
+  If resultado Then
+    resultado = ModulePrincipal.CargarDatos()
+    ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")
+    Try Kill rutacopia 
+    IconPanel1.index = 0
+    IconPanel1_click()  
+    
+  Else
+    Message.Error(("Problemas al abrir el archivo..."))
+    Try Kill rutacopia 
+    IconPanel1.Index = 0
+    IconPanel1_Click()
+    
+    Return
+  Endif
   
 End

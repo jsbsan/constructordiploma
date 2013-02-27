@@ -52,15 +52,15 @@ Public Function BetweenLista(Datos As String, Cadena1 As String, Cadena2 As Stri
   Dim isup As Integer
   Dim a As Integer
   
-  For a = 0 To Len(datos) - Len(cadena2) - Len(cadena1)
+  For a = 0 To String.Len(datos) - String.Len(cadena2) - String.Len(cadena1)
     
-    iinf = InStr(Datos, Cadena1, a) + Len(Cadena1)
-    isup = InStr(Datos, Cadena2, iinf)
+    iinf = String.InStr(Datos, Cadena1, a) + Len(Cadena1)
+    isup = String.InStr(Datos, Cadena2, iinf)
     
     If iinf <= (isup - iinf) Then
-      subcadena = Mid(Datos, iinf, isup - iinf)
+      subcadena = String.Mid(Datos, iinf, isup - iinf)
       lista.add(subcadena)
-      a = isup + Len(cadena2)
+      a = isup + String.Len(cadena2)
     Endif
     
   Next
@@ -77,5 +77,68 @@ Public Function Between(Datos As String, Cadena1 As String, Cadena2 As String) A
   iinf = InStr(Datos, Cadena1) + Len(Cadena1)
   isup = InStr(Datos, Cadena2, iinf)
   Return Mid(Datos, iinf, isup - iinf)
+  
+End
+
+Public Function ObtenerListaLetrasSistema() As ClassDatoLetra[]
+  
+  Dim ruta As String
+  Dim comando As String
+  Dim salida As String
+  Dim letra As ClassDatoLetra
+  Dim listaLetras As New ClassDatoLetra[]
+  Dim lineas As String[]
+  Dim a As Integer
+  
+  Dim nombre As String
+  
+  comando = "fc-list -v"
+  Shell comando To salida
+  
+  'analizo la salida para generar lista de tipos de letras
+  lineas = Split(salida, "\n")
+  For a = 0 To lineas.max
+    If InStr(lineas[a], "family: ") <> 0 Then 
+      letra = New ClassDatoLetra
+      nombre = Between(lineas[a], "family: ", "(s)")
+      'quito comillas
+      nombre = Replace$(nombre, "\"", "")
+      letra.nombre = nombre
+    Endif
+    
+    If InStr(lineas[a], "file:") <> 0 And InStr(lineas[a], ".pdb") = 0 Then 
+      ruta = Between(lineas[a], "file: ", "(s)")
+      'quito comillas
+      ruta = Replace$(ruta, "\"", "")
+      letra.ruta = ruta
+      listaLetras.add(letra)
+      
+    Endif
+  Next
+  
+  Return listaLetras
+  
+End
+
+Public Function ObtenerListaLetrasSVG(archivo As String) As String[]
+  
+  Dim salida As String
+  Dim comando As String
+  Dim lineas As New String[]
+  Dim listaletras As New String[]
+  Dim nombre As String
+  Dim a As Integer
+  
+  salida = File.Load(archivo)
+  lineas = Split(salida, "\n")
+  
+  For a = 0 To lineas.Max
+    If InStr(lineas[a], ";font-family:") <> 0 Then 
+      nombre = Between(lineas[a], ";font-family:", ";")
+      If listaletras.Find(nombre) = -1 Then listaLetras.add(nombre)
+    Endif
+  Next
+  
+  Return listaLetras
   
 End
