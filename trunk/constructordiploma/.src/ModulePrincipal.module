@@ -156,7 +156,7 @@ Public Sub comprimirDatos() As Boolean
   
   Dim zip As New ClassZip
   
-  If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
   
   zip.comprimirDatos(rutaprograma & "temporales/PlantillasBases")
   zip.comprimirDatos(rutaprograma & "temporales/FotosPlantillasTematica")
@@ -168,7 +168,7 @@ Public Sub comprimirDatos() As Boolean
     Try Kill RutaDatosDiplomas & ".ConstructorDiplomas"
   Endif
   
-  Try Copy User.home & "/temporal.zip" To RutaDatosDiplomas & ".ConstructorDiplomas"
+  Try Copy "/tmp/temporal.zip" To RutaDatosDiplomas & ".ConstructorDiplomas"
   If Error Then 
     Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
     Return False

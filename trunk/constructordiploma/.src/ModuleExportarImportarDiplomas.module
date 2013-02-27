@@ -2,6 +2,7 @@
 
 Public Function exportar(indice As Integer, ruta As String) As Boolean
   
+  Dim letrasUsadas As String[] 'tipos de letra que usa la plantilla.svg
   Dim cambionombre As String
   Dim zip As New ClassZip
   Dim regtmp As New ClassDiplomaTematico
@@ -26,9 +27,19 @@ Public Function exportar(indice As Integer, ruta As String) As Boolean
   copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.ImagenLogo)
   copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.Foto04)
   copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.Foto05)
-  ModuleUtilidadesDisco.CopiarFicheros(User.home & "/.fonts", ModulePrincipal.RutaPrograma & "trabajotmp/exportar/", "*.ttf")
+  '--------------------------------------------
+  'copia de letras a la carpeta comprimida...
+  '--------------------------------------------
+  'averiguo cuantos tipos de letra usa el SVG
+  letrasUsadas = comun.ObtenerListaLetrasSVG(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase)
+  'tengo la lista de letras del sistema, obtengo la ruta de los ficheros de tipo de letras que uso, y las copio al directorio 
+  ' ModulePrincipal.RutaPrograma & "trabajotmp/exportar/"
+  copiarletras(letrasUsadas, FMain.listaTiposDeLetra)  
+  
+  '  ModuleUtilidadesDisco.CopiarFicheros(User.home & "/.fonts", ModulePrincipal.RutaPrograma & "trabajotmp/exportar/", "*.ttf")
+  
   'comprimo
-  If Exist(User.home & "/temporal.zip") Then Kill User.home & "/temporal.zip"
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
   
   zip.comprimirDatos(ModulePrincipal.RutaPrograma & "trabajotmp/exportar")
   'cambio caracteres " " por "_", para validar el nombre
@@ -41,7 +52,7 @@ Public Function exportar(indice As Integer, ruta As String) As Boolean
     Try Kill ruta
   Endif
   
-  Try Copy User.home & "/temporal.zip" To ruta
+  Try Copy "/tmp/temporal.zip" To ruta
   If Error Then 
     Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
     Return False
@@ -188,5 +199,22 @@ Public Function copiarFicheroPlantillabase(nombrefichero As String, ruta As Stri
   If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrefichero
   
   Return nombrefichero
+  
+End
+
+Private Sub copiarletras(lista As String[], listaTiposDeLetra As ClassDatoLetra[])
+  
+  Dim a As Integer
+  Dim tipoletra As ClassDatoLetra
+  
+  For Each tipoletra In listaTiposDeLetra 
+    For a = 0 To lista.Max
+      If tipoletra.nombre = lista[a] Then 
+        Copy tipoletra.ruta To ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & ModuleUtilidadesDisco.extraedesdebarra(tipoletra.ruta) 
+      Endif
+      
+    Next
+    
+  Next
   
 End
