@@ -189,7 +189,7 @@
       Text = ("Plantillas Base Disponibles:")
     }
     { TextLabel4 TextLabel
-      MoveScaled(47,6,27,5)
+      MoveScaled(53,1,27,5)
       Text = ("Previsualización<br>\nDiploma<br>")
       Alignment = Align.Center
     }
@@ -206,21 +206,21 @@
       Text = ("Diplomas Temáticos")
     }
     { ToolButtonPrevisualizar ToolButton
-      MoveScaled(52,35,21,5)
+      MoveScaled(57,35,21,5)
       ToolTip = ("Hacer que la plantilla que se muestra sea la actual\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
       Text = ("Previsualizar")
       Picture = Picture["ojo22.png"]
       Border = True
     }
     { DrawingAreaPrevisualizarMini DrawingArea
-      MoveScaled(45,12,32,22)
+      MoveScaled(45,6,40,28)
       Background = &HFFFFFF&
       ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
       Border = Border.Plain
       Cached = True
     }
     { HBox2 VBox
-      MoveScaled(45,45,36,36)
+      MoveScaled(48,45,36,36)
       { ToolButtonEditarTematico ToolButton
         MoveScaled(0,2,34,5)
         ToolTip = ("edita una plantilla existentes, podras guardarla como ... para obtener otra plantilla")
