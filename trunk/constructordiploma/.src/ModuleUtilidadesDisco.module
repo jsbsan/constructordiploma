@@ -98,7 +98,7 @@ Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As Strin
   
   If Exist(Directorioorigen) Then 
     For Each File In Dir(Directorioorigen, patron)
-      Print file
+      '  Print file
       Shell "cp " & Directorioorigen & "/" & file & " " & Directoriodestino & "/" & file Wait
     Next
   Endif
@@ -108,7 +108,7 @@ Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As Strin
 End
 
 Public Function VerificarNombreEtiqueta(nombre As String, palabrasClave As String[], palabrasSustituir As String[]) As String
-
+  
   Dim a As Integer
   'En nuestro caso las plabrasClave son: FOTO, CAMPO, PLANTILLA, no se si directamente se le puede poner en la funcion ( ["FOTO","CAMPO","PLANTILLA"] o hay que definir un array
   'Palabras clavesCambiadas son: IMAGEN, CA_PO, PLA_TILLA

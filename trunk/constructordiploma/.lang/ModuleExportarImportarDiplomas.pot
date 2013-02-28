@@ -22,3 +22,11 @@ msgstr ""
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
+#: ModuleExportarImportarDiplomas.module:251
+msgid "Se ha añadido un nuevo tipo de letra al sistema:"
+msgstr ""
+
+#: ModuleExportarImportarDiplomas.module:251
+msgid "Debe reiniciar la aplicación para poderla ver"
+msgstr ""
+
