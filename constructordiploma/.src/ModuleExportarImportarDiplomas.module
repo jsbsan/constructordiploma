@@ -88,7 +88,10 @@ Public Function importar(fichero As String) As Boolean
   regtmp.LecturaDatos(Split(File.Load(rutazip & "/ConstructorDiplomas/trabajotmp/exportar/diploma.txt"), "\n"))
   regdiploma = regtmp.Registros[0]
   
-  ModuleUtilidadesDisco.CopiarFicheros(rutazip & "/ConstructorDiplomas/trabajotmp/exportar", User.home & "/.fonts", "*.ttf")
+  '-----------------------------------------
+  'copiar tipos de letras que no esten en el sistema....
+  '-----------------------------------------
+  copiarLetrasAlSistema(rutazip & "/ConstructorDiplomas/trabajotmp/exportar", FMain.listaTiposDeLetra)
   
   'copio la plantilla y los ficheros de fotos,
   'si alguno tiene el nombre igual a los que existen, lo cambio de nombre ->notifico ese cambio 
@@ -216,5 +219,41 @@ Private Sub copiarletras(lista As String[], listaTiposDeLetra As ClassDatoLetra[
     Next
     
   Next
+  
+End
+
+Public Sub copiarLetrasAlSistema(Directorioorigen As String, listaTiposDeLetra As ClassDatoLetra[])
+  'por cada fichero de tipo de letra .ttf que haya la ruta, lo compruebo si esta en listatiposdeletras del sistema
+  'si esta no lo copio y siesta, la compio a  User.home & "/.fonts"
+  
+  Dim tipoletra As ClassDatoLetra
+  Dim file As String
+  Dim encontrado As Boolean = False
+  
+  If Exist(Directorioorigen) Then 
+    For Each File In Dir(Directorioorigen, "*.ttf")
+      encontrado = False
+      
+      'lo miro en las letras del sistema...
+      For Each tipoletra In listaTiposDeLetra
+        If ModuleUtilidadesDisco.extraedesdebarra(tipoletra.ruta) = file Then 
+          encontrado = True 
+          'lo he encontrado, no la copia
+          Break
+        Endif
+        
+      Next
+      
+      If encontrado = False Then 
+        'si no existe en la carpeta de usuario de letras, la copia
+        If Not Exist(User.home & "/.fonts/" & file) Then 
+          Copy Directorioorigen & "/" & file To User.home & "/.fonts/" & file
+          Message.Warning(("Se ha añadido un nuevo tipo de letra al sistema:") & "\n" & file & "\n" & ("Debe reiniciar la aplicación para poderla ver"))
+        Endif
+      Endif
+      
+    Next
+    
+  Endif
   
 End

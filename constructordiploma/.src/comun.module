@@ -135,7 +135,11 @@ Public Function ObtenerListaLetrasSVG(archivo As String) As String[]
   For a = 0 To lineas.Max
     If InStr(lineas[a], ";font-family:") <> 0 Then 
       nombre = Between(lineas[a], ";font-family:", ";")
-      If listaletras.Find(nombre) = -1 Then listaLetras.add(nombre)
+      If nombre <> "" And listaletras.Find(nombre) = -1 Then 
+        If InStr(Upper$(nombre), Upper$("Sans")) = 0 And InStr(Upper$(nombre), Upper$("Ubuntu")) = 0 Then  
+          listaLetras.add(nombre)
+        Endif
+      Endif
     Endif
   Next
   
