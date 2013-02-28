@@ -78,7 +78,7 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   'unir todos los pdf en uno...
   Wait 0.1
   If unir = True Then 
-    comando = "pdftk /home/uno/ConstructorDiplomas/trabajotmp/pdf/* cat output /home/uno/ConstructorDiplomas/trabajotmp/pdf/resultado.pdf"
+    comando = "pdftk " & User.Home & "/ConstructorDiplomas/trabajotmp/pdf/* cat output " & User.home & "/ConstructorDiplomas/trabajotmp/pdf/resultado.pdf"
     Shell comando Wait
   Endif
   
@@ -348,7 +348,7 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   fpensando.Delete
 Catch
   mensajeErrorPrevisualizacion()
-
+  
 End
 
 Public Sub copiarImagenesATmp(indice As Integer)
