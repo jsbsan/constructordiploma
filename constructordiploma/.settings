@@ -5,7 +5,8 @@ ModuleImprimir=[344]
 Count=0
 
 [DebugWindow]
-Count=0
+Count=1
+DebugWindow[1]="lista"
 
 [DebugWindow/ComboBoxDiplomaTematico]
 Geometry=[1296,66,210,210]
@@ -74,11 +75,38 @@ Geometry=[575,156,407,707]
 [DebugWindow/lbox]
 Geometry=[1289,66,210,210]
 
+[DebugWindow/lineas]
+Geometry=[551,14,707,686]
+
+[DebugWindow/lista]
+Geometry=[82,319,829,453]
+
 [DebugWindow/listaArrayReg]
 Geometry=[1270,66,210,210]
 
 [DebugWindow/listaArrayReg[0]]
 Geometry=[1277,72,486,430]
+
+[DebugWindow/listaLetras]
+Geometry=[93,35,808,655]
+
+[DebugWindow/listaLetras[0]]
+Geometry=[478,50,808,655]
+
+[DebugWindow/listaLetras[129]]
+Geometry=[100,41,808,655]
+
+[DebugWindow/listaLetras[1]]
+Geometry=[284,240,808,655]
+
+[DebugWindow/listaLetras[23]]
+Geometry=[100,41,808,655]
+
+[DebugWindow/listaLetras[321]]
+Geometry=[100,41,808,655]
+
+[DebugWindow/listaTiposDeLetra]
+Geometry=[1014,-8,210,210]
 
 [DebugWindow/reg]
 Geometry=[880,35,292,527]
@@ -93,17 +121,16 @@ Geometry=[1383,66,210,210]
 Geometry=[1397,80,777,666]
 
 [FCommit]
-LastCommit="---- Esta línea y las siguientes serán ignoradas ----\n\nM       .project\nM       .src/FMain.form\nM       .src/FMain.class\nA       googledriveacceso.png\nM       .startup"
+LastCommit="Exportar solo tipo de letras que usa la plantilla\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .project\nM       .gambas/MODULEPRINCIPAL\nM       .gambas/CLASSZIP\nM       .gambas/FMAIN\nM       .gambas/MODULEEXPORTARIMPORTARDIPLOMAS\nM       .gambas/COMUN\nM       .startup\nM       .lang/.pot\nM       .lang/ModuleExportarImportarDiplomas.pot\nM       .lang/FMain.pot\nM       .src/comun.module\nM       .src/ModuleExportarImportarDiplomas.module\nA       .src/ClassDatoLetra.class\nM       .src/Clases/ClassZip.class\nM       .src/ModulePrincipal.module\nM       .src/FMain.class"
 
 [OpenFile]
-Active=1
 File[1]=".src/FMain.form"
 File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:783.145"
-File[7]=".src/ModulePrincipal.module:139.2"
+File[6]=".src/FMain.class:23.89"
+File[7]=".src/ModulePrincipal.module:158.61"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:50.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:27.64"
 File[10]=".src/Clases/ClassSuperGridview.class:21.0"
@@ -112,7 +139,7 @@ File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:29.3
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
 File[14]=".src/ModuleUtilidadesDisco.module:56.26"
 File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:75.74"
-File[16]=".src/Clases/ClassZip.class:33.87"
+File[16]=".src/Clases/ClassZip.class:19.61"
 File[17]=".src/Clases/Diplomas/ModuleGestionDiploma.module:75.74"
 File[18]=".src/FormDiplomaTematico.form"
 File[19]="imagenes/marco.png"
@@ -120,7 +147,7 @@ File[20]="imagenes/logo.png"
 File[21]="imagenes/fondo.png"
 File[22]=".src/ModuleImprimir.module:80.46"
 File[23]=".src/ModuleIntermedio.module:221.3"
-File[24]=".src/FormDiplomaTematico.class:289.2"
+File[24]=".src/FormDiplomaTematico.class:295.2"
 File[25]="icono_galeria2.jpg"
 File[26]="previsualizar.png"
 File[27]=".src/FormRegistroDiplomados.form"
@@ -142,15 +169,18 @@ File[42]="plantillas/plantilla5.svg:0.0"
 File[43]="importar.png"
 File[44]="exportar.png"
 File[45]="bg_removal:4.3"
-File[46]=".src/ModuleExportarImportarDiplomas.module:117.16"
+Active=46
+File[46]=".src/ModuleExportarImportarDiplomas.module:128.22"
 File[47]="magicwand:126.8"
 File[48]="icono_transparente.png"
 File[49]=".src/ModuleHacerTransparente.module:19.134"
 File[50]=".src/FormPensando.form"
 File[51]=".src/FormPensando.class:18.2"
-File[52]=".src/comun.module:22.22"
+File[52]=".src/comun.module:141.20"
 File[53]="googledriveacceso.png"
-Count=53
+File[54]=".src/ModuleUpdate.module:0.20"
+File[55]=".src/ClassDatoLetra.class:7.39"
+Count=55
 
 [Watches]
 Count=0
