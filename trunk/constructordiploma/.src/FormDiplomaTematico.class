@@ -331,7 +331,9 @@ Public Sub borradoMiniatura()
   rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
   
   Kill rutamini 
-  
+Catch
+  Message.Error(("Se ha producido un error al intentar borrar una minuatura:") & "\n" & rutamini)
+
 End
 
 Public Sub TextBoxNombreDiploma_LostFocus()
