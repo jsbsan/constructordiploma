@@ -166,3 +166,7 @@ msgstr ""
 msgid "Error al copiar palntilla"
 msgstr ""
 
+#: FormDiplomaTematico.class:335
+msgid "Se ha producido un error al intentar borrar una minuatura:"
+msgstr ""
+

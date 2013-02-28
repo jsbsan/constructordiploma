@@ -6,7 +6,7 @@ Count=0
 
 [DebugWindow]
 Count=1
-DebugWindow[1]="lista"
+DebugWindow[1]="tipoletra"
 
 [DebugWindow/ComboBoxDiplomaTematico]
 Geometry=[1296,66,210,210]
@@ -88,7 +88,7 @@ Geometry=[1270,66,210,210]
 Geometry=[1277,72,486,430]
 
 [DebugWindow/listaLetras]
-Geometry=[93,35,808,655]
+Geometry=[1255,42,808,655]
 
 [DebugWindow/listaLetras[0]]
 Geometry=[478,50,808,655]
@@ -120,8 +120,11 @@ Geometry=[1383,66,210,210]
 [DebugWindow/regtmp.Registros[0]]
 Geometry=[1397,80,777,666]
 
+[DebugWindow/tipoletra]
+Geometry=[1288,358,210,210]
+
 [FCommit]
-LastCommit="Exportar solo tipo de letras que usa la plantilla\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .project\nM       .gambas/MODULEPRINCIPAL\nM       .gambas/CLASSZIP\nM       .gambas/FMAIN\nM       .gambas/MODULEEXPORTARIMPORTARDIPLOMAS\nM       .gambas/COMUN\nM       .startup\nM       .lang/.pot\nM       .lang/ModuleExportarImportarDiplomas.pot\nM       .lang/FMain.pot\nM       .src/comun.module\nM       .src/ModuleExportarImportarDiplomas.module\nA       .src/ClassDatoLetra.class\nM       .src/Clases/ClassZip.class\nM       .src/ModulePrincipal.module\nM       .src/FMain.class"
+LastCommit="Exporta e Importa tipos de letra que usa el diploma. \n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .startup\nM       constructordiploma.gambas\nM       .src/ModuleUtilidadesDisco.module\nM       .src/ModuleExportarImportarDiplomas.module\nM       .src/comun.module\nM       .hidden/CHANGELOG\nM       .project\nM       .lang/.pot\nM       .lang/ModuleExportarImportarDiplomas.pot"
 
 [OpenFile]
 File[1]=".src/FMain.form"
@@ -137,7 +140,7 @@ File[10]=".src/Clases/ClassSuperGridview.class:21.0"
 File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
 File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:29.3"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
-File[14]=".src/ModuleUtilidadesDisco.module:56.26"
+File[14]=".src/ModuleUtilidadesDisco.module:100.19"
 File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:75.74"
 File[16]=".src/Clases/ClassZip.class:19.61"
 File[17]=".src/Clases/Diplomas/ModuleGestionDiploma.module:75.74"
@@ -147,6 +150,7 @@ File[20]="imagenes/logo.png"
 File[21]="imagenes/fondo.png"
 File[22]=".src/ModuleImprimir.module:80.46"
 File[23]=".src/ModuleIntermedio.module:221.3"
+Active=24
 File[24]=".src/FormDiplomaTematico.class:295.2"
 File[25]="icono_galeria2.jpg"
 File[26]="previsualizar.png"
@@ -169,14 +173,13 @@ File[42]="plantillas/plantilla5.svg:0.0"
 File[43]="importar.png"
 File[44]="exportar.png"
 File[45]="bg_removal:4.3"
-Active=46
-File[46]=".src/ModuleExportarImportarDiplomas.module:128.22"
+File[46]=".src/ModuleExportarImportarDiplomas.module:242.1"
 File[47]="magicwand:126.8"
 File[48]="icono_transparente.png"
 File[49]=".src/ModuleHacerTransparente.module:19.134"
 File[50]=".src/FormPensando.form"
 File[51]=".src/FormPensando.class:18.2"
-File[52]=".src/comun.module:141.20"
+File[52]=".src/comun.module:139.21"
 File[53]="googledriveacceso.png"
 File[54]=".src/ModuleUpdate.module:0.20"
 File[55]=".src/ClassDatoLetra.class:7.39"
