@@ -19,6 +19,6 @@ msgid "ConstructorDiplomas"
 msgstr ""
 
 #: .project:2
-msgid "Crea diplomas personalizados facilmente con la ayuda de este programa y usa plantillas definidas por inkscapes"
+msgid "Crea diplomas personalizados facilmente"
 msgstr ""
 
