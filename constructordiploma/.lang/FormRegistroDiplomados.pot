@@ -106,3 +106,11 @@ msgstr ""
 msgid "="
 msgstr ""
 
+#: FormRegistroDiplomados.class:107
+msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FormRegistroDiplomados.class:108
+msgid "Fichero de Imagenes"
+msgstr ""
+

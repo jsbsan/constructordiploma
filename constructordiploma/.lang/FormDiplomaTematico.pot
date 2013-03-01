@@ -154,6 +154,14 @@ msgstr ""
 msgid "Editar"
 msgstr ""
 
+#: FormDiplomaTematico.class:114
+msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FormDiplomaTematico.class:116
+msgid "Ficheros de Imágenes"
+msgstr ""
+
 #: FormDiplomaTematico.class:207
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""

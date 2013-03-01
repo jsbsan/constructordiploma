@@ -5,8 +5,7 @@ ModuleImprimir=[344]
 Count=0
 
 [DebugWindow]
-Count=1
-DebugWindow[1]="tipoletra"
+Count=0
 
 [DebugWindow/ComboBoxDiplomaTematico]
 Geometry=[1296,66,210,210]
@@ -124,7 +123,7 @@ Geometry=[1397,80,777,666]
 Geometry=[1288,358,210,210]
 
 [FCommit]
-LastCommit="Exporta e Importa tipos de letra que usa el diploma. \n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .startup\nM       constructordiploma.gambas\nM       .src/ModuleUtilidadesDisco.module\nM       .src/ModuleExportarImportarDiplomas.module\nM       .src/comun.module\nM       .hidden/CHANGELOG\nM       .project\nM       .lang/.pot\nM       .lang/ModuleExportarImportarDiplomas.pot"
+LastCommit="corregida ruta de fichero resumen.pdf\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .src/ModuleImprimir.module\nM       .hidden/CHANGELOG\nM       .project\nM       .lang/#project.pot\nM       .lang/.pot\nM       .startup\nM       constructordiploma.gambas"
 
 [OpenFile]
 File[1]=".src/FMain.form"
@@ -132,7 +131,8 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:23.89"
+Active=6
+File[6]=".src/FMain.class:168.7"
 File[7]=".src/ModulePrincipal.module:158.61"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:50.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:27.64"
@@ -142,16 +142,15 @@ File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:29.3
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
 File[14]=".src/ModuleUtilidadesDisco.module:100.19"
 File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:75.74"
-File[16]=".src/Clases/ClassZip.class:19.61"
+File[16]=".src/Clases/ClassZip.class:37.38"
 File[17]=".src/Clases/Diplomas/ModuleGestionDiploma.module:75.74"
 File[18]=".src/FormDiplomaTematico.form"
 File[19]="imagenes/marco.png"
 File[20]="imagenes/logo.png"
 File[21]="imagenes/fondo.png"
-File[22]=".src/ModuleImprimir.module:80.46"
+File[22]=".src/ModuleImprimir.module:5.22"
 File[23]=".src/ModuleIntermedio.module:221.3"
-Active=24
-File[24]=".src/FormDiplomaTematico.class:295.2"
+File[24]=".src/FormDiplomaTematico.class:295.6"
 File[25]="icono_galeria2.jpg"
 File[26]="previsualizar.png"
 File[27]=".src/FormRegistroDiplomados.form"
