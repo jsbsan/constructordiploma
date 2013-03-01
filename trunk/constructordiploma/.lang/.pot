@@ -677,6 +677,14 @@ msgstr ""
 msgid "Edita plantilla de maquetacion"
 msgstr ""
 
+#: FormDiplomaTematico.class:114 FormRegistroDiplomados.class:107
+msgid "Elija el archivo gráfico"
+msgstr ""
+
+#: FormDiplomaTematico.class:116
+msgid "Ficheros de Imágenes"
+msgstr ""
+
 #: FormDiplomaTematico.class:207
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
@@ -779,6 +787,10 @@ msgstr ""
 
 #: FormRegistroDiplomados.form:226
 msgid "="
+msgstr ""
+
+#: FormRegistroDiplomados.class:108
+msgid "Fichero de Imagenes"
 msgstr ""
 
 #: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:173

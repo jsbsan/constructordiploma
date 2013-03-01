@@ -104,8 +104,8 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim comando As String
   Dim nombresimple As String
   
-  Dialog.Title = "Elija el archivo gráfico"
-  Dialog.Filter = ["*.*", "todos", "*.png", "png", "*.jpg", "jpg"]
+  Dialog.Title = ("Elija el archivo gráfico")
+  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Fichero de Imagenes")]
   If Not Dialog.OpenFile() Then 
     PictureBoxElegido.Picture = Picture[Dialog.Path]
     PictureBoxElegido.tag = Dialog.Path

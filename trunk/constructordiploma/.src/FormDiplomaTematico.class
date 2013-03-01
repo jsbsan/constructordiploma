@@ -111,9 +111,9 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim comando As String
   Dim nombresimple As String
   
-  Dialog.Title = "Elija el archivo gráfico"
+  Dialog.Title = ("Elija el archivo gráfico")
   
-  Dialog.Filter = ["*.*", "todos", "*.png", "png", "*.jpg", "jpg"]
+  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
   If Not Dialog.OpenFile() Then 
     
     PictureBoxElegido.Picture = Picture[Dialog.Path]
@@ -333,7 +333,7 @@ Public Sub borradoMiniatura()
   Kill rutamini 
 Catch
   Message.Error(("Se ha producido un error al intentar borrar una minuatura:") & "\n" & rutamini)
-
+  
 End
 
 Public Sub TextBoxNombreDiploma_LostFocus()
