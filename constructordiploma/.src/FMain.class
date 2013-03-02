@@ -18,14 +18,17 @@ Public Sub _new()
 End
 
 Public Sub Form_Open()
-  
+
+  Print "Iniciando... vientos tipos de letras"
   listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
-  
+  Print "         ... comprobando version"
   ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
   comun.comprobarEntorno()
   
   Label16.text = "Versión: Beta " & Application.Version
   Me.Center
+  
+  Print "          ... creando directorios y copiando archivos "
   'inicio el programa: creo directorios y copio archivos...
   ModuleIntermedio.IniciarLaPrimeraVez(ModulePrincipal.RutaPrograma)
   'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
@@ -40,6 +43,7 @@ Public Sub Form_Open()
   ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico)
   
   'INICAR CON "Base.ConstructorDiplomas
+  Print "          --- Abriendo diplomas iniciales"
   AbrirDiplomasIniciales()
   
 End

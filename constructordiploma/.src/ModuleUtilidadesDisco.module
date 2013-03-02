@@ -27,7 +27,7 @@ Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   ' Print "ruta destino: "; destino
   If Exist(origen) Then 
     For Each File In Dir(origen)
-      Print file
+      '  Print file
       Shell "mv " & origen & "/" & file & " " & destino & "/" & file Wait
     Next
   Endif
