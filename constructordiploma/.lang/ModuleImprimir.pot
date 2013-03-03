@@ -26,3 +26,7 @@ msgstr ""
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
+#: ModuleImprimir.module:455
+msgid "Se ha producido un error al intentar crear una previsualizacion"
+msgstr ""
+
