@@ -105,6 +105,7 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim nombresimple As String
   
   Dialog.Title = ("Elija el archivo gráfico")
+  Dialog.PATH = User.HOME
   Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Fichero de Imagenes")]
   If Not Dialog.OpenFile() Then 
     PictureBoxElegido.Picture = Picture[Dialog.Path]
@@ -145,7 +146,6 @@ End
 Public Sub botontransparente_Click()
   
   Dim numero As Integer
-  Dim boton As Integer
   
   numero = Val(Last.tag)
   
@@ -164,6 +164,10 @@ End
 
 Public Sub ButtonIgualTutor_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.NombreTutor = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreTutor
@@ -178,6 +182,10 @@ End
 
 Public Sub ButtonIgualColegio_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif 
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Colegio = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Colegio
@@ -192,6 +200,10 @@ End
 
 Public Sub ButtonIgualCiudad_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Ciudad = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].Ciudad
@@ -206,6 +218,10 @@ End
 
 Public Sub ButtonIgualNombre_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.NombreAlumno = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].NombreAlumno
@@ -220,6 +236,10 @@ End
 
 Public Sub ButtonIgualFecha_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.Fecha = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].fecha
@@ -233,6 +253,10 @@ End
 
 Public Sub ButtonIgualOtro_Click()
   
+  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+    Return
+  Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.tag = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].tag

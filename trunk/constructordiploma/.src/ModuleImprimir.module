@@ -210,7 +210,7 @@ Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
   AreaDibujo.Cached = True
   AreaDibujo.Border = 1
   
-  AreaDibujo.Painted = True
+  'AreaDibujo.Painted = True
   
   If Exist(fichero) Then 
     dra = dra.Load(fichero)
@@ -247,7 +247,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   regtmp.tag = ModuleGestionDiploma.lista.Registros[indice].tag
   regtmp.NombrePlantilla = ModuleGestionDiploma.lista.Registros[indice].NombrePlantilla
   
-  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.NombrePlantilla, " ", "_") & "mini.png"
+  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_") & "mini.png"
   'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
   If Exist(rutamini) Then
     dibujarPNG(areadibujo, rutamini)
@@ -283,7 +283,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   fpensando.parar = True
   fpensando.Delete
 Catch
-  mensajeErrorPrevisualizacion()
+  mensajeErrorPrevisualizacion(Error.Text, Error.Where)
   
 End
 
@@ -347,7 +347,7 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   fpensando.parar = True
   fpensando.Delete
 Catch
-  mensajeErrorPrevisualizacion()
+  mensajeErrorPrevisualizacion(Error.Text, Error.Where)
   
 End
 
@@ -420,7 +420,7 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   fpensando.parar = True
   fpensando.Delete
 Catch
-  mensajeErrorPrevisualizacion()
+  mensajeErrorPrevisualizacion(Error.Text, Error.Where)
   
 End
 
@@ -434,7 +434,7 @@ Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
   
   AreaDibujo.Cached = True
   AreaDibujo.Border = 1
-  AreaDibujo.Painted = True
+  '  AreaDibujo.Painted = True
   
   Paint.Begin(AreaDibujo)
   
@@ -450,8 +450,8 @@ Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
   
 End
 
-Private Sub mensajeErrorPrevisualizacion()
+Private Sub mensajeErrorPrevisualizacion(textoerror As String, textocadena As String)
   
-  Message.Info("Se ha producido un error al intentar crear una previsualizacion")
+  Message.Info(("Se ha producido un error al intentar crear una previsualizacion") & "\n" & textoerror & "\n" & textocadena)
   
 End

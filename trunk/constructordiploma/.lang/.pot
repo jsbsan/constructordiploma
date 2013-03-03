@@ -789,8 +789,13 @@ msgstr ""
 msgid "="
 msgstr ""
 
-#: FormRegistroDiplomados.class:108
+#: FormRegistroDiplomados.class:109
 msgid "Fichero de Imagenes"
+msgstr ""
+
+#: FormRegistroDiplomados.class:168
+msgid ""
+"Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
 #: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:173
@@ -826,6 +831,10 @@ msgstr ""
 
 #: ModuleImprimir.module:364
 msgid "No puedo presentar ese diploma"
+msgstr ""
+
+#: ModuleImprimir.module:455
+msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
 #: ModuleIntermedio.module:312

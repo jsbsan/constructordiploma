@@ -123,7 +123,7 @@ Geometry=[1397,80,777,666]
 Geometry=[1288,358,210,210]
 
 [FCommit]
-LastCommit="descripcion inicio\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .startup\nM       constructordiploma.gambas\nM       .src/FMain.class\nM       .src/ModuleUtilidadesDisco.module\nM       .hidden/CHANGELOG\nM       .project\nM       .lang/.pot\nM       .lang/FMain.pot"
+LastCommit="gambas3.4\n---- Esta línea y las siguientes serán ignoradas ----\n\n!       .\nM       .settings"
 
 [OpenFile]
 File[1]=".src/FMain.form"
@@ -185,7 +185,8 @@ File[55]=".src/ClassDatoLetra.class:7.39"
 Count=55
 
 [VersionControl]
-RememberPassword=0
+RememberPassword=1
+User="torredelaquila@gmail.com"
 
 [Watches]
 Count=0

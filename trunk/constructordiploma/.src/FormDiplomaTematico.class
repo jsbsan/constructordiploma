@@ -112,7 +112,7 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim nombresimple As String
   
   Dialog.Title = ("Elija el archivo gráfico")
-  
+  Dialog.PATH = User.HOME
   Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
   If Not Dialog.OpenFile() Then 
     
@@ -328,9 +328,9 @@ Public Sub borradoMiniatura()
   
   'rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
   
-  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
+  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(reg.PlantillaBase, ".svg", "") & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
   
-  Kill rutamini 
+  If Exist(rutamini) Then Kill rutamini 
 Catch
   Message.Error(("Se ha producido un error al intentar borrar una minuatura:") & "\n" & rutamini)
   
