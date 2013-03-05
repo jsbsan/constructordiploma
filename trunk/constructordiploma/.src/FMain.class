@@ -18,7 +18,7 @@ Public Sub _new()
 End
 
 Public Sub Form_Open()
-
+  
   Print "Iniciando... vientos tipos de letras"
   listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
   Print "         ... comprobando version"
@@ -194,6 +194,9 @@ Public Sub IconPanel1_Click()
     Endif
   Endif
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
 End
 
 '------------------------------------------------------
@@ -345,14 +348,18 @@ Public Sub CheckBoxTitulosDiplomaTematico_Click()
   
   ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico, False)
   ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub CheckBoxTitulos_Click()
   
   ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros, Not CheckBoxTitulos.Value)
   ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub ToolButtonPrevisualizar_Click()
@@ -370,7 +377,9 @@ Public Sub ToolButtonPrevisualizar_Click()
   Else
     Message.Info(("Debe de seleccionar un Diploma Temático"))
   Endif
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 'extraer primeros digitos del hasta llegar a la Barra Vertical.
@@ -397,6 +406,8 @@ Public Sub ButtonPlantillaPrimeraReg_Click()
     'intento invalido de realizar la previsualizacion
     contadorVistaPreliminar -= 1
   Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -420,6 +431,9 @@ Public Sub ButtonPlantillaAnteriorReg_Click()
     contadorVistaPreliminar += 1
     
   Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -804,5 +818,6 @@ Public Sub AbrirDiplomasIniciales()
     
     Return
   Endif
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
 End

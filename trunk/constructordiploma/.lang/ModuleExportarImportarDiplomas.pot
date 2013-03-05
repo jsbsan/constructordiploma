@@ -18,15 +18,15 @@ msgstr ""
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:83
+#: ModuleExportarImportarDiplomas.module:85
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:251
+#: ModuleExportarImportarDiplomas.module:261
 msgid "Se ha añadido un nuevo tipo de letra al sistema:"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:251
+#: ModuleExportarImportarDiplomas.module:261
 msgid "Debe reiniciar la aplicación para poderla ver"
 msgstr ""
 

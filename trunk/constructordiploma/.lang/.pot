@@ -108,11 +108,11 @@ msgstr ""
 msgid "Introducir Datos Alumnos"
 msgstr ""
 
-#: FMain.form:219 FormDiplomaTematico.form:307
+#: FMain.form:219 FormDiplomaTematico.form:315
 msgid "Añadir"
 msgstr ""
 
-#: FMain.form:226 FormDiplomaTematico.form:331
+#: FMain.form:226 FormDiplomaTematico.form:339
 msgid "Editar"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgid ""
 "su ordenador."
 msgstr ""
 
-#: FMain.form:327 FormDiplomaTematico.form:82
+#: FMain.form:327 FormDiplomaTematico.form:85
 msgid "Previsualizar"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr ""
 msgid "Unir todos los pdf en uno"
 msgstr ""
 
-#: FMain.form:590
+#: FMain.form:590 FormError.form:24
 msgid "Salir"
 msgstr ""
 
@@ -421,284 +421,292 @@ msgstr ""
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:206
+#: FMain.class:209
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:206
+#: FMain.class:209
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:206
+#: FMain.class:209
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:206 FormDiplomaTematico.form:228 FormRegistroDiplomados.form:61
+#: FMain.class:209 FormDiplomaTematico.form:241 FormRegistroDiplomados.form:61
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:235
+#: FMain.class:238
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:262
+#: FMain.class:265
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:262
+#: FMain.class:265
 msgid "Si"
 msgstr ""
 
-#: FMain.class:316
+#: FMain.class:319
 msgid "Seleciones una fila que tenga información de un Diploma"
 msgstr ""
 
-#: FMain.class:316
+#: FMain.class:319
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:339
 msgid "No es posible borrar esta plantilla,"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:339
 msgid " ya que la esta usando, "
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:339
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
 msgstr ""
 
-#: FMain.class:336
+#: FMain.class:339
 msgid " y borre el registro que usa la plantilla para poder borrarla"
 msgstr ""
 
-#: FMain.class:366
+#: FMain.class:373
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
 msgstr ""
 
-#: FMain.class:371
+#: FMain.class:378
 msgid "Debe de seleccionar un Diploma Temático"
 msgstr ""
 
-#: FMain.class:395
+#: FMain.class:404
 msgid "Registro: "
 msgstr ""
 
-#: FMain.class:489
+#: FMain.class:503
 msgid "Debe de tener al menos un registro"
 msgstr ""
 
-#: FMain.class:499
+#: FMain.class:513
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: FMain.class:511
+#: FMain.class:525
 msgid "Existe el fichero:"
 msgstr ""
 
-#: FMain.class:511
+#: FMain.class:525
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: FMain.class:511
+#: FMain.class:525
 msgid " SobreEscribir "
 msgstr ""
 
-#: FMain.class:511
+#: FMain.class:525
 msgid " Cancelar "
 msgstr ""
 
-#: FMain.class:555
+#: FMain.class:569
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:690
+#: FMain.class:704
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:697
+#: FMain.class:711
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:699
+#: FMain.class:713
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:707
+#: FMain.class:721
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:715
+#: FMain.class:729
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:757 comun.module:9
+#: FMain.class:771 comun.module:9
 msgid "zip"
 msgstr ""
 
-#: FMain.class:762 comun.module:14
+#: FMain.class:776 comun.module:14
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:767 comun.module:19
+#: FMain.class:781 comun.module:19
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:772 comun.module:24
+#: FMain.class:786 comun.module:24
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:772 comun.module:24
+#: FMain.class:786 comun.module:24
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
-#: FormDiplomaTematico.form:59
+#: FormDiplomaTematico.form:62
 msgid "Nombre del Diploma:"
 msgstr ""
 
-#: FormDiplomaTematico.form:64
+#: FormDiplomaTematico.form:67
 msgid "Texto Diploma :"
 msgstr ""
 
-#: FormDiplomaTematico.form:70
+#: FormDiplomaTematico.form:73
 msgid "\"Al mejor Compañero\", \"Al mejor Ajedrecista\""
 msgstr ""
 
-#: FormDiplomaTematico.form:76
+#: FormDiplomaTematico.form:79
 msgid "PLANTILLA01"
 msgstr ""
 
-#: FormDiplomaTematico.form:81
+#: FormDiplomaTematico.form:84
 msgid "Hacer que la plantilla que se muestra sea la actual"
 msgstr ""
 
-#: FormDiplomaTematico.form:89
+#: FormDiplomaTematico.form:92
 msgid "Imagen Fondo"
 msgstr ""
 
-#: FormDiplomaTematico.form:95
+#: FormDiplomaTematico.form:98
 msgid "Marco"
 msgstr ""
 
-#: FormDiplomaTematico.form:101
+#: FormDiplomaTematico.form:104
 msgid "Logo Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.form:114
+#: FormDiplomaTematico.form:117
 msgid "FOTO03"
 msgstr ""
 
-#: FormDiplomaTematico.form:121
+#: FormDiplomaTematico.form:124
 msgid "FOTO01"
 msgstr ""
 
-#: FormDiplomaTematico.form:128
+#: FormDiplomaTematico.form:131
 msgid "FOTO02"
 msgstr ""
 
-#: FormDiplomaTematico.form:134
+#: FormDiplomaTematico.form:138
 msgid "Haga click para elegir imagen"
 msgstr ""
 
-#: FormDiplomaTematico.form:160 FormRegistroDiplomados.form:209
+#: FormDiplomaTematico.form:169 FormRegistroDiplomados.form:209
 msgid "Poner Fondo Transparente"
 msgstr ""
 
-#: FormDiplomaTematico.form:185
+#: FormDiplomaTematico.form:194
 msgid "imagen opcional"
 msgstr ""
 
-#: FormDiplomaTematico.form:198
+#: FormDiplomaTematico.form:207
 msgid "FOTO004"
 msgstr ""
 
-#: FormDiplomaTematico.form:205
+#: FormDiplomaTematico.form:214
 msgid "FOTO05"
 msgstr ""
 
-#: FormDiplomaTematico.form:227
+#: FormDiplomaTematico.form:240
 msgid "Salir sin guardar los cambios"
 msgstr ""
 
-#: FormDiplomaTematico.form:253
+#: FormDiplomaTematico.form:266
 msgid "guarda las modificaciones en la plantilla actual"
 msgstr ""
 
-#: FormDiplomaTematico.form:254
+#: FormDiplomaTematico.form:267
 msgid "Guardar"
 msgstr ""
 
-#: FormDiplomaTematico.form:261
+#: FormDiplomaTematico.form:274
 msgid "guarda las modificaciones como un nuevo diploma"
 msgstr ""
 
-#: FormDiplomaTematico.form:262
+#: FormDiplomaTematico.form:275
 msgid "Guardar Como...."
 msgstr ""
 
-#: FormDiplomaTematico.form:269
+#: FormDiplomaTematico.form:282
 msgid "Texto Opcional: :"
 msgstr ""
 
-#: FormDiplomaTematico.form:281
+#: FormDiplomaTematico.form:294
 msgid "PLANTILLA02"
 msgstr ""
 
-#: FormDiplomaTematico.form:286
+#: FormDiplomaTematico.form:299
 msgid "Maquetación de la Plantilla / Distribución"
 msgstr ""
 
-#: FormDiplomaTematico.form:291
+#: FormDiplomaTematico.form:304
 msgid "Maquetación:"
 msgstr ""
 
-#: FormDiplomaTematico.form:306
+#: FormDiplomaTematico.form:314
 msgid "Añadir una plantilla .svg existente a la lista"
 msgstr ""
 
-#: FormDiplomaTematico.form:314
+#: FormDiplomaTematico.form:322
 msgid "Crea una plantilla con todas las opciones posibles"
 msgstr ""
 
-#: FormDiplomaTematico.form:315
+#: FormDiplomaTematico.form:323
 msgid "Crear "
 msgstr ""
 
-#: FormDiplomaTematico.form:322
+#: FormDiplomaTematico.form:330
 msgid "borra una plantilla"
 msgstr ""
 
-#: FormDiplomaTematico.form:323
+#: FormDiplomaTematico.form:331
 msgid "Quitar"
 msgstr ""
 
-#: FormDiplomaTematico.form:330
+#: FormDiplomaTematico.form:338
 msgid "Edita plantilla de maquetacion"
 msgstr ""
 
-#: FormDiplomaTematico.class:114 FormRegistroDiplomados.class:107
+#: FormDiplomaTematico.class:111 FormRegistroDiplomados.class:107
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormDiplomaTematico.class:116
+#: FormDiplomaTematico.class:113
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormDiplomaTematico.class:207
+#: FormDiplomaTematico.class:216
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:254
+#: FormDiplomaTematico.class:265
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:268
+#: FormDiplomaTematico.class:279
 msgid "Error al copiar palntilla"
 msgstr ""
 
-#: FormDiplomaTematico.class:335
+#: FormDiplomaTematico.class:346
 msgid "Se ha producido un error al intentar borrar una minuatura:"
+msgstr ""
+
+#: FormError.form:13
+msgid "Mensaje de Error:"
+msgstr ""
+
+#: FormError.form:19
+msgid "Copiar Al portapapeles"
 msgstr ""
 
 #: FormPensando.form:18
@@ -803,15 +811,15 @@ msgid ""
 "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:83 ModulePrincipal.module:26
+#: ModuleExportarImportarDiplomas.module:85 ModulePrincipal.module:26
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:251
+#: ModuleExportarImportarDiplomas.module:261
 msgid "Se ha añadido un nuevo tipo de letra al sistema:"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:251
+#: ModuleExportarImportarDiplomas.module:261
 msgid "Debe reiniciar la aplicación para poderla ver"
 msgstr ""
 

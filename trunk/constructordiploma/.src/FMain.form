@@ -5,7 +5,7 @@
   Icon = Picture["diploma-icono24.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(0,2,124,82)
+    MoveScaled(0,3,124,82)
     ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
     Count = 12
     Index = 0

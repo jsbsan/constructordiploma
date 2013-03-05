@@ -58,7 +58,9 @@ Public Function exportar(indice As Integer, ruta As String) As Boolean
     Return False
   Endif
   Return True
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Function importar(fichero As String) As Boolean
@@ -112,7 +114,9 @@ Public Function importar(fichero As String) As Boolean
   
   'añado a la lista de diplomas el nuevo objeto
   ModuleGestionDiploma.anadirRegistro(regdiploma)
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Function copiar(ruta As String, nombre As String) As Boolean
@@ -120,7 +124,9 @@ Public Function copiar(ruta As String, nombre As String) As Boolean
   If nombre <> "" Then 
     Copy ruta & "/" & nombre To ModulePrincipal.RutaPrograma & "/trabajotmp/exportar/" & nombre 
   Endif
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Function copiarFicheroImagenDiploma(nombrefichero As String, ruta As String) As String
@@ -160,7 +166,9 @@ Public Function copiarFicheroImagenDiploma(nombrefichero As String, ruta As Stri
   If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombrefichero
   
   Return nombrefichero
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Function copiarFicheroPlantillabase(nombrefichero As String, ruta As String) As String
@@ -202,7 +210,9 @@ Public Function copiarFicheroPlantillabase(nombrefichero As String, ruta As Stri
   If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrefichero
   
   Return nombrefichero
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Private Sub copiarletras(lista As String[], listaTiposDeLetra As ClassDatoLetra[])
@@ -255,5 +265,6 @@ Public Sub copiarLetrasAlSistema(Directorioorigen As String, listaTiposDeLetra A
     Next
     
   Endif
-  
+   Catch
+  ModuleMensajeError.SistemaDescripcionError()
 End

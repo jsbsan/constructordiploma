@@ -398,7 +398,7 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   regtmp.foto05 = reg.Foto05
   regtmp.tag = reg.tag
   
-  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase & Replace$(regtmp.tema, " ", "_"))) & "mini.png"
+  rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace$(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & Replace$(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_"))) & "mini.png"
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
