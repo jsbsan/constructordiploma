@@ -128,7 +128,9 @@ Public Function ObtenerListaLetrasSVG(archivo As String) As String[]
   Dim listaletras As New String[]
   Dim nombre As String
   Dim a As Integer
-  
+
+  Print "Obteniendo lista de letras SVG"
+  Print archivo
   salida = File.Load(archivo)
   lineas = Split(salida, "\n")
   

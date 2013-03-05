@@ -19,6 +19,10 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Dim rutaDescomprimida As String
   Dim resultado As Boolean
   Dim nombreRutaAntinua As String
+  Dim fpensando As New FormPensando
+  
+  fpensando.Show
+  
   'Operaciones a realizar
   '
   '
@@ -77,7 +81,13 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   'TODO: AbrirFichero: he descomprimido el fichero de datos, hay que cargar los datos al programa
   ' ************************************************************************
   RutaDatosDiplomas = nombre '
+  
+  fpensando.parar = True
+  fpensando.Delete
+  
   Return True
+Catch
+  ModuleImprimir.mensajeErrorPrevisualizacion(Error.Text, Error.Where)
   
 End
 

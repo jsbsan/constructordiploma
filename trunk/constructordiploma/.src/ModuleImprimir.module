@@ -450,7 +450,7 @@ Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
   
 End
 
-Private Sub mensajeErrorPrevisualizacion(textoerror As String, textocadena As String)
+Public Sub mensajeErrorPrevisualizacion(textoerror As String, textocadena As String)
   
   Message.Info(("Se ha producido un error al intentar crear una previsualizacion") & "\n" & textoerror & "\n" & textocadena)
   
