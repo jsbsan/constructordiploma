@@ -73,22 +73,28 @@
     Alignment = Align.Center
   }
   { PictureBoxFondo PictureBox
-    MoveScaled(2,18,20,13)
+    MoveScaled(2,19,20,13)
+    Tag = "foto01"
     ToolTip = ("Haga click para elegir imagen")
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
   }
   { PictureBoxMarco PictureBox
     MoveScaled(25,18,9,7)
+    Tag = "foto02"
     ToolTip = ("Haga click para elegir imagen")
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
   }
   { PictureBoxLogo PictureBox
     MoveScaled(50,18,11,12)
+    Tag = "foto03"
     ToolTip = ("Haga click para elegir imagen")
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
@@ -111,7 +117,7 @@
   }
   { ToolButton2 ToolButton botontransparente
     Name = "ToolButton2"
-    MoveScaled(22,25,6,6)
+    MoveScaled(22,26,6,6)
     Tag = "1"
     ToolTip = ("Poner Fondo Transparente")
     Picture = Picture["icono_transparente.png"]
@@ -141,14 +147,18 @@
   }
   { PictureBoxFoto04 PictureBox
     MoveScaled(7,37,11,12)
+    Tag = "foto04"
     ToolTip = ("Haga click para elegir imagen")
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
   }
   { PictureBoxFoto05 PictureBox
     MoveScaled(46,37,11,12)
+    Tag = "foto05"
     ToolTip = ("Haga click para elegir imagen")
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
@@ -170,7 +180,7 @@
   }
   { ToolButton5 ToolButton botontransparente
     Name = "ToolButton5"
-    MoveScaled(57,43,6,6)
+    MoveScaled(57,43,7,6)
     Tag = "5"
     ToolTip = ("Poner Fondo Transparente")
     Picture = Picture["icono_transparente.png"]
@@ -196,7 +206,7 @@
     Alignment = Align.Right
   }
   { TextBoxTag TextBox
-    MoveScaled(21,57,27,4)
+    MoveScaled(23,57,27,4)
     ToolTip = ("\"Al mejor Compañero\", \"Al mejor Ajedrecista\"")
   }
   { Label8 Label
@@ -215,10 +225,6 @@
     { TextBoxMaquetacion TextBox
       MoveScaled(15,0,23,4)
       ReadOnly = True
-    }
-    { ListBoxPlantillasBase ListBox
-      MoveScaled(41,0,44,23)
-      Font = Font["-1"]
     }
     { ToolButtonAnadirPlantilla ToolButton
       MoveScaled(1,6,14,5)
@@ -247,6 +253,19 @@
       Text = ("Editar")
       Picture = Picture["icon:/22/pen"]
       Border = True
+    }
+    { Panel1 Panel
+      MoveScaled(41,0,45,24)
+      { Panel2 Panel
+        MoveScaled(0,0,45,24)
+        { Panel3 Panel
+          MoveScaled(0,0,45,24)
+          { ListBoxPlantillasBase ListBox
+            MoveScaled(0,0,44,23)
+            Font = Font["-1"]
+          }
+        }
+      }
     }
   }
 }

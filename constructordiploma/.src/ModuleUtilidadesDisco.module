@@ -15,7 +15,9 @@ Public Sub vaciarDirectorio(ruta As String, Optional patron As String) ''Borrar 
       Try Kill ruta & "/" & file
     Next
   Endif
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError() 
+
 End
 
 Public Sub MoverFicheros(origen As String, destino As String) As Boolean
@@ -33,7 +35,9 @@ Public Sub MoverFicheros(origen As String, destino As String) As Boolean
   Endif
   
   Return True 'todo ha ido bien
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub extraedesdebarra(ruta As String) As String
@@ -51,7 +55,9 @@ Public Sub extraedesdebarra(ruta As String) As String
     Endif
     
   Next
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub extraeExtension(ruta As String) As String
@@ -69,7 +75,9 @@ Public Sub extraeExtension(ruta As String) As String
     Endif
     
   Next
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 '-------------------------------
@@ -89,7 +97,9 @@ Public Sub EsperarProceso(proceso As Process, Optional a As Integer, Optional pa
   Else
     If a <> 0 Then ModuleImprimir.EstadoDelTrabajoPaginas = a
   Endif
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As String, patron As String) As Boolean
@@ -104,7 +114,9 @@ Public Sub CopiarFicheros(Directorioorigen As String, Directoriodestino As Strin
   Endif
   
   Return True 'todo ha ido bien
-  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Function VerificarNombreEtiqueta(nombre As String, palabrasClave As String[], palabrasSustituir As String[]) As String
@@ -116,5 +128,6 @@ Public Function VerificarNombreEtiqueta(nombre As String, palabrasClave As Strin
     nombre = Replace$(nombre, palabrasClave[a], palabrasSustituir[a])
   Next
   Return nombre
-  
+   Catch
+  ModuleMensajeError.SistemaDescripcionError()
 End

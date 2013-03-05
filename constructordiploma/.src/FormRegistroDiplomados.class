@@ -253,10 +253,10 @@ End
 
 Public Sub ButtonIgualOtro_Click()
   
-  If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
-    Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
-    Return
-  Endif
+  'If ModuleGestionAlumno.Lista.Registros.max = -1 Then 
+  '  Message.Info(("Se trata del primer datos que introduces, no puede igualarlo al anterior"))
+  '  Return
+  'Endif
   If modo = 0 Then Return
   If modo = -1 Then 
     reg.tag = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.Registros.max].tag
@@ -267,4 +267,7 @@ Public Sub ButtonIgualOtro_Click()
   
   TextBoxTag.text = reg.tag
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()  
+
 End

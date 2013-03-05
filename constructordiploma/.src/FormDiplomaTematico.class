@@ -55,6 +55,9 @@ Public Sub Form_Open()
   
   Me.center
   ToolButtonPrevisualizar_Click()
+  sistemadeocultacion(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase)
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -64,6 +67,7 @@ Public Sub ToolButtonCancelarDiploma2_Click()
   borradoMiniatura()
   
   Me.Close
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -104,6 +108,17 @@ End
 
 Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   
+  Dialog.Title = ("Elija el archivo gráfico")
+  Dialog.PATH = User.HOME
+  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
+  If Dialog.OpenFile() Then Return
+  
+  Return asignaImagen2Paso(Dialog.Path, PictureBoxElegido)
+  
+End
+
+Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox) As String
+  
   Dim nombrecopia As String
   Dim extension As String
   Dim comparacion As String 'añadido para comprobar si existe un fichero con el mismo nombre y es igual
@@ -111,46 +126,40 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   Dim comando As String
   Dim nombresimple As String
   
-  Dialog.Title = ("Elija el archivo gráfico")
-  Dialog.PATH = User.HOME
-  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
-  If Not Dialog.OpenFile() Then 
-    
-    PictureBoxElegido.Picture = Picture[Dialog.Path]
-    PictureBoxElegido.tag = Dialog.Path
-    copiar = "si"
-    
-    nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
-    nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
-    
-    While (Exist(nombrecopia))
-      'si existe fichero con el mismo nombre, 1º comprobar si es igual...
-      comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
-      Shell comando To comparacion
-      If comparacion = "" Then 
-        'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
-        'no hago la copia
-        copiar = "no"
-        
-        Break
-      Endif
+  PictureBoxElegido.Picture = Picture[ruta]
+  PictureBoxElegido.tag = ruta
+  copiar = "si"
+  
+  nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
+  nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
+  
+  While (Exist(nombrecopia))
+    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+    comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
+    Shell comando To comparacion
+    If comparacion = "" Then 
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
       
-      'para que no machaque nombres de fichros...
-      extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
-      If extension <> "" Then 
-        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
-        copiar = "si"
-      Else
-        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
-        copiar = "si"
-      Endif
-      
-    Wend
-    
-    If copiar = "si" Then 
-      
-      Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+      Break
     Endif
+    
+    'para que no machaque nombres de fichros...
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
+    If extension <> "" Then 
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
+      copiar = "si"
+    Else
+      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+      copiar = "si"
+    Endif
+    
+  Wend
+  
+  If copiar = "si" Then 
+    
+    Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
   Endif
   
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
@@ -217,6 +226,8 @@ Public Sub ListBoxPlantillasBase_Click()
     
     TextBoxMaquetacion.text = ListBoxPlantillasBase.List[ListBoxPlantillasBase.index]
     reg.PlantillaBase = TextBoxMaquetacion.text
+    sistemadeocultacion(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase)
+    ModuleImprimir.PrevisualizarPlantillaTematicaRegistro(reg, DrawingAreaPrevisualizarMini)
   Endif
   
 End
@@ -333,6 +344,7 @@ Public Sub borradoMiniatura()
   If Exist(rutamini) Then Kill rutamini 
 Catch
   Message.Error(("Se ha producido un error al intentar borrar una minuatura:") & "\n" & rutamini)
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -343,5 +355,186 @@ Public Sub TextBoxNombreDiploma_LostFocus()
     ToolButtonAceptarDiploma.Enabled = False
     '
   Endif
+  
+End
+
+'--------------------------------------------------------------------------------------
+'Sistema de ocultar etiquetas / botones / picturesbox, si no estan en la plantilla actual
+'--------------------------------------------------------------------------------------
+
+Public Sub sistemadeocultacion(plantillaactual As String)
+  
+  Dim a As Integer
+  Dim contenido As String
+  Dim listadeEtiquetas As String[] = ["PLANTILLA01", "FOTO01", "FOTO02", "FOTO03", "FOTO04", "FOTO05", "PLANTILLA02"]
+  
+  'Inicialmente: poner todas las etiquetas como ocultas
+  For a = 0 To listadeEtiquetas.max
+    mostrarEtiquetas(a, False)
+  Next
+  
+  'cargamos la platillas
+  contenido = file.load(plantillaactual)
+  'comprobamos uno por uno los campo, si existe, activamos 
+  For a = 0 To listadeEtiquetas.max
+    If InStr(contenido, listadeEtiquetas[a]) <> 0 Then 
+      'existe la etiqueta en la plantilla
+      'mostrar label/textbox/picturebox        
+      mostrarEtiquetas(a, True)
+    Endif
+  Next
+  
+End
+
+'----------------------------------------------
+'mostrarEtiquetas(a As Integer)
+'----------------------------------------------
+
+Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
+  'el parametro "a" indica que grupo se va a modificar la vision
+  'el parametro "mostrar", es del tipo boolean, y asignara el valor true o false a las propiedades del mostrar.
+  
+  Select Case a
+    Case 0
+      TextBoxTema.visible = mostrar
+    Case 1
+      PictureBoxFondo.visible = mostrar
+      ToolButton2.visible = mostrar
+    Case 2
+      PictureBoxMarco.visible = mostrar
+      ToolButton3.visible = mostrar
+      
+    Case 3
+      PictureBoxLogo.visible = mostrar
+      ToolButton4.visible = mostrar
+    Case 4
+      PictureBoxFoto04.visible = mostrar
+      ToolButton1.Visible = mostrar
+      
+    Case 5
+      PictureBoxFoto05.visible = mostrar
+      ToolButton5.Visible = mostrar
+    Case 6
+      TextBoxTag.visible = mostrar
+      
+  End Select
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+'---------------------------------------------
+'Soltar imagenes....
+'---------------------------------------------
+Public Sub PictureBoxFondo_Drop()
+  'Url de referencia: 
+  'http://www.gambas-es.org/viewtopic.php?f=1&t=2054&highlight=drag+drop&start=10
+  
+  reg.ImagenFondo = suelta(PictureBoxFondo)
+  PictureBoxFondo.tag = reg.ImagenFondo  
+  
+End
+
+Public Sub suelta(cajapicture As PictureBox) As String
+  
+  Dim nombre As String
+  Dim a As String
+  Dim b As String[]
+  
+  a = Drag.data ' limitamos el tipo de los datos pegados
+  b = Split(a, gb.CrLf, "", True) ' cargamos la lista de rutas en un array b
+  ' escapando las terminaciones de línea
+  b[0] = Replace(b[0], "\x00", "")
+  If Left(b[0], 7) = "file://" Then 
+    a = Null  ' reutilizamos la variable "a"
+    
+    a = Right$(b[0], -7) ' quitamos "file://"
+    a = URLDecode(a)  ' descodificamos las cadenas
+    
+    'fichero de ruta...
+    Return asignaImagen2Paso(a, cajapicture)
+    
+  Else
+    'comprobar si proviene de navegador http 
+    a = Replace(a, "\x00", "")
+    If InStr(a, "www.google") <> 0 Then 
+      a = comun.Between(a, "imgurl=", "&")  
+      a = URLDecode(a)  ' descodificamos las cadenas
+      nombre = "/tmp/1." & Right$(a, 3)
+      Exec ["wget", a, "-O", nombre] Wait
+      'fichero de ruta...
+      Return asignaImagen2Paso(nombre, cajapicture)
+      
+    Endif
+  Endif
+  
+End
+
+Static Private Function URLDecode(txt As String) As String
+  ''' Descodifica los caracteres hexadecimales en las URI's recorriendo la cadena dada
+  ''' Params: txt la URI a descodificar
+  ''' Return: la URI descodificada
+  
+  Dim txt_len As Integer
+  Dim i As Integer
+  Dim ch As String
+  Dim digits As String
+  Dim resultado As String
+  
+  resultado = ""
+  txt_len = Len(txt)
+  i = 1
+  Do While i <= txt_len
+    ' Examinar el siguiente caracter
+    ch = Mid$(txt, i, 1)
+    If ch = "+" Then
+      ' Convertir a espacio
+      resultado = resultado & " "
+    Else If ch <> "%" Then
+      ' Normal, no cambiar
+      resultado = resultado & ch
+    Else If i > txt_len - 2 Then
+      resultado = resultado & ch
+    Else
+      ' Obtener los siguientes caracteres hex.
+      digits = Mid$(txt, i + 1, 2)
+      ' Debug digits
+      ' aquí convertimos el valor hexadecimal a entero y
+      ' se lo pasamos a Chr que devuelve el carácter correcto.
+      resultado = resultado & Chr$(CInt(Val("&" & digits)))
+      i = i + 2
+    Endif
+    i = i + 1
+  Loop
+  
+  Return resultado
+  
+End
+
+Public Sub PictureBoxMarco_Drop()
+  
+  reg.ImagenMarco = suelta(PictureBoxMarco)
+  PictureBoxMarco.tag = reg.ImagenMarco
+  
+End
+
+Public Sub PictureBoxLogo_Drop()
+  
+  reg.ImagenLogo = suelta(PictureBoxlogo)
+  PictureBoxlogo.tag = reg.ImagenLogo
+  
+End
+
+Public Sub PictureBoxFoto04_Drop()
+  
+  reg.Foto04 = suelta(PictureBoxFoto04)
+  PictureBoxfoto04.tag = reg.Foto04
+  
+End
+
+Public Sub PictureBoxFoto05_Drop()
+  
+  reg.Foto05 = suelta(PictureBoxFoto05)
+  PictureBoxfoto05.tag = reg.Foto05
   
 End
