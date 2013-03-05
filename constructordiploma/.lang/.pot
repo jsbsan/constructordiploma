@@ -677,27 +677,27 @@ msgstr ""
 msgid "Edita plantilla de maquetacion"
 msgstr ""
 
-#: FormDiplomaTematico.class:111 FormRegistroDiplomados.class:107
+#: FormDiplomaTematico.class:117 FormRegistroDiplomados.class:107
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormDiplomaTematico.class:113
+#: FormDiplomaTematico.class:119
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormDiplomaTematico.class:216
+#: FormDiplomaTematico.class:222
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:265
+#: FormDiplomaTematico.class:271
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:279
+#: FormDiplomaTematico.class:285
 msgid "Error al copiar palntilla"
 msgstr ""
 
-#: FormDiplomaTematico.class:346
+#: FormDiplomaTematico.class:352
 msgid "Se ha producido un error al intentar borrar una minuatura:"
 msgstr ""
 
@@ -806,20 +806,20 @@ msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:173
+#: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:183
 msgid ""
 "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:85 ModulePrincipal.module:26
+#: ModuleExportarImportarDiplomas.module:85 ModulePrincipal.module:30
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:261
+#: ModuleExportarImportarDiplomas.module:263
 msgid "Se ha añadido un nuevo tipo de letra al sistema:"
 msgstr ""
 
-#: ModuleExportarImportarDiplomas.module:261
+#: ModuleExportarImportarDiplomas.module:263
 msgid "Debe reiniciar la aplicación para poderla ver"
 msgstr ""
 
@@ -849,19 +849,19 @@ msgstr ""
 msgid "Se ha producido un error, al intentar copiar la plantilla"
 msgstr ""
 
-#: ModulePrincipal.module:97
+#: ModulePrincipal.module:107
 msgid "No encuentro fichero de datos"
 msgstr ""
 
-#: ModulePrincipal.module:116
+#: ModulePrincipal.module:126
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:131
+#: ModulePrincipal.module:141
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:133
+#: ModulePrincipal.module:143
 msgid "Problemas al comprimir datos"
 msgstr ""
 

@@ -55,7 +55,7 @@ Public Sub Form_Open()
   
   Me.center
   ToolButtonPrevisualizar_Click()
-  sistemadeocultacion(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase)
+  sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
@@ -87,6 +87,12 @@ Public Sub ToolButtonAceptarDiploma_Click()
   reg.ImagenMarco = PictureBoxMarco.Tag
   reg.Foto04 = PictureBoxFoto04.Tag
   reg.Foto05 = PictureBoxFoto05.Tag
+  
+  'comprobar si la plantilla esta en el directorio del temporal....
+  If Not Exist(ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & TextBoxMaquetacion.text) Then
+    'realizo copia de la plantilla
+    Copy ModulePrincipal.RutaPrograma & "PlantillasBases/" & TextBoxMaquetacion.text To ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & TextBoxMaquetacion.text
+  Endif
   
   If modo = anadir Then
     ModuleGestionDiploma.anadirRegistro(reg)
@@ -226,7 +232,7 @@ Public Sub ListBoxPlantillasBase_Click()
     
     TextBoxMaquetacion.text = ListBoxPlantillasBase.List[ListBoxPlantillasBase.index]
     reg.PlantillaBase = TextBoxMaquetacion.text
-    sistemadeocultacion(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase)
+    sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase)
     ModuleImprimir.PrevisualizarPlantillaTematicaRegistro(reg, DrawingAreaPrevisualizarMini)
   Endif
   
@@ -383,6 +389,8 @@ Public Sub sistemadeocultacion(plantillaactual As String)
       mostrarEtiquetas(a, True)
     Endif
   Next
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 

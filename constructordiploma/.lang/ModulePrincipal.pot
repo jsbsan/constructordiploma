@@ -14,27 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModulePrincipal.module:26
+#: ModulePrincipal.module:30
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:97
+#: ModulePrincipal.module:107
 msgid "No encuentro fichero de datos"
 msgstr ""
 
-#: ModulePrincipal.module:116
+#: ModulePrincipal.module:126
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:131
+#: ModulePrincipal.module:141
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:133
+#: ModulePrincipal.module:143
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:173
+#: ModulePrincipal.module:183
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 
