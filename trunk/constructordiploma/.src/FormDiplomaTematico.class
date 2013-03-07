@@ -114,12 +114,18 @@ End
 
 Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   
-  Dialog.Title = ("Elija el archivo gráfico")
-  Dialog.PATH = User.HOME
-  Dialog.Filter = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
-  If Dialog.OpenFile() Then Return
+  Dim dialogofile As New FormElegirFichero
+  Dim dat As New ClassDato
   
-  Return asignaImagen2Paso(Dialog.Path, PictureBoxElegido)
+  dialogofile.valor = dat
+  
+  dialogofile.Titulo = ("Elija el archivo gráfico")
+  dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
+  dialogofile.ShowModal()
+  
+  If dat.dato = "-1" Then Return
+  
+  Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
   
 End
 
@@ -316,7 +322,6 @@ End
 Public Sub botontransparente_Click()
   
   Dim numero As Integer
-  Dim boton As Integer
   
   numero = Val(Last.tag)
   

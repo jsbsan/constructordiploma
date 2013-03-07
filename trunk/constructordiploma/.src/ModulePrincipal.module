@@ -17,7 +17,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Dim zip As New ClassZip
   Dim borrasubruta As String
   Dim rutaDescomprimida As String
-  Dim resultado As Boolean
+  
   Dim nombreRutaAntinua As String
   Dim fpensando As New FormPensando
   
