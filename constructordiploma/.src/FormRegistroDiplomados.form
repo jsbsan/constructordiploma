@@ -59,12 +59,14 @@
   }
   { PictureBoxFoto05 PictureBox
     MoveScaled(3,44,12,13)
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
   }
   { PictureBoxFoto06 PictureBox
     MoveScaled(36,44,12,13)
+    Drop = True
     Picture = Picture["icono_galeria2.jpg"]
     Stretch = True
     Border = Border.Plain
@@ -126,13 +128,13 @@
   { Label17 Label
     MoveScaled(4,40,9,4)
     Font = Font["Bitstream Charter,Italic,-1"]
-    Text = ("FOTO005")
+    Text = ("FOTO006")
     Alignment = Align.Center
   }
   { Label18 Label
     MoveScaled(37,40,9,4)
     Font = Font["Bitstream Charter,Italic,-1"]
-    Text = ("FOTO006")
+    Text = ("FOTO007")
     Alignment = Align.Center
   }
   { ToolButton2 ToolButton botontransparente
