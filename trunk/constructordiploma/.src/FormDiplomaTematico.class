@@ -132,6 +132,12 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   Dim comando As String
   Dim nombresimple As String
   
+  If Not Exist(ruta) Then
+    Message.Info(("No se ha podido descargarse el archivo")) 
+    Return 
+  Endif
+  
+  PictureBoxElegido.Picture = Picture["importar.png"]
   PictureBoxElegido.Picture = Picture[ruta]
   PictureBoxElegido.tag = ruta
   copiar = "si"
@@ -380,7 +386,7 @@ Public Sub sistemadeocultacion(plantillaactual As String)
   Next
   
   'cargamos la platillas
-  contenido = file.load(plantillaactual)
+  contenido = Upper$(file.load(plantillaactual))
   'comprobamos uno por uno los campo, si existe, activamos 
   For a = 0 To listadeEtiquetas.max
     If InStr(contenido, listadeEtiquetas[a]) <> 0 Then 
@@ -448,6 +454,7 @@ Public Sub suelta(cajapicture As PictureBox) As String
   Dim nombre As String
   Dim a As String
   Dim b As String[]
+  Dim fpensando As New FormPensando
   
   a = Drag.data ' limitamos el tipo de los datos pegados
   b = Split(a, gb.CrLf, "", True) ' cargamos la lista de rutas en un array b
@@ -468,9 +475,25 @@ Public Sub suelta(cajapicture As PictureBox) As String
     If InStr(a, "www.google") <> 0 Then 
       a = comun.Between(a, "imgurl=", "&")  
       a = URLDecode(a)  ' descodificamos las cadenas
-      nombre = "/tmp/1." & Right$(a, 3)
+      
+      If cajapicture.tag = "1." & Right$(a, 3) Then 
+        nombre = "1" 
+      Else
+        nombre = "2"
+      Endif
+      
+      nombre = "/tmp/" & nombre & "." & Right$(a, 3)
+      Try Kill nombre 'borro nombre anterior
+      cajapicture.Picture = Picture["importar.png"]
+      cajapicture.Refresh()
+      Wait 0.1
+      fpensando.show()
+      Wait 0.1
       Exec ["wget", a, "-O", nombre] Wait
       'fichero de ruta...
+      Wait 0.1
+      fpensando.Delete()
+      
       Return asignaImagen2Paso(nombre, cajapicture)
       
     Endif
@@ -478,7 +501,7 @@ Public Sub suelta(cajapicture As PictureBox) As String
   
 End
 
-Static Private Function URLDecode(txt As String) As String
+Private Function URLDecode(txt As String) As String
   ''' Descodifica los caracteres hexadecimales en las URI's recorriendo la cadena dada
   ''' Params: txt la URI a descodificar
   ''' Return: la URI descodificada

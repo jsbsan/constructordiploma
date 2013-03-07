@@ -62,47 +62,47 @@ msgstr ""
 msgid "Otro texto:"
 msgstr ""
 
-#: FormRegistroDiplomados.form:152
+#: FormRegistroDiplomados.form:154
 msgid "CAMPO01"
 msgstr ""
 
-#: FormRegistroDiplomados.form:159
+#: FormRegistroDiplomados.form:161
 msgid "CAMPO02"
 msgstr ""
 
-#: FormRegistroDiplomados.form:166
+#: FormRegistroDiplomados.form:168
 msgid "CAMPO03"
 msgstr ""
 
-#: FormRegistroDiplomados.form:173
+#: FormRegistroDiplomados.form:175
 msgid "CAMPO04"
 msgstr ""
 
-#: FormRegistroDiplomados.form:180
+#: FormRegistroDiplomados.form:182
 msgid "CAMPO05"
 msgstr ""
 
-#: FormRegistroDiplomados.form:187
+#: FormRegistroDiplomados.form:189
 msgid "CAMPO06"
 msgstr ""
 
-#: FormRegistroDiplomados.form:194
-msgid "FOTO005"
-msgstr ""
-
-#: FormRegistroDiplomados.form:201
+#: FormRegistroDiplomados.form:196
 msgid "FOTO006"
 msgstr ""
 
-#: FormRegistroDiplomados.form:209
+#: FormRegistroDiplomados.form:203
+msgid "FOTO007"
+msgstr ""
+
+#: FormRegistroDiplomados.form:211
 msgid "Poner Fondo Transparente"
 msgstr ""
 
-#: FormRegistroDiplomados.form:225
+#: FormRegistroDiplomados.form:227
 msgid "Poner el mismo texto del registro anterior"
 msgstr ""
 
-#: FormRegistroDiplomados.form:226
+#: FormRegistroDiplomados.form:228
 msgid "="
 msgstr ""
 
@@ -114,7 +114,11 @@ msgstr ""
 msgid "Fichero de Imagenes"
 msgstr ""
 
-#: FormRegistroDiplomados.class:168
+#: FormRegistroDiplomados.class:176
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
+msgstr ""
+
+#: FormRegistroDiplomados.class:466
+msgid "No se ha podido descargarse el archivo"
 msgstr ""
 

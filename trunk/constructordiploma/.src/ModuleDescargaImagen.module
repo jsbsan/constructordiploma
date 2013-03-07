@@ -1,0 +1,72 @@
+' Gambas module file
+
+Public Sub fichero(a As String, cajapicture As PictureBox) As String
+  
+  Dim nombre As String
+  Dim fpensando As New FormPensando
+  
+  a = Replace(a, "\x00", "")
+  If InStr(a, "www.google") <> 0 Then 
+    a = comun.Between(a, "imgurl=", "&")  
+    a = URLDe(a)
+    If cajapicture.tag = "1." & Right$(a, 3) Then 
+      nombre = "1" 
+    Else
+      nombre = "2"
+    Endif
+    
+    nombre = "/tmp/" & nombre & "." & Right$(a, 3)
+    Try Kill nombre 'borro nombre anterior
+    cajapicture.Picture = Picture["importar.png"]
+    cajapicture.Refresh()
+    Wait 0.1
+    fpensando.show()
+    Wait 0.1
+    Exec ["wget", a, "-O", nombre] Wait
+    'fichero de ruta...
+    Wait 0.1
+    fpensando.Delete()
+    
+    Return a
+    
+  Endif
+  
+End
+
+Public Function URLDe(txt As String) As String
+  
+  Dim txt_len As Integer
+  Dim i As Integer
+  Dim ch As String
+  Dim digits As String
+  Dim resultado As String
+  
+  resultado = ""
+  txt_len = Len(txt)
+  i = 1
+  Do While i <= txt_len
+    ' Examinar el siguiente caracter
+    ch = Mid$(txt, i, 1)
+    If ch = "+" Then
+      ' Convertir a espacio
+      resultado = resultado & " "
+    Else If ch <> "%" Then
+      ' Normal, no cambiar
+      resultado = resultado & ch
+    Else If i > txt_len - 2 Then
+      resultado = resultado & ch
+    Else
+      ' Obtener los siguientes caracteres hex.
+      digits = Mid$(txt, i + 1, 2)
+      ' Debug digits
+      ' aquí convertimos el valor hexadecimal a entero y
+      ' se lo pasamos a Chr que devuelve el carácter correcto.
+      resultado = resultado & Chr$(CInt(Val("&" & digits)))
+      i = i + 2
+    Endif
+    i = i + 1
+  Loop
+  
+  Return resultado
+  
+End

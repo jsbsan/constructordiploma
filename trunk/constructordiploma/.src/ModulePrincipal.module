@@ -22,7 +22,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Dim fpensando As New FormPensando
   
   fpensando.Show
-  
+  Wait 0.1
   'Operaciones a realizar
   '
   '
