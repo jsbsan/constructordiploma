@@ -350,7 +350,7 @@ Public Sub CheckBoxTitulosDiplomaTematico_Click()
   ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 Public Sub CheckBoxTitulos_Click()
@@ -359,7 +359,7 @@ Public Sub CheckBoxTitulos_Click()
   ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 Public Sub ToolButtonPrevisualizar_Click()
@@ -379,7 +379,7 @@ Public Sub ToolButtonPrevisualizar_Click()
   Endif
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 'extraer primeros digitos del hasta llegar a la Barra Vertical.
@@ -820,4 +820,5 @@ Public Sub AbrirDiplomasIniciales()
   Endif
 Catch
   ModuleMensajeError.SistemaDescripcionError()
+  
 End

@@ -3,7 +3,6 @@
 ' 
 Public Sub IniciarLaPrimeraVez(rutaprograma As String)
   
-  Dim a As Integer 'contador para bucle For...Next
   ' User.Home & "/ConstructorDiplomas/"
   'Crear Directorios del trabajo Actual
   If Not Exist(rutaprograma) Then Mkdir rutaprograma
@@ -85,7 +84,6 @@ Public Sub RellenarGridViewsTematico(rejilla As ClassSuperGridview, lista As Cla
   Dim a As Integer
   Dim regtmp As ClassDiplomaTematico
   Dim contadorPosicionFilaGrid As Integer
-  Dim fechanumero As String
   
   rejilla.indice.Clear()
   contadorPosicionFilaGrid = 0
@@ -206,7 +204,6 @@ End
 'CARGA DE LISTA DE PLANTILLAS BASE:
 Public Sub CARGALISTA(lbox As ListBox, rutaprograma As String, Optional patron As String)
   
-  Dim ruta As String
   Dim file As String
   
   lbox.Clear()
@@ -224,7 +221,6 @@ End
 
 Public Sub CargaComboBox(lbox As ComboBox, rutaprograma As String, Optional patron As String)
   
-  Dim ruta As String
   Dim file As String
   
   lbox.Clear()

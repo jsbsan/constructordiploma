@@ -1,0 +1,30 @@
+' Gambas class file
+
+Public OpenFile As Boolean
+Public titulo As String 
+Public rutaPATH As String
+Public Filtro As String[]
+Public valor As New ClassDato
+
+Public Sub ToolButtonCancelar_Click()
+  
+  valor.dato = "-1"
+  Me.Close
+  
+End
+
+Public Sub Form_Open()
+  
+  FileChooser1.Filter = Filtro
+  Me.Caption = titulo
+  FileChooser1.ReadOnly = True
+  Print FileChooser1.Dir
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+  valor.dato = FileChooser1.vALUE
+  Me.Close
+
+End

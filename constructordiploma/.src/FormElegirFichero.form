@@ -1,0 +1,22 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,101,67)
+  { FileChooser1 FileChooser
+    MoveScaled(3,1,97,59)
+    ShowPreview = True
+    ShowFile = False
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(28,61,16,4)
+    Text = ("Aceptar")
+    Picture = Picture["icon:/22/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(54,61,16,4)
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+}

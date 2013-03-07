@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleIntermedio.module:312
+#: ModuleIntermedio.module:308
 msgid "Se ha producido un error, al intentar copiar la plantilla"
 msgstr ""
 
