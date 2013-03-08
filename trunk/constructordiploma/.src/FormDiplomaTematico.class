@@ -144,6 +144,7 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   Endif
   
   PictureBoxElegido.Picture = Picture["importar.png"]
+  Wait 0.1
   PictureBoxElegido.Picture = Picture[ruta]
   PictureBoxElegido.tag = ruta
   copiar = "si"
@@ -178,6 +179,11 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   If copiar = "si" Then 
     
     Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+    PictureBoxElegido.Picture = Picture["importar.png"]
+    Wait 0.1
+    PictureBoxElegido.Picture = Picture[nombrecopia]
+    PictureBoxElegido.tag = nombrecopia
+    
   Endif
   
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)

@@ -506,6 +506,8 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   If copiar = "si" Then 
     
     Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+    PictureBoxElegido.Picture = Picture["importar.png"]
+    Wait 0.1
   Endif
   
   PictureBoxElegido.Picture = Picture[nombrecopia]
