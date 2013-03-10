@@ -156,9 +156,10 @@ Public Sub IconPanel1_Click()
   If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
+      Dialog.PATH = User.HOME & "/"
       Dialog.Title = ("Guardar como....")
       Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
-      Dialog.PATH = User.HOME
+      
       If Not Dialog.SaveFile() Then 
         ModulePrincipal.RutaDatosDiplomas = Replace$(Dialog.Path, ".ConstructorDiplomas", "")
       Else
@@ -725,7 +726,7 @@ End
 
 Public Sub ToolButtonImportarDiploma_Click()
   
-  Dialog.path = User.Home
+  Dialog.path = User.Home & "/"
   Dialog.Title = ("Importar diploma: Elija el archivo")
   Dialog.Filter = ["*.Diploma", "*.Diploma"]
   If Not Dialog.OpenFile() Then 

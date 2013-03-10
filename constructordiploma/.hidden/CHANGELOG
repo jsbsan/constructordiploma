@@ -1,3 +1,6 @@
+* Sun Mar 10 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.32
+- Corregido formulario de introduccion de registro (repeticion de imagenes subidas)
+
 * Fri Mar 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.31
 - Mejora para pegar url en cuadros de dialogos de eleccion ficheros
 

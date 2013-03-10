@@ -276,6 +276,7 @@ End
 Public Sub ToolButtonCrearPlantilla_Click()
   '  Dim tex As String
   
+  Dim fpensando As New FormPensando
   Dim salir As Boolean = True
   Dim comando As String
   Dim nombrePlantillaNueva As String
@@ -295,9 +296,14 @@ Public Sub ToolButtonCrearPlantilla_Click()
   
   Try Copy ModulePrincipal.RutaPrograma & "PlantillasBases/plantilla0.svg" To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
   If Not Error Then 
+    fpensando.show()
+    Wait 0.1
     comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
     Shell comando Wait
     ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+    fpensando.parar = True
+    fpensando.Delete()
+    
   Else
     
     Message.Info(("Error al copiar palntilla"))
