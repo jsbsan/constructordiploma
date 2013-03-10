@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,103,91)
+  MoveScaled(0,0,103,93)
   Icon = Picture["icon:/22/edit"]
   Resizable = False
   { TextBoxNombreDiploma TextBox
@@ -215,7 +215,7 @@
     Text = ("PLANTILLA02")
   }
   { ExpanderMaquetacion Expander
-    MoveScaled(0,63,98,30)
+    MoveScaled(2,62,97,29)
     Text = ("Maquetación de la Plantilla / Distribución")
     Hidden = True
     { Label13 Label
@@ -261,7 +261,7 @@
         { Panel3 Panel
           MoveScaled(0,0,45,24)
           { ListBoxPlantillasBase ListBox
-            MoveScaled(0,0,44,23)
+            MoveScaled(0,1,44,22)
             Font = Font["-1"]
           }
         }
