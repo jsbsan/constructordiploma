@@ -18,33 +18,37 @@ Public Sub _new()
 End
 
 Public Sub Form_Open()
-  
-  Print "Iniciando... vientos tipos de letras"
-  listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
-  Print "         ... comprobando version"
-  ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
-  comun.comprobarEntorno()
-  
-  Label16.text = "Versión: Beta " & Application.Version
-  Me.Center
-  
-  Print "          ... creando directorios y copiando archivos "
-  'inicio el programa: creo directorios y copio archivos...
-  ModuleIntermedio.IniciarLaPrimeraVez(ModulePrincipal.RutaPrograma)
-  'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
-  GridViewRegistros = New ClassSuperGridview(IconPanel1[3])
-  Observador1 = New Observer(GridViewRegistros) As "ObservadorGridViewRegistros"
-  
-  GridViewDiplomaTematico = New ClassSuperGridview(IconPanel1[6])
-  Observador2 = New Observer(GridViewDiplomaTematico) As "ObservadorGridViewDiplomaTematico"
-  'definir los gridviews (dimensiones y columnas)
-  
-  ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros)
-  ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico)
-  
-  'INICAR CON "Base.ConstructorDiplomas
-  Print "          --- Abriendo diplomas iniciales"
-  AbrirDiplomasIniciales()
+
+  If ModuleUnicaVez.ejecutandoUnicaCopia("ConstructorDiplomas.gambas") <> True Then
+    Print "Iniciando... vientos tipos de letras"
+    listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
+    Print "         ... comprobando version"
+    ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
+    comun.comprobarEntorno()
+    
+    Label16.text = "Versión: Beta " & Application.Version
+    Me.Center
+    
+    Print "          ... creando directorios y copiando archivos "
+    'inicio el programa: creo directorios y copio archivos...
+    ModuleIntermedio.IniciarLaPrimeraVez(ModulePrincipal.RutaPrograma)
+    'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
+    GridViewRegistros = New ClassSuperGridview(IconPanel1[3])
+    Observador1 = New Observer(GridViewRegistros) As "ObservadorGridViewRegistros"
+    
+    GridViewDiplomaTematico = New ClassSuperGridview(IconPanel1[6])
+    Observador2 = New Observer(GridViewDiplomaTematico) As "ObservadorGridViewDiplomaTematico"
+    'definir los gridviews (dimensiones y columnas)
+    
+    ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros)
+    ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico)
+    
+    'INICAR CON "Base.ConstructorDiplomas
+    Print "          --- Abriendo diplomas iniciales"
+    AbrirDiplomasIniciales()
+  Else
+    Me.Close()
+  Endif
   
 End
 

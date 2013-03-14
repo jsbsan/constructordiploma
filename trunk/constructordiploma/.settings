@@ -1,6 +1,5 @@
 [Bookmarks]
 ModuleImprimir=[344]
-FormRegistroDiplomados=[]
 
 [Breakpoints]
 Count=0
@@ -150,7 +149,8 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:236.31"
+Active=6
+File[6]=".src/FMain.class:17.3"
 File[7]=".src/ModulePrincipal.module:19.2"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:50.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:27.64"
@@ -159,7 +159,7 @@ File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
 File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:29.3"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
 File[14]=".src/ModuleUtilidadesDisco.module:48.28"
-File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:22.2"
+File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:40.7"
 File[16]=".src/Clases/ClassZip.class:37.38"
 File[17]=".src/Clases/Diplomas/ModuleGestionDiploma.module:75.74"
 File[18]="imagenes/marco.png"
@@ -167,12 +167,11 @@ File[19]="imagenes/logo.png"
 File[20]="imagenes/fondo.png"
 File[21]=".src/ModuleImprimir.module:5.10"
 File[22]=".src/ModuleIntermedio.module:222.2"
-File[23]=".src/FormDiplomaTematico.class:129.3"
+File[23]=".src/FormDiplomaTematico.class:455.0"
 File[24]="icono_galeria2.jpg"
 File[25]="previsualizar.png"
 File[26]=".src/FormRegistroDiplomados.form"
-Active=27
-File[27]=".src/FormRegistroDiplomados.class:109.55"
+File[27]=".src/FormRegistroDiplomados.class:8.2"
 File[28]="transparente.png"
 File[29]="inkscape-icono.png"
 File[30]="mininopicaros2012.png"
@@ -196,7 +195,7 @@ File[47]="icono_transparente.png"
 File[48]=".src/ModuleHacerTransparente.module:19.134"
 File[49]=".src/FormPensando.form"
 File[50]=".src/FormPensando.class:18.2"
-File[51]=".src/comun.module:125.2"
+File[51]=".src/comun.module:76.41"
 File[52]="googledriveacceso.png"
 File[53]=".src/ModuleUpdate.module:3.0"
 File[54]=".src/ClassDatoLetra.class:7.39"
@@ -208,7 +207,8 @@ File[59]=".src/ModuleDescargaImagen.module:2.68"
 File[60]=".src/FormElegirFichero.form"
 File[61]=".src/FormElegirFichero.class:26.2"
 File[62]=".src/Clases/ClassDato.class:13.15"
-Count=62
+File[63]=".src/ModuleUnicaVez.module:2.36"
+Count=63
 
 [VersionControl]
 RememberPassword=1
