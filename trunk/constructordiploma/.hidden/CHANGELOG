@@ -1,3 +1,7 @@
+* Wed Mar 20 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.34
+- Corregido error al intentatar crear nueva plantilla (quitar campos)
+- Mejorado la presentacion del gato pensando (dura un poco)
+
 * Sun Mar 10 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.32
 - Corregido formulario de introduccion de registro (repeticion de imagenes subidas)
 

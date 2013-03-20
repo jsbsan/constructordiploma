@@ -236,7 +236,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   Dim fpensando As New FormPensando
   
   fpensando.Show
-  Wait 0.1
+  Wait 0.5
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
   regtmp.ImagenFondo = ModuleGestionDiploma.lista.Registros[indice].ImagenFondo
@@ -297,7 +297,7 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   Dim fpensando As New FormPensando
   
   fpensando.Show
-  Wait 0.1
+  Wait 0.5
   '0º Paso: borrado de archivos anteriores
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
@@ -388,7 +388,7 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   Dim comando As String
   
   fpensando.Show
-  Wait 0.1
+  Wait 0.5
   regtmp.PlantillaBase = reg.PlantillaBase
   regtmp.Tema = reg.Tema
   regtmp.ImagenFondo = reg.ImagenFondo

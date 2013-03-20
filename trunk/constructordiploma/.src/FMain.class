@@ -18,7 +18,7 @@ Public Sub _new()
 End
 
 Public Sub Form_Open()
-
+  
   If ModuleUnicaVez.ejecutandoUnicaCopia("ConstructorDiplomas.gambas") <> True Then
     Print "Iniciando... vientos tipos de letras"
     listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
@@ -47,6 +47,9 @@ Public Sub Form_Open()
     Print "          --- Abriendo diplomas iniciales"
     AbrirDiplomasIniciales()
   Else
+    'como ya hay una instancia de esta aplicacion abierta, salgo
+    ModuleGestionAlumno.Guardado = True
+    ModuleGestionDiploma.guardado = True 
     Me.Close()
   Endif
   

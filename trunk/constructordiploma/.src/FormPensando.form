@@ -14,7 +14,7 @@
     Alignment = Align.Center
   }
   { MovieBox1 MovieBox
-    MoveScaled(2,0,23,24)
+    MoveScaled(5,0,23,24)
     Path = "gatos-lana-2.gif"
     Playing = True
   }

@@ -402,7 +402,11 @@ Public Sub sistemadeocultacion(plantillaactual As String)
     mostrarEtiquetas(a, False)
   Next
   
+  'si no existe plantilla actual no muestra ninguna etiqueta... (es un directorio lo q nos han pasado)
+  If IsDir(plantillaactual) Then Return
+  
   'cargamos la platillas
+  
   contenido = Upper$(file.load(plantillaactual))
   'comprobamos uno por uno los campo, si existe, activamos 
   For a = 0 To listadeEtiquetas.max

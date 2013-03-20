@@ -22,7 +22,7 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   Dim fpensando As New FormPensando
   
   fpensando.Show
-  Wait 0.1
+  Wait 0.2
   'Operaciones a realizar
   '
   '
@@ -57,6 +57,8 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
   ModuleUtilidadesDisco.MoverFicheros(rutaprograma & "temporales/FotosRegistros/", rutaprograma & "temporales/FotosRegistros")
   
   ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & "PlantillasBases", RutaPrograma & "temporales/PlantillasBases")
+  ModuleUtilidadesDisco.CopiarFicheros(RutaPrograma & "temporales/PlantillasBases", RutaPrograma & "/PlantillasBases", "*.*")
+  
   'ModuleUtilidadesDisco.MoverFicheros(User.Home & "/" & NombreCarpetaPrograma & "temporales/PlantillasBases/", User.Home & "/" & NombreCarpetaPrograma & "/temporales")
   
   ModuleUtilidadesDisco.MoverFicheros(rutaDescomprimida & "FotosPlantillasTematica", rutaprograma & "/temporales/FotosPlantillasTematica")
