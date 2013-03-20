@@ -18,23 +18,23 @@ msgstr ""
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
 msgstr ""
 
-#: ModulePrincipal.module:107
+#: ModulePrincipal.module:109
 msgid "No encuentro fichero de datos"
 msgstr ""
 
-#: ModulePrincipal.module:126
+#: ModulePrincipal.module:128
 msgid "Nombre de archivo incorrecto"
 msgstr ""
 
-#: ModulePrincipal.module:141
+#: ModulePrincipal.module:143
 msgid "Problemas al copiar las plantillas"
 msgstr ""
 
-#: ModulePrincipal.module:143
+#: ModulePrincipal.module:145
 msgid "Problemas al comprimir datos"
 msgstr ""
 
-#: ModulePrincipal.module:183
+#: ModulePrincipal.module:185
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr ""
 

@@ -302,175 +302,175 @@ msgstr ""
 msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:96
+#: FMain.class:99
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:96
+#: FMain.class:99
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr ""
 
-#: FMain.class:98
+#: FMain.class:101
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:108
+#: FMain.class:111
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:141
+#: FMain.class:144
 msgid "Debe de Abrir o Crear un grupo"
 msgstr ""
 
-#: FMain.class:150
+#: FMain.class:153
 msgid "No existen Diplomas Temático, debes definir al menos uno"
 msgstr ""
 
-#: FMain.class:150
+#: FMain.class:153
 msgid " ve a la opción de:  Gestor Plantillas de Diplomas"
 msgstr ""
 
-#: FMain.class:175
+#: FMain.class:178
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: FMain.class:193
+#: FMain.class:196
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:195
+#: FMain.class:198
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:214
+#: FMain.class:217
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:214
+#: FMain.class:217
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:214
+#: FMain.class:217
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:214
+#: FMain.class:217
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:243
+#: FMain.class:246
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:270
+#: FMain.class:273
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:270
+#: FMain.class:273
 msgid "Si"
 msgstr ""
 
-#: FMain.class:324
+#: FMain.class:327
 msgid "Seleciones una fila que tenga información de un Diploma"
 msgstr ""
 
-#: FMain.class:324
+#: FMain.class:327
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
 msgstr ""
 
-#: FMain.class:344
+#: FMain.class:347
 msgid "No es posible borrar esta plantilla,"
 msgstr ""
 
-#: FMain.class:344
+#: FMain.class:347
 msgid " ya que la esta usando, "
 msgstr ""
 
-#: FMain.class:344
+#: FMain.class:347
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
 msgstr ""
 
-#: FMain.class:344
+#: FMain.class:347
 msgid " y borre el registro que usa la plantilla para poder borrarla"
 msgstr ""
 
-#: FMain.class:378
+#: FMain.class:381
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
 msgstr ""
 
-#: FMain.class:383
+#: FMain.class:386
 msgid "Debe de seleccionar un Diploma Temático"
 msgstr ""
 
-#: FMain.class:409
+#: FMain.class:412
 msgid "Registro: "
 msgstr ""
 
-#: FMain.class:508
+#: FMain.class:511
 msgid "Debe de tener al menos un registro"
 msgstr ""
 
-#: FMain.class:518
+#: FMain.class:521
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: FMain.class:530
+#: FMain.class:533
 msgid "Existe el fichero:"
 msgstr ""
 
-#: FMain.class:530
+#: FMain.class:533
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: FMain.class:530
+#: FMain.class:533
 msgid " SobreEscribir "
 msgstr ""
 
-#: FMain.class:530
+#: FMain.class:533
 msgid " Cancelar "
 msgstr ""
 
-#: FMain.class:574
+#: FMain.class:577
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:709
+#: FMain.class:712
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:716
+#: FMain.class:719
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:718
+#: FMain.class:721
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:726
+#: FMain.class:729
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:734
+#: FMain.class:737
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:776
+#: FMain.class:779
 msgid "zip"
 msgstr ""
 
-#: FMain.class:781
+#: FMain.class:784
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:786
+#: FMain.class:789
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:791
+#: FMain.class:794
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:791
+#: FMain.class:794
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
