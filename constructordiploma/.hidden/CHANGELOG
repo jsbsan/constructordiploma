@@ -1,3 +1,6 @@
+* Fri Mar 22 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.35
+- Mejorar formulario "pensando" y mejorar la visibilidad de la fila
+
 * Wed Mar 20 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.34
 - Corregido error al intentatar crear nueva plantilla (quitar campos)
 - Mejorado la presentacion del gato pensando (dura un poco)
