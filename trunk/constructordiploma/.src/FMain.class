@@ -19,7 +19,10 @@ End
 
 Public Sub Form_Open()
   
+  Dim pensando As New FormPensando 
+
   If ModuleUnicaVez.ejecutandoUnicaCopia("ConstructorDiplomas.gambas") <> True Then
+    pensando.Show()
     Print "Iniciando... vientos tipos de letras"
     listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
     Print "         ... comprobando version"
@@ -43,6 +46,8 @@ Public Sub Form_Open()
     ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros)
     ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico)
     
+    pensando.parar = True
+    pensando.Delete()
     'INICAR CON "Base.ConstructorDiplomas
     Print "          --- Abriendo diplomas iniciales"
     AbrirDiplomasIniciales()
@@ -489,9 +494,10 @@ Public Sub ToolButtonVerImagen_Click()
   ' Dim rutasvg As String = ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Dim proceso As Process
   Dim nombreRegistro As String
+  Dim pensando As New FormPensando
   
   If LabelRegistro.text <> ("Registro:") Then
-    
+    pensando.Show()
     'borrado de todas las imagenes del directorio temporal..
     ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp/", "*.png")
     
@@ -506,6 +512,8 @@ Public Sub ToolButtonVerImagen_Click()
     ModuleUtilidadesDisco.EsperarProceso(proceso)
     Wait 0.2
     'lo veo con el visor predeterminado...lxde
+    pensando.parar = True
+    pensando.Delete()
     Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
   Else
     Message.Info(("Debe de tener al menos un registro"))
