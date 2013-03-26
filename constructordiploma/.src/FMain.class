@@ -20,9 +20,10 @@ End
 Public Sub Form_Open()
   
   Dim pensando As New FormPensando 
-
+  
   If ModuleUnicaVez.ejecutandoUnicaCopia("ConstructorDiplomas.gambas") <> True Then
     pensando.Show()
+    Wait 0.5
     Print "Iniciando... vientos tipos de letras"
     listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
     Print "         ... comprobando version"
