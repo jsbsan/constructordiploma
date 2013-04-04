@@ -95,7 +95,7 @@ Public Sub PictureBoxFoto06_MouseDown()
 End
 
 Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
-
+  
   Dim dialogofile As New FormElegirFichero
   Dim dat As New ClassDato
   
@@ -108,7 +108,7 @@ Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
   If dat.dato = "-1" Then Return
   
   Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
-
+  
 End
 
 Public Sub ToolButton1_Click()
@@ -471,5 +471,26 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   Endif
   
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
+  
+End
+
+Public Sub botontransparente_Click()
+  'reg.FotoAlumno = PictureBoxFoto05.Tag
+  'reg.Foto07 = PictureBoxFoto06.Tag
+
+  Dim numero As Integer
+  
+  numero = Val(Last.tag)
+  
+  Select numero
+    Case 1
+      reg.FotoAlumno = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosRegistros/" & reg.FotoAlumno)
+      PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosRegistros/" & reg.FotoAlumno]
+      PictureBoxFoto05.tag = reg.FotoAlumno
+    Case 2
+      reg.Foto07 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosRegistros/" & reg.Foto07)
+      PictureBoxFoto06.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosRegistros/" & reg.Foto07]
+      PictureBoxFoto06.tag = reg.Foto07
+  End Select
   
 End
