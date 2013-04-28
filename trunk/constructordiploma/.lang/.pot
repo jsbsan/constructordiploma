@@ -381,176 +381,176 @@ msgid ""
 " <br>en internet</h2>"
 msgstr ""
 
-#: FMain.class:105
+#: FMain.class:107
 msgid "Los datos anteriores no se guardaron,"
 msgstr ""
 
-#: FMain.class:105
+#: FMain.class:107
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr ""
 
-#: FMain.class:107
+#: FMain.class:109
 msgid "Indique archivo de datos para abrir..."
 msgstr ""
 
-#: FMain.class:117
+#: FMain.class:119
 msgid "Problemas al abrir el archivo..."
 msgstr ""
 
-#: FMain.class:150
+#: FMain.class:155
 msgid "Debe de Abrir o Crear un grupo"
 msgstr ""
 
-#: FMain.class:159
+#: FMain.class:165
 msgid "No existen Diplomas Temático, debes definir al menos uno"
 msgstr ""
 
-#: FMain.class:159
+#: FMain.class:165
 msgid " ve a la opción de:  Gestor Plantillas de Diplomas"
 msgstr ""
 
-#: FMain.class:184
+#: FMain.class:191
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr ""
 
-#: FMain.class:202
+#: FMain.class:210
 msgid "Guardado correctamente"
 msgstr ""
 
-#: FMain.class:204
+#: FMain.class:212
 msgid "No he podido guardar los datos"
 msgstr ""
 
-#: FMain.class:223
+#: FMain.class:231
 msgid "¿Seguro que desea cerrar?"
 msgstr ""
 
-#: FMain.class:223
+#: FMain.class:231
 msgid "Todos cambios no guardados se perderan"
 msgstr ""
 
-#: FMain.class:223
+#: FMain.class:231
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:223 FormDiplomaTematico.form:241 FormElegirFichero.form:30
+#: FMain.class:231 FormDiplomaTematico.form:241 FormElegirFichero.form:30
 #: FormRegistroDiplomados.form:61
 msgid "Cancelar"
 msgstr ""
 
-#: FMain.class:252
+#: FMain.class:260
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:279
+#: FMain.class:287
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:279
+#: FMain.class:287
 msgid "Si"
 msgstr ""
 
-#: FMain.class:333
+#: FMain.class:341
 msgid "Seleciones una fila que tenga información de un Diploma"
 msgstr ""
 
-#: FMain.class:333
+#: FMain.class:341
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
 msgstr ""
 
-#: FMain.class:353
+#: FMain.class:361
 msgid "No es posible borrar esta plantilla,"
 msgstr ""
 
-#: FMain.class:353
+#: FMain.class:361
 msgid " ya que la esta usando, "
 msgstr ""
 
-#: FMain.class:353
+#: FMain.class:361
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
 msgstr ""
 
-#: FMain.class:353
+#: FMain.class:361
 msgid " y borre el registro que usa la plantilla para poder borrarla"
 msgstr ""
 
-#: FMain.class:387
+#: FMain.class:395
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
 msgstr ""
 
-#: FMain.class:392
+#: FMain.class:400
 msgid "Debe de seleccionar un Diploma Temático"
 msgstr ""
 
-#: FMain.class:418
+#: FMain.class:426
 msgid "Registro: "
 msgstr ""
 
-#: FMain.class:520
+#: FMain.class:528
 msgid "Debe de tener al menos un registro"
 msgstr ""
 
-#: FMain.class:530
+#: FMain.class:538
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: FMain.class:542
+#: FMain.class:550
 msgid "Existe el fichero:"
 msgstr ""
 
-#: FMain.class:542
+#: FMain.class:550
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: FMain.class:542
+#: FMain.class:550
 msgid " SobreEscribir "
 msgstr ""
 
-#: FMain.class:542
+#: FMain.class:550
 msgid " Cancelar "
 msgstr ""
 
-#: FMain.class:586
+#: FMain.class:594
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:721
+#: FMain.class:729
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:728
+#: FMain.class:736
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:730
+#: FMain.class:738
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:738
+#: FMain.class:746
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:746
+#: FMain.class:754
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:788 comun.module:14
+#: FMain.class:796 comun.module:14
 msgid "zip"
 msgstr ""
 
-#: FMain.class:793 comun.module:19
+#: FMain.class:801 comun.module:19
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:798 comun.module:24
+#: FMain.class:806 comun.module:24
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:803 comun.module:29
+#: FMain.class:811 comun.module:29
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:803 comun.module:29
+#: FMain.class:811 comun.module:29
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
