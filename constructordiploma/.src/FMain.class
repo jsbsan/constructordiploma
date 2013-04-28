@@ -89,18 +89,20 @@ End
 Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
-  
+  'buscar actualizaciones
   If IconPanel1.index = 11 Then 
     ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html")
     IconPanel1.index = 0
     IconPanel1_Click()
   Endif
   
-  If IconPanel1.text = ("Crear Pdf para imprimir") Then 
+  'Crear Pdf para imprimir
+  If IconPanel1.index = 8 Then 
     ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
   Endif
   
-  If IconPanel1.text = ("Abrir Grupo") Then
+  'Abrir grupo
+  If IconPanel1.index = 2 Then
     If ModuleGestionAlumno.guardado = False Or ModuleGestionDiploma.guardado = False Then 
       Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
     Endif
@@ -125,15 +127,18 @@ Public Sub IconPanel1_Click()
     Endif
   Endif
   
-  'Hago click en cerrar aplicación.
-  If IconPanel1.text = ("Previsualizar") Then 
+  'Previsualizacion
+  If IconPanel1.index = 7 Then 
     
     ButtonPlantillaPrimeraReg_Click()
     
   Endif
-  If IconPanel1.TEXT = ("Salir") Then Me.close()
   
-  If IconPanel1.text = ("Gestor Plantillas de Diplomas") Then 
+  'Salir
+  If IconPanel1.index = 9 Then Me.close()
+  
+  'Gestor Plantillas de Diplomas
+  If IconPanel1.index = 6 Then 
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
       'cargalista de plantillas base
       ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
@@ -153,7 +158,8 @@ Public Sub IconPanel1_Click()
     Endif
   Endif
   
-  If IconPanel1.text = ("Introducir Datos Alumnos") Then 
+  'Introducir datos de alumnos
+  If IconPanel1.index = 3 Then 
     'comprobar que existe al menos un diploma tematico, si no, no deja añadir....
     If ModuleGestionDiploma.lista.Registros.count = 0 Then 
       Message.Info(("No existen Diplomas Temático, debes definir al menos uno") & gb.CrLf & (" ve a la opción de:  Gestor Plantillas de Diplomas"))
@@ -166,7 +172,8 @@ Public Sub IconPanel1_Click()
     Endif
   Endif
   
-  If Replace(IconPanel1.text, ".", "") = Replace(("Guardar como...."), ".", "") Then
+  'Guardar como....
+  If IconPanel1.index = 4 Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
       Dialog.PATH = User.HOME & "/"
@@ -186,7 +193,8 @@ Public Sub IconPanel1_Click()
     
   Endif
   
-  If IconPanel1.text = ("Guardar Grupo") Or Replace$(IconPanel1.text, ".", "") = Replace$(("Guardar como...."), ".", "") Then 
+  'Guardar como o Guardar grupo
+  If IconPanel1.index = 4 Or IconPanel1.index = 5 Then 
     
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") & ".ConstructorDiplomas"
     
