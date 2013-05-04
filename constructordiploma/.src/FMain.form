@@ -76,6 +76,14 @@
       Font = Font["Bitstream Charter,Bold,+2"]
       AutoResize = True
     }
+    { Labeljsbsan2 Label
+      MoveScaled(6,27,13,3)
+      Font = Font["Bitstream Charter,Italic,Underline,-1"]
+      Foreground = &H1F57FF&
+      Mouse = Mouse.Pointing
+      Text = ("Web del Proyecto")
+      Alignment = Align.Center
+    }
     Index = 1
     Text = ("Crear Grupo")
     Picture = Picture["icon:/22/new"]
