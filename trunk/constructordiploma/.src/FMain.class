@@ -859,3 +859,9 @@ Public Sub Labeljsbsan2_MouseDown()
   Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
   
 End
+
+Public Sub ToolButtonAccesoPaginaWeb_Click()
+  
+  Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
+  
+End
