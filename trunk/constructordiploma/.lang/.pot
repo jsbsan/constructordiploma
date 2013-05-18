@@ -866,6 +866,10 @@ msgstr ""
 msgid "Se ha producido un error, al intentar copiar la plantilla"
 msgstr ""
 
+#: ModuleMensajeError.module:11
+msgid "Se ha presentando un error al intentar mostar un Error"
+msgstr ""
+
 #: ModulePrincipal.module:109
 msgid "No encuentro fichero de datos"
 msgstr ""
