@@ -109,7 +109,7 @@ Public Sub IconPanel1_Click()
     Dialog.title = ("Indique archivo de datos para abrir...")
     Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
     If Not Dialog.OpenFile() Then 
-      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, "ConstructorDiplomas")
+      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".ConstructorDiplomas")
       If resultado Then
         resultado = ModulePrincipal.CargarDatos()
         ModulePrincipal.RutaDatosDiplomas = Replace(Dialog.Path, ".ConstructorDiplomas", "")
@@ -146,9 +146,9 @@ Public Sub IconPanel1_Click()
       If GridViewDiplomaTematico.rows.count > 0 Then 
         GridViewDiplomaTematico.row = 0
         'previsualizar 1º diploma
-        
-        ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[0], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
-        
+        If GridViewDiplomaTematico.indice.count > 0 Then 
+          ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[0], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+        Endif
       Endif
       
     Else
@@ -173,7 +173,7 @@ Public Sub IconPanel1_Click()
   Endif
   
   'Guardar como....
-  If IconPanel1.index = 4 Then
+  If IconPanel1.index = 5 Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
       Dialog.PATH = User.HOME & "/"
@@ -827,7 +827,7 @@ Public Sub AbrirDiplomasIniciales()
   rutacopia = "/tmp/Base.ConstructorDiplomas"
   Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
   
-  resultado = ModulePrincipal.AbrirFichero(rutacopia, "ConstructorDiplomas")
+  resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
   If resultado Then
     resultado = ModulePrincipal.CargarDatos()
     ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")

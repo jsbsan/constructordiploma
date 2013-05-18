@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public RutaPrograma As String = User.Home & "/ConstructorDiplomas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
+Public RutaPrograma As String = User.Home & "/.ConstructorDiplomas/" ''ruta donde estan los archivos de datos y de trabajo temporal del programa
 Public RutaDatosDiplomas As String '' ruta de los datos del proyecto (diplomas tematicos / datos)
 
 'rutas donde trabaja el program...

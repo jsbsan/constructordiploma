@@ -3,7 +3,7 @@
 ' 
 Public Sub IniciarLaPrimeraVez(rutaprograma As String)
   
-  ' User.Home & "/ConstructorDiplomas/"
+  ' User.Home & "/.ConstructorDiplomas/"
   'Crear Directorios del trabajo Actual
   If Not Exist(rutaprograma) Then Mkdir rutaprograma
   If Not Exist(rutaprograma & "PlantillasBases") Then Mkdir rutaprograma & "PlantillasBases"

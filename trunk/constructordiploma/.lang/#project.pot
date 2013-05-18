@@ -19,6 +19,6 @@ msgid "ConstructorDiplomas"
 msgstr ""
 
 #: .project:2
-msgid "Crea diplomas personalizados facilmente"
+msgid "Crea diplomas personalizados fácilmente"
 msgstr ""
 
