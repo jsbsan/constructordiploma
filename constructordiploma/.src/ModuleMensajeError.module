@@ -6,7 +6,12 @@ Public Sub SistemaDescripcionError()
   Dim textmessage As String
   
   'creamos mensaje con todos los datos recopilados del  error producido...
-  textmessage = ("Pila: \n" & error.backtrace.Join("\n") & "\n\n" & "Clase: " & Str$(error.class) & "\n\n" & "Codigo Error: " & error.code & "\n" & "Mensaje Error: " & error.text & "\n\n" & "Localizacion: \n" & error.where)
+  Try textmessage = ("Pila: \n" & error.backtrace.Join("\n") & "\n\n" & "Clase: " & Str$(error.class) & "\n\n" & "Codigo Error: " & error.code & "\n" & "Mensaje Error: " & error.text & "\n\n" & "Localizacion: \n" & error.where)
+  If Error Then 
+    Message.Error(("Se ha presentando un error al intentar mostar un Error"))
+    Return
+  Endif
+  
   formularioError.mensaje = textmessage
   formularioError.show()
   
