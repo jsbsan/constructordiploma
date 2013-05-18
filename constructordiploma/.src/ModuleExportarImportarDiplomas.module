@@ -87,23 +87,23 @@ Public Function importar(fichero As String) As Boolean
   Endif
   rutazip = ModulePrincipal.RutaPrograma & "trabajotmp/importar/" & zip.extraeRutaZip(fichero, "ConstructorDiplomas")
   
-  regtmp.LecturaDatos(Split(File.Load(rutazip & "/ConstructorDiplomas/trabajotmp/exportar/diploma.txt"), "\n"))
+  regtmp.LecturaDatos(Split(File.Load(rutazip & "/.ConstructorDiplomas/trabajotmp/exportar/diploma.txt"), "\n"))
   regdiploma = regtmp.Registros[0]
   
   '-----------------------------------------
   'copiar tipos de letras que no esten en el sistema....
   '-----------------------------------------
-  copiarLetrasAlSistema(rutazip & "/ConstructorDiplomas/trabajotmp/exportar", FMain.listaTiposDeLetra)
+  copiarLetrasAlSistema(rutazip & "/.ConstructorDiplomas/trabajotmp/exportar", FMain.listaTiposDeLetra)
   
   'copio la plantilla y los ficheros de fotos,
   'si alguno tiene el nombre igual a los que existen, lo cambio de nombre ->notifico ese cambio 
   'de nombre al objeto classDiploma (regdiploma)
-  If regdiploma.foto04 <> "" Then regdiploma.Foto04 = copiarFicheroImagenDiploma(regdiploma.Foto04, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
-  If regdiploma.foto05 <> "" Then regdiploma.Foto05 = copiarFicheroImagenDiploma(regdiploma.Foto05, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
-  If regdiploma.ImagenFondo <> "" Then regdiploma.ImagenFondo = copiarFicheroImagenDiploma(regdiploma.ImagenFondo, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
-  If regdiploma.ImagenLogo <> "" Then regdiploma.ImagenLogo = copiarFicheroImagenDiploma(regdiploma.ImagenLogo, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
-  If regdiploma.ImagenMarco <> "" Then regdiploma.ImagenMarco = copiarFicheroImagenDiploma(regdiploma.ImagenMarco, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
-  If regdiploma.plantillabase <> "" Then regdiploma.PlantillaBase = copiarFicheroPlantillabase(regdiploma.Plantillabase, rutazip & "/ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.foto04 <> "" Then regdiploma.Foto04 = copiarFicheroImagenDiploma(regdiploma.Foto04, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.foto05 <> "" Then regdiploma.Foto05 = copiarFicheroImagenDiploma(regdiploma.Foto05, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenFondo <> "" Then regdiploma.ImagenFondo = copiarFicheroImagenDiploma(regdiploma.ImagenFondo, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenLogo <> "" Then regdiploma.ImagenLogo = copiarFicheroImagenDiploma(regdiploma.ImagenLogo, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenMarco <> "" Then regdiploma.ImagenMarco = copiarFicheroImagenDiploma(regdiploma.ImagenMarco, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.plantillabase <> "" Then regdiploma.PlantillaBase = copiarFicheroPlantillabase(regdiploma.Plantillabase, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
   'compruebo que nombr de la plantilla no sea igual a una existente)
   For a = 0 To ModuleGestionDiploma.lista.Registros.count - 1
     If regdiploma.NombrePlantilla = ModuleGestionDiploma.lista.Registros[a].NombrePlantilla Then 
