@@ -67,6 +67,9 @@ Public Sub ToolButtonCancelarDiploma2_Click()
   borradoMiniatura()
   
   Me.Close
+  
+Catch
+  
   ModuleMensajeError.SistemaDescripcionError()
   
 End
