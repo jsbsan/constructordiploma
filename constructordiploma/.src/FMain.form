@@ -380,8 +380,9 @@
       ToolTip = ("Convirtiendo fotografias")
     }
     { ToolButtonGenerar ToolButton
-      MoveScaled(50,31,20,7)
-      Text = ("Generar Pdf")
+      MoveScaled(50,31,26,7)
+      ToolTip = ("Crear pdf para imprimir, y los .SVG permiten editar el diploma con Inkscape")
+      Text = ("Generar .PDF y .SVG")
       Picture = Picture["icon:/22/exec"]
       Border = True
     }

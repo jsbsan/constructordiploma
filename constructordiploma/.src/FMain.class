@@ -52,6 +52,7 @@ Public Sub Form_Open()
     'INICAR CON "Base.ConstructorDiplomas
     Print "          --- Abriendo diplomas iniciales"
     AbrirDiplomasIniciales()
+    LabelNombreFichero.text = "/tmp/Base.ConstrucuctorDiplomas"
   Else
     'como ya hay una instancia de esta aplicacion abierta, salgo
     ModuleGestionAlumno.Guardado = True
@@ -89,16 +90,23 @@ End
 Public Sub IconPanel1_Click()
   
   Dim resultado As Boolean
+  
+  If IconPanel1.Index = 0 Then
+    Return
+  Endif
+  
   'buscar actualizaciones
   If IconPanel1.index = 11 Then 
     ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html")
     IconPanel1.index = 0
     IconPanel1_Click()
+    Return
   Endif
   
   'Crear Pdf para imprimir
   If IconPanel1.index = 8 Then 
     ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
+    Return
   Endif
   
   'Abrir grupo
@@ -115,15 +123,18 @@ Public Sub IconPanel1_Click()
         ModulePrincipal.RutaDatosDiplomas = Replace(Dialog.Path, ".ConstructorDiplomas", "")
         IconPanel1.index = 6
         IconPanel1_click()    
+        Return
       Else
         Message.Error(("Problemas al abrir el archivo..."))
         IconPanel1.Index = 0
         IconPanel1_Click()
         Return
+        
       Endif
     Else
       IconPanel1.Index = 0
       IconPanel1_Click()
+      Return
     Endif
   Endif
   
@@ -131,7 +142,7 @@ Public Sub IconPanel1_Click()
   If IconPanel1.index = 7 Then 
     
     ButtonPlantillaPrimeraReg_Click()
-    
+    Return
   Endif
   
   'Salir
@@ -148,6 +159,7 @@ Public Sub IconPanel1_Click()
         'previsualizar 1º diploma
         If GridViewDiplomaTematico.indice.count > 0 Then 
           ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[0], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+          Return
         Endif
       Endif
       
@@ -155,6 +167,7 @@ Public Sub IconPanel1_Click()
       Message.Info(("Debe de Abrir o Crear un grupo"))
       IconPanel1.index = 0
       IconPanel1_click()
+      Return
     Endif
   Endif
   
@@ -165,10 +178,12 @@ Public Sub IconPanel1_Click()
       Message.Info(("No existen Diplomas Temático, debes definir al menos uno") & gb.CrLf & (" ve a la opción de:  Gestor Plantillas de Diplomas"))
       IconPanel1.index = 6
       IconPanel1_click()    
+      Return
     Else
       
       'recarga el gridviews Registros
       ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+      Return
     Endif
   Endif
   
@@ -198,11 +213,11 @@ Public Sub IconPanel1_Click()
     
     LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") & ".ConstructorDiplomas"
     
-    If LabelNombreFichero.text = "/tmp/Base.ConstrucuctorDiplomas" Then 
+    If LabelNombreFichero.text = "/tmp/Base.ConstructorDiplomas" Then 
       'tenemos que pedir nombre, para no machar al fichero que nos sirve de base..
       IconPanel1.index = 5
       IconPanel1_click()    
-      
+      Return
     Else
       resultado = ModulePrincipal.GuardarDatos()
       If resultado Then 
