@@ -45,6 +45,10 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   Wait 0.1
   proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"] Wait
   ModuleUtilidadesDisco.EsperarProceso(proceso)
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg") Then  
+    Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg"
+  Endif  
+  Copy ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg" To ModulePrincipal.rutaprograma & "trabajotmp/pdf/" & nombreRegistro & ".svg"
   Wait 0.2
   
   'lo veo con el visor predeterminado...lxde
@@ -78,7 +82,7 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   'unir todos los pdf en uno...
   Wait 0.1
   If unir = True Then 
-    comando = "pdftk " & User.Home & "/.ConstructorDiplomas/trabajotmp/pdf/* cat output " & User.home & "/.ConstructorDiplomas/trabajotmp/pdf/resultado.pdf"
+    comando = "pdftk " & User.Home & "/.ConstructorDiplomas/trabajotmp/pdf/*.pdf cat output " & User.home & "/.ConstructorDiplomas/trabajotmp/pdf/O_Todos.pdf"
     Shell comando Wait
   Endif
   
@@ -235,8 +239,6 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   Dim rutamini As String
   Dim fpensando As New FormPensando
   
-  fpensando.Show
-  Wait 0.5
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
   regtmp.ImagenFondo = ModuleGestionDiploma.lista.Registros[indice].ImagenFondo
@@ -251,10 +253,12 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
   If Exist(rutamini) Then
     dibujarPNG(areadibujo, rutamini)
-    fpensando.parar = True
-    fpensando.DELETE
     Return
   Endif
+  
+  'solo muestro el dialogo de pensar cuando tengo que crear el png...
+  fpensando.Show
+  Wait 0.5
   
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"

@@ -32,7 +32,7 @@ Public Sub ToolButtonAceptar_Click()
   
   If InStr(a, "http://") <> 0 Then 
     
-    nombre = "/tmp/1" & "." & Right$(a, 3)
+    nombre = "/tmp/1" & "." & Right$(a, Len(ModuleUtilidadesDisco.extraeExtension(a)))
     Try Kill nombre 'borro nombre anterior
     
     Wait 0.1
