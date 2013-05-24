@@ -290,6 +290,7 @@ Public Sub borradoElementoLista(lbox As ListBox)
   'borro fichero de la lista
   
   Try Kill ModulePrincipal.RutaPrograma & "PlantillasBases/" & lbox.List[lbox.Index]
+  Try Kill ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & lbox.List[lbox.Index]
   'cargo otra vez la lista
   cARGALISTA(lbox, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
   

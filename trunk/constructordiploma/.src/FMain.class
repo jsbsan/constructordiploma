@@ -60,6 +60,8 @@ Public Sub Form_Open()
     Me.Close()
   Endif
   
+  Me.center
+  
 End
 
 'editando al hacer doble click en gridview...
@@ -840,6 +842,9 @@ Public Sub AbrirDiplomasIniciales()
   Dim rutacopia As String
   
   rutacopia = "/tmp/Base.ConstructorDiplomas"
+  If Exist(rutacopia) Then 
+    Kill rutacopia
+  Endif
   Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
   
   resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
