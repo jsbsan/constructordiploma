@@ -54,7 +54,7 @@
       Stretch = True
     }
     { Labeljsbsan Label
-      MoveScaled(20,22,37,3)
+      MoveScaled(21,19,37,3)
       Font = Font["Bitstream Charter,Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
