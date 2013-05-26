@@ -148,7 +148,10 @@ Public Sub IconPanel1_Click()
   Endif
   
   'Salir
-  If IconPanel1.index = 9 Then Me.close()
+  If IconPanel1.index = 9 Then 
+    Me.close()
+    Return
+  Endif
   
   'Gestor Plantillas de Diplomas
   If IconPanel1.index = 6 Then 
@@ -606,6 +609,7 @@ Public Sub ToolButtonGenerar_Click()
   Dim registroinicio As Integer
   Dim registrofin As Integer
   Dim valorInicialNumero As Integer
+  Dim fpen As New FormPensando
   
   If ModuleGestionAlumno.Lista.Registros.count <= 0 Then 
     Message.Info(("Debe de tener al menos un registro (alumno)"))
@@ -637,6 +641,13 @@ Public Sub ToolButtonGenerar_Click()
       registroinicio = ValueBoxDesde.value - 1
       registrofin = ValueBoxHasta.Value - 1
       '   valorInicialNumero = ValueBoxNumeroInicialCarnet.Value - (ValueBoxNumeroRegistroImprimir.Value - 1)
+    Else
+      If ValueBoxDesde.value = ValueBoxHasta.value Then
+        registroinicio = ValueBoxDesde.value - 1
+        registrofin = ValueBoxHasta.Value - 1
+        
+      Endif
+      
     Endif
     If registroinicio < 0 Then registroinicio = 0
     If registroinicio > ModuleGestionAlumno.Lista.registros.count - 1 Then registroinicio = ModuleGestionAlumno.Lista.registros.count - 1
@@ -652,9 +663,12 @@ Public Sub ToolButtonGenerar_Click()
   'relojes para controlar el estado de las barras...
   
   Timer1.Start()
+  fpen.Show
   
   ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value)
   ProgressBarBarraEstado.Visible = False
+  fpen.parar = True
+  fpen.Delete()
   
 End
 

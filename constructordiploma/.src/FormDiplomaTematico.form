@@ -263,6 +263,7 @@
           { ListBoxPlantillasBase ListBox
             MoveScaled(0,1,44,22)
             Font = Font["-1"]
+            ToolTip = ("Haga doble click para seleccionar plantilla")
           }
         }
       }
