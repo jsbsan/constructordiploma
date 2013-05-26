@@ -78,14 +78,14 @@ Public Function importar(fichero As String) As Boolean
   Mkdir ModulePrincipal.RutaPrograma & "trabajotmp/importar"
   'extraigo los ficheros
   
-  Shell "cd " & User.Home & "/" & "ConstructorDiplomas" & "/trabajotmp/importar/" & " && unzip " & fichero Wait
+  Shell "cd " & ModulePrincipal.RutaPrograma & "/trabajotmp/importar/" & " && unzip " & fichero Wait
   'creo un nuevo objeto tipo ClassDiplomaTematico
   ''TODO: comprobar extraeRutaZip
   If InStr(fichero, "(") <> 0 Or InStr(fichero, ")") <> 0 Then 
     Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
     Return False
   Endif
-  rutazip = ModulePrincipal.RutaPrograma & "trabajotmp/importar/" & zip.extraeRutaZip(fichero, "ConstructorDiplomas")
+  rutazip = ModulePrincipal.RutaPrograma & "trabajotmp/importar/" & zip.extraeRutaZip(fichero, ".ConstructorDiplomas")
   
   regtmp.LecturaDatos(Split(File.Load(rutazip & "/.ConstructorDiplomas/trabajotmp/exportar/diploma.txt"), "\n"))
   regdiploma = regtmp.Registros[0]
@@ -123,8 +123,11 @@ Public Function copiar(ruta As String, nombre As String) As Boolean
   
   ' Print "Realizando copia"
   ' Print nombre
-  If nombre <> "" And Not Exist(ModulePrincipal.RutaPrograma & "/trabajotmp/exportar/" & nombre) And Exist(ruta & "/" & ruta) Then 
-    Copy ruta & "/" & nombre To ModulePrincipal.RutaPrograma & "/trabajotmp/exportar/" & nombre 
+  If nombre <> "" Then 
+    If Not (Exist(ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & nombre)) Then 
+      Try Copy ruta & "/" & nombre To ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & nombre 
+      
+    Endif
   Endif
   'Catch
   ' ModuleMensajeError.SistemaDescripcionError()
@@ -163,7 +166,7 @@ Public Function copiarFicheroImagenDiploma(nombrefichero As String, ruta As Stri
       '  copiar = "si"
     Endif
   Wend
-  Print Exist(ruta & "/" & nombreInicial)
+  If Not Exist(ruta & "/" & nombreInicial) Then copiar = "no"
   Print Exist(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaTematica/")
   If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombrefichero
   

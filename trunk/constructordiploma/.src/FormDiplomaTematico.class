@@ -16,29 +16,29 @@ Public Sub Form_Open()
   
   If modo > -1 Then 
     
-    If reg.ImagenFondo <> "" Then 
+    If reg.ImagenFondo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo) Then 
       PictureBoxFondo.tag = reg.ImagenFondo
-      PictureBoxFondo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo]
+      PictureBoxFondo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
     Endif
     
-    If reg.ImagenMarco <> "" Then 
+    If reg.ImagenMarco <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco) Then 
       PictureBoxMarco.tag = reg.ImagenMarco
-      PictureBoxMarco.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco]
+      PictureBoxMarco.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
     Endif
     
-    If reg.ImagenLogo <> "" Then 
+    If reg.ImagenLogo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo) Then 
       PictureBoxLogo.tag = reg.ImagenLogo
-      PictureBoxLogo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo]
+      PictureBoxLogo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
     Endif
     
-    If reg.Foto04 <> "" Then 
+    If reg.Foto04 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04) Then 
       PictureBoxFoto04.tag = reg.Foto04
-      PictureBoxFoto04.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04]
+      PictureBoxFoto04.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
     Endif
     
-    If reg.Foto05 <> "" Then 
+    If reg.Foto05 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05) Then 
       PictureBoxFoto05.tag = reg.Foto05
-      PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05]
+      PictureBoxFoto05.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
     Endif
     
     TextBoxTema.text = reg.Tema
@@ -53,9 +53,9 @@ Public Sub Form_Open()
   
   ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
   
-  Me.center
   ToolButtonPrevisualizar_Click()
   sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase)
+  Me.center
 Catch
   ModuleMensajeError.SistemaDescripcionError()
   
@@ -148,7 +148,7 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   
   PictureBoxElegido.Picture = Picture["importar.png"]
   Wait 0.1
-  PictureBoxElegido.Picture = Picture[ruta]
+  PictureBoxElegido.Picture = Picture.Load(ruta)
   PictureBoxElegido.tag = ruta
   copiar = "si"
   
@@ -263,9 +263,16 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
   '  Dim tex As String
   Dim comando As String
+  Dim f As New FormPensando
   
+  f.Show
+  Wait 0.2 
   comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & ListBoxPlantillasBase.text
-  Shell comando 
+  Shell comando Wait
+  
+  f.parar = True
+  
+  f.delete()
   
 End
 
@@ -343,25 +350,28 @@ Public Sub botontransparente_Click()
   Select numero
     Case 1
       reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
-      PictureBoxFondo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo]
+      PictureBoxFondo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
       PictureBoxFondo.tag = reg.ImagenFondo 
     Case 2
       reg.ImagenMarco = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
-      PictureBoxMarco.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco]
+      PictureBoxMarco.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
       PictureBoxMarco.tag = reg.ImagenMarco
     Case 3
       reg.ImagenLogo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
-      PictureBoxLogo.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo]
+      PictureBoxLogo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
       PictureBoxlogo.tag = reg.ImagenLogo
     Case 4
       reg.Foto04 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
-      PictureBoxFoto04.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04]
+      PictureBoxFoto04.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
       PictureBoxfoto04.tag = reg.Foto04
     Case 5
       reg.Foto05 = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
-      PictureBoxFoto05.Picture = Picture[ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05]
+      PictureBoxFoto05.Picture = Picture.load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
       PictureBoxfoto05.tag = reg.Foto05
   End Select
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
