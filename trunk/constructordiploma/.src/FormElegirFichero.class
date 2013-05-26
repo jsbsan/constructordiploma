@@ -23,7 +23,8 @@ Public Sub Form_Open()
 End
 
 Public Sub ToolButtonAceptar_Click()
-  
+
+  Dim comando As String
   Dim nombre As String
   Dim a As String
   Dim fpensando As New FormPensando
@@ -50,6 +51,11 @@ Public Sub ToolButtonAceptar_Click()
     valor.dato = FileChooser1.vALUE
   Endif
   
+  'pasar a convertir la imagen de jpg a png....
+  comando = "convert \"" & valor.dato & "\" " & "\"/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - Len(ModuleUtilidadesDisco.extraeExtension(valor.dato)))) & "png\""
+  Shell comando Wait
+  valor.dato = "/tmp/" & ModuleUtilidadesDisco.extraedesdebarra(Mid$(valor.dato, 1, Len(valor.dato) - Len(ModuleUtilidadesDisco.extraeExtension(valor.dato)))) & "png"
+  
   Me.Close
   
 End
@@ -75,5 +81,16 @@ Public Sub TextBoxUrl_KeyPress()
   If Key.code = Key.enter Or Key.code = Key.Return Or Key.code = Key.tab Then 
     ToolButtonAceptar.SetFocus()
   Endif
+  
+End
+
+Public Sub FileChooser1_Icon(ruta As String)
+  
+  Dim miniatura As New Picture
+  Dim ima As New Image
+  
+  Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
+  
+  fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
   
 End

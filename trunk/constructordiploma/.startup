@@ -2,13 +2,14 @@ FMain
 ConstructorDiplomas
 0
 0
-0.0.47
+0.0.49
 
 gb.image
-gb.gui
+gb.qt4
 gb.form
 gb.desktop
 gb.form.dialog
 gb.net
 gb.net.curl
+gb.qt4.ext
 
