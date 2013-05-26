@@ -23,7 +23,7 @@ Public Sub Form_Open()
 End
 
 Public Sub ToolButtonAceptar_Click()
-
+  
   Dim comando As String
   Dim nombre As String
   Dim a As String
@@ -88,9 +88,14 @@ Public Sub FileChooser1_Icon(ruta As String)
   
   Dim miniatura As New Picture
   Dim ima As New Image
+  Dim terminacion As String 
   
-  Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
-  
-  fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
+  terminacion = Upper$(ModuleUtilidadesDisco.extraeExtension(ruta))
+  If terminacion = Upper$("PNG") Or terminacion = Upper$("JPG") Or terminacion = Upper$("JPEG") Or terminacion = Upper$("BMP") Then 
+    
+    Exec ["convert", ruta, "-resize", "40x40", "/tmp/miniatura.png"] Wait
+    
+    fileChooser1.icon = Picture.Load("/tmp/miniatura.png")
+  Endif
   
 End
