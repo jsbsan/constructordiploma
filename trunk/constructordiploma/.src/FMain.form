@@ -5,7 +5,7 @@
   Icon = Picture["diploma-icono24.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(1,1,124,82)
+    MoveScaled(2,1,124,82)
     ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
     Count = 12
     Index = 0
@@ -134,7 +134,7 @@
         Border = True
       }
       { ToolButtonBorrar ToolButton
-        MoveScaled(24,1,12,3)
+        MoveScaled(24,2,12,3)
         Text = ("Borrar")
         Picture = Picture["icon:/22/erase"]
         Border = True

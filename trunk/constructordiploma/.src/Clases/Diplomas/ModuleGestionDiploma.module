@@ -50,8 +50,8 @@ Public Sub BorrarRegistro(id As Integer)
   If indice <> -1 Then 
     Lista.registros.Delete(indice)
     guardado = False
-  Endif
-  
+  Endif  
+
 End
 
 '---------------------------------------------

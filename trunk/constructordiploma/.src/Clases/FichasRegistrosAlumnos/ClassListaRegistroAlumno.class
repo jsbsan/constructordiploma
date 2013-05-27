@@ -10,7 +10,7 @@ Public Sub generarId() As Integer
   
   valor = -1
   For a = 0 To hRegistroAlumno.Max
-    valor = Max(valor, hRegistroAlumno[a].Id)
+    valor = Max(valor, hRegistroAlumno[a].Id) 
   Next
   
   Return (valor + 1)

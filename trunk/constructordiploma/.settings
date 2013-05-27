@@ -1,5 +1,6 @@
 [Bookmarks]
 ModuleImprimir=[344]
+ClassSuperGridview=[8]
 
 [Breakpoints]
 Count=0
@@ -25,6 +26,9 @@ Geometry=[114,661,1153,308]
 [DebugWindow/FileChooser1]
 Geometry=[-10,-8,972,680]
 
+[DebugWindow/GridViewDiplomaTematico.indice]
+Geometry=[989,351,335,575]
+
 [DebugWindow/Lista]
 Geometry=[1270,66,210,210]
 
@@ -35,13 +39,22 @@ Geometry=[1277,72,210,210]
 Geometry=[51,20,474,378]
 
 [DebugWindow/Lista.registros]
-Geometry=[1289,66,210,210]
+Geometry=[753,490,466,397]
+
+[DebugWindow/ModuleGestionAlumno.Lista.Registros]
+Geometry=[-10,-8,336,210]
+
+[DebugWindow/ModuleGestionAlumno.Lista.Registros[5]]
+Geometry=[-7,430,336,210]
+
+[DebugWindow/ModuleGestionDiploma.Lista.Registros]
+Geometry=[-7,-8,210,210]
 
 [DebugWindow/ModuleGestionDiploma.lista]
 Geometry=[1289,66,210,210]
 
 [DebugWindow/ModuleGestionDiploma.lista.Registros]
-Geometry=[1296,72,210,210]
+Geometry=[783,380,418,262]
 
 [DebugWindow/ModuleGestionDiploma.lista.Registros[1]]
 Geometry=[1303,78,210,210]
@@ -65,6 +78,9 @@ Geometry=[-7,-8,210,210]
 [DebugWindow/Timer1]
 Geometry=[1270,66,210,210]
 
+[DebugWindow/[GridViewRegistros.row]]
+Geometry=[-7,-6,210,210]
+
 [DebugWindow/b]
 Geometry=[-10,-8,210,210]
 
@@ -81,10 +97,10 @@ Geometry=[1273,66,210,210]
 Geometry=[-98,39,291,663]
 
 [DebugWindow/hDiplomaTematico]
-Geometry=[1289,58,210,210]
+Geometry=[72,430,210,210]
 
 [DebugWindow/hDiplomaTematico[0]]
-Geometry=[575,156,407,707]
+Geometry=[86,444,210,210]
 
 [DebugWindow/lbox]
 Geometry=[1289,66,210,210]
@@ -149,23 +165,24 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:23.3"
+File[6]=".src/FMain.class:440.18"
 File[7]=".src/ModulePrincipal.module:101.23"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
-File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:27.64"
-File[10]=".src/Clases/ClassSuperGridview.class:51.18"
+File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
+File[10]=".src/Clases/ClassSuperGridview.class:6.28"
 File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
-File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:29.3"
+File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:12.46"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
 File[14]=".src/ModuleUtilidadesDisco.module:48.28"
-File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:67.5"
+File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:33.3"
 File[16]=".src/Clases/ClassZip.class:37.38"
 File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
 File[20]=".src/ModuleImprimir.module:67.37"
-File[21]=".src/ModuleIntermedio.module:293.26"
-File[22]=".src/FormDiplomaTematico.class:198.0"
+File[21]=".src/ModuleIntermedio.module:151.24"
+Active=22
+File[22]=".src/FormDiplomaTematico.class:154.3"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
@@ -201,7 +218,6 @@ File[54]=".src/ModuleMensajeError.module:16.0"
 File[55]=".src/FormDiplomaTematico.form"
 File[56]=".src/ModuleDescargaImagen.module:5.35"
 File[57]=".src/FormElegirFichero.form"
-Active=58
 File[58]=".src/FormElegirFichero.class:94.4"
 File[59]=".src/Clases/ClassDato.class:13.15"
 File[60]=".src/ModuleUnicaVez.module:2.36"
@@ -210,8 +226,9 @@ File[62]="relojarena.gif"
 File[63]=".src/FormPensando.form"
 File[64]="icoLoading.gif"
 File[65]="icono_web.jpg"
-File[66]=".src/FormPensando.class:7.9"
-Count=66
+File[66]=".src/FormPensando.class:13.3"
+File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:46.2"
+Count=67
 
 [VersionControl]
 RememberPassword=1
