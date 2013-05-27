@@ -170,19 +170,31 @@ msgstr ""
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
-#: FormDiplomaTematico.class:249
+#: FormDiplomaTematico.class:156
+msgid "No se ha podido descargar la imagen, pruebe de otra manera"
+msgstr ""
+
+#: FormDiplomaTematico.class:203
+msgid "No se ha podido descargar la imagen, no es un fichero .jpg o .png"
+msgstr ""
+
+#: FormDiplomaTematico.class:212
+msgid "No ha sido posible descargar o usar la imagen, pruebe  descargandola al disco duro "
+msgstr ""
+
+#: FormDiplomaTematico.class:266
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:306
+#: FormDiplomaTematico.class:323
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:325
+#: FormDiplomaTematico.class:342
 msgid "Error al copiar palntilla"
 msgstr ""
 
-#: FormDiplomaTematico.class:394
+#: FormDiplomaTematico.class:411
 msgid "Se ha producido un error al intentar borrar una minuatura:"
 msgstr ""
 

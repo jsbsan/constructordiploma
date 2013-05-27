@@ -268,7 +268,7 @@ Public Sub ToolButtonEditar_Click()
     feditar.reg.NombreTutor = GridViewRegistros[GridViewRegistros.row, 2].text
     feditar.reg.Colegio = GridViewRegistros[GridViewRegistros.row, 3].text
     feditar.reg.Ciudad = GridViewRegistros[GridViewRegistros.row, 4].text
-    feditar.reg.Fecha = ModuleGestionAlumno.Lista.Registros[feditar.modo].Fecha
+    feditar.reg.Fecha = ModuleGestionAlumno.Lista.Registros[ModuleGestionAlumno.Lista.buscar(feditar.modo)].Fecha
     feditar.reg.FotoAlumno = GridViewRegistros[GridViewRegistros.row, 6].text
     feditar.reg.Foto07 = GridViewRegistros[GridViewRegistros.row, 7].text
     feditar.reg.tag = GridViewRegistros[GridViewRegistros.row, 8].text
@@ -279,6 +279,9 @@ Public Sub ToolButtonEditar_Click()
   Else
     Message.Info(("No se puede editar un registro vacío"))
   Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -340,19 +343,21 @@ End
 
 Public Sub ToolButtonEditarTematico_Click()
   
+  Dim a As Integer
   Dim feditar As New FormDiplomaTematico
   
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then 
+    a = ModuleGestionDiploma.lista.buscar(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
     feditar.modo = GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row]
-    feditar.reg.NombrePlantilla = ModuleGestionDiploma.lista.Registros[feditar.modo].NombrePlantilla
-    feditar.reg.Tema = ModuleGestionDiploma.lista.Registros[feditar.modo].Tema
-    feditar.reg.PlantillaBase = ModuleGestionDiploma.lista.Registros[feditar.modo].plantillabase
-    feditar.reg.ImagenFondo = ModuleGestionDiploma.lista.Registros[feditar.modo].ImagenFondo
-    feditar.reg.ImagenMarco = ModuleGestionDiploma.lista.Registros[feditar.modo].ImagenMarco
-    feditar.reg.ImagenLogo = ModuleGestionDiploma.lista.Registros[feditar.modo].ImagenLogo
-    feditar.reg.Foto04 = ModuleGestionDiploma.lista.Registros[feditar.modo].Foto04
-    feditar.reg.Foto05 = ModuleGestionDiploma.lista.Registros[feditar.modo].Foto05
-    feditar.reg.tag = ModuleGestionDiploma.lista.Registros[feditar.modo].tag
+    feditar.reg.NombrePlantilla = ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
+    feditar.reg.Tema = ModuleGestionDiploma.lista.Registros[a].Tema
+    feditar.reg.PlantillaBase = ModuleGestionDiploma.lista.Registros[a].plantillabase
+    feditar.reg.ImagenFondo = ModuleGestionDiploma.lista.Registros[a].ImagenFondo
+    feditar.reg.ImagenMarco = ModuleGestionDiploma.lista.Registros[a].ImagenMarco
+    feditar.reg.ImagenLogo = ModuleGestionDiploma.lista.Registros[a].ImagenLogo
+    feditar.reg.Foto04 = ModuleGestionDiploma.lista.Registros[a].Foto04
+    feditar.reg.Foto05 = ModuleGestionDiploma.lista.Registros[a].Foto05
+    feditar.reg.tag = ModuleGestionDiploma.lista.Registros[a].tag
     feditar.Showmodal()
     ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
     'realizar previsualizacion 
@@ -363,6 +368,28 @@ Public Sub ToolButtonEditarTematico_Click()
   
 End
 
+Public Function devuelveIndice(valor As Integer, grid As ClassSuperGridview) As Integer
+  
+  Dim a As Integer
+  Dim titulo As String
+  ''NOTE: aqui me quedo
+  titulo = Grid[valor, 0].text
+  For a = 0 To ModuleGestionDiploma.Lista.Registros.count - 1
+    If ModuleGestionDiploma.Lista.Registros[a].NombrePlantilla = titulo Then 
+      
+      Return a
+      
+    Endif
+  Next
+  
+  Message.Error(("No he podido encontrar relacion entre fila y lista de registros"))
+  Return -1
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
 Public Sub ToolButtonBorrarTematico_Click()
   
   Dim res As Integer
@@ -370,11 +397,11 @@ Public Sub ToolButtonBorrarTematico_Click()
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row Then 
     res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
     If res = 1 Then 
-      'Hacer comprobación de que no se borra ningun Diplomatematico que sea usado por los datos de alumnos...
+      'Hacer comprobaciÃ³n de que no se borra ningun Diplomatematico que sea usado por los datos de alumnos...
       res = ModuleIntermedio.compruebaUso(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
       If Not res Then 
-        
-        ModuleGestionDiploma.BorrarRegistro(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
+        'ModuleGestionAlumno.Lista.buscar(feditar.modo) ->busco un id dentro de la lista...
+        ModuleGestionDiploma.BorrarRegistro(ModuleGestionDiploma.lista.buscar(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row]))
         'refrescar el gridviews
         ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
       Else
@@ -383,6 +410,9 @@ Public Sub ToolButtonBorrarTematico_Click()
       Endif
     Endif
   Endif
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 
@@ -406,11 +436,13 @@ End
 
 Public Sub ToolButtonPrevisualizar_Click()
   
-  '  Dim PictureBoxtemp As PictureBox
+  Dim id As Integer
   
-  If GridViewDiplomaTematico.row > -1 Then 
+  If GridViewDiplomaTematico.row > -1 And GridViewDiplomaTematico.row < ModuleGestionDiploma.lista.Registros.count Then 
     
-    Try ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+    id = ModuleGestionDiploma.lista.buscar(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
+    
+    Try ModuleImprimir.PrevisualizarPlantillaTematica(id, DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
     If Error Then 
       Message.Info(("Se ha producido un error al intentar previsualizar una plantilla"))
       
@@ -758,10 +790,11 @@ Public Sub ToolButtonExportaDiploma_Click()
   'miro que diploma esta seleccinado
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then 
     Dialog.Title = ("Exportar diploma: Introduzca nombre")
-    Dialog.Path = User.home & "/" & ModuleGestionDiploma.lista.Registros[GridViewDiplomaTematico.row].NombrePlantilla & ".Diploma"
+    Dialog.Path = User.home & "/" & ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])].NombrePlantilla & ".Diploma"
     If Not Dialog.SaveFile() Then 
       
-      indice = GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row]
+      indice = ModuleGestionDiploma.lista.buscar(GridViewDiplomaTematico.indice[GridViewDiplomaTematico.row])
+      
       resultado = ModuleExportarImportarDiplomas.exportar(indice, Dialog.path)
       If resultado Then
         Message.Info(("Exportación realizada con éxito"))

@@ -117,7 +117,7 @@ Public Sub IniciarGridViewsRegistros(grid As ClassSuperGridview, Optional titulo
   With grid 
     .header = 3 
     .rows.count = 1000 
-    .columns.count = 9
+    .columns.count = 10 '9
     If titulos Then  
       .columns[0].title = " "
       .Columns[1].title = "CAMPO01" 
@@ -148,6 +148,7 @@ Public Sub IniciarGridViewsRegistros(grid As ClassSuperGridview, Optional titulo
     .Columns[6].width = 85 
     .Columns[7].width = 85 
     .Columns[8].width = 93
+    .Columns[9].width = 93
     .font.name = "Sans" 
     .font.size = 9 
     .mode = 1
@@ -188,6 +189,7 @@ Public Sub RellenarGridViewsRegistro(rejilla As ClassSuperGridview, lista As Cla
     rejilla[contadorPosicionFilaGrid, 6].text = regtmp.FotoAlumno
     rejilla[contadorPosicionFilaGrid, 7].text = regtmp.Foto07
     rejilla[contadorPosicionFilaGrid, 8].text = regtmp.tag
+    rejilla[contadorPosicionFilaGrid, 9].text = regtmp.id
     rejilla.indice.add(regtmp.id)
     contadorPosicionFilaGrid += 1
   Next

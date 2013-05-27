@@ -374,115 +374,119 @@ msgstr ""
 msgid "No se puede editar un registro vacío"
 msgstr ""
 
-#: FMain.class:307
+#: FMain.class:310
 msgid "Seguro que desea borrar.."
 msgstr ""
 
-#: FMain.class:307
+#: FMain.class:310
 msgid "Si"
 msgstr ""
 
-#: FMain.class:361
+#: FMain.class:366
 msgid "Seleciones una fila que tenga información de un Diploma"
 msgstr ""
 
-#: FMain.class:361
+#: FMain.class:366
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
 msgstr ""
 
-#: FMain.class:381
+#: FMain.class:385
+msgid "No he podido encontrar relacion entre fila y lista de registros"
+msgstr ""
+
+#: FMain.class:408
 msgid "No es posible borrar esta plantilla,"
 msgstr ""
 
-#: FMain.class:381
+#: FMain.class:408
 msgid " ya que la esta usando, "
 msgstr ""
 
-#: FMain.class:381
+#: FMain.class:408
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
 msgstr ""
 
-#: FMain.class:381
+#: FMain.class:408
 msgid " y borre el registro que usa la plantilla para poder borrarla"
 msgstr ""
 
-#: FMain.class:415
+#: FMain.class:447
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
 msgstr ""
 
-#: FMain.class:420
+#: FMain.class:452
 msgid "Debe de seleccionar un Diploma Temático"
 msgstr ""
 
-#: FMain.class:446
+#: FMain.class:478
 msgid "Registro: "
 msgstr ""
 
-#: FMain.class:548
+#: FMain.class:580
 msgid "Debe de tener al menos un registro"
 msgstr ""
 
-#: FMain.class:558
+#: FMain.class:590
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: FMain.class:570
+#: FMain.class:602
 msgid "Existe el fichero:"
 msgstr ""
 
-#: FMain.class:570
+#: FMain.class:602
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: FMain.class:570
+#: FMain.class:602
 msgid " SobreEscribir "
 msgstr ""
 
-#: FMain.class:570
+#: FMain.class:602
 msgid " Cancelar "
 msgstr ""
 
-#: FMain.class:615
+#: FMain.class:647
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:760
+#: FMain.class:792
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:767
+#: FMain.class:800
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:769
+#: FMain.class:802
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:777
+#: FMain.class:810
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:785
+#: FMain.class:818
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:827
+#: FMain.class:860
 msgid "zip"
 msgstr ""
 
-#: FMain.class:832
+#: FMain.class:865
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:837
+#: FMain.class:870
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:842
+#: FMain.class:875
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:842
+#: FMain.class:875
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 

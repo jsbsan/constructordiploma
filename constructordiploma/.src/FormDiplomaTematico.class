@@ -151,51 +151,68 @@ Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebo
   
   PictureBoxElegido.Picture = Picture["importar.png"]
   Wait 0.1
-  PictureBoxElegido.Picture = Picture.Load(ruta)
-  PictureBoxElegido.tag = ruta
-  copiar = "si"
-  
-  nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
-  nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
-  
-  While (Exist(nombrecopia))
-    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
-    comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
-    Shell comando To comparacion
-    If comparacion = "" Then 
-      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
-      'no hago la copia
-      copiar = "no"
+  Print "FICHERO: "; RUTA
+  If Not Exist(ruta) Then 
+    Message.Info(("No se ha podido descargar la imagen, pruebe de otra manera"))
+    
+    Return 
+  Endif
+  If Upper$(ModuleUtilidadesDisco.extraeExtension(ruta)) = "PNG" Or Upper$(ModuleUtilidadesDisco.extraeExtension(ruta)) = "JPG" Then
+    
+    PictureBoxElegido.Picture = Picture.Load(ruta)
+    PictureBoxElegido.tag = ruta
+    copiar = "si"
+    
+    nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
+    nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
+    
+    While (Exist(nombrecopia))
+      'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+      comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
+      Shell comando To comparacion
+      If comparacion = "" Then 
+        'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+        'no hago la copia
+        copiar = "no"
+        
+        Break
+      Endif
       
-      Break
+      'para que no machaque nombres de fichros...
+      extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
+      If extension <> "" Then 
+        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
+        copiar = "si"
+      Else
+        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+        copiar = "si"
+      Endif
+      
+    Wend
+    
+    If copiar = "si" Then 
+      
+      Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
+      PictureBoxElegido.Picture = Picture["importar.png"]
+      Wait 0.1
+      PictureBoxElegido.Picture = Picture[nombrecopia]
+      PictureBoxElegido.tag = nombrecopia
+      
     Endif
-    
-    'para que no machaque nombres de fichros...
-    extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
-    If extension <> "" Then 
-      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
-      copiar = "si"
-    Else
-      nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
-      copiar = "si"
-    Endif
-    
-  Wend
-  
-  If copiar = "si" Then 
-    
-    Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
-    PictureBoxElegido.Picture = Picture["importar.png"]
-    Wait 0.1
-    PictureBoxElegido.Picture = Picture[nombrecopia]
-    PictureBoxElegido.tag = nombrecopia
+  Else
+    Message.Info(("No se ha podido descargar la imagen, no es un fichero .jpg o .png"))
     
   Endif
   
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
   
 Catch
-  ModuleMensajeError.SistemaDescripcionError()
+  
+  If error.Text = "Unable to load picture" Then 
+    Message.Error(("No ha sido posible descargar o usar la imagen, pruebe  descargandola al disco duro "))
+  Else
+    ModuleMensajeError.SistemaDescripcionError()
+  Endif
   
 End
 
