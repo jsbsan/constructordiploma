@@ -446,7 +446,7 @@ msgstr ""
 msgid "Cerrar"
 msgstr ""
 
-#: FMain.class:251 FormDiplomaTematico.form:241 FormElegirFichero.form:30
+#: FMain.class:251 FormDiplomaTematico.form:241 FormElegirFichero.form:31
 #: FormRegistroDiplomados.form:61
 msgid "Cancelar"
 msgstr ""
@@ -741,15 +741,15 @@ msgstr ""
 msgid "Se ha producido un error al intentar borrar una minuatura:"
 msgstr ""
 
-#: FormElegirFichero.form:22 FormRegistroDiplomados.form:54
+#: FormElegirFichero.form:23 FormRegistroDiplomados.form:54
 msgid "Aceptar"
 msgstr ""
 
-#: FormElegirFichero.form:43
+#: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
 msgstr ""
 
-#: FormElegirFichero.form:44
+#: FormElegirFichero.form:45
 msgid "Pegar (Url)"
 msgstr ""
 
