@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleGestionAlumno.module:76
+#: ModuleGestionAlumno.module:67
 msgid "El fichero no lo puedo leer.\n Versión Desconocida."
 msgstr ""
 

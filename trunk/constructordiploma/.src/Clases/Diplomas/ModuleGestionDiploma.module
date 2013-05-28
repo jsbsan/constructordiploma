@@ -31,27 +31,18 @@ Public Sub EditarRegistro(reg As ClassDiplomaTematico, id As Integer)
   Dim listaArrayReg As New ClassDiplomaTematico[]
   Dim indice As Integer
   
-  indice = Lista.buscar(id)
-  If indice <> -1 Then 
-    reg.id = indice
-    listaArrayReg.add(reg)
-    Lista.registros.Delete(indice)
-    Lista.registros.Insert(listaArrayReg, indice)
-    guardado = False
-  Endif
+  reg.id = id
+  listaArrayReg.add(reg)
+  Lista.registros.Delete(id)
+  Lista.registros.Insert(listaArrayReg, id)
   
 End
 
 Public Sub BorrarRegistro(id As Integer)
   
-  Dim indice As Integer
+  Lista.registros.Delete(id)
+  guardado = False
   
-  indice = Lista.buscar(id)
-  If indice <> -1 Then 
-    Lista.registros.Delete(indice)
-    guardado = False
-  Endif  
-
 End
 
 '---------------------------------------------
