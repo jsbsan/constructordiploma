@@ -516,7 +516,8 @@ Public Sub suelta(cajapicture As PictureBox) As String
   a = Drag.data ' limitamos el tipo de los datos pegados
   b = Split(a, gb.CrLf, "", True) ' cargamos la lista de rutas en un array b
   ' escapando las terminaciones de línea
-  b[0] = Replace(b[0], "\x00", "")
+  Try b[0] = Replace(b[0], "\x00", "")
+  
   If Left(b[0], 7) = "file://" Then 
     a = Null  ' reutilizamos la variable "a"
     
