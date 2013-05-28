@@ -21,7 +21,7 @@ Geometry=[1270,66,210,210]
 Geometry=[1285,66,345,402]
 
 [DebugWindow/Drag]
-Geometry=[114,661,1153,308]
+Geometry=[91,262,1153,308]
 
 [DebugWindow/FileChooser1]
 Geometry=[-10,-8,972,680]
@@ -165,8 +165,8 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:440.18"
-File[7]=".src/ModulePrincipal.module:101.23"
+File[6]=".src/FMain.class:75.19"
+File[7]=".src/ModulePrincipal.module:86.24"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
 File[10]=".src/Clases/ClassSuperGridview.class:6.28"
@@ -174,15 +174,15 @@ File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
 File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:12.46"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
 File[14]=".src/ModuleUtilidadesDisco.module:48.28"
-File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:33.3"
+File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:45.3"
 File[16]=".src/Clases/ClassZip.class:37.38"
 File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
 File[20]=".src/ModuleImprimir.module:67.37"
-File[21]=".src/ModuleIntermedio.module:151.24"
-Active=22
-File[22]=".src/FormDiplomaTematico.class:154.3"
+Active=21
+File[21]=".src/ModuleIntermedio.module:150.50"
+File[22]=".src/FormDiplomaTematico.class:78.2"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
@@ -227,7 +227,7 @@ File[63]=".src/FormPensando.form"
 File[64]="icoLoading.gif"
 File[65]="icono_web.jpg"
 File[66]=".src/FormPensando.class:13.3"
-File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:46.2"
+File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:44.0"
 Count=67
 
 [VersionControl]

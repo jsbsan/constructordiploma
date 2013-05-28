@@ -34,10 +34,10 @@ Public Sub IniciarGridViewsTematico(grid As ClassSuperGridview, Optional titulos
   With grid 
     .header = 3 
     .rows.count = 1000 
-    .columns.count = 1
+    .columns.count = 2
     If titulos Then  
       .Columns[0].title = "Id" 
-      '   .Columns[1].title = "PLANTILLA01" 
+      '.Columns[1].title = "idplantilla" 
       '   .Columns[2].title = "" 
       '    .Columns[3].title = "FOTO01" 
       '   .Columns[4].title = "FOTO02" 
@@ -57,8 +57,8 @@ Public Sub IniciarGridViewsTematico(grid As ClassSuperGridview, Optional titulos
       '   .Columns[8].title = "texto opcional"
     Endif
     
-    .Columns[0].width = 250
-    '   .Columns[1].width = 162 
+    .Columns[0].width = 350
+    .Columns[1].width = 0 ' 162 ''NOTE: para borrar
     '   .Columns[2].width = 80 
     '   .Columns[3].width = 80 
     '   .Columns[4].width = 80 
@@ -91,7 +91,7 @@ Public Sub RellenarGridViewsTematico(rejilla As ClassSuperGridview, lista As Cla
   'relleno datos 
   For Each regtmp In Lista.registros
     rejilla[contadorPosicionFilaGrid, 0].text = regtmp.NombrePlantilla
-    'rejilla[contadorPosicionFilaGrid, 1].text = regtmp.Tema
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.id
     'rejilla[contadorPosicionFilaGrid, 2].text = regtmp.PlantillaBase
     'rejilla[contadorPosicionFilaGrid, 3].text = regtmp.ImagenFondo
     'rejilla[contadorPosicionFilaGrid, 4].text = regtmp.ImagenMarco
@@ -148,7 +148,7 @@ Public Sub IniciarGridViewsRegistros(grid As ClassSuperGridview, Optional titulo
     .Columns[6].width = 85 
     .Columns[7].width = 85 
     .Columns[8].width = 93
-    .Columns[9].width = 93
+    .Columns[9].width = 0 ' 10 ''NOTE: para borrar
     .font.name = "Sans" 
     .font.size = 9 
     .mode = 1
