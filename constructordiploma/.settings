@@ -160,16 +160,17 @@ Geometry=[1288,358,210,210]
 LastCommit="Mejoras en Formulario de Registro Diploma\n---- Esta línea y las siguientes serán ignoradas ----\n\n!       .\nM       .startup\nM       .src/FormDiplomaTematico.class\nM       .src/FMain.form\nM       .src/FormElegirFichero.form\nM       .src/FMain.class\nM       .src/FormDiplomaTematico.form\nM       .src/FormRegistroDiplomados.class\nM       .hidden/CHANGELOG\nM       .settings\nM       .project\nM       .lang/.pot\nM       .lang/FMain.pot\nM       .lang/FormRegistroDiplomados.pot\nM       .lang/FormDiplomaTematico.pot"
 
 [OpenFile]
+Active=1
 File[1]=".src/FMain.form"
 File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:2.0"
+File[6]=".src/FMain.class:298.90"
 File[7]=".src/ModulePrincipal.module:86.24"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
-File[10]=".src/Clases/ClassSuperGridview.class:6.28"
+File[10]=".src/Clases/ClassSuperGridview.class:80.46"
 File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
 File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:12.46"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
@@ -181,7 +182,6 @@ File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
 File[20]=".src/ModuleImprimir.module:67.37"
 File[21]=".src/ModuleIntermedio.module:150.50"
-Active=22
 File[22]=".src/FormDiplomaTematico.class:519.2"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
@@ -218,7 +218,7 @@ File[54]=".src/ModuleMensajeError.module:16.0"
 File[55]=".src/FormDiplomaTematico.form"
 File[56]=".src/ModuleDescargaImagen.module:5.35"
 File[57]=".src/FormElegirFichero.form"
-File[58]=".src/FormElegirFichero.class:96.94"
+File[58]=".src/FormElegirFichero.class:22.3"
 File[59]=".src/Clases/ClassDato.class:13.15"
 File[60]=".src/ModuleUnicaVez.module:2.36"
 File[61]=".src/Clases/ClassPensando.class:19.2"
@@ -228,7 +228,8 @@ File[64]="icoLoading.gif"
 File[65]="icono_web.jpg"
 File[66]=".src/FormPensando.class:13.3"
 File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:44.0"
-Count=67
+File[68]="logoGambas.png"
+Count=68
 
 [VersionControl]
 RememberPassword=1
