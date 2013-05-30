@@ -5,7 +5,7 @@
   Icon = Picture["diploma-icono24.png"]
   Resizable = False
   { IconPanel1 IconPanel
-    MoveScaled(2,1,124,82)
+    MoveScaled(0,0,124,82)
     ToolTip = ("Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.")
     Count = 12
     Index = 0
@@ -67,8 +67,8 @@
       Stretch = True
     }
     { PictureBox3 PictureBox
-      MoveScaled(57,32,11,7)
-      Picture = Picture["gambas360.png"]
+      MoveScaled(75,24,11,14)
+      Picture = Picture["logoGambas.png"]
       Stretch = True
     }
     { Label16 Label
