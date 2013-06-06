@@ -50,7 +50,7 @@ End
 
 Public Sub ToolButtonAceptarDiploma_Click()
   
-  reg.IdDiplomaTematico = extraeIdDiploma(ComboBoxDiplomaTematico.text)
+  reg.IdDiplomaTematico = Val(Left(ComboBoxDiplomaTematico.text, InStr(ComboBoxDiplomaTematico.text, "|") - 1)) 'extraigo el IdDiploma (no el indice del registro de diplomas)
   reg.NombreAlumno = TextBoxAlumno.Text
   reg.NombreTutor = TextBoxTutor.Text
   reg.Colegio = TextBoxColegio.Text
@@ -74,9 +74,12 @@ End
 Private Function extraeIdDiploma(texto As String) As Integer
   
   Dim cadena As String[]
+  Dim NumeroRegistro As Integer
   
   cadena = Split(texto, "|")
-  Return Val(cadena[0])
+  NumeroRegistro = ModuleGestionDiploma.lista.buscar(Val(cadena[0])) 'devuelve el indice del registro (no su IDdiploma) !!!
+  
+  Return NumeroRegistro
   
 End
 
@@ -315,6 +318,7 @@ Public Sub ComboBoxDiplomaTematico_Click()
   Dim valor As Integer
   
   valor = extraeIdDiploma(ComboBoxDiplomaTematico.text)
+  
   sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & ModuleGestionDiploma.lista.Registros[valor].PlantillaBase)
   
 End
@@ -477,7 +481,7 @@ End
 Public Sub botontransparente_Click()
   'reg.FotoAlumno = PictureBoxFoto05.Tag
   'reg.Foto07 = PictureBoxFoto06.Tag
-
+  
   Dim numero As Integer
   
   numero = Val(Last.tag)
