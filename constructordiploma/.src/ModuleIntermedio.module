@@ -152,8 +152,8 @@ Public Sub IniciarGridViewsRegistros(grid As ClassSuperGridview, Optional titulo
     .font.name = "Sans" 
     .font.size = 9 
     .mode = 1
-    .w = 485
-    .h = 500
+    .w = 585
+    .h = 530
     .x = 10
     .y = 40
     .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
@@ -200,6 +200,9 @@ Public Sub RellenarGridViewsRegistro(rejilla As ClassSuperGridview, lista As Cla
   Next
   
   rejilla.Refresh()
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
   
 End
 

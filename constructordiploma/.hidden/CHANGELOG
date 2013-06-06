@@ -1,3 +1,6 @@
+* Thu Jun 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.57
+- Corregido Bug de Asignar Diploma en Introduccion de Datos
+
 * Thu May 30 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.56
 - Corregido bug en supergridview al señalar linea y añadido logo de gambas
 

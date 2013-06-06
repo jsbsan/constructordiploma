@@ -374,7 +374,7 @@ Public Function devuelveIndice(valor As Integer, grid As ClassSuperGridview) As 
   
   Dim a As Integer
   Dim titulo As String
-  ''NOTE: aqui me quedo
+  
   titulo = Grid[valor, 0].text
   For a = 0 To ModuleGestionDiploma.Lista.Registros.count - 1
     If ModuleGestionDiploma.Lista.Registros[a].NombrePlantilla = titulo Then 
@@ -402,7 +402,7 @@ Public Sub ToolButtonBorrarTematico_Click()
     If res = 1 Then 
       'Hacer comprobaciÃ³n de que no se borra ningun Diplomatematico que sea usado por los datos de alumnos...
       IndiceDiploma = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
-      res = ModuleIntermedio.compruebaUso(IndiceDiploma)
+      res = ModuleIntermedio.compruebaUso(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
       If Not res Then 
         'ModuleGestionAlumno.Lista.buscar(feditar.modo) ->busco un id dentro de la lista...
         ModuleGestionDiploma.BorrarRegistro(IndiceDiploma)
