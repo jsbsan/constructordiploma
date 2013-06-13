@@ -22,7 +22,9 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
   
-  regDiplomaTmp = ModuleGestionDiploma.lista.Registros[regAlumnotmp.IdDiplomaTematico]
+  'REVISADO EN LA 0.0.58
+  regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
+  ' ModuleGestionDiploma.lista.Registros[regAlumnotmp.IdDiplomaTematico]
   
   plantillabase = regDiplomaTmp.PlantillaBase
   
@@ -292,7 +294,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
   
   '  convierto la plantilla en imagen...aumento a 400
-  comando = "convert -resize 400x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
+  comando = "convert -resize 400x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg \"" & rutamini & "\""
   Shell comando
   fpensando.parar = True
   fpensando.Delete
@@ -329,8 +331,8 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
     
     Return False
   Endif
-  
-  regDiplomaTmp = ModuleGestionDiploma.lista.Registros[regAlumnotmp.IdDiplomaTematico]
+  'NOTE: correpción  0.0.58
+  regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
   
   plantillabase = regDiplomaTmp.PlantillaBase
   

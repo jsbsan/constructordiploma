@@ -7,6 +7,7 @@
   { TextBoxNombreDiploma TextBox
     MoveScaled(30,0,49,5)
     Font = Font["+2"]
+    ToolTip = ("Pon el nombre del diploma pero no use caracteres especiales por ejemplo los parentesis")
   }
   { Label14 Label
     MoveScaled(4,1,24,4)
@@ -268,5 +269,10 @@
         }
       }
     }
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(79,0,24,6)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("<b>Nota:</b> En el nombre del diploma pero no use caracteres especiales, por ejemplo los parentesis")
   }
 }

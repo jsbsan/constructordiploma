@@ -14,19 +14,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ModuleImprimir.module:173
+#: ModuleImprimir.module:175
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:356
+#: ModuleImprimir.module:358
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:378
+#: ModuleImprimir.module:380
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:469
+#: ModuleImprimir.module:471
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
