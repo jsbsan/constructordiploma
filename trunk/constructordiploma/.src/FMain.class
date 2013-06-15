@@ -351,6 +351,8 @@ Public Sub ToolButtonEditarTematico_Click()
   If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then 
     a = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
     feditar.modo = a
+    ' Message.Info("feditar.modo=" & a) -> mensaje para ver valor que estaba editando (solo modo depuracion)
+    feditar.reg.Id = ModuleGestionDiploma.lista.Registros[a].Id
     feditar.reg.NombrePlantilla = ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
     feditar.reg.Tema = ModuleGestionDiploma.lista.Registros[a].Tema
     feditar.reg.PlantillaBase = ModuleGestionDiploma.lista.Registros[a].plantillabase

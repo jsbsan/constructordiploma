@@ -39,7 +39,10 @@ Geometry=[1277,72,210,210]
 Geometry=[51,20,474,378]
 
 [DebugWindow/Lista.registros]
-Geometry=[753,490,466,397]
+Geometry=[-69,169,455,335]
+
+[DebugWindow/Lista.registros[11]]
+Geometry=[-7,357,466,397]
 
 [DebugWindow/ModuleGestionAlumno.Lista.Registros]
 Geometry=[-10,-8,336,210]
@@ -142,7 +145,7 @@ Geometry=[1014,-8,210,210]
 Geometry=[-7,-8,210,210]
 
 [DebugWindow/reg]
-Geometry=[880,35,292,527]
+Geometry=[453,166,292,527]
 
 [DebugWindow/regDiplomaTmp]
 Geometry=[751,411,302,278]
@@ -168,7 +171,8 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:571.77"
+Active=6
+File[6]=".src/FMain.class:354.63"
 File[7]=".src/ModulePrincipal.module:14.2"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
@@ -183,8 +187,8 @@ File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
 File[20]=".src/ModuleImprimir.module:263.2"
-File[21]=".src/ModuleIntermedio.module:155.12"
-File[22]=".src/FormDiplomaTematico.class:78.2"
+File[21]=".src/ModuleIntermedio.module:116.12"
+File[22]=".src/FormDiplomaTematico.class:108.5"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
@@ -217,7 +221,6 @@ File[51]=".src/ClassDatoLetra.class:7.39"
 File[52]=".src/FormError.form"
 File[53]=".src/FormError.class:12.17"
 File[54]=".src/ModuleMensajeError.module:16.0"
-Active=55
 File[55]=".src/FormDiplomaTematico.form"
 File[56]=".src/ModuleDescargaImagen.module:5.35"
 File[57]=".src/FormElegirFichero.form"
@@ -229,8 +232,8 @@ File[62]="relojarena.gif"
 File[63]=".src/FormPensando.form"
 File[64]="icoLoading.gif"
 File[65]="icono_web.jpg"
-File[66]=".src/FormPensando.class:13.3"
-File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:44.0"
+File[66]=".src/FormPensando.class:18.3"
+File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:33.14"
 File[68]="logoGambas.png"
 Count=68
 
