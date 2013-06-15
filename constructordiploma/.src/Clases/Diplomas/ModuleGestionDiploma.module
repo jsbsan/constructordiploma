@@ -31,7 +31,7 @@ Public Sub EditarRegistro(reg As ClassDiplomaTematico, id As Integer)
   Dim listaArrayReg As New ClassDiplomaTematico[]
   Dim indice As Integer
   
-  reg.id = id
+  'reg.id = id
   listaArrayReg.add(reg)
   Lista.registros.Delete(id)
   Lista.registros.Insert(listaArrayReg, id)
