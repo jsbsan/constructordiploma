@@ -250,6 +250,7 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   Dim regtmp As New ClassDiplomaTematico
   Dim rutamini As String
   Dim fpensando As New FormPensando
+  Dim nombreReemplazo As String
   
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
@@ -261,7 +262,12 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   regtmp.tag = ModuleGestionDiploma.lista.Registros[indice].tag
   regtmp.NombrePlantilla = ModuleGestionDiploma.lista.Registros[indice].NombrePlantilla
   
-  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_") & "mini.png"
+  'Reemplazos de caracters problematicos...
+  nombreReemplazo = Replace$(regtmp.NombrePlantilla, " ", "_")
+  nombreReemplazo = Replace$(nombreReemplazo, "(", "_")
+  nombreReemplazo = Replace$(nombreReemplazo, ")", "_")
+  
+  rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(regtmp.PlantillaBase, ".svg", "") & Replace$(nombreReemplazo, " ", "_") & "mini.png"
   'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
   If Exist(rutamini) Then
     dibujarPNG(areadibujo, rutamini)
@@ -380,7 +386,7 @@ Public Sub copiarImagenesATmp(indice As Integer)
     Message.Error(("No puedo presentar ese diploma"))
   Else 
     
-    regDiplomaTmp = ModuleGestionDiploma.lista.Registros[regAlumnotmp.IdDiplomaTematico]
+    regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
     Try Copy "transparente.png" To rutaTrabajoTmp & "transparente.png"
     If Not regDiplomaTmp.ImagenFondo = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.ImagenFondo To rutaTrabajoTmp & regDiplomaTmp.ImagenFondo
     If Not regDiplomaTmp.ImagenMarco = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.Imagenmarco To rutaTrabajoTmp & regDiplomaTmp.ImagenMarco
@@ -393,6 +399,9 @@ Public Sub copiarImagenesATmp(indice As Integer)
     If Not regAlumnotmp.FotoAlumno = "" Then Try Copy rutafotosRegistros & regAlumnotmp.FotoAlumno To rutaTrabajoTmp & regAlumnotmp.FotoAlumno
     If Not regAlumnotmp.Foto07 = "" Then Try Copy rutafotosRegistros & regAlumnotmp.Foto07 To rutaTrabajoTmp & regAlumnotmp.Foto07
   Endif
+  
+Catch
+  mensajeErrorPrevisualizacion(Error.Text, Error.Where)
   
 End
 

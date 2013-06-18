@@ -889,15 +889,15 @@ msgstr ""
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:358
+#: ModuleImprimir.module:364
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:380
+#: ModuleImprimir.module:386
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:471
+#: ModuleImprimir.module:480
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
