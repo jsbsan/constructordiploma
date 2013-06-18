@@ -1,3 +1,6 @@
+* Tue Jun 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.60
+- Corregido bug al ver diplomas por problemas con el indice
+
 * Sat Jun 15 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.59
 - Corregido bug al guardar los diplomas
 
