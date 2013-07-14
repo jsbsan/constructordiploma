@@ -321,6 +321,9 @@ End
 
 Public Sub ToolButtonPegar_Click()
   
+  FormPegar.ShowModal()
+  ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+  
 End
 
 Public Sub ToolButtonCopiar_Click()

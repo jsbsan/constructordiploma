@@ -190,3 +190,54 @@ Public Sub comprimirDatos() As Boolean
   Return True
   
 End
+
+'-----------------------------------------------------------------------------------------------
+
+Public Sub PegarDatosPortapapelesGridViews(textocombo As String) As Boolean  
+  
+  Dim portapapeles As String
+  Dim lineas As New String[]
+  Dim columnas As New String[]
+  Dim regtmp As New ClassRegistroAlumno
+  Dim finlinea As String
+  Dim fincolumna As String
+  Dim a As Integer
+  'es añadir datos 
+  'por cada linea leida, asignar a un reg temporal y añadirlo
+  finlinea = "\n" ' retorno de carro (separa las filas)
+  fincolumna = "\t" 'tabulador (separa las colunmas)
+  
+  Try portapapeles = Clipboard.paste()
+  Try lineas = Split(portapapeles, finlinea)
+  Try columnas = Split(lineas[0], fincolumna) 
+  
+  If Error Then
+    Message.Error(("error al leer datos del portapapeles"))
+    Return False
+  Endif 
+  
+  For a = 0 To lineas.count - 2
+    'intento leer toda la informacion del portapapeles, si hay algun error, sigue ejecutandose
+    regtmp = New ClassRegistroAlumno
+    regtmp.vacio() 'creo el registro completamente vacio
+    
+    Try columnas = Split(lineas[a], fincolumna) 
+    
+    ''TODO: Pegar datos del portapapeles...
+    Try regtmp.IdDiplomaTematico = Val(Left(textocombo, InStr(textocombo, "|") - 1)) 
+    Try regtmp.NombreAlumno = columnas[0]
+    Try regtmp.NombreTutor = columnas[1]
+    Try regtmp.Colegio = Val(columnas[2])
+    Try regtmp.Ciudad = columnas[3]
+    Try regtmp.fecha = columnas[4]
+    Try regtmp.fotoalumno = ""
+    Try regtmp.foto07 = ""
+    Try regtmp.tag = columnas[5]
+    
+    'añado registro 
+    ModuleGestionAlumno.anadirRegistro(regtmp)
+    
+  Next
+  Return True
+  
+End

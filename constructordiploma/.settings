@@ -1,6 +1,7 @@
 [Bookmarks]
 ModuleImprimir=[344]
 ClassSuperGridview=[8]
+ModulePrincipal=[225]
 
 [Breakpoints]
 Count=0
@@ -171,8 +172,8 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-File[6]=".src/FMain.class:354.63"
-File[7]=".src/ModulePrincipal.module:14.2"
+File[6]=".src/FMain.class:325.2"
+File[7]=".src/ModulePrincipal.module:234.32"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
 File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
 File[10]=".src/Clases/ClassSuperGridview.class:80.46"
@@ -185,14 +186,13 @@ File[16]=".src/Clases/ClassZip.class:37.38"
 File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
-Active=20
 File[20]=".src/ModuleImprimir.module:265.13"
 File[21]=".src/ModuleIntermedio.module:116.12"
 File[22]=".src/FormDiplomaTematico.class:252.34"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
-File[26]=".src/FormRegistroDiplomados.class:439.142"
+File[26]=".src/FormRegistroDiplomados.class:72.0"
 File[27]="transparente.png"
 File[28]="inkscape-icono.png"
 File[29]="mininopicaros2012.png"
@@ -235,7 +235,10 @@ File[65]="icono_web.jpg"
 File[66]=".src/FormPensando.class:18.3"
 File[67]=".src/Clases/Diplomas/ModuleGestionDiploma.module:33.14"
 File[68]="logoGambas.png"
-Count=68
+Active=69
+File[69]=".src/FormPegar.form"
+File[70]=".src/FormPegar.class:22.2"
+Count=70
 
 [VersionControl]
 RememberPassword=1
