@@ -8,6 +8,10 @@ Public Sub Form_Open()
   
   Dim a As Integer
   Dim diploma As String
+  
+  ComboBoxTag.Add("")
+  ComboBoxTag.Add("EAN13:")
+  ComboBoxTag.Add("QR:")
   'carga los distintos tipos de diplomas tematicos que haya....
   For a = 0 To ModuleGestionDiploma.lista.Registros.count - 1
     diploma = ModuleGestionDiploma.lista.Registros[a].Id & " | " & ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
@@ -29,7 +33,7 @@ Public Sub Form_Open()
     TextBoxTutor.text = reg.NombreTutor
     TextBoxColegio.text = reg.Colegio
     TextBoxCiudad.text = reg.Ciudad
-    TextBoxTag.text = reg.tag
+    ComboBoxTag.text = reg.tag
     
     DateBoxFecha.value = Val(reg.Fecha)
     
@@ -58,7 +62,7 @@ Public Sub ToolButtonAceptarDiploma_Click()
   reg.Fecha = Str$(DateBoxFecha.Value)
   reg.FotoAlumno = PictureBoxFoto05.Tag
   reg.Foto07 = PictureBoxFoto06.Tag
-  reg.tag = TextBoxTag.Text
+  reg.tag = ComboBoxTag.Text
   
   If modo = anadir Then
     ModuleGestionAlumno.anadirRegistro(reg)
@@ -236,7 +240,7 @@ Public Sub ButtonIgualOtro_Click()
     reg.tag = ModuleGestionAlumno.Lista.Registros[modo - 1].tag
   Endif
   
-  TextBoxTag.text = reg.tag
+  ComboBoxTag.text = reg.tag
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()  
@@ -299,7 +303,7 @@ Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
       DateBoxFecha.visible = mostrar
       ButtonIgualFecha.Visible = mostrar
     Case 5
-      TextBoxTag.visible = mostrar
+      ComboBoxTag.visible = mostrar
       ButtonIgualOtro.visible = mostrar
     Case 6
       PictureBoxFoto05.visible = mostrar
