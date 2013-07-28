@@ -101,10 +101,6 @@
     MoveScaled(12,23,31,4)
     Font = Font["Bitstream Charter,-1"]
   }
-  { TextBoxTag TextBox
-    MoveScaled(13,33,30,4)
-    Font = Font["Bitstream Charter,-1"]
-  }
   { DateBoxFecha DateBox
     MoveScaled(12,28,21,4)
     Font = Font["Bitstream Charter,-1"]
@@ -210,5 +206,8 @@
     Font = Font["Bitstream Charter,-1"]
     ToolTip = ("Poner el mismo texto del registro anterior")
     Text = ("=")
+  }
+  { ComboBoxTag ComboBox
+    MoveScaled(12,33,31,4)
   }
 }

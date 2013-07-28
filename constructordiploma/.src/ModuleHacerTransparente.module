@@ -7,6 +7,13 @@ Public Sub copiarScriptTransparente()
   
 End
 
+Public Sub copiarEAN13()
+  
+  If Not Exist(ModulePrincipal.rutaprograma & "ean13.gambas") Then Copy "ean13.gambas1" To ModulePrincipal.rutaprograma & "ean13.gambas"
+  Chmod ModulePrincipal.rutaprograma & "ean13.gambas" To "rwx------"
+  
+End
+
 Public Sub convertirTransparente(fichero As String) As String
   
   Dim comando As String

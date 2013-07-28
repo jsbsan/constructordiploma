@@ -567,11 +567,11 @@ msgstr ""
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:884 comun.module:29
+#: FMain.class:884 comun.module:34
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:884 comun.module:29
+#: FMain.class:884 comun.module:34
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
@@ -629,7 +629,7 @@ msgstr ""
 msgid "Haga click para elegir imagen"
 msgstr ""
 
-#: FormDiplomaTematico.form:171 FormRegistroDiplomados.form:232
+#: FormDiplomaTematico.form:171 FormRegistroDiplomados.form:227
 msgid "Poner Fondo Transparente"
 msgstr ""
 
@@ -715,15 +715,15 @@ msgid ""
 "ejemplo los parentesis"
 msgstr ""
 
-#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:107
+#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:111
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:108
+#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:112
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:430
+#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:434
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -840,47 +840,47 @@ msgstr ""
 msgid "Otro texto:"
 msgstr ""
 
-#: FormRegistroDiplomados.form:174
+#: FormRegistroDiplomados.form:169
 msgid "CAMPO01"
 msgstr ""
 
-#: FormRegistroDiplomados.form:181
+#: FormRegistroDiplomados.form:176
 msgid "CAMPO02"
 msgstr ""
 
-#: FormRegistroDiplomados.form:188
+#: FormRegistroDiplomados.form:183
 msgid "CAMPO03"
 msgstr ""
 
-#: FormRegistroDiplomados.form:195
+#: FormRegistroDiplomados.form:190
 msgid "CAMPO04"
 msgstr ""
 
-#: FormRegistroDiplomados.form:202
+#: FormRegistroDiplomados.form:197
 msgid "CAMPO05"
 msgstr ""
 
-#: FormRegistroDiplomados.form:209
+#: FormRegistroDiplomados.form:204
 msgid "CAMPO06"
 msgstr ""
 
-#: FormRegistroDiplomados.form:216
+#: FormRegistroDiplomados.form:211
 msgid "FOTO006"
 msgstr ""
 
-#: FormRegistroDiplomados.form:223
+#: FormRegistroDiplomados.form:218
 msgid "FOTO007"
 msgstr ""
 
-#: FormRegistroDiplomados.form:250
+#: FormRegistroDiplomados.form:245
 msgid "Poner el mismo texto del registro anterior"
 msgstr ""
 
-#: FormRegistroDiplomados.form:251
+#: FormRegistroDiplomados.form:246
 msgid "="
 msgstr ""
 
-#: FormRegistroDiplomados.class:139
+#: FormRegistroDiplomados.class:143
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
@@ -908,23 +908,23 @@ msgid ""
 " Versión Desconocida."
 msgstr ""
 
-#: ModuleImprimir.module:175
+#: ModuleImprimir.module:199
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:364
+#: ModuleImprimir.module:434
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:386
+#: ModuleImprimir.module:456
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:480
+#: ModuleImprimir.module:550
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
-#: ModuleIntermedio.module:314
+#: ModuleIntermedio.module:315
 msgid "Se ha producido un error, al intentar copiar la plantilla"
 msgstr ""
 
@@ -1006,4 +1006,8 @@ msgstr ""
 
 #: ModuleUpdate.module:45
 msgid "No necesita actualizarla"
+msgstr ""
+
+#: comun.module:29
+msgid "qrencode"
 msgstr ""

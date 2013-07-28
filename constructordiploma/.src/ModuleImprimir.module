@@ -1,5 +1,6 @@
 ' Gambas module file
 
+Public operacion As String 'controla como ha ido el comando ean13
 Public EstadoDelTrabajo As Integer 'para el control del proceso del avance de un trabajo
 Public EstadoDelTrabajoPaginas As Integer 'para el control del proceso del avance impresion de paginas
 
@@ -127,30 +128,51 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
   ' contenido = Replace$(contenido, "", reg)
   contenido = Replace$(contenido, "PLANTILLA01", reg.Tema)
   If reg.ImagenFondo <> "" Then 
-    contenido = Replace$(contenido, "FOTO01", rutafotos & reg.ImagenFondo)
+    If Exist(rutafotos & reg.ImagenFondo) Then 
+      contenido = Replace$(contenido, "FOTO01", rutafotos & reg.ImagenFondo)
+    Else
+      contenido = Replace$(contenido, "FOTO01", "transparente.png")
+    Endif
   Else
     contenido = Replace$(contenido, "FOTO01", "transparente.png")
   Endif
   If reg.ImagenMarco <> "" Then
-    contenido = Replace$(contenido, "FOTO02", rutafotos & reg.ImagenMarco)
+    If Exist(rutafotos & reg.ImagenMarco) Then 
+      contenido = Replace$(contenido, "FOTO02", rutafotos & reg.ImagenMarco)
+    Else
+      contenido = Replace$(contenido, "FOTO02", "transparente.png")
+    Endif
   Else
     contenido = Replace$(contenido, "FOTO02", "transparente.png")
   Endif
   If reg.Imagenlogo <> "" Then
-    contenido = Replace$(contenido, "FOTO03", rutafotos & reg.ImagenLogo)
+    If Exist(rutafotos & reg.ImagenLogo) Then 
+      contenido = Replace$(contenido, "FOTO03", rutafotos & reg.ImagenLogo)
+    Else
+      contenido = Replace$(contenido, "FOTO03", "transparente.png")
+    Endif
   Else
     contenido = Replace$(contenido, "FOTO03", "transparente.png")
   Endif
   
   If reg.Foto04 <> "" Then 
-    contenido = Replace$(contenido, "FOTO04", rutafotos & reg.Foto04)
+    If Exist(rutafotos & reg.Foto04) Then 
+      contenido = Replace$(contenido, "FOTO04", rutafotos & reg.Foto04)
+    Else
+      contenido = Replace$(contenido, "FOTO04", "transparente.png")  
+    Endif
   Else
     contenido = Replace$(contenido, "FOTO04", "transparente.png")  
   Endif
   
   If reg.Foto05 <> "" Then
-    contenido = Replace$(contenido, "FOTO05", rutafotos & reg.Foto05)
+    If Exist(rutafotos & reg.Foto05) Then 
+      contenido = Replace$(contenido, "FOTO05", rutafotos & reg.Foto05)
+    Else
+      contenido = Replace$(contenido, "FOTO05", "transparente.png")
+    Endif
   Else
+    
     contenido = Replace$(contenido, "FOTO05", "transparente.png")
   Endif
   
@@ -162,10 +184,12 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
 End
 
 Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumno, fichero As String, Optional formatofecha As String) As String 'devuelvo el contenido del fichero svg, cambiado...
+
+  Dim comando As String
   
   Dim cadenasub As String
   Dim Contenido As String
-  
+  Dim opcion As Integer 'para comprobar el caso de codigo de barras, qr u otro
   Dim rutafotos As String = ModulePrincipal.rutaprograma & "temporales/FotosRegistros/"
   
   If formatofecha = "" Then formatofecha = "dd mmmm yyyy" 'formato predefinido
@@ -191,13 +215,59 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
     contenido = Replace$(contenido, "FOTO06", "transparente.png")
   Endif
   
-  If reg.Foto07 <> "" Then 
-    contenido = Replace$(contenido, "FOTO07", rutafotos & reg.Foto07)
-  Else
-    contenido = Replace$(contenido, "FOTO07", "transparente.png")
+  'analizo el contenido del campo CAMPO006, (reg.tag) y si tiene EAN13 o QR, entonces creo el codigo grafico y lo pongo en FOTOO07)
+  opcion = 0
+  If InStr(reg.tag, "EAN13:") <> 0 Then 
+    opcion = 1
+  Else If InStr(reg.tag, "QR:") <> 0 Then 
+    opcion = 2
   Endif
   
-  contenido = Replace$(contenido, "CAMPO06", reg.tag)
+  Select Case opcion
+    Case 0
+      contenido = Replace$(contenido, "CAMPO06", reg.tag)
+      If reg.Foto07 <> "" Then 
+        contenido = Replace$(contenido, "FOTO07", rutafotos & reg.Foto07)
+      Else
+        contenido = Replace$(contenido, "FOTO07", "transparente.png")
+      Endif
+    Case 1
+      'Creo un codigo y lo pongo en FOTO07
+      operacion = "fallida" 'variable para controlar si se ha producido un error a la hora de crear el codigo
+      
+      Shell User.home & "/.ConstructorDiplomas/./ean13.gambas " & Replace$(reg.tag, "EAN13:", "") To operacion
+      'espera que el proceso termine..
+      '   Do While proceso.State = Process.Running
+      '    Wait 0.1
+      '  Loop
+      
+      If InStr(operacion, "Bien") <> 0 Then 
+        contenido = Replace$(contenido, "FOTO07", "/tmp/codigoBarras.png")
+        contenido = Replace$(contenido, "CAMPO06", " ")
+      Endif
+    Case 2
+      
+      ''NOTE: Creando qr
+      'creando codigo QR
+      comando = "qrencode  -s 6 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
+      Shell comando To operacion
+      
+      If InStr(operacion, "El programa «qrencode» no") <> 0 Then 
+        Message.Error("No esta instalado el progra qrencode/nNo se puede crear codigos QR")  
+      Else
+        contenido = Replace$(contenido, "FOTO07", "/tmp/codigoQR.png")
+        contenido = Replace$(contenido, "CAMPO06", " ")
+      Endif
+      
+    Case Else
+      contenido = Replace$(contenido, "CAMPO06", reg.tag)
+      If reg.Foto07 <> "" Then 
+        contenido = Replace$(contenido, "FOTO07", rutafotos & reg.Foto07)
+      Else
+        contenido = Replace$(contenido, "FOTO07", "transparente.png")
+      Endif
+      
+  End Select
   
   File.Save(fichero, contenido)
   Return contenido
@@ -478,5 +548,21 @@ End
 Public Sub mensajeErrorPrevisualizacion(textoerror As String, textocadena As String)
   
   Message.Info(("Se ha producido un error al intentar crear una previsualizacion") & "\n" & textoerror & "\n" & textocadena)
+  
+End
+'-----------------------------
+'comprobar salida del proceso
+'-----------------------------
+
+Public Sub proceso_Read()
+  
+  Dim sLine As String
+  
+  Read #Last, sLine, -256
+  
+  Print sLine;
+  If InStr(sline, "Bien") <> 0 Then 
+    operacion = "valido"
+  Endif
   
 End

@@ -20,6 +20,7 @@ Public Sub IniciarLaPrimeraVez(rutaprograma As String)
   copiaPlantillasInternas()
   
   ModuleHacerTransparente.copiarScriptTransparente()
+  ModuleHacerTransparente.copiarEAN13()
   
   'borrado de datos anteriores trabajos
   BorradoDatosAnteriores()
