@@ -108,6 +108,10 @@ Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileA
   proceso = Exec ["convert", nombrefinal, nombrepdf]
   ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
   nombredesplazadopdf = Replace(nombrepdf, "/trabajotmp/", "/trabajotmp/pdf/")
+  
+  If Exist(nombredesplazadopdf) Then 
+    Kill nombredesplazadopdf
+  Endif
   Move nombrepdf To nombredesplazadopdf
   
 End
@@ -184,7 +188,7 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
 End
 
 Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumno, fichero As String, Optional formatofecha As String) As String 'devuelvo el contenido del fichero svg, cambiado...
-
+  
   Dim comando As String
   
   Dim cadenasub As String

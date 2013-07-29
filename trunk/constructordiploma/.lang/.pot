@@ -908,19 +908,19 @@ msgid ""
 " Versión Desconocida."
 msgstr ""
 
-#: ModuleImprimir.module:199
+#: ModuleImprimir.module:203
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:434
+#: ModuleImprimir.module:438
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:456
+#: ModuleImprimir.module:460
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:550
+#: ModuleImprimir.module:554
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
