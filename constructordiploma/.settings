@@ -4,9 +4,8 @@ ClassSuperGridview=[8]
 ModulePrincipal=[225]
 
 [Breakpoints]
-Breakpoint[1]="ModuleImprimir.219"
-Breakpoint[2]="ModuleImprimir.562"
-Count=2
+Breakpoint[1]="ModuleImprimir.566"
+Count=1
 
 [DebugWindow]
 Count=0
@@ -189,13 +188,13 @@ File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
 Active=20
-File[20]=".src/ModuleImprimir.module:257.32"
+File[20]=".src/ModuleImprimir.module:112.28"
 File[21]=".src/ModuleIntermedio.module:22.39"
 File[22]=".src/FormDiplomaTematico.class:309.2"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
-File[26]=".src/FormRegistroDiplomados.class:305.35"
+File[26]=".src/FormRegistroDiplomados.class:43.72"
 File[27]="transparente.png"
 File[28]="inkscape-icono.png"
 File[29]="mininopicaros2012.png"

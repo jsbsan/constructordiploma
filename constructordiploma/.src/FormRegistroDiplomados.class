@@ -9,9 +9,6 @@ Public Sub Form_Open()
   Dim a As Integer
   Dim diploma As String
   
-  ComboBoxTag.Add("")
-  ComboBoxTag.Add("EAN13:")
-  ComboBoxTag.Add("QR:")
   'carga los distintos tipos de diplomas tematicos que haya....
   For a = 0 To ModuleGestionDiploma.lista.Registros.count - 1
     diploma = ModuleGestionDiploma.lista.Registros[a].Id & " | " & ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
@@ -34,7 +31,7 @@ Public Sub Form_Open()
     TextBoxColegio.text = reg.Colegio
     TextBoxCiudad.text = reg.Ciudad
     ComboBoxTag.text = reg.tag
-    
+    ComboBoxTag.Add(reg.tag)
     DateBoxFecha.value = Val(reg.Fecha)
     
     ''TODO: valores del combo editado
@@ -42,6 +39,9 @@ Public Sub Form_Open()
     
   Endif
   
+  ComboBoxTag.Add("EAN13:")
+  ComboBoxTag.Add("QR:")
+  ComboBoxTag.Add("")  'vacio por si quiere meter un texto cualquiera...
   Me.Center
   
 End
