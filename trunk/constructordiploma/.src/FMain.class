@@ -768,6 +768,9 @@ Public Sub ToolButtonEditaPlantilla_Click()
   ToolButtonEditaPlantilla.Text = tex
   ToolButtonEditaPlantilla.Refresh()
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub ToolButtonBorrarPlantilla_Click()

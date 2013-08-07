@@ -52,6 +52,9 @@ Public Function instalado(paquete As String) As Boolean
     Return False
   Endif 
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End 
 
 Public Function BetweenLista(Datos As String, Cadena1 As String, Cadena2 As String) As String[]

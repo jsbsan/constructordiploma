@@ -297,6 +297,9 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
   f.delete()
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 Public Sub ToolButtonAnadirPlantilla_Click()

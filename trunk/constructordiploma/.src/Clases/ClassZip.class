@@ -58,6 +58,9 @@ Public Sub comprimirDatos(rutaAcomprimir As String, Optional RutaFicheroTemporal
   
   Shell "zip " & rutafinalFichero & " " & rutaAcomprimir & "/*" Wait
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 '--------------------------------------------------------
@@ -97,4 +100,7 @@ Public Sub extraeRutaZip(nombre As String, NombreCarpetaPrograma As String) As S
   'Print "Nombre de usuario: "; nombreUsuarioAntiguo 
   Return nombreUsuarioAntiguo 'Devuelve la ruta del usuario del fichero zip, por ejemplo de  /home/uno/NombreCarpetaProgram/hola , devolveria: /home/uno
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
