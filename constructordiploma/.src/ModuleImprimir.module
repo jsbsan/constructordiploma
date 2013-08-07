@@ -93,6 +93,9 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   
   'Desktop.Open(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 
 '--------------------------
@@ -276,6 +279,9 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
   File.Save(fichero, contenido)
   Return contenido
   
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
 End
 '--------------------------
 ' Dibujar

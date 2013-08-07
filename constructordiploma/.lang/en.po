@@ -13,92 +13,91 @@ msgstr ""
 
 #: .project:1
 msgid "ConstructorDiplomas"
-msgstr ""
+msgstr "Diploma Creator"
 
 #: .project:2
 msgid "Crea diplomas personalizados fácilmente"
-msgstr ""
+msgstr "You can create custom diplomas easily"
 
 #: ClassListaDiploma.class:28 ClassListaRegistroAlumno.class:27
 msgid "se ha producido un error al buscar el indice"
-msgstr ""
+msgstr "An error has occur finding the index"
 
 #: ClassSuperGridview.class:46
 msgid "Copiado contenido al portapapeles"
-msgstr ""
+msgstr "Content has been copied to the clipboard"
 
 #: ClassZip.class:34
 msgid "Nombre de archivo incorrecto:"
-msgstr ""
+msgstr "Bad file name:"
 
 #: FMain.class:117
 msgid "Los datos anteriores no se guardaron,"
-msgstr ""
+msgstr "Datas have not been saved,"
 
 #: FMain.class:117
 msgid "si crea un Grupo nuevo, se borrarán!!"
-msgstr ""
+msgstr "if you create a new group, they will be deleted!!"
 
 #: FMain.class:119
 msgid "Indique archivo de datos para abrir..."
-msgstr ""
+msgstr "Choose a data file for opening..."
 
 #: FMain.class:130
 msgid "Problemas al abrir el archivo..."
-msgstr ""
+msgstr "Open the file was impossible..."
 
 #: FMain.class:172
 msgid "Debe de Abrir o Crear un grupo"
-msgstr ""
+msgstr "You should open or create a group"
 
 #: FMain.class:183
 msgid " ve a la opción de:  Gestor Plantillas de Diplomas"
-msgstr ""
+msgstr " go to: Diploma templates manager"
 
 #: FMain.class:183
 msgid "No existen Diplomas Temático, debes definir al menos uno"
-msgstr ""
+msgstr "Thematic diplomas doesn't exist, you must define one at least"
 
 #: FMain.class:211
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
-msgstr ""
+msgstr "You have to create a group or open it to save it"
 
 #: FMain.class:230
 msgid "Guardado correctamente"
-msgstr ""
+msgstr "Successfully saved"
 
 #: FMain.class:232
 msgid "No he podido guardar los datos"
-msgstr ""
+msgstr "Impossible to save datas"
 
-#: FMain.class:251 FormDiplomaTematico.form:243 FormElegirFichero.form:31
 #: FormPegar.form:31 FormRegistroDiplomados.form:64
 msgid "Cancelar"
-msgstr ""
+msgstr "Cancelar"
 
 #: FMain.class:251
 msgid "Cerrar"
-msgstr ""
+msgstr "Close"
 
 #: FMain.class:251
 msgid "Todos cambios no guardados se perderan"
-msgstr ""
+msgstr "Not saved changes will be lost"
 
 #: FMain.class:251
 msgid "¿Seguro que desea cerrar?"
-msgstr ""
+msgstr "Are you sure do you want to quit?"
 
 #: FMain.class:280
 msgid "No se puede editar un registro vacío"
-msgstr ""
+msgstr "It is not possible edit an empty register"
 
 #: FMain.class:311
 msgid "Seguro que desea borrar.."
-msgstr ""
+msgstr "Are you sure do you want to delete..."
 
 #: FMain.class:311
 msgid "Si"
-msgstr ""
+msgstr "Yes"
 
 #: FMain.class:373
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
@@ -106,163 +105,147 @@ msgstr "no selection!!!"
 
 #: FMain.class:373
 msgid "Seleciones una fila que tenga información de un Diploma"
-msgstr ""
+msgstr "Select a file with diploma's information"
 
 #: FMain.class:392
 msgid "No he podido encontrar relacion entre fila y lista de registros"
-msgstr ""
+msgstr "It's not possible to find a relation between file and register list"
 
 #: FMain.class:417
 msgid " y borre el registro que usa la plantilla para poder borrarla"
-msgstr ""
+msgstr " and delete the register to be able to clean it"
 
 #: FMain.class:417
 msgid " ya que la esta usando, "
-msgstr ""
+msgstr " because you are using it, "
 
 #: FMain.class:417
 msgid "No es posible borrar esta plantilla,"
-msgstr ""
+msgstr "Impossible to delete this template,"
 
 #: FMain.class:417
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
-msgstr ""
+msgstr "visit the tab: Introduce pupils data,"
 
 #: FMain.class:456
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
-msgstr ""
+msgstr "Previewing template error"
 
 #: FMain.class:461
 msgid "Debe de seleccionar un Diploma Temático"
-msgstr ""
+msgstr "You must select a thematic diploma"
 
 #: FMain.class:487
 msgid "Registro: "
-msgstr ""
+msgstr "Register: "
 
 #: FMain.class:589
 msgid "Debe de tener al menos un registro"
-msgstr ""
+msgstr "You must have at least one register"
 
 #: FMain.class:599
 msgid "Necesita poner un nombre"
-msgstr ""
+msgstr "You need a name"
 
 #: FMain.class:611
 msgid " Cancelar "
-msgstr ""
+msgstr " Cancel "
 
 #: FMain.class:611
 msgid " SobreEscribir "
-msgstr ""
+msgstr " Overwrite "
 
 #: FMain.class:611
 msgid "Existe el fichero:"
-msgstr ""
+msgstr "File exists:"
 
 #: FMain.class:611
 msgid "¿que desea hacer?"
-msgstr ""
+msgstr "What do you want to do?"
 
 #: FMain.class:656
 msgid "Debe de tener al menos un registro (alumno)"
-msgstr ""
+msgstr "You must have at least one register (pupil)"
 
-#: FMain.class:802
+#: FMain.class:805
 msgid "Exportar diploma: Introduzca nombre"
-msgstr ""
+msgstr "Diploma export: Introduce a name"
 
-#: FMain.class:809
+#: FMain.class:812
 msgid "Exportación realizada con éxito"
-msgstr ""
+msgstr "Successful export"
 
-#: FMain.class:811
+#: FMain.class:814
 msgid "Ha fallado la exportación de datos del diploma"
-msgstr ""
+msgstr "Error exporting diploma datas"
 
-#: FMain.class:819
+#: FMain.class:822
 msgid "Debe de seleccionar un diploma a Exportar"
-msgstr ""
+msgstr "You have to select a diploma to export it"
 
-#: FMain.class:827
+#: FMain.class:830
 msgid "Importar diploma: Elija el archivo"
-msgstr ""
+msgstr "Diploma import: choose a file"
 
-#: FMain.class:869 comun.module:14
+#: FMain.class:872 comun.module:14
 msgid "zip"
-msgstr ""
+msgstr "zip"
 
-#: FMain.class:874 comun.module:19
+#: FMain.class:877 comun.module:19
 msgid "pdftk"
-msgstr ""
+msgstr "pdftk"
 
-#: FMain.class:879 comun.module:24
+#: FMain.class:882 comun.module:24
 msgid "imagemagick"
-msgstr ""
+msgstr "imagemagick"
 
-#: FMain.class:884 comun.module:34
+#: FMain.class:887 comun.module:34
 msgid "Falta los siguientes programas por instarlar:"
-msgstr ""
+msgstr "Following programs required:"
 
-#: FMain.class:884 comun.module:34
+#: FMain.class:887 comun.module:34
 msgid "Instalelos para poder ejecutar el programa correctamente"
-msgstr ""
+msgstr "Install it to run the program"
 
 #: FMain.form:94
 msgid "Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador."
-msgstr ""
+msgstr "The time to generate previews depends on the power of your computer."
 
 #: FMain.form:97
 msgid "Constructor de Diplomas"
-msgstr ""
+msgstr "Diploma Creator"
 
 #: FMain.form:103
-msgid ""
-"<h1>Constructor de Diplomas</h1><br>\n"
-"\n"
-"<h3>Autor: Julio Sánchez Berro</h3><br>\n"
-"\n"
-"<h3>Licencia: GPL, Softwarelibre</h3><br>\n"
-"\n"
-"Realizado en Gambas3.3.4 <br>\n"
-"\n"
-"Para usar este programa, instala:<br>\n"
-"zip <br>\n"
-"pdftk<br>\n"
-"inkscape (para editar y crear nuevas plantillas)<br>\n"
-"imagemagick <br>\n"
-"<br>\n"
-"Para empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n"
-"\n"
-msgstr ""
+msgid "<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n"
+msgstr "<h1>Diploma Creator</h1><br>\n\n<h3>Author: Julio Sánchez Berro</h3><br>\n\n<h3>Licence: GPL, Open Software</h3><br>\n\nDeveloped with Gambas3.3.4 <br>\n\nTo use this program, you must install:<br>\nzip <br>\npdftk<br>\ninkscape (to edit and create new templates)<br>\nimagemagick <br>\n<br>\nCreate or open a group to start.\n\n"
 
 #: FMain.form:110
 msgid "Crea tus propias plantillas con:"
-msgstr ""
+msgstr "Create your own templates with:"
 
 #: FMain.form:125 comun.module:9
 msgid "inkscape"
-msgstr ""
+msgstr "Inkscape"
 
 #: FMain.form:131
 msgid "Creado especialmente para:"
-msgstr ""
+msgstr "Created specially for:"
 
 #: FMain.form:139
 msgid "minino.galpon.org"
-msgstr ""
+msgstr "minino.galpon.org"
 
 #: FMain.form:154
 msgid "http://www.jsbsan.blogspot.com.es/"
-msgstr ""
+msgstr "http://www.jsbsan.blogspot.com.es/"
 
 #: FMain.form:181
 msgid "Web del Proyecto"
-msgstr ""
+msgstr "Project Web"
 
 #: FMain.form:185
 msgid "Crear Grupo"
-msgstr ""
+msgstr "Create a group"
 
 #: FMain.form:198
 msgid ".ConstructorDiplomas"
@@ -270,215 +253,207 @@ msgstr ""
 
 #: FMain.form:203 FormRegistroDiplomados.form:78
 msgid "Nombre:"
-msgstr ""
+msgstr "Name:"
 
 #: FMain.form:209
 msgid "Crear"
-msgstr ""
+msgstr "Create"
 
 #: FMain.form:214
 msgid "Abrir Grupo"
-msgstr ""
+msgstr "Open a group"
 
 #: FMain.form:219
 msgid "<h2>Espere por favor, estoy leyendo los datos</h2>"
-msgstr ""
+msgstr "<h2>Wait, reading datas</h2>"
 
 #: FMain.form:223
 msgid "Introducir Datos Alumnos"
-msgstr ""
+msgstr "Introduce pupils datas"
 
 #: FMain.form:231 FormDiplomaTematico.form:317
 msgid "Añadir"
-msgstr ""
+msgstr "Add"
 
 #: FMain.form:238 FormDiplomaTematico.form:341
 msgid "Editar"
-msgstr ""
+msgstr "Edit"
 
 #: FMain.form:245
 msgid "Borrar"
-msgstr ""
+msgstr "Delete"
 
 #: FMain.form:252
 msgid "Pegar"
-msgstr ""
+msgstr "Paste"
 
 #: FMain.form:259
 msgid "Titulos"
-msgstr ""
+msgstr "Titles"
 
 #: FMain.form:264
 msgid "Guardar Grupo"
-msgstr ""
+msgstr "Save group"
 
 #: FMain.form:273
 msgid "<h2>Espere por favor, estoy guardando <br>los datos</h2>"
-msgstr ""
+msgstr "<h2>Wait, saving  <br> datas</h2>"
 
 #: FMain.form:280
 msgid "Nombre fichero de Datos:"
-msgstr ""
+msgstr "Datas file name:"
 
 #: FMain.form:283
 msgid "Guardar como...."
-msgstr ""
+msgstr "Save as..."
 
 #: FMain.form:288
 msgid "<h2>Espere por favor, estoy guardando <br> los datos</h2>"
-msgstr ""
+msgstr "<h2>Wait, saving <br> datas</h2>"
 
 #: FMain.form:292
 msgid "Gestor Plantillas de Diplomas"
-msgstr ""
+msgstr "Diplomas template manager"
 
 #: FMain.form:298
 msgid "Añadir Plantilla"
-msgstr ""
+msgstr "Add template"
 
 #: FMain.form:306
 msgid "Quitar Plantilla"
-msgstr ""
+msgstr "Delete template"
 
 #: FMain.form:320
 msgid "Plantillas Base Disponibles:"
-msgstr ""
+msgstr "Basic templates available:"
 
 #: FMain.form:325
-msgid ""
-"Previsualización<br>\n"
-"Diploma<br>"
-msgstr ""
+msgid "Previsualización<br>\nDiploma<br>"
+msgstr "Preview<br>\nDiploma<br>"
 
 #: FMain.form:332
 msgid "Editar Plantilla"
-msgstr ""
+msgstr "Edit template"
 
 #: FMain.form:340
 msgid "Diplomas Temáticos"
-msgstr ""
+msgstr "Thematic templates"
 
 #: FMain.form:345
-msgid ""
-"Hacer que la plantilla que se muestra sea la actual\n"
-"Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador."
-msgstr ""
+msgid "Hacer que la plantilla que se muestra sea la actual\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador."
+msgstr "Make showed template the current template\nPreview depends on your computer speed."
 
 #: FMain.form:346 FormDiplomaTematico.form:87
 msgid "Previsualizar"
-msgstr ""
+msgstr "Preview"
 
 #: FMain.form:364
 msgid "edita una plantilla existentes, podras guardarla como ... para obtener otra plantilla"
-msgstr ""
+msgstr "Edit a template, save it with \"save as...\" and you get a new template"
 
 #: FMain.form:365
 msgid "Editar Diploma "
-msgstr ""
+msgstr "Edit diploma "
 
 #: FMain.form:372
 msgid "Borrar Diploma"
-msgstr ""
+msgstr "Delete diploma"
 
 #: FMain.form:379
 msgid "Definir Diploma desde Cero"
-msgstr ""
+msgstr "Create a diploma from scratch"
 
 #: FMain.form:386
 msgid "Exportar Diploma"
-msgstr ""
+msgstr "Export diploma"
 
 #: FMain.form:393
 msgid "Importar Diploma"
-msgstr ""
+msgstr "Import diploma"
 
 #: FMain.form:402
 msgid "Compartidos en la Nube"
-msgstr ""
+msgstr "Shared in the \"cloud\""
 
 #: FMain.form:410
-msgid ""
-"Nota:<br>\n"
-"Edite un Diploma, luego lo \"guardas como...\", asi obtendras un nuevo diploma."
-msgstr ""
+msgid "Nota:<br>\nEdite un Diploma, luego lo \"guardas como...\", asi obtendras un nuevo diploma."
+msgstr "Note:<br>\nEdit a diploma, save whith \"save as...\" and you get a new diploma."
 
 #: FMain.form:428
 msgid "Registro:"
-msgstr ""
+msgstr "Register:"
 
 #: FMain.form:451
 msgid "Ver Imagen"
-msgstr ""
+msgstr "Show image"
 
 #: FMain.form:459
 msgid "Previsualización"
-msgstr ""
+msgstr "Preview"
 
 #: FMain.form:465
 msgid "para mejor definición pulse en el botón Ver Imagen"
-msgstr ""
+msgstr "to get a better definition press \"Show image\" button"
 
 #: FMain.form:471
-msgid ""
-"<b>Nota:</b><br>\n"
-"Las previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.\n"
-msgstr ""
+msgid "<b>Nota:</b><br>\nLas previsualizaciones pueden tardar en producirse, según sea la potencia de su ordenador.\n"
+msgstr "<b>Note:</b><br>\nPreview depends on your computer speed.\n"
 
 #: FMain.form:474
 msgid "Crear Pdf para imprimir"
-msgstr ""
+msgstr "Create PDF to print"
 
 #: FMain.form:480
 msgid "Parámetros Avanzados"
-msgstr ""
+msgstr "Advanced preferences"
 
 #: FMain.form:484
 msgid "geometría:"
-msgstr ""
+msgstr "geometry:"
 
 #: FMain.form:490
 msgid "1052x744+10"
-msgstr ""
+msgstr "1052x744+10"
 
 #: FMain.form:496
 msgid "Diplomas Horizontales"
-msgstr ""
+msgstr "Horizontal diplomas"
 
 #: FMain.form:503
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: FMain.form:510
 msgid "Diplomas Verticales"
-msgstr ""
+msgstr "Vertical diplomas"
 
 #: FMain.form:524
 msgid "Por página que se cree:"
-msgstr ""
+msgstr "By each pages created:"
 
 #: FMain.form:535
 msgid "Convirtiendo fotografias"
-msgstr ""
+msgstr "Converting photos"
 
 #: FMain.form:540
 msgid "Crear pdf para imprimir, y los .SVG permiten editar el diploma con Inkscape"
-msgstr ""
+msgstr "Create PDF to print, .SVG files will allow you to edit the diploma with Inkscape"
 
 #: FMain.form:541
 msgid "Generar .PDF y .SVG"
-msgstr ""
+msgstr "Generate .PDF y .SVG"
 
 #: FMain.form:548
 msgid "Imprimir"
-msgstr ""
+msgstr "Print"
 
 #: FMain.form:552
 msgid "Todos los diplomas"
-msgstr ""
+msgstr "All diplomas"
 
 #: FMain.form:558
 msgid "El registro número"
-msgstr ""
+msgstr "Register number"
 
 #: FMain.form:563
 msgid "ValueBox1"
@@ -486,11 +461,11 @@ msgstr ""
 
 #: FMain.form:569
 msgid "Desde el número"
-msgstr ""
+msgstr "From the number"
 
 #: FMain.form:580
 msgid "al número"
-msgstr ""
+msgstr "to the number"
 
 #: FMain.form:585
 msgid "ValueBox2"
@@ -498,145 +473,119 @@ msgstr ""
 
 #: FMain.form:591
 msgid "Fecha:"
-msgstr ""
+msgstr "Date:"
 
 #: FMain.form:595
 msgid "Formato:"
-msgstr ""
+msgstr "Format:"
 
 #: FMain.form:600
 msgid "dd mmmm yyyy"
-msgstr ""
+msgstr "dd mmmm yyyy"
 
 #: FMain.form:606
 msgid "Unir todos los pdf en uno"
-msgstr ""
+msgstr "Merge all PDF in one"
 
 #: FMain.form:610 FormError.form:24
 msgid "Salir"
-msgstr ""
+msgstr "Exit"
 
 #: FMain.form:613
 msgid "Ayuda"
-msgstr ""
+msgstr "Help"
 
 #: FMain.form:618
-msgid ""
-"<b>Estructura de una plantilla:</b><br>\n"
-"Si usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n"
-"<br>\n"
-"Tiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \n"
-"se deben de usar estos nombres:<br>\n"
-"<br>\n"
-"ETIQUETA EN SVG............. SIGNIFICADO<br>\n"
-"<br>\n"
-"PLANTILLA01 ..................... texto del diploma: \"Al mejor compañero\", \"al mejor ajedrecista\"...<br>\n"
-"FOTO01............................. imagen que forma el fondo<br>\n"
-"FOTO02............................ imagen que forma el marco<br>\n"
-"FOTO03............................ imagen logo del diploma( figura de ajedrez, etc.)<br>\n"
-"FOTO04............................. foto opcional<br>\n"
-"FOTO05.............................. foto opcional<br>\n"
-"PLANTILLA02...................... campo extra para texto<br>\n"
-"<br>\n"
-"CAMPO01................................. Nombre del alumno<br>\n"
-"CAMPO02................................. nombre tutor/a<br>\n"
-"CAMPO03................................. nombre colegio<br>\n"
-"CAMPO04................................. nombre ciudad<br>\n"
-"CAMPO05................................. fecha del diploma<br>\n"
-"FOTO06.................................... foto del alumno (opcional)<br>\n"
-"FOTO07..................................... foto del tutor/a (opcional)<br>\n"
-"CAMPO06.................................. texto<br>"
-msgstr ""
+msgid "<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nETIQUETA EN SVG............. SIGNIFICADO<br>\n<br>\nPLANTILLA01 ..................... texto del diploma: \"Al mejor compañero\", \"al mejor ajedrecista\"...<br>\nFOTO01............................. imagen que forma el fondo<br>\nFOTO02............................ imagen que forma el marco<br>\nFOTO03............................ imagen logo del diploma( figura de ajedrez, etc.)<br>\nFOTO04............................. foto opcional<br>\nFOTO05.............................. foto opcional<br>\nPLANTILLA02...................... campo extra para texto<br>\n<br>\nCAMPO01................................. Nombre del alumno<br>\nCAMPO02................................. nombre tutor/a<br>\nCAMPO03................................. nombre colegio<br>\nCAMPO04................................. nombre ciudad<br>\nCAMPO05................................. fecha del diploma<br>\nFOTO06.................................... foto del alumno (opcional)<br>\nFOTO07..................................... foto del tutor/a (opcional)<br>\nCAMPO06.................................. texto<br>"
+msgstr "<b>Template composition:</b><br>\nIf you want to make your own templates, you can use the basis of an existing template and edit it and suit your needs with Inkscape, then save it under a new name and in the Templates menu, with the \"Add\" button you can add it to the available templates.\n<br>\nNote this mandatory texts, tags and names:<br>\n<br>\nSVG TAG............. MEANING<br>\n<br>\nPLANTILLA01................. diploma text: «To the best friend», «To the best chess player»...<br>\nFOTO01...................... background image<br>\nFOTO02...................... frame image<br>\nFOTO03...................... logo image (i.e. a tower of chess, etc.)<br>\nFOTO04...................... optional photo<br>\nFOTO05...................... optional photo<br>\nPLANTILLA02................. extra field to text<br>\n<br>\nCAMPO01..................... pupil name<br>\nCAMPO02..................... tutor name<br>\nCAMPO03..................... school name<br>\nCAMPO04..................... town / city<br>\nCAMPO05..................... diploma date<br>\nFOTO06...................... pupil photo (optional)<br>\nFOTO07...................... tutor photo (optional)<br>\nCAMPO06..................... text<br>"
 
 #: FMain.form:623
 msgid "Visite la página del proyecto para más ayuda"
-msgstr ""
+msgstr "Visit web program to get more help"
 
 #: FMain.form:628
 msgid "Buscar Actualizaciones"
-msgstr ""
+msgstr "Search updates"
 
 #: FMain.form:633
-msgid ""
-"<h2>Espere por favor, estoy buscando actualizaciones \n"
-" <br>en internet</h2>"
-msgstr ""
+msgid "<h2>Espere por favor, estoy buscando actualizaciones \n <br>en internet</h2>"
+msgstr "<h2>Wait, updates are been searched \n <br>en Internet</h2>"
 
 #: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:111
 msgid "Elija el archivo gráfico"
-msgstr ""
+msgstr "Select the graphic file"
 
 #: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:112
 msgid "Ficheros de Imágenes"
-msgstr ""
+msgstr "Image files"
 
 #: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:434
 msgid "No se ha podido descargarse el archivo"
-msgstr ""
+msgstr "Unable to download the file"
 
 #: FormDiplomaTematico.class:156
 msgid "No se ha podido descargar la imagen, pruebe de otra manera"
-msgstr ""
+msgstr "Unable to download the image, try in a diferent way"
 
 #: FormDiplomaTematico.class:203
 msgid "No se ha podido descargar la imagen, no es un fichero .jpg o .png"
-msgstr ""
+msgstr "Unable to download the image, it is not a .jpg or .png file"
 
 #: FormDiplomaTematico.class:212
 msgid "No ha sido posible descargar o usar la imagen, pruebe  descargandola al disco duro "
-msgstr ""
+msgstr "Unable to download or use the image, try downloading to your hard drive "
 
 #: FormDiplomaTematico.class:266
 msgid "Deberá especificar una maquetación para el Diploma"
-msgstr ""
+msgstr "Set a diploma layout"
 
-#: FormDiplomaTematico.class:323
+#: FormDiplomaTematico.class:326
 msgid "Existe una plantilla con el mismo nombre"
-msgstr ""
+msgstr "There is a template with the same name"
 
-#: FormDiplomaTematico.class:342
+#: FormDiplomaTematico.class:345
 msgid "Error al copiar palntilla"
-msgstr ""
+msgstr "Failed to copy the template"
 
-#: FormDiplomaTematico.class:411
+#: FormDiplomaTematico.class:414
 msgid "Se ha producido un error al intentar borrar una minuatura:"
-msgstr ""
+msgstr "Error trying delete a thumbnail:"
 
 #: FormDiplomaTematico.form:58
 msgid "Pon el nombre del diploma pero no use caracteres especiales por ejemplo los parentesis"
-msgstr ""
+msgstr "Don't use brakets or special characters in the diploma name"
 
 #: FormDiplomaTematico.form:64
 msgid "Nombre del Diploma:"
-msgstr ""
+msgstr "Diploma name:"
 
 #: FormDiplomaTematico.form:69
 msgid "Texto Diploma :"
-msgstr ""
+msgstr "Diploma text:"
 
 #: FormDiplomaTematico.form:75
 msgid "\"Al mejor Compañero\", \"Al mejor Ajedrecista\""
-msgstr ""
+msgstr "«To de best friend», «to the best player»"
 
 #: FormDiplomaTematico.form:81
 msgid "PLANTILLA01"
-msgstr ""
+msgstr "PLANTILLA01"
 
 #: FormDiplomaTematico.form:86
 msgid "Hacer que la plantilla que se muestra sea la actual"
-msgstr ""
+msgstr "Make showed template the current template"
 
 #: FormDiplomaTematico.form:94
 msgid "Imagen Fondo"
-msgstr ""
+msgstr "Background image"
 
 #: FormDiplomaTematico.form:100
 msgid "Marco"
-msgstr ""
+msgstr "Frame"
 
 #: FormDiplomaTematico.form:106
 msgid "Logo Diploma"
-msgstr ""
+msgstr "Diploma logo"
 
 #: FormDiplomaTematico.form:119
 msgid "FOTO03"
@@ -652,15 +601,15 @@ msgstr ""
 
 #: FormDiplomaTematico.form:140
 msgid "Haga click para elegir imagen"
-msgstr ""
+msgstr "Clic to choose an image"
 
 #: FormDiplomaTematico.form:171 FormRegistroDiplomados.form:227
 msgid "Poner Fondo Transparente"
-msgstr ""
+msgstr "Set transparent background"
 
 #: FormDiplomaTematico.form:196
 msgid "imagen opcional"
-msgstr ""
+msgstr "optional image"
 
 #: FormDiplomaTematico.form:209
 msgid "FOTO004"
@@ -672,27 +621,27 @@ msgstr ""
 
 #: FormDiplomaTematico.form:242
 msgid "Salir sin guardar los cambios"
-msgstr ""
+msgstr "Quit without saving changes"
 
 #: FormDiplomaTematico.form:268
 msgid "guarda las modificaciones en la plantilla actual"
-msgstr ""
+msgstr "saves changes to the current template"
 
 #: FormDiplomaTematico.form:269
 msgid "Guardar"
-msgstr ""
+msgstr "Save"
 
 #: FormDiplomaTematico.form:276
 msgid "guarda las modificaciones como un nuevo diploma"
-msgstr ""
+msgstr "save the changes as a new diploma"
 
 #: FormDiplomaTematico.form:277
 msgid "Guardar Como...."
-msgstr ""
+msgstr "Save as...."
 
 #: FormDiplomaTematico.form:284
 msgid "Texto Opcional: :"
-msgstr ""
+msgstr "Optional text:"
 
 #: FormDiplomaTematico.form:296
 msgid "PLANTILLA02"
@@ -700,63 +649,63 @@ msgstr ""
 
 #: FormDiplomaTematico.form:301
 msgid "Maquetación de la Plantilla / Distribución"
-msgstr ""
+msgstr "Template layout / Organization"
 
 #: FormDiplomaTematico.form:306
 msgid "Maquetación:"
-msgstr ""
+msgstr "Layout:"
 
 #: FormDiplomaTematico.form:316
 msgid "Añadir una plantilla .svg existente a la lista"
-msgstr ""
+msgstr "Add to list a template .svg"
 
 #: FormDiplomaTematico.form:324
 msgid "Crea una plantilla con todas las opciones posibles"
-msgstr ""
+msgstr "Create a template with all possible options"
 
 #: FormDiplomaTematico.form:325
 msgid "Crear "
-msgstr ""
+msgstr "Create "
 
 #: FormDiplomaTematico.form:332
 msgid "borra una plantilla"
-msgstr ""
+msgstr "Delete a template"
 
 #: FormDiplomaTematico.form:333
 msgid "Quitar"
-msgstr ""
+msgstr "Delete"
 
 #: FormDiplomaTematico.form:340
 msgid "Edita plantilla de maquetacion"
-msgstr ""
+msgstr "Edit layout template"
 
 #: FormDiplomaTematico.form:358
 msgid "Haga doble click para seleccionar plantilla"
-msgstr ""
+msgstr "Double click to select a template"
 
 #: FormDiplomaTematico.form:368
 msgid "<b>Nota:</b> En el nombre del diploma pero no use caracteres especiales, por ejemplo los parentesis"
-msgstr ""
+msgstr "<b>Note:</b> Don't use special characters in the diploma name"
 
 #: FormElegirFichero.form:23 FormRegistroDiplomados.form:56
 msgid "Aceptar"
-msgstr ""
+msgstr "Accept"
 
 #: FormElegirFichero.form:44
 msgid "Pegar desde Portapapeles"
-msgstr ""
+msgstr "Paste from clipboard"
 
 #: FormElegirFichero.form:45
 msgid "Pegar (Url)"
-msgstr ""
+msgstr "Paste (URL)"
 
 #: FormError.form:13
 msgid "Mensaje de Error:"
-msgstr ""
+msgstr "Error message:"
 
 #: FormError.form:19
 msgid "Copiar Al portapapeles"
-msgstr ""
+msgstr "Copy to the clipboard"
 
 #: FormPegar.form:17
 msgid "ComboBox1"
@@ -764,29 +713,27 @@ msgstr ""
 
 #: FormPegar.form:23
 msgid "Aceptar Pegar"
-msgstr ""
+msgstr "Accept paste"
 
 #: FormPegar.form:39
 msgid "Todos los datos pegados, serán asignado al diploma:"
-msgstr ""
+msgstr "All pasted datas will be assigned to the diploma:"
 
 #: FormPegar.form:46
-msgid ""
-"Los datos que va a pegar debe de estar organizados en la siguientes columnas: <br>\n"
-"<i>NombreAlumno, NombreTutor, Colegio, Ciudad, Fecha, Comentario<i> <br>\n"
-msgstr ""
+msgid "Los datos que va a pegar debe de estar organizados en la siguientes columnas: <br>\n<i>NombreAlumno, NombreTutor, Colegio, Ciudad, Fecha, Comentario<i> <br>\n"
+msgstr "Pasted datas should be organized in the following columns: <br>\n<i>PupilName, TutorName, Centre, City, Date, Comment<i> <br>\n"
 
 #: FormPensando.class:7
 msgid "Espere por favor..."
-msgstr ""
+msgstr "Wait..."
 
 #: FormPensando.form:21
 msgid "Pensando..."
-msgstr ""
+msgstr "Loading..."
 
 #: FormRegistroDiplomados.class:143
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
-msgstr ""
+msgstr "It is the first data entered, it can not match to the previous"
 
 #: FormRegistroDiplomados.form:50
 msgid "ComboBoxDiplomaTematico"
@@ -794,35 +741,35 @@ msgstr ""
 
 #: FormRegistroDiplomados.form:72
 msgid "Diploma Temático:"
-msgstr ""
+msgstr "Thematic diploma:"
 
 #: FormRegistroDiplomados.form:84
 msgid "Tutor/a:"
-msgstr ""
+msgstr "Tutor:"
 
 #: FormRegistroDiplomados.form:90
 msgid "Colegio:"
-msgstr ""
+msgstr "School:"
 
 #: FormRegistroDiplomados.form:96
 msgid "Ciudad:"
-msgstr ""
+msgstr "City:"
 
 #: FormRegistroDiplomados.form:102
 msgid "fecha:"
-msgstr ""
+msgstr "Date:"
 
 #: FormRegistroDiplomados.form:108
 msgid "Foto Alumno:"
-msgstr ""
+msgstr "Pupil photo:"
 
 #: FormRegistroDiplomados.form:114
 msgid "Foto opcional:"
-msgstr ""
+msgstr "Optional photo:"
 
 #: FormRegistroDiplomados.form:120
 msgid "Otro texto:"
-msgstr ""
+msgstr "Other text:"
 
 #: FormRegistroDiplomados.form:169
 msgid "CAMPO01"
@@ -858,7 +805,7 @@ msgstr ""
 
 #: FormRegistroDiplomados.form:245
 msgid "Poner el mismo texto del registro anterior"
-msgstr ""
+msgstr "Put the same text that the previews register"
 
 #: FormRegistroDiplomados.form:246
 msgid "="
@@ -866,126 +813,125 @@ msgstr "="
 
 #: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:185
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
-msgstr ""
+msgstr "Error copying the temporal archiver"
 
 #: ModuleExportarImportarDiplomas.module:85 ModulePrincipal.module:30
 msgid "Nombre no valido de archivo, contiene parentesis en su nombre"
-msgstr ""
+msgstr "Bad file name, it contains parenthesis"
 
 #: ModuleExportarImportarDiplomas.module:266
 msgid "Debe reiniciar la aplicación para poderla ver"
-msgstr ""
+msgstr "You have to restart the applications to view it"
 
 #: ModuleExportarImportarDiplomas.module:266
 msgid "Se ha añadido un nuevo tipo de letra al sistema:"
-msgstr ""
+msgstr "Added a new font to the system:"
 
 #: ModuleGestionAlumno.module:67 ModuleGestionDiploma.module:67
-msgid ""
-"El fichero no lo puedo leer.\n"
-" Versión Desconocida."
-msgstr ""
+msgid "El fichero no lo puedo leer.\n Versión Desconocida."
+msgstr "Unable to read the file.\n Unknown version."
 
-#: ModuleImprimir.module:203
+#: ModuleImprimir.module:206
 msgid " de "
-msgstr ""
+msgstr " of "
 
-#: ModuleImprimir.module:438
+#: ModuleImprimir.module:444
 msgid "No se ha podido crear la imagen de la previsualización"
-msgstr ""
+msgstr "Unable to create preview image"
 
-#: ModuleImprimir.module:460
+#: ModuleImprimir.module:466
 msgid "No puedo presentar ese diploma"
-msgstr ""
+msgstr "Unable to show the diploma"
 
-#: ModuleImprimir.module:554
+#: ModuleImprimir.module:560
 msgid "Se ha producido un error al intentar crear una previsualizacion"
-msgstr ""
+msgstr "Error creating the preview"
 
 #: ModuleIntermedio.module:315
 msgid "Se ha producido un error, al intentar copiar la plantilla"
-msgstr ""
+msgstr "Error copying the template"
 
 #: ModuleMensajeError.module:11
 msgid "Se ha presentando un error al intentar mostar un Error"
-msgstr ""
+msgstr "Error showing an error"
 
 #: ModulePrincipal.module:109
 msgid "No encuentro fichero de datos"
-msgstr ""
+msgstr "Not find data file"
 
 #: ModulePrincipal.module:128
 msgid "Nombre de archivo incorrecto"
-msgstr ""
+msgstr "Bad file name"
 
 #: ModulePrincipal.module:143
 msgid "Problemas al copiar las plantillas"
-msgstr ""
+msgstr "An error occurred copying templates"
 
 #: ModulePrincipal.module:145
 msgid "Problemas al comprimir datos"
-msgstr ""
+msgstr "An error occurred compressing datas"
 
 #: ModulePrincipal.module:215
 msgid "error al leer datos del portapapeles"
-msgstr ""
+msgstr "An error occurred reading from clipboard"
 
 #: ModuleUnicaVez.module:24
 msgid "Ya se esta ejecutando este programa"
-msgstr ""
+msgstr "This program is already running"
 
 #: ModuleUpdate.module:20
 msgid "No ha sido posible conectarse al servidor"
-msgstr ""
+msgstr "Unable to connect to server"
 
 #: ModuleUpdate.module:20
 msgid "No puedo comprobar si hay nueva versión"
-msgstr ""
+msgstr "Unable to check if there is a new version"
 
 #: ModuleUpdate.module:33
 msgid "El archivo de versión no es para este programa"
-msgstr ""
+msgstr "Version file is not for this program"
 
 #: ModuleUpdate.module:36
 msgid "Dirección Url de descarga:"
-msgstr ""
+msgstr "Download URL:"
 
 #: ModuleUpdate.module:36
 msgid "Existe una nueva versión"
-msgstr ""
+msgstr "There is a new version"
 
 #: ModuleUpdate.module:36
 msgid "Mejoras:"
-msgstr ""
+msgstr "Improvements:"
 
 #: ModuleUpdate.module:36
 msgid "Programa:"
-msgstr ""
+msgstr "Program:"
 
 #: ModuleUpdate.module:36
 msgid "Versión encontrada:"
-msgstr ""
+msgstr "Version found:"
 
 #: ModuleUpdate.module:37
 msgid "Ir a la página de descarga"
-msgstr ""
+msgstr "Go to download page"
 
 #: ModuleUpdate.module:37
 msgid "No actualización"
-msgstr ""
+msgstr "There aren't updates"
 
 #: ModuleUpdate.module:45
 msgid "La versión actual:"
-msgstr ""
+msgstr "Current version:"
 
 #: ModuleUpdate.module:45
 msgid "No necesita actualizarla"
-msgstr ""
+msgstr "You don't need update it"
 
 #: ModuleUpdate.module:45
 msgid "es igual o superior que la que hay en el servidor"
-msgstr ""
+msgstr "it is a newer or same version than the server one"
 
 #: comun.module:29
 msgid "qrencode"
-msgstr ""
+msgstr "qrencode"
+

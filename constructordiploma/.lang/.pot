@@ -535,43 +535,43 @@ msgstr ""
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:802
+#: FMain.class:805
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:809
+#: FMain.class:812
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:811
+#: FMain.class:814
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:819
+#: FMain.class:822
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:827
+#: FMain.class:830
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:869 comun.module:14
+#: FMain.class:872 comun.module:14
 msgid "zip"
 msgstr ""
 
-#: FMain.class:874 comun.module:19
+#: FMain.class:877 comun.module:19
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:879 comun.module:24
+#: FMain.class:882 comun.module:24
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:884 comun.module:34
+#: FMain.class:887 comun.module:34
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:884 comun.module:34
+#: FMain.class:887 comun.module:34
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
@@ -745,15 +745,15 @@ msgstr ""
 msgid "Deberá especificar una maquetación para el Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.class:323
+#: FormDiplomaTematico.class:326
 msgid "Existe una plantilla con el mismo nombre"
 msgstr ""
 
-#: FormDiplomaTematico.class:342
+#: FormDiplomaTematico.class:345
 msgid "Error al copiar palntilla"
 msgstr ""
 
-#: FormDiplomaTematico.class:411
+#: FormDiplomaTematico.class:414
 msgid "Se ha producido un error al intentar borrar una minuatura:"
 msgstr ""
 
@@ -908,19 +908,19 @@ msgid ""
 " Versión Desconocida."
 msgstr ""
 
-#: ModuleImprimir.module:203
+#: ModuleImprimir.module:206
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:438
+#: ModuleImprimir.module:444
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:460
+#: ModuleImprimir.module:466
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:554
+#: ModuleImprimir.module:560
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 

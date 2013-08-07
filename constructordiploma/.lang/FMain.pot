@@ -454,43 +454,43 @@ msgstr ""
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:802
+#: FMain.class:805
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:809
+#: FMain.class:812
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:811
+#: FMain.class:814
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:819
+#: FMain.class:822
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:827
+#: FMain.class:830
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:869
+#: FMain.class:872
 msgid "zip"
 msgstr ""
 
-#: FMain.class:874
+#: FMain.class:877
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:879
+#: FMain.class:882
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:884
+#: FMain.class:887
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:884
+#: FMain.class:887
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
