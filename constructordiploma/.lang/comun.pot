@@ -35,10 +35,14 @@ msgid "qrencode"
 msgstr ""
 
 #: comun.module:34
+msgid "pcmanfm"
+msgstr ""
+
+#: comun.module:39
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:34
+#: comun.module:39
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 

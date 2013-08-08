@@ -30,6 +30,11 @@ Public Sub comprobarEntorno()
     falta = True
   Endif
   
+  If Not comun.instalado("pcmanfm") Then 
+    texto &= ("pcmanfm") & "\n"
+    falta = True
+  Endif
+  
   If falta = True Then
     Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
   Endif
@@ -54,7 +59,7 @@ Public Function instalado(paquete As String) As Boolean
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End 
 
 Public Function BetweenLista(Datos As String, Cadena1 As String, Cadena2 As String) As String[]
