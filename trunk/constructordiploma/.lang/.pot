@@ -567,11 +567,11 @@ msgstr ""
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:887 comun.module:34
+#: FMain.class:887 comun.module:39
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:887 comun.module:34
+#: FMain.class:887 comun.module:39
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
@@ -1010,4 +1010,8 @@ msgstr ""
 
 #: comun.module:29
 msgid "qrencode"
+msgstr ""
+
+#: comun.module:34
+msgid "pcmanfm"
 msgstr ""
