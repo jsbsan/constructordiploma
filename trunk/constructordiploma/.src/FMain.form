@@ -12,9 +12,10 @@
     Text = ("Constructor de Diplomas")
     Picture = Picture["diploma-icono24.png"]
     { TextLabelPantallaPresentacion3 TextLabel
-      MoveScaled(5,2,66,52)
+      MoveScaled(5,2,66,51)
+      Font = Font["Arial,-1"]
       Background = Color.Background
-      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.3.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
+      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.1 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
       Border = Border.Sunken
     }
@@ -92,18 +93,22 @@
     }
     { TextBoxNombreFicheroNuevo TextBox
       MoveScaled(10,74,24,5)
+      Font = Font["-1"]
     }
     { Label11 Label
-      MoveScaled(35,74,23,5)
+      MoveScaled(35,74,27,5)
+      Font = Font["-1"]
       Text = (".ConstructorDiplomas")
     }
     { Label4 Label
-      MoveScaled(-1,74,10,5)
+      MoveScaled(-1,74,11,5)
+      Font = Font["-1"]
       Text = ("Nombre:")
       Alignment = Align.Right
     }
     { ToolButtonCrear ToolButton
-      MoveScaled(58,74,11,5)
+      MoveScaled(63,74,11,5)
+      Font = Font["-1"]
       Text = ("Crear")
       Picture = Picture["icon:/22/wizard"]
       Border = True
@@ -456,6 +461,7 @@
     }
     { ToolButtonAccesoPaginaWeb ToolButton
       MoveScaled(20,70,57,12)
+      Font = Font["-1"]
       Text = ("Visite la página del proyecto para más ayuda")
       Picture = Picture["icono_web.jpg"]
       Border = True
