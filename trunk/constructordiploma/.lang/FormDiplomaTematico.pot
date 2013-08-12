@@ -14,155 +14,163 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FormDiplomaTematico.form:58
+#: FormDiplomaTematico.form:60
+msgid "Puede elegir otras plantillas de maquetacion, editar o crear nuevas para personalizar aún más los diplomas."
+msgstr ""
+
+#: FormDiplomaTematico.form:67
 msgid "Pon el nombre del diploma pero no use caracteres especiales por ejemplo los parentesis"
 msgstr ""
 
-#: FormDiplomaTematico.form:64
+#: FormDiplomaTematico.form:73
 msgid "Nombre del Diploma:"
 msgstr ""
 
-#: FormDiplomaTematico.form:69
+#: FormDiplomaTematico.form:78
 msgid "Texto Diploma :"
 msgstr ""
 
-#: FormDiplomaTematico.form:75
+#: FormDiplomaTematico.form:84
 msgid "\"Al mejor Compañero\", \"Al mejor Ajedrecista\""
 msgstr ""
 
-#: FormDiplomaTematico.form:81
+#: FormDiplomaTematico.form:90
 msgid "PLANTILLA01"
 msgstr ""
 
-#: FormDiplomaTematico.form:86
+#: FormDiplomaTematico.form:95
 msgid "Hacer que la plantilla que se muestra sea la actual"
 msgstr ""
 
-#: FormDiplomaTematico.form:87
+#: FormDiplomaTematico.form:96
 msgid "Previsualizar"
 msgstr ""
 
-#: FormDiplomaTematico.form:94
+#: FormDiplomaTematico.form:103
 msgid "Imagen Fondo"
 msgstr ""
 
-#: FormDiplomaTematico.form:100
+#: FormDiplomaTematico.form:109
 msgid "Marco"
 msgstr ""
 
-#: FormDiplomaTematico.form:106
+#: FormDiplomaTematico.form:116
 msgid "Logo Diploma"
 msgstr ""
 
-#: FormDiplomaTematico.form:119
+#: FormDiplomaTematico.form:129
 msgid "FOTO03"
 msgstr ""
 
-#: FormDiplomaTematico.form:126
+#: FormDiplomaTematico.form:136
 msgid "FOTO01"
 msgstr ""
 
-#: FormDiplomaTematico.form:133
+#: FormDiplomaTematico.form:143
 msgid "FOTO02"
 msgstr ""
 
-#: FormDiplomaTematico.form:140
+#: FormDiplomaTematico.form:150
 msgid "Haga click para elegir imagen"
 msgstr ""
 
-#: FormDiplomaTematico.form:171
+#: FormDiplomaTematico.form:181
 msgid "Poner Fondo Transparente"
 msgstr ""
 
-#: FormDiplomaTematico.form:196
+#: FormDiplomaTematico.form:206
 msgid "imagen opcional"
 msgstr ""
 
-#: FormDiplomaTematico.form:209
+#: FormDiplomaTematico.form:219
 msgid "FOTO004"
 msgstr ""
 
-#: FormDiplomaTematico.form:216
+#: FormDiplomaTematico.form:226
 msgid "FOTO05"
 msgstr ""
 
-#: FormDiplomaTematico.form:242
+#: FormDiplomaTematico.form:252
 msgid "Salir sin guardar los cambios"
 msgstr ""
 
-#: FormDiplomaTematico.form:243
+#: FormDiplomaTematico.form:253
 msgid "Cancelar"
 msgstr ""
 
-#: FormDiplomaTematico.form:268
+#: FormDiplomaTematico.form:278
 msgid "guarda las modificaciones en la plantilla actual"
 msgstr ""
 
-#: FormDiplomaTematico.form:269
+#: FormDiplomaTematico.form:279
 msgid "Guardar"
 msgstr ""
 
-#: FormDiplomaTematico.form:276
+#: FormDiplomaTematico.form:286
 msgid "guarda las modificaciones como un nuevo diploma"
 msgstr ""
 
-#: FormDiplomaTematico.form:277
+#: FormDiplomaTematico.form:287
 msgid "Guardar Como...."
 msgstr ""
 
-#: FormDiplomaTematico.form:284
+#: FormDiplomaTematico.form:294
 msgid "Texto Opcional: :"
 msgstr ""
 
-#: FormDiplomaTematico.form:296
+#: FormDiplomaTematico.form:306
 msgid "PLANTILLA02"
 msgstr ""
 
-#: FormDiplomaTematico.form:301
+#: FormDiplomaTematico.form:311
 msgid "Maquetación de la Plantilla / Distribución"
 msgstr ""
 
-#: FormDiplomaTematico.form:306
+#: FormDiplomaTematico.form:316
 msgid "Maquetación:"
 msgstr ""
 
-#: FormDiplomaTematico.form:316
+#: FormDiplomaTematico.form:326
 msgid "Añadir una plantilla .svg existente a la lista"
 msgstr ""
 
-#: FormDiplomaTematico.form:317
+#: FormDiplomaTematico.form:327
 msgid "Añadir"
 msgstr ""
 
-#: FormDiplomaTematico.form:324
+#: FormDiplomaTematico.form:334
 msgid "Crea una plantilla con todas las opciones posibles"
 msgstr ""
 
-#: FormDiplomaTematico.form:325
+#: FormDiplomaTematico.form:335
 msgid "Crear "
 msgstr ""
 
-#: FormDiplomaTematico.form:332
+#: FormDiplomaTematico.form:342
 msgid "borra una plantilla"
 msgstr ""
 
-#: FormDiplomaTematico.form:333
+#: FormDiplomaTematico.form:343
 msgid "Quitar"
 msgstr ""
 
-#: FormDiplomaTematico.form:340
+#: FormDiplomaTematico.form:350
 msgid "Edita plantilla de maquetacion"
 msgstr ""
 
-#: FormDiplomaTematico.form:341
+#: FormDiplomaTematico.form:351
 msgid "Editar"
 msgstr ""
 
-#: FormDiplomaTematico.form:358
+#: FormDiplomaTematico.form:368
 msgid "Haga doble click para seleccionar plantilla"
 msgstr ""
 
-#: FormDiplomaTematico.form:368
+#: FormDiplomaTematico.form:374
+msgid "TextLabel4"
+msgstr ""
+
+#: FormDiplomaTematico.form:389
 msgid "<b>Nota:</b> En el nombre del diploma pero no use caracteres especiales, por ejemplo los parentesis"
 msgstr ""
 

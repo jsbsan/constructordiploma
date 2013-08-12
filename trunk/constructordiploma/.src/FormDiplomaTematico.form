@@ -4,6 +4,11 @@
   MoveScaled(0,0,103,93)
   Icon = Picture["icon:/22/edit"]
   Resizable = False
+  { TextLabel6 TextLabel
+    MoveScaled(44,70,34,17)
+    Text = ("Puede elegir otras plantillas de maquetacion, editar o crear nuevas para personalizar aún más los diplomas.")
+    Alignment = Align.Center
+  }
   { TextBoxNombreDiploma TextBox
     MoveScaled(30,0,49,5)
     Font = Font["+2"]
@@ -46,7 +51,8 @@
     Alignment = Align.Center
   }
   { Label3 Label
-    MoveScaled(46,12,17,4)
+    MoveScaled(43,11,22,4)
+    Font = Font["-1"]
     Text = ("Logo Diploma")
     Alignment = Align.Center
   }
@@ -216,7 +222,7 @@
     Text = ("PLANTILLA02")
   }
   { ExpanderMaquetacion Expander
-    MoveScaled(2,62,97,29)
+    MoveScaled(0,62,97,29)
     Text = ("Maquetación de la Plantilla / Distribución")
     Hidden = True
     { Label13 Label
@@ -256,18 +262,27 @@
       Border = True
     }
     { Panel1 Panel
-      MoveScaled(41,0,45,24)
+      MoveScaled(41,0,39,24)
       { Panel2 Panel
-        MoveScaled(0,0,45,24)
+        MoveScaled(0,0,39,24)
         { Panel3 Panel
-          MoveScaled(0,0,45,24)
+          MoveScaled(0,0,38,24)
           { ListBoxPlantillasBase ListBox
-            MoveScaled(0,1,44,22)
+            MoveScaled(0,1,38,22)
             Font = Font["-1"]
             ToolTip = ("Haga doble click para seleccionar plantilla")
           }
         }
+        { TextLabel4 TextLabel
+          MoveScaled(39,2,1,1)
+          Text = ("TextLabel4")
+        }
       }
+    }
+    { TextLabel5 TextLabel
+      MoveScaled(81,1,13,22)
+      Font = Font["Arial,-1"]
+      Text = ("Puede elegir otras plantillas de maquetacion, editar o crear nuevas para personalizar aún más los diplomas.")
     }
   }
   { TextLabel1 TextLabel
