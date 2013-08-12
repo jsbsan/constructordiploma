@@ -686,6 +686,11 @@ Public Sub ToolButtonGenerar_Click()
       If ValueBoxDesde.value = ValueBoxHasta.value Then
         registroinicio = ValueBoxDesde.value - 1
         registrofin = ValueBoxHasta.Value - 1
+      Else 
+        If ValueBoxDesde.value > ValueBoxHasta.Value Then 
+          Message.Info(("Error: intervalo mal indicado"))
+          Return
+        Endif
         
       Endif
       
@@ -770,7 +775,7 @@ Public Sub ToolButtonEditaPlantilla_Click()
   
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-
+  
 End
 
 Public Sub ToolButtonBorrarPlantilla_Click()
@@ -942,5 +947,9 @@ End
 Public Sub ToolButtonAccesoPaginaWeb_Click()
   
   Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
+  
+End
+
+Public Sub RadioButtonDesdeHasta_Click()
   
 End

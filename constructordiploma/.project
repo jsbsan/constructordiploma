@@ -3,7 +3,7 @@
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.69
+Version=0.0.70
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -22,7 +22,7 @@ Maintainer=Julio Sanchez Berro
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=constructordiploma-0.0.69
+PackageName=constructordiploma-0.0.70
 CreateEachDirectory=1
 Packager=1
 Systems=debian

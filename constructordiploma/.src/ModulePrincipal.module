@@ -224,10 +224,13 @@ Public Sub PegarDatosPortapapelesGridViews(textocombo As String) As Boolean
     Try columnas = Split(lineas[a], fincolumna) 
     
     ''TODO: Pegar datos del portapapeles...
+    ''Los datos que va a pegar debe de estar organizados en la siguientes columnas: 
+    '' NombreAlumno, NombreTutor, Colegio, Ciudad, Fecha, Comentario 
+    
     Try regtmp.IdDiplomaTematico = Val(Left(textocombo, InStr(textocombo, "|") - 1)) 
     Try regtmp.NombreAlumno = columnas[0]
     Try regtmp.NombreTutor = columnas[1]
-    Try regtmp.Colegio = Val(columnas[2])
+    Try regtmp.Colegio = columnas[2]
     Try regtmp.Ciudad = columnas[3]
     Try regtmp.fecha = columnas[4]
     Try regtmp.fotoalumno = ""
