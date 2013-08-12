@@ -3,21 +3,21 @@
 { Form Form
   MoveScaled(0,0,66,32)
   { ComboBoxDiplomas ComboBox
-    MoveScaled(17,19,33,4)
-    Font = Font["Bitstream Charter"]
+    MoveScaled(14,19,39,4)
+    Font = Font["Bitstream Charter,-1"]
     ReadOnly = True
     Text = ("ComboBox1")
   }
   { ToolButtonAceptar ToolButton
-    MoveScaled(1,26,17,5)
-    Font = Font["Bitstream Charter"]
+    MoveScaled(1,26,22,5)
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Aceptar Pegar")
     Picture = Picture["icon:/16/apply"]
     Border = True
   }
   { ToolButtonCancelar ToolButton
-    MoveScaled(50,26,15,5)
-    Font = Font["Bitstream Charter"]
+    MoveScaled(46,26,19,5)
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Cancelar")
     Picture = Picture["icon:/16/cancel"]
     Border = True

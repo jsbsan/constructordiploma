@@ -3,7 +3,7 @@
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.70
+Version=0.0.71
 Component=gb.image
 Component=gb.qt4
 Component=gb.form

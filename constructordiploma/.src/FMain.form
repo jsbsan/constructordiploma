@@ -68,7 +68,7 @@
       Stretch = True
     }
     { PictureBox3 PictureBox
-      MoveScaled(75,24,11,14)
+      MoveScaled(71,29,11,14)
       Picture = Picture["logoGambas.png"]
       Stretch = True
     }
@@ -281,7 +281,8 @@
       }
     }
     { TextLabel6 TextLabel
-      MoveScaled(0,73,44,8)
+      MoveScaled(0,71,44,10)
+      Font = Font["Andale Mono,-1"]
       Text = ("Nota:<br>\nEdite un Diploma, luego lo \"guardas como...\", asi obtendras un nuevo diploma.")
     }
     Index = 7
