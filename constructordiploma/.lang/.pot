@@ -729,15 +729,15 @@ msgid ""
 "ejemplo los parentesis"
 msgstr ""
 
-#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:111
+#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:112
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:112
+#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:113
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:434
+#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:435
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
@@ -894,7 +894,7 @@ msgstr ""
 msgid "="
 msgstr ""
 
-#: FormRegistroDiplomados.class:143
+#: FormRegistroDiplomados.class:144
 msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""

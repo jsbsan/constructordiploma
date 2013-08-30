@@ -6,6 +6,7 @@ Public reg As New ClassRegistroAlumno
 
 Public Sub Form_Open()
   
+  ' Dim d As Lat
   Dim a As Integer
   Dim diploma As String
   

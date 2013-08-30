@@ -106,19 +106,19 @@ msgstr ""
 msgid "="
 msgstr ""
 
-#: FormRegistroDiplomados.class:111
+#: FormRegistroDiplomados.class:112
 msgid "Elija el archivo gráfico"
 msgstr ""
 
-#: FormRegistroDiplomados.class:112
+#: FormRegistroDiplomados.class:113
 msgid "Ficheros de Imágenes"
 msgstr ""
 
-#: FormRegistroDiplomados.class:143
+#: FormRegistroDiplomados.class:144
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
-#: FormRegistroDiplomados.class:434
+#: FormRegistroDiplomados.class:435
 msgid "No se ha podido descargarse el archivo"
 msgstr ""
 
