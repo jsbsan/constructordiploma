@@ -316,7 +316,7 @@
       Border = Border.Plain
     }
     { ToolButtonVerImagen ToolButton
-      MoveScaled(55,3,19,5)
+      MoveScaled(61,0,19,5)
       Text = ("Ver Imagen")
       Picture = Picture["icon:/22/image"]
       Border = True
@@ -328,7 +328,7 @@
       Alignment = Align.Center
     }
     { Label15 Label
-      MoveScaled(2,5,52,4)
+      MoveScaled(2,5,78,4)
       Text = ("para mejor definición pulse en el botón Ver Imagen")
     }
     { TextLabel7 TextLabel
