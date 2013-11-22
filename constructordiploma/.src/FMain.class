@@ -1,5 +1,6 @@
 ' Gambas class file
 
+Public nombreFicheroCrear As String 'nombre de fichero a crear
 Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
 
 Public GridViewRegistros As ClassSuperGridview
@@ -120,10 +121,11 @@ Public Sub IconPanel1_Click()
     Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
     If Not Dialog.OpenFile() Then 
       resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".ConstructorDiplomas")
+      nombreFicheroCrear = ""
       If resultado Then
         resultado = ModulePrincipal.CargarDatos()
         ModulePrincipal.RutaDatosDiplomas = Replace(Dialog.Path, ".ConstructorDiplomas", "")
-        IconPanel1.index = 6
+        IconPanel1.index = 3 'voy a alumnos, en vez de diplomas 6
         IconPanel1_click()    
         Return
       Else
@@ -196,16 +198,22 @@ Public Sub IconPanel1_Click()
   If IconPanel1.index = 5 Then
     ''TODO: guardar como....
     If ModulePrincipal.RutaDatosDiplomas <> "" Then 
+      If nombreFicheroCrear <> "" Then 
+        'como el nmbre de esta vacio, sigue ejecutando el bucle...
+         ModulePrincipal.RutaDatosDiplomas = Replace$(nombreFicheroCrear, ".ConstructorDiplomas", "")
+        Else
       Dialog.PATH = User.HOME & "/"
-      Dialog.Title = ("Guardar como....")
+            Dialog.Title = ("Guardar como....")
       Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
       
       If Not Dialog.SaveFile() Then 
         ModulePrincipal.RutaDatosDiplomas = Replace$(Dialog.Path, ".ConstructorDiplomas", "")
+        nombreFicheroCrear = ""
       Else
         IconPanel1.index = 0
         IconPanel1_click()
         Return 'cancelado guardar como...
+      Endif
       Endif
     Else
       Message.Info(("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"))
@@ -603,9 +611,10 @@ Public Sub ToolButtonCrear_Click()
       ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
       ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
       AbrirDiplomasIniciales()
+      nombreFicheroCrear = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas"
       'borrar datos de personas
       ModuleGestionAlumno.Lista.Registros.clear()
-      IconPanel1.index = 6
+      IconPanel1.index = 3 ' listas de alumnos ....6
       IconPanel1_click()
     Else
       respuesta = Message.Question(("Existe el fichero:") & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & ("¿que desea hacer?"), (" SobreEscribir "), (" Cancelar "))
@@ -613,9 +622,10 @@ Public Sub ToolButtonCrear_Click()
         ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
         ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
         AbrirDiplomasIniciales()
+           nombreFicheroCrear = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas"
         'borrar datos de personas
         ModuleGestionAlumno.Lista.Registros.clear()
-        IconPanel1.index = 6
+        IconPanel1.index = 3 ' listas de alumnos ....6
         IconPanel1_click()
       Else
         'ha cancelado la operacion...
