@@ -772,6 +772,7 @@ msgid "Se ha producido un error al intentar borrar una minuatura:"
 msgstr ""
 
 #: FormElegirFichero.form:23 FormRegistroDiplomados.form:56
+#: FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr ""
 
@@ -899,6 +900,16 @@ msgid ""
 "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr ""
 
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid ""
+"Elija ruta donde se guardarán los diplomas, también puede crear un "
+"directorio nuevo (pulsando el botón derecho)"
+msgstr ""
+
 #: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:185
 msgid ""
 "Error al intentar copiar el archivo comprimido temporal al archivo final"
@@ -922,19 +933,19 @@ msgid ""
 " Versión Desconocida."
 msgstr ""
 
-#: ModuleImprimir.module:206
+#: ModuleImprimir.module:208
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:444
+#: ModuleImprimir.module:446
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:466
+#: ModuleImprimir.module:468
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:560
+#: ModuleImprimir.module:562
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 
