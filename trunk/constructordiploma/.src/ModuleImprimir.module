@@ -89,7 +89,9 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     Shell comando Wait
   Endif
   
-  Exec ["pcmanfm", ModulePrincipal.rutaprograma & "trabajotmp/pdf"]
+  'aqui
+  ModuleAbrirResultados.abrir(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
+  
   
   'Desktop.Open(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
   
