@@ -83,7 +83,7 @@ Public Sub observador1_Select()
   Next
   filaseleccionada = Me.row
   
-  '
+  Debug "prueba de seleccionar"
   'marcar celda
   'GridviewPrueba[gridviewprueba.row, gridviewprueba.column].Background = Color.green
   '
