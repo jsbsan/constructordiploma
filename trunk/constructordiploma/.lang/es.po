@@ -33,184 +33,184 @@ msgstr "Copiado el contenido al portapapeles"
 msgid "Nombre de archivo incorrecto:"
 msgstr "Nombre de archivo incorrecto:"
 
-#: FMain.class:117
+#: FMain.class:118
 msgid "Los datos anteriores no se guardaron,"
 msgstr "Los datos anteriores no se guardaron,"
 
-#: FMain.class:117
+#: FMain.class:118
 msgid "si crea un Grupo nuevo, se borrarán!!"
 msgstr "si crea un grupo nuevo, se borrarán!!"
 
-#: FMain.class:119
+#: FMain.class:120
 msgid "Indique archivo de datos para abrir..."
 msgstr "Indique un archivo de datos para abrir..."
 
-#: FMain.class:130
+#: FMain.class:132
 msgid "Problemas al abrir el archivo..."
 msgstr "No se pudo abrir el archivo..."
 
-#: FMain.class:172
+#: FMain.class:174
 msgid "Debe de Abrir o Crear un grupo"
 msgstr "Debe abrir o crear un grupo"
 
-#: FMain.class:183
+#: FMain.class:185
 msgid " ve a la opción de:  Gestor Plantillas de Diplomas"
 msgstr " vaya a la opción de: Gestor de plantillas de diplomas"
 
-#: FMain.class:183
+#: FMain.class:185
 msgid "No existen Diplomas Temático, debes definir al menos uno"
 msgstr "No existen diplomas temáticos, debe definir al menos uno"
 
-#: FMain.class:211
+#: FMain.class:219
 msgid "Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"
 msgstr "Tiene que crear un grupo o abrir un grupo, para guardarlo"
 
-#: FMain.class:230
+#: FMain.class:238
 msgid "Guardado correctamente"
 msgstr "Guardado correctamente"
 
-#: FMain.class:232
+#: FMain.class:240
 msgid "No he podido guardar los datos"
 msgstr "No fué posible guardar los datos"
 
-#: FMain.class:251 FormDiplomaTematico.form:253 FormElegirFichero.form:31
+#: FMain.class:259 FormDiplomaTematico.form:253 FormElegirFichero.form:31
 #: FormPegar.form:31 FormRegistroDiplomados.form:64
 msgid "Cancelar"
 msgstr "Cancelar"
 
-#: FMain.class:251
+#: FMain.class:259
 msgid "Cerrar"
 msgstr "Cerrar"
 
-#: FMain.class:251
+#: FMain.class:259
 msgid "Todos cambios no guardados se perderan"
 msgstr "Todos los cambios no guardados se perderan"
 
-#: FMain.class:251
+#: FMain.class:259
 msgid "¿Seguro que desea cerrar?"
 msgstr "¿Seguro que desea cerrar?"
 
-#: FMain.class:280
+#: FMain.class:288
 msgid "No se puede editar un registro vacío"
 msgstr "No se puede editar un registro vacío"
 
-#: FMain.class:311
+#: FMain.class:319
 msgid "Seguro que desea borrar.."
 msgstr "Seguro que desea borrar.."
 
-#: FMain.class:311
+#: FMain.class:319
 msgid "Si"
 msgstr "Si"
 
-#: FMain.class:373
+#: FMain.class:381
 msgid " ¡¡¡ no tienes seleccionado nada!!!"
 msgstr " ¡¡¡ no tiene seleccionado nada!!!"
 
-#: FMain.class:373
+#: FMain.class:381
 msgid "Seleciones una fila que tenga información de un Diploma"
 msgstr "Selecione una fila que tenga información de un diploma"
 
-#: FMain.class:392
+#: FMain.class:400
 msgid "No he podido encontrar relacion entre fila y lista de registros"
 msgstr "No es posible encontrar relacion entre fila y lista de registros"
 
-#: FMain.class:417
+#: FMain.class:425
 msgid " y borre el registro que usa la plantilla para poder borrarla"
 msgstr " y borre el registro que usa la plantilla para poder borrarla"
 
-#: FMain.class:417
+#: FMain.class:425
 msgid " ya que la esta usando, "
 msgstr " ya que la esta usando, "
 
-#: FMain.class:417
+#: FMain.class:425
 msgid "No es posible borrar esta plantilla,"
 msgstr "No es posible borrar esta plantilla,"
 
-#: FMain.class:417
+#: FMain.class:425
 msgid "visite  la pestaña: Introducción de datos de Alumnos,"
 msgstr "visite la pestaña: Introducir datos de alumnos,"
 
-#: FMain.class:456
+#: FMain.class:464
 msgid "Se ha producido un error al intentar previsualizar una plantilla"
 msgstr "Se ha producido un error al intentar hacer una vista previa de una plantilla"
 
-#: FMain.class:461
+#: FMain.class:469
 msgid "Debe de seleccionar un Diploma Temático"
 msgstr "Debe de seleccionar un diploma temático"
 
-#: FMain.class:487
+#: FMain.class:495
 msgid "Registro: "
 msgstr "Registro: "
 
-#: FMain.class:589
+#: FMain.class:597
 msgid "Debe de tener al menos un registro"
 msgstr "Debe de tener al menos un registro"
 
-#: FMain.class:599
+#: FMain.class:607
 msgid "Necesita poner un nombre"
 msgstr "Necesita poner un nombre"
 
-#: FMain.class:611
+#: FMain.class:620
 msgid " Cancelar "
 msgstr " Cancelar "
 
-#: FMain.class:611
+#: FMain.class:620
 msgid " SobreEscribir "
 msgstr " SobreEscribir "
 
-#: FMain.class:611
+#: FMain.class:620
 msgid "Existe el fichero:"
 msgstr "Existe el fichero:"
 
-#: FMain.class:611
+#: FMain.class:620
 msgid "¿que desea hacer?"
 msgstr "¿que desea hacer?"
 
-#: FMain.class:656
+#: FMain.class:666
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr "Debe de tener al menos un registro (alumno)"
 
-#: FMain.class:691
+#: FMain.class:701
 msgid "Error: intervalo mal indicado"
 msgstr ""
 
-#: FMain.class:810
+#: FMain.class:820
 msgid "Exportar diploma: Introduzca nombre"
 msgstr "Exportar diploma: Introduzca nombre"
 
-#: FMain.class:817
+#: FMain.class:827
 msgid "Exportación realizada con éxito"
 msgstr "Exportación realizada correctamente"
 
-#: FMain.class:819
+#: FMain.class:829
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr "Ha fallado la exportación de datos del diploma"
 
-#: FMain.class:827
+#: FMain.class:837
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr "Debe de seleccionar un diploma a exportar"
 
-#: FMain.class:835
+#: FMain.class:845
 msgid "Importar diploma: Elija el archivo"
 msgstr "Importar diploma: Elija el archivo"
 
-#: FMain.class:877 comun.module:14
+#: FMain.class:887 comun.module:14
 msgid "zip"
 msgstr "zip"
 
-#: FMain.class:882 comun.module:19
+#: FMain.class:892 comun.module:19
 msgid "pdftk"
 msgstr "pdftk"
 
-#: FMain.class:887 comun.module:24
+#: FMain.class:897 comun.module:24
 msgid "imagemagick"
 msgstr "imagemagick"
 
-#: FMain.class:892 comun.module:39
+#: FMain.class:902 comun.module:39
 msgid "Falta los siguientes programas por instarlar:"
 msgstr "Faltan los siguientes programas por instarlar:"
 
-#: FMain.class:892 comun.module:39
+#: FMain.class:902 comun.module:39
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr "Instalelos para poder ejecutar el programa correctamente"
 
@@ -619,15 +619,15 @@ msgstr ""
 "<h2>Espere, se están buscando actualizaciones \n"
 " <br>en Internet</h2>"
 
-#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:112
+#: FormDiplomaTematico.class:128 FormRegistroDiplomados.class:113
 msgid "Elija el archivo gráfico"
 msgstr "Elija el archivo gráfico"
 
-#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:113
+#: FormDiplomaTematico.class:129 FormRegistroDiplomados.class:114
 msgid "Ficheros de Imágenes"
 msgstr "Ficheros de imágenes"
 
-#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:435
+#: FormDiplomaTematico.class:148 FormRegistroDiplomados.class:436
 msgid "No se ha podido descargarse el archivo"
 msgstr "No se ha podido descargar el archivo"
 
@@ -804,6 +804,7 @@ msgid "<b>Nota:</b> En el nombre del diploma pero no use caracteres especiales, 
 msgstr "<b>Nota:</b> En el nombre del diploma no use caracteres especiales, por ejemplo los parentesis"
 
 #: FormElegirFichero.form:23 FormRegistroDiplomados.form:56
+#: FormRutaResultados.form:19
 msgid "Aceptar"
 msgstr "Aceptar"
 
@@ -851,7 +852,7 @@ msgstr "Espere..."
 msgid "Pensando..."
 msgstr "Cargando..."
 
-#: FormRegistroDiplomados.class:144
+#: FormRegistroDiplomados.class:145
 msgid "Se trata del primer datos que introduces, no puede igualarlo al anterior"
 msgstr "Se trata del primer datos que introduce, no puede igualarlo al anterior"
 
@@ -931,6 +932,14 @@ msgstr "Poner el mismo texto del registro anterior"
 msgid "="
 msgstr "="
 
+#: FormRutaResultados.form:13
+msgid "haga doble click en la ruta que desee guardar los datos"
+msgstr ""
+
+#: FormRutaResultados.form:25
+msgid "Elija ruta donde se guardarán los diplomas, también puede crear un directorio nuevo (pulsando el botón derecho)"
+msgstr ""
+
 #: ModuleExportarImportarDiplomas.module:57 ModulePrincipal.module:185
 msgid "Error al intentar copiar el archivo comprimido temporal al archivo final"
 msgstr "Error al intentar copiar el archivo comprimido temporal al archivo final"
@@ -955,19 +964,19 @@ msgstr ""
 "No se puede leer el fichero.\n"
 " Versión desconocida."
 
-#: ModuleImprimir.module:206
+#: ModuleImprimir.module:208
 msgid " de "
 msgstr " de "
 
-#: ModuleImprimir.module:444
+#: ModuleImprimir.module:446
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr "No se ha podido crear la imagen de la vista previa"
 
-#: ModuleImprimir.module:466
+#: ModuleImprimir.module:468
 msgid "No puedo presentar ese diploma"
 msgstr "No se puede mostrar este diploma"
 
-#: ModuleImprimir.module:560
+#: ModuleImprimir.module:562
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr "Se ha producido un error al intentar crear una vista previa"
 
