@@ -1,9 +1,9 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.4.2
+# Compiled with Gambas 3.5.4
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.76
+Version=0.0.78
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -22,7 +22,7 @@ Maintainer=Julio Sanchez Berro
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=constructordiploma-0.0.76
+PackageName=constructordiploma-0.0.78
 CreateEachDirectory=1
 Packager=1
 Systems=debian
@@ -30,3 +30,6 @@ Menus=debian:"Applications/Education"
 Categories=debian:"Education"
 Groups=debian:"graphics"
 ExtraDependencies=debian:"zip\t\t\nimagemagick\t\t\npdftk\t\t\ninkscape\t\t\nqrencode\t\t\npcmanfm\t\t"
+Menus=fedora:"Development/Building"
+Categories=fedora:"Building;Development"
+Groups=fedora:"Amusements/Graphics"
