@@ -74,9 +74,9 @@
       Stretch = True
     }
     { Label16 Label
-      MoveScaled(44,10,19,3)
+      MoveScaled(18,10,40,3)
       Font = Font["Bitstream Charter,Bold,+2"]
-      AutoResize = True
+      Alignment = Align.Center
     }
     { Labeljsbsan2 Label
       MoveScaled(6,14,13,3)
