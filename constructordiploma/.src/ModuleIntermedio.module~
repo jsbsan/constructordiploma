@@ -1,0 +1,320 @@
+' Gambas module file
+
+' 
+Public Sub IniciarLaPrimeraVez(rutaprograma As String)
+  
+  ' User.Home & "/.ConstructorDiplomas/"
+  'Crear Directorios del trabajo Actual
+  If Not Exist(rutaprograma) Then Mkdir rutaprograma
+  If Not Exist(rutaprograma & "PlantillasBases") Then Mkdir rutaprograma & "PlantillasBases"
+  If Not Exist(rutaprograma & "temporales") Then Mkdir rutaprograma & "temporales"
+  If Not Exist(rutaprograma & "temporales/PlantillasBases") Then Mkdir rutaprograma & "temporales/PlantillasBases"
+  If Not Exist(rutaprograma & "temporales/FotosPlantillasTematica") Then Mkdir rutaprograma & "temporales/FotosPlantillasTematica"
+  If Not Exist(rutaprograma & "temporales/FotosRegistros") Then Mkdir rutaprograma & "temporales/FotosRegistros"
+  
+  If Not Exist(rutaprograma & "trabajotmp") Then Mkdir rutaprograma & "trabajotmp"
+  If Not Exist(rutaprograma & "trabajotmp/pdf") Then Mkdir rutaprograma & "trabajotmp/pdf"
+  If Not Exist(ModulePrincipal.RutaPrograma & "/trabajotmp/exportar") Then Mkdir ModulePrincipal.RutaPrograma & "/trabajotmp/exportar"
+  If Not Exist(ModulePrincipal.RutaPrograma & "/trabajotmp/importar") Then Mkdir ModulePrincipal.RutaPrograma & "/trabajotmp/importar"
+  
+  copiaPlantillasInternas()
+  
+  ModuleHacerTransparente.copiarScriptTransparente()
+  ModuleHacerTransparente.copiarEAN13()
+  
+  'borrado de datos anteriores trabajos
+  BorradoDatosAnteriores()
+  
+  ModuleGestionAlumno.guardado = True
+  ModuleGestionDiploma.guardado = True
+  
+End
+
+Public Sub IniciarGridViewsTematico(grid As ClassSuperGridview, Optional titulos As Boolean)
+  
+  With grid 
+    .header = 3 
+    .rows.count = 1000 
+    .columns.count = 2
+    If titulos Then  
+      .Columns[0].title = "Id" 
+      '.Columns[1].title = "idplantilla" 
+      '   .Columns[2].title = "" 
+      '    .Columns[3].title = "FOTO01" 
+      '   .Columns[4].title = "FOTO02" 
+      '    .Columns[5].title = "FOTO03" 
+      '    .Columns[6].title = "FOTO04" 
+      '    .Columns[7].title = "FOTO05" 
+      '   .Columns[8].title = "PLANTILLA02" 
+    Else
+      .Columns[0].title = "Id" 
+      '  .Columns[1].title = "Texto del diploma" 
+      '   .Columns[2].title = "Plantilla Base" 
+      '    .Columns[3].title = "fondo" 
+      '   .Columns[4].title = "marco" 
+      '   .Columns[5].title = "logo" 
+      '    .Columns[6].title = "foto opcional" 
+      '   .Columns[7].title = "foto opcional" 
+      '   .Columns[8].title = "texto opcional"
+    Endif
+    
+    .Columns[0].width = 350
+    .Columns[1].width = 0 ' 162 ''NOTE: para borrar
+    '   .Columns[2].width = 80 
+    '   .Columns[3].width = 80 
+    '   .Columns[4].width = 80 
+    '   .Columns[5].width = 80 
+    '   .Columns[6].width = 80 
+    '   .Columns[7].width = 80
+    '   .Columns[8].width = 88 
+    .font.name = "Sans" 
+    .font.size = 9 
+    .mode = 1
+    .w = 300
+    .h = 445
+    .x = 0
+    .y = 30 
+    ''TODO: Posicion regilla diplomas tematicos
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
+  
+End
+
+Public Sub RellenarGridViewsTematico(rejilla As ClassSuperGridview, lista As ClassListaDiploma)
+  
+  Dim a As Integer
+  Dim regtmp As ClassDiplomaTematico
+  Dim contadorPosicionFilaGrid As Integer
+  
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+  'relleno datos 
+  For Each regtmp In Lista.registros
+    rejilla[contadorPosicionFilaGrid, 0].text = regtmp.NombrePlantilla
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.id
+    'rejilla[contadorPosicionFilaGrid, 2].text = regtmp.PlantillaBase
+    'rejilla[contadorPosicionFilaGrid, 3].text = regtmp.ImagenFondo
+    'rejilla[contadorPosicionFilaGrid, 4].text = regtmp.ImagenMarco
+    'rejilla[contadorPosicionFilaGrid, 5].text = regtmp.ImagenLogo
+    'rejilla[contadorPosicionFilaGrid, 6].text = regtmp.Foto04
+    'rejilla[contadorPosicionFilaGrid, 7].text = regtmp.Foto05
+    'rejilla[contadorPosicionFilaGrid, 8].text = regtmp.Tag
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+  
+  'borrado ultima fila
+  For a = 0 To rejilla.columns.count - 1
+    rejilla[contadorPosicionFilaGrid, a].text = ""
+  Next
+  
+  rejilla.Refresh()
+  
+End
+
+Public Sub IniciarGridViewsRegistros(grid As ClassSuperGridview, Optional titulos As Boolean)
+  
+  With grid 
+    .header = 3 
+    .rows.count = 1000 
+    .columns.count = 10 '9
+    If titulos Then  
+      .columns[0].title = " "
+      .Columns[1].title = "CAMPO01" 
+      .Columns[2].title = "CAMPO02" 
+      .Columns[3].title = "CAMPO03" 
+      .Columns[4].title = "CAMPO04" 
+      .Columns[5].title = "CAMPO05" 
+      .Columns[6].title = "FOTO06" 
+      .Columns[7].title = "FOTO07" 
+      .Columns[8].title = "CAMPO06" 
+    Else
+      .columns[0].title = "Diploma Tematico "
+      .Columns[1].title = "Alumno" 
+      .Columns[2].title = "Tutor/a" 
+      .Columns[3].title = "Colegio" 
+      .Columns[4].title = "Ciudad" 
+      .Columns[5].title = "fecha" 
+      .Columns[6].title = "foto alumno" 
+      .Columns[7].title = "foto tutor/a" 
+      .Columns[8].title = "otro texto"
+    Endif
+    .Columns[0].width = 150 
+    .Columns[1].width = 176 
+    .Columns[2].width = 162 
+    .Columns[3].width = 80 
+    .Columns[4].width = 80 
+    .Columns[5].width = 80 
+    .Columns[6].width = 85 
+    .Columns[7].width = 85 
+    .Columns[8].width = 93
+    .Columns[9].width = 0 ' 10 ''NOTE: para borrar
+    .font.name = "Sans" 
+    .font.size = 9 
+    .mode = 1
+    .w = 585
+    .h = 530
+    .x = 10
+    .y = 40
+    .TOOLTIP = "Si haces doble click en una fila, la puedes editar"
+  End With
+  
+End
+
+Public Sub RellenarGridViewsRegistro(rejilla As ClassSuperGridview, lista As ClassListaRegistroAlumno)
+  
+  Dim a As Integer
+  Dim regtmp As ClassRegistroAlumno
+  Dim contadorPosicionFilaGrid As Integer
+  Dim fechanumero As String
+  
+  rejilla.indice.Clear()
+  contadorPosicionFilaGrid = 0
+  rejilla.rows.count = Lista.registros.count + 1
+  'relleno datos 
+  For Each regtmp In Lista.registros
+    rejilla[contadorPosicionFilaGrid, 0].text = Str$(regtmp.IdDiplomaTematico) & "| " & ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regtmp.IdDiplomaTematico)].NombrePlantilla
+    rejilla[contadorPosicionFilaGrid, 1].text = regtmp.NombreAlumno
+    rejilla[contadorPosicionFilaGrid, 2].text = regtmp.NombreTutor
+    rejilla[contadorPosicionFilaGrid, 3].text = regtmp.Colegio
+    rejilla[contadorPosicionFilaGrid, 4].text = regtmp.Ciudad
+    
+    Try fechanumero = Format(Val(regtmp.Fecha), "dd mmm yyyy")
+    If Error Then 
+      rejilla[contadorPosicionFilaGrid, 5].text = "1 ene 2013 "
+    Else
+      rejilla[contadorPosicionFilaGrid, 5].text = Format(Val(regtmp.Fecha), "dd mmm yyyy")
+    Endif
+    
+    rejilla[contadorPosicionFilaGrid, 6].text = regtmp.FotoAlumno
+    rejilla[contadorPosicionFilaGrid, 7].text = regtmp.Foto07
+    rejilla[contadorPosicionFilaGrid, 8].text = regtmp.tag
+    rejilla[contadorPosicionFilaGrid, 9].text = regtmp.id
+    rejilla.indice.add(regtmp.id)
+    contadorPosicionFilaGrid += 1
+  Next
+  
+  'borrado ultima fila
+  For a = 0 To rejilla.columns.count - 1
+    rejilla[contadorPosicionFilaGrid, a].text = ""
+  Next
+  
+  rejilla.Refresh()
+  
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+'CARGA DE LISTA DE PLANTILLAS BASE:
+Public Sub CARGALISTA(lbox As ListBox, rutaprograma As String, Optional patron As String)
+  
+  Dim file As String
+  
+  lbox.Clear()
+  If patron = "" Then patron = "*.*"
+  If Exist(rutaprograma) Then 
+    'borrado si existe la ruta
+    For Each File In Dir(rutaprograma, patron).Sort()
+      lbox.Add(file)
+    Next
+    lbox.index = 0
+  Endif
+  
+End
+'CARGA DE combobox DE PLANTILLAS BASE:
+
+Public Sub CargaComboBox(lbox As ComboBox, rutaprograma As String, Optional patron As String)
+  
+  Dim file As String
+  
+  lbox.Clear()
+  If patron = "" Then patron = "*.*"
+  If Exist(rutaprograma) Then 
+    'borrado si existe la ruta
+    For Each File In Dir(rutaprograma, patron).Sort()
+      lbox.Add(file)
+    Next
+    lbox.index = 0
+  Endif
+  
+End
+
+' Comprueba uso de una plantilla antes de borrarla
+Public Sub compruebaUso(indice As Integer) As Boolean
+  
+  Dim a As Integer
+  
+  For a = 0 To ModuleGestionAlumno.Lista.Registros.count - 1
+    If ModuleGestionAlumno.Lista.Registros[a].IdDiplomaTematico = indice Then Return True
+  Next
+  
+  Return False
+  
+End
+
+Public Sub BorradoDatosAnteriores()
+  
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "temporales/PlantillasBases")
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica")
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "temporales/FotosRegistros")
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "temporales")
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp")
+  ModuleGestionAlumno.Lista.Registros.Clear()
+  ModuleGestionDiploma.lista.Registros.Clear()
+  
+End
+
+'Creacion de datos nuevos....
+Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
+  
+  BorradoDatosAnteriores()
+  ModulePrincipal.RutaDatosDiplomas = ruta
+  copiaPlantillasInternas()
+  ModuleGestionAlumno.guardado = False
+  ModuleGestionDiploma.guardado = False
+  Try Copy "transparente.png" To ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/transparente.png"
+  Try Copy "transparente.png" To ModulePrincipal.rutaprograma & "temporales/FotosRegistros/transparente.png"
+  
+  Return True
+  
+End
+
+Public Sub copiaPlantillasInternas()
+  
+  Dim a As Integer
+  ''TODO: copia de plantillas internas del programa al directorio de trabajo.
+  'copia PlantillasBase a la rutaprograma & PlantillasBases
+  For a = 0 To 5 
+    If Not Exist(ModulePrincipal.rutaprograma & "PlantillasBases/plantilla" & Str$(a) & ".svg") Then Copy "plantillas/plantilla" & Str$(a) & ".svg" To ModulePrincipal.rutaprograma & "PlantillasBases/plantilla" & Str$(a) & ".svg"
+  Next
+  
+End
+
+Public Sub borradoElementoLista(lbox As ListBox)
+  'borro fichero de la lista
+  
+  Try Kill ModulePrincipal.RutaPrograma & "PlantillasBases/" & lbox.List[lbox.Index]
+  Try Kill ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & lbox.List[lbox.Index]
+  'cargo otra vez la lista
+  cARGALISTA(lbox, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+  
+End
+
+'añadir una nuevo plantilla al directorio de plantillas:
+Public Sub anadirPlantilla()
+  
+  Dialog.path = ModulePrincipal.RutaPrograma & "PlantillasBases/"
+  Dialog.Title = "Elige la plantilla en formato .svg (inkscape)"
+  Dialog.Filter = ["*.svg", "Archivos .svg"]
+  If Not Dialog.OpenFile() Then 
+    'copio el archivo elegido al directorio donde se guardan las plantillas...
+    Try Copy Dialog.path To ModulePrincipal.RutaPrograma & "PlantillasBases/" & ModuleUtilidadesDisco.extraedesdebarra(Dialog.path)
+    If Error Then 
+      Message.Error(("Se ha producido un error, al intentar copiar la plantilla"))
+    Endif
+    
+  Endif
+  
+End

@@ -4,7 +4,7 @@ Public operacion As String 'controla como ha ido el comando ean13
 Public EstadoDelTrabajo As Integer 'para el control del proceso del avance de un trabajo
 Public EstadoDelTrabajoPaginas As Integer 'para el control del proceso del avance impresion de paginas
 
-Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer) As String
+Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer, dpi As String) As String
   
   'de la previsualizacion actual, muestra imagen...
   
@@ -46,7 +46,8 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   
   Try Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro
   Wait 0.1
-  proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"] Wait
+ 
+  proceso = Exec ["inkscape", "-f", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-dpi=" & dpi, "-A", ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".pdf"] Wait
   ModuleUtilidadesDisco.EsperarProceso(proceso)
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg") Then  
     Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg"
@@ -57,11 +58,11 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   'lo veo con el visor predeterminado...lxde
   '  Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
   
-  Return ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"
+  Return ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".pdf"
   
 End
 
-Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean) As Boolean
+Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean, dpi As String) As Boolean
   
   Dim a As Integer 'bucle
   Dim regtmp As ClassRegistroAlumno
@@ -77,8 +78,8 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     regtmp = New ClassRegistroAlumno
     regtmp = ModuleGestionAlumno.Lista.Registros[a]
     
-    'TODO: imprimiendo
-    nombrefinal = creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet)
+    'TODO: imprimiendo NOTA: ahora en lugar de generar un png y luego convertir a pdf, creandoPNG directamente se convierte a pdf y montaje simplemente renombra
+    nombrefinal = creandoPNG(regtmp, a, formato, numerar, valorinicialNumeroCarnet, dpi)
     montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, nombrefinal)
     Moduleimprimir.EstadoDelTrabajo = a
   Next
@@ -109,9 +110,10 @@ Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileA
   Dim nombrepdf As String 
   Dim nombredesplazadopdf As String
   
-  nombrepdf = Replace$(nombrefinal, ".png", "") & ".pdf"
-  proceso = Exec ["convert", nombrefinal, nombrepdf]
-  ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
+  'nombrepdf = Replace$(nombrefinal, ".png", "") & ".pdf"
+  nombrepdf = nombrefinal
+  'proceso = Exec ["convert", nombrefinal, nombrepdf]
+  'ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
   nombredesplazadopdf = Replace(nombrepdf, "/trabajotmp/", "/trabajotmp/pdf/")
   
   If Exist(nombredesplazadopdf) Then 
@@ -258,7 +260,7 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
       
       ''NOTE: Creando qr
       'creando codigo QR
-      comando = "qrencode  -s 6 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
+      comando = "qrencode  -s 10 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
       Shell comando To operacion
       
       If InStr(operacion, "El programa «qrencode» no") <> 0 Then 

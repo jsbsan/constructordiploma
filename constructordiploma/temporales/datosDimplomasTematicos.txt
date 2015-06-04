@@ -1,0 +1,241 @@
+version 1
+Torneo de ajedrez
+Al ganador del torneo de ajedrez
+plantilla1.svg
+tablero.png
+tablero.png
+ajedrez_icono_xc.png
+
+
+
+0
+Mejor Redacción
+A la mejor redacción
+plantilla2.svg
+
+
+redaccion.png
+
+
+
+1
+Cálculo Mental
+Al mejor calculista
+plantilla0.svg
+calculo_mental.png
+
+Trofeo.png
+
+
+
+2
+Deportes en General
+Por su buen juego y deportividad
+plantilla1.svg
+deportes.png
+Trofeo.png
+deportesccc.png
+foto04
+foto05
+
+3
+Artes Plásticas
+Por su imaginación en plástica
+plantilla4.svg
+foto01
+escuadras
+mochila
+sacapuntas
+paleta
+
+5
+Medio Ambiente
+Al mejor ecologista
+plantilla5.svg
+
+enredadera.png
+girasol.png
+
+
+
+6
+Mejor Lectura (niño)
+Por ser un gran lector
+plantilla1.svg
+fondo.png
+FOTO01
+logo.png
+foto04
+foto05
+
+8
+Mejor Lectura (niña)
+Por ser una gran lectora
+plantilla1.svg
+fondo.png
+FOTO01
+logo.png
+foto04
+foto05
+
+9
+Destreza matemática
+A la destreza matemática
+plantilla4.svg
+matemáticas.png
+Enlace_hacia_dice-6.png
+mates2.png
+Enlace_hacia_dice-3.png
+Enlace_hacia_dice-1.png
+
+11
+Torneo de damas
+VI Torneo de Damas.
+plantilla1.svg
+tablero.png
+tablero.png
+ajedrez_icono_xc.png
+foto04
+foto05
+Por su participación y deportividad
+12
+Compañerismo
+A la solidaridad y compañerismo
+plantilla1.svg
+1.png
+bow.png
+1c.png
+foto04
+foto05
+
+13
+Comportamiento
+Al buen comportamiento
+plantilla3.svg
+1cc.png
+foto02
+1ccc.png
+foto04
+foto05
+
+14
+Trabajo
+Al trabajo en clase
+plantilla1.svg
+foto01
+lápiz.png
+1cccc.png
+foto04
+foto05
+
+15
+Organización
+A la organización y limpieza
+plantilla1.svg
+organizaciónc.png
+caja.png
+
+foto04
+foto05
+
+16
+Solidaridad
+Con este diploma se reconoce la solidaridad
+plantilla7.svg
+1ccccc.png
+2.jpg
+1cccccc.png
+foto04
+foto05
+y la ayuda prestada a sus compañeros de clase
+17
+Atención
+Reconocimiento a la atención y
+plantilla4.svg
+matemáticas.png
+2cc.jpg
+2c.jpg
+2.png
+2ccc.jpg
+al trabajo en las tareas.
+18
+Conocimiento del medio
+Por su interés en el conocimiento
+solofondo-vertical.svg
+delfines.png
+foto02
+foto03
+foto04
+foto05
+de su entorno.
+19
+Resultados escolares
+Por sus buenos resultados escolares
+solofondo+logo.svg
+globos3.png
+foto02
+pr_girl.jpg
+foto04
+foto05
+
+20
+Objetivos infantil
+Por haber superado los objetivos
+plantilla1.svg
+1cccccccc.png
+1ccccccccc.png
+1cccccccccc.png
+foto04
+foto05
+de 3 años en Educación Infantil
+21
+Música
+Por haber participado en el recital
+solofondo+logo.svg
+music4c.png
+clef_de_sol.png
+songwrite2.png
+note_012_a.png
+foto05
+de fin de curso
+22
+Esfuerzo
+Por su esfuerzo y afán de superación
+plantilla3.svg
+1ccccccccccc.png
+foto02
+1ccc.png
+foto04
+foto05
+
+23
+Poesía
+Como un merecido estímulo por su participación
+solofondo+logo.svg
+1cccccccccccc.png
+foto02
+
+foto04
+foto05
+en el concurso de poesía
+24
+Certificado de Asistencia Codigo Barra
+Por haber asistido al Curso
+Certificado.svg
+foto01
+foto02
+cursos.png
+foto04
+foto05
+Programación en Gambas
+26
+Certificado de Asistencia Codigo QR
+Por haber asistido al Curso
+CertificadoQR.svg
+foto01
+foto02
+cursos.png
+foto04
+foto05
+Programación en Gambas
+27
