@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,126,85)
+  Expand = True
   Icon = Picture["diploma-icono24.png"]
   Resizable = False
   { IconPanel1 IconPanel
@@ -15,7 +16,7 @@
       MoveScaled(5,2,66,51)
       Font = Font["Arial,-1"]
       Background = Color.Background
-      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.1 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
+      Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.5.4 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
       Border = Border.Sunken
     }
@@ -42,7 +43,7 @@
       Text = ("Creado especialmente para:")
     }
     { labelInkscape2 Label
-      MoveScaled(50,70,24,3)
+      MoveScaled(47,71,24,3)
       Font = Font["Underline"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
@@ -50,8 +51,8 @@
       Alignment = Align.Center
     }
     { PictureBox1 PictureBox
-      MoveScaled(35,62,18,18)
-      Picture = Picture["mininopicaros2012.png"]
+      MoveScaled(36,68,14,10)
+      Picture = Picture["picaruelo.png"]
       Stretch = True
     }
     { Labeljsbsan Label
@@ -63,12 +64,12 @@
       Alignment = Align.Center
     }
     { PictureBox2 PictureBox
-      MoveScaled(6,19,12,9)
+      MoveScaled(6,5,9,9)
       Picture = Picture["diploma-icono.png"]
       Stretch = True
     }
     { PictureBox3 PictureBox
-      MoveScaled(71,29,11,14)
+      MoveScaled(9,19,9,12)
       Picture = Picture["logoGambas.png"]
       Stretch = True
     }
@@ -78,12 +79,17 @@
       AutoResize = True
     }
     { Labeljsbsan2 Label
-      MoveScaled(6,27,13,3)
+      MoveScaled(6,14,13,3)
       Font = Font["Bitstream Charter,Italic,Underline,-1"]
       Foreground = &H1F57FF&
       Mouse = Mouse.Pointing
       Text = ("Web del Proyecto")
       Alignment = Align.Center
+    }
+    { Label13 Label
+      MoveScaled(35,78,20,4)
+      Font = Font["Bold,+1"]
+      Text = ("PícarOS Diego")
     }
     Index = 1
     Text = ("Crear Grupo")
@@ -340,46 +346,78 @@
     Text = ("Crear Pdf para imprimir")
     Picture = Picture["icon:/22/print"]
     { Expander1 Expander
-      MoveScaled(6,47,57,32)
-      Expand = True
+      MoveScaled(2,42,55,38)
       Text = ("Parámetros Avanzados")
       { Label5 Label
-        MoveScaled(1,14,14,4)
+        MoveScaled(0,30,14,4)
+        Visible = False
         Text = ("geometría:")
         Alignment = Align.Right
       }
       { TextBoxGeometria TextBox
-        MoveScaled(16,14,18,4)
+        MoveScaled(15,30,18,4)
+        Visible = False
         Text = ("1052x744+10")
       }
       { Label6 Label
-        MoveScaled(4,9,24,4)
+        MoveScaled(3,26,24,4)
         Visible = False
         Text = ("Diplomas Horizontales")
         Alignment = Align.Right
       }
       { TextBoxTileH TextBox
-        MoveScaled(29,9,5,4)
+        MoveScaled(28,26,5,4)
         Visible = False
         Text = ("1")
         ReadOnly = True
       }
       { Label9 Label
-        MoveScaled(5,4,23,4)
+        MoveScaled(4,22,23,4)
         Visible = False
         Text = ("Diplomas Verticales")
         Alignment = Align.Right
       }
       { TextBoxTileV TextBox
-        MoveScaled(29,4,5,4)
+        MoveScaled(28,22,5,4)
         Visible = False
         Text = ("1")
         ReadOnly = True
       }
       { Label10 Label
-        MoveScaled(3,0,29,4)
+        MoveScaled(3,19,29,4)
         Visible = False
         Text = ("Por página que se cree:")
+      }
+      { ComboBoxDPI ComboBox
+        MoveScaled(3,4,18,4)
+        Text = ("Baja")
+      }
+      { Label17 Label
+        MoveScaled(3,1,18,3)
+        Text = ("Calidad")
+      }
+      { TextBoxDPI TextBox
+        MoveScaled(23,4,7,4)
+        Background = &HBFBFBF&
+        Text = ("100")
+        ReadOnly = True
+      }
+      { Label18 Label
+        MoveScaled(31,5,8,2)
+        Text = ("DPI")
+      }
+      { CheckBoxUnir CheckBox
+        MoveScaled(8,17,27,3)
+        Text = ("Unir todos los pdf en uno")
+        Value = CheckBox.True
+      }
+      { TextBoxFormato TextBox
+        MoveScaled(3,12,27,4)
+        Text = ("dd mmmm yyyy")
+      }
+      { Label7 Label
+        MoveScaled(3,9,16,3)
+        Text = ("Formato fecha:")
       }
     }
     { Timer1 #Timer
@@ -387,19 +425,19 @@
       Delay = 20
     }
     { ProgressBarBarraEstado ProgressBar
-      MoveScaled(2,39,68,6)
+      MoveScaled(4,29,58,5)
       Visible = False
       ToolTip = ("Convirtiendo fotografias")
     }
     { ToolButtonGenerar ToolButton
-      MoveScaled(49,31,26,7)
+      MoveScaled(30,21,26,7)
       ToolTip = ("Crear pdf para imprimir, y los .SVG permiten editar el diploma con Inkscape")
       Text = ("Generar .PDF y .SVG")
       Picture = Picture["icon:/22/exec"]
       Border = True
     }
     { FrameImprimir Frame
-      MoveScaled(4,14,52,17)
+      MoveScaled(4,2,52,17)
       Text = ("Imprimir")
       { RadioButtonTodo RadioButton
         MoveScaled(7,4,27,3)
@@ -433,23 +471,6 @@
         Text = ("ValueBox2")
       }
     }
-    { Frame2 Frame
-      MoveScaled(4,0,52,14)
-      Text = ("Fecha:")
-      { Label7 Label
-        MoveScaled(1,3,12,3)
-        Text = ("Formato:")
-      }
-      { TextBoxFormato TextBox
-        MoveScaled(4,7,27,4)
-        Text = ("dd mmmm yyyy")
-      }
-    }
-    { CheckBoxUnir CheckBox
-      MoveScaled(11,33,32,3)
-      Text = ("Unir todos los pdf en uno")
-      Value = CheckBox.True
-    }
     Index = 9
     Text = ("Salir")
     Picture = Picture["icon:/22/quit"]
@@ -461,7 +482,7 @@
       Text = ("<b>Estructura de una plantilla:</b><br>\nSi usted quiere hacer sus propias plantillas, puede usar como base un plantilla existente y editarla con inkscape, modificarla y adaptarla a sus necesidades, luego la guarda con un nombre nuevo, y en el menú Plantillas , con el botón \"añadir\" la prodia  añadir para usarla.\n<br>\nTiene que tener en cuenta que, es necesario que los textos (nombre, apellidos, centro, etc..) \nse deben de usar estos nombres:<br>\n<br>\nETIQUETA EN SVG............. SIGNIFICADO<br>\n<br>\nPLANTILLA01 ..................... texto del diploma: \"Al mejor compañero\", \"al mejor ajedrecista\"...<br>\nFOTO01............................. imagen que forma el fondo<br>\nFOTO02............................ imagen que forma el marco<br>\nFOTO03............................ imagen logo del diploma( figura de ajedrez, etc.)<br>\nFOTO04............................. foto opcional<br>\nFOTO05.............................. foto opcional<br>\nPLANTILLA02...................... campo extra para texto<br>\n<br>\nCAMPO01................................. Nombre del alumno<br>\nCAMPO02................................. nombre tutor/a<br>\nCAMPO03................................. nombre colegio<br>\nCAMPO04................................. nombre ciudad<br>\nCAMPO05................................. fecha del diploma<br>\nFOTO06.................................... foto del alumno (opcional)<br>\nFOTO07..................................... foto del tutor/a (opcional)<br>\nCAMPO06.................................. texto<br>")
     }
     { ToolButtonAccesoPaginaWeb ToolButton
-      MoveScaled(20,70,57,12)
+      MoveScaled(5,66,72,10)
       Font = Font["-1"]
       Text = ("Visite la página del proyecto para más ayuda")
       Picture = Picture["icono_web.jpg"]

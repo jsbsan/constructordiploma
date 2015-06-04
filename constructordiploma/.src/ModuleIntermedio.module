@@ -7,17 +7,17 @@ Public Sub IniciarLaPrimeraVez(rutaprograma As String)
   'Crear Directorios del trabajo Actual
   If Not Exist(rutaprograma) Then Mkdir rutaprograma
   If Not Exist(rutaprograma & "PlantillasBases") Then Mkdir rutaprograma & "PlantillasBases"
-  If Not Exist(rutaprograma & "temporales") Then Mkdir rutaprograma & "temporales"
-  If Not Exist(rutaprograma & "temporales/PlantillasBases") Then Mkdir rutaprograma & "temporales/PlantillasBases"
-  If Not Exist(rutaprograma & "temporales/FotosPlantillasTematica") Then Mkdir rutaprograma & "temporales/FotosPlantillasTematica"
-  If Not Exist(rutaprograma & "temporales/FotosRegistros") Then Mkdir rutaprograma & "temporales/FotosRegistros"
+  'If Not Exist(rutaprograma & "temporales") Then Mkdir rutaprograma & "temporales"
+  'If Not Exist(rutaprograma & "temporales/PlantillasBases") Then Mkdir rutaprograma & "temporales/PlantillasBases"
+  'If Not Exist(rutaprograma & "temporales/FotosPlantillasTematica") Then Mkdir rutaprograma & "temporales/FotosPlantillasTematica"
+  'If Not Exist(rutaprograma & "temporales/FotosRegistros") Then Mkdir rutaprograma & "temporales/FotosRegistros"
   
   If Not Exist(rutaprograma & "trabajotmp") Then Mkdir rutaprograma & "trabajotmp"
   If Not Exist(rutaprograma & "trabajotmp/pdf") Then Mkdir rutaprograma & "trabajotmp/pdf"
   If Not Exist(ModulePrincipal.RutaPrograma & "/trabajotmp/exportar") Then Mkdir ModulePrincipal.RutaPrograma & "/trabajotmp/exportar"
   If Not Exist(ModulePrincipal.RutaPrograma & "/trabajotmp/importar") Then Mkdir ModulePrincipal.RutaPrograma & "/trabajotmp/importar"
   
-  copiaPlantillasInternas()
+  'copiaPlantillasInternas()
   
   ModuleHacerTransparente.copiarScriptTransparente()
   ModuleHacerTransparente.copiarEAN13()

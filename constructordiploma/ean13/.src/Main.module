@@ -1,0 +1,34 @@
+' Gambas module file
+
+Public Sub Main() 
+  
+  If Application.Args[1] = "" Then     
+    'modo gráfico,ya que no se ha introducido ningun numero
+    FMain.Show()
+  Else
+    'generar imagen internamente...  
+    
+    If Len(Application.Args[1]) <> 13 Then 
+      Print "Error: introduce un numero valido EAN-13 (" & Application.Args[1] & ")" 
+      Quit
+    Else 
+      'borro la imagen anterior si la hay.
+      Try Kill "/tmp/codigoBarras.png"
+      'genero imagen del codigo y la guardo en
+      imagen(Application.Args[1])
+      Quit
+      
+    Endif
+  Endif
+  
+End
+
+Public Sub imagen(codigo As String) 
+  
+  Dim trozoimagen As Image
+  
+  trozoimagen = New Image(550, 200)
+  
+  modCrBcode.paintBarcode(codigo, 60, 8, 150, 5, True, trozoimagen)
+  
+End

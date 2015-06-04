@@ -54,6 +54,10 @@ Public Sub Form_Open()
     Print "          --- Abriendo diplomas iniciales"
     AbrirDiplomasIniciales()
     LabelNombreFichero.text = "/tmp/Base.ConstrucuctorDiplomas"
+    
+    ComboBoxDPI.Add("Baja")
+    ComboBoxDPI.Add("Media")
+    ComboBoxDPI.Add("Alta")
   Else
     'como ya hay una instancia de esta aplicacion abierta, salgo
     ModuleGestionAlumno.Guardado = True
@@ -109,6 +113,8 @@ Public Sub IconPanel1_Click()
   'Crear Pdf para imprimir
   If IconPanel1.index = 8 Then 
     ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
+
+
     Return
   Endif
   
@@ -721,7 +727,7 @@ Public Sub ToolButtonGenerar_Click()
   Timer1.Start()
   fpen.Show
   
-  ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value)
+  ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, TextBoxDPI.Text)
   ProgressBarBarraEstado.Visible = False
   fpen.parar = True
   fpen.Delete()
@@ -912,16 +918,30 @@ End
 
 Public Sub AbrirDiplomasIniciales()
   
-  Dim resultado As Boolean  
+  Dim resultado As Boolean
+  Dim resultado2 As Boolean
   Dim rutacopia As String
+  Dim archivo As String
+  Dim a As String
+
   
   rutacopia = "/tmp/Base.ConstructorDiplomas"
-  If Exist(rutacopia) Then 
-    Kill rutacopia
-  Endif
-  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
+  'If Exist(rutacopia) Then 
+   ' Kill rutacopia
+  'Endif
+  'Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
   
-  resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
+  'resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
+
+    Exec ["cp", "-R", "-u", Application.Path &/ "temporales", User.Home &/ ".ConstructorDiplomas/"] Wait
+    'Shell "ln " & User.Home &/ ".ConstructorDiplomas/temporales/PlantillasBases/* " & User.Home &/ ".ConstructorDiplomas/PlantillasBases/" To a
+    Shell "cp -R -u " & User.Home &/ ".ConstructorDiplomas/temporales/PlantillasBases/* " & User.Home &/ ".ConstructorDiplomas/PlantillasBases/" To a
+    
+  'Next
+  
+  
+  resultado = True
+  
   If resultado Then
     resultado = ModulePrincipal.CargarDatos()
     ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")
@@ -963,3 +983,28 @@ End
 Public Sub RadioButtonDesdeHasta_Click()
   
 End
+
+
+
+
+
+Public Sub ComboBoxDPI_Click()
+
+  If ComboBoxDPI.Text = "Baja" Then
+    TextBoxDPI.Text = 100
+  Endif
+
+  If ComboBoxDPI.Text = "Media" Then
+    TextBoxDPI.Text = 200
+  Endif
+
+  If ComboBoxDPI.Text = "Alta" Then
+    TextBoxDPI.Text = 300
+  Endif
+
+
+End
+
+
+
+
