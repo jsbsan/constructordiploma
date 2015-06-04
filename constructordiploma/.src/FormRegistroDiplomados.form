@@ -6,67 +6,67 @@
   Resizable = False
   { ComboBoxDiplomaTematico ComboBox
     MoveScaled(21,3,35,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     ReadOnly = True
     Text = ("ComboBoxDiplomaTematico")
   }
   { ToolButtonAceptarDiploma ToolButton
     MoveScaled(9,58,16,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Aceptar")
     Picture = Picture["icon:/22/apply"]
     Border = True
   }
   { ToolButtonCancelarDiploma2 ToolButton
     MoveScaled(30,58,16,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Cancelar")
     Picture = Picture["icon:/22/cancel"]
     Border = True
   }
   { Label1 Label
     MoveScaled(2,3,19,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Diploma Temático:")
   }
   { Label2 Label
     MoveScaled(2,8,11,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Nombre:")
   }
   { Label3 Label
     MoveScaled(2,13,11,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Tutor/a:")
   }
   { Label4 Label
     MoveScaled(2,18,11,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Colegio:")
   }
   { Label5 Label
     MoveScaled(2,23,11,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Ciudad:")
   }
   { Label6 Label
     MoveScaled(2,28,11,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("fecha:")
   }
   { Label7 Label
     MoveScaled(3,37,14,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Foto Alumno:")
   }
   { Label8 Label
     MoveScaled(36,37,14,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Foto opcional:")
   }
   { Label9 Label
     MoveScaled(2,33,14,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
     Text = ("Otro texto:")
   }
   { PictureBoxFoto05 PictureBox
@@ -87,23 +87,23 @@
   }
   { TextBoxAlumno TextBox
     MoveScaled(12,8,31,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
   }
   { TextBoxTutor TextBox
     MoveScaled(12,13,31,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
   }
   { TextBoxColegio TextBox
     MoveScaled(12,18,31,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
   }
   { TextBoxCiudad TextBox
     MoveScaled(12,23,31,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
   }
   { DateBoxFecha DateBox
     MoveScaled(12,28,21,4)
-    Font = Font["Bitstream Charter"]
+    Font = Font["Bitstream Charter,-1"]
   }
   { Label11 Label
     MoveScaled(48,8,9,4)
