@@ -46,9 +46,8 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   
   Try Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro
   Wait 0.1
- 
-  proceso = Exec ["inkscape", "-f", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-dpi=" & dpi, "-A", ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".pdf"] Wait
-  ModuleUtilidadesDisco.EsperarProceso(proceso)
+  proceso = Exec ["inkscape", "--export-dpi=" & dpi, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png=" & ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"] Wait
+  
   If Exist(ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg") Then  
     Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg"
   Endif  
@@ -58,7 +57,7 @@ Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato
   'lo veo con el visor predeterminado...lxde
   '  Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
   
-  Return ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".pdf"
+  Return ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"
   
 End
 
@@ -78,8 +77,8 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
     regtmp = New ClassRegistroAlumno
     regtmp = ModuleGestionAlumno.Lista.Registros[a]
     
-    'TODO: imprimiendo NOTA: ahora en lugar de generar un png y luego convertir a pdf, creandoPNG directamente se convierte a pdf y montaje simplemente renombra
-    nombrefinal = creandoPNG(regtmp, a, formato, numerar, valorinicialNumeroCarnet, dpi)
+    'TODO: imprimiendo
+    nombrefinal = creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet, dpi)
     montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, nombrefinal)
     Moduleimprimir.EstadoDelTrabajo = a
   Next
@@ -110,10 +109,9 @@ Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileA
   Dim nombrepdf As String 
   Dim nombredesplazadopdf As String
   
-  'nombrepdf = Replace$(nombrefinal, ".png", "") & ".pdf"
-  nombrepdf = nombrefinal
-  'proceso = Exec ["convert", nombrefinal, nombrepdf]
-  'ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
+  nombrepdf = Replace$(nombrefinal, ".png", "") & ".pdf"
+  proceso = Exec ["convert", nombrefinal, nombrepdf]
+  ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
   nombredesplazadopdf = Replace(nombrepdf, "/trabajotmp/", "/trabajotmp/pdf/")
   
   If Exist(nombredesplazadopdf) Then 
@@ -260,7 +258,7 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
       
       ''NOTE: Creando qr
       'creando codigo QR
-      comando = "qrencode  -s 10 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
+      comando = "qrencode  -s 6 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
       Shell comando To operacion
       
       If InStr(operacion, "El programa «qrencode» no") <> 0 Then 

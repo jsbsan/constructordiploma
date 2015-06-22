@@ -58,6 +58,7 @@ Public Sub Form_Open()
     ComboBoxDPI.Add("Baja")
     ComboBoxDPI.Add("Media")
     ComboBoxDPI.Add("Alta")
+    
   Else
     'como ya hay una instancia de esta aplicacion abierta, salgo
     ModuleGestionAlumno.Guardado = True
@@ -113,8 +114,6 @@ Public Sub IconPanel1_Click()
   'Crear Pdf para imprimir
   If IconPanel1.index = 8 Then 
     ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
-
-
     Return
   Endif
   
@@ -918,30 +917,16 @@ End
 
 Public Sub AbrirDiplomasIniciales()
   
-  Dim resultado As Boolean
-  Dim resultado2 As Boolean
+  Dim resultado As Boolean  
   Dim rutacopia As String
-  Dim archivo As String
-  Dim a As String
-  Dim b As Process
-  
   
   rutacopia = "/tmp/Base.ConstructorDiplomas"
-  'If Exist(rutacopia) Then 
-   ' Kill rutacopia
-  'Endif
-  'Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
+  If Exist(rutacopia) Then 
+    Kill rutacopia
+  Endif
+  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
   
-  'resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
-
-    Exec ["cp", "-R", "-u", Application.Path &/ "temporales", User.Home &/ ".ConstructorDiplomas/"] Wait
-    Shell "ln " & User.Home &/ ".ConstructorDiplomas/temporales/PlantillasBases/* " & User.Home &/ ".ConstructorDiplomas/PlantillasBases/" To a
-    
-  'Next
-  
-  
-  resultado = True
-  
+  resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
   If resultado Then
     resultado = ModulePrincipal.CargarDatos()
     ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")
@@ -985,9 +970,6 @@ Public Sub RadioButtonDesdeHasta_Click()
 End
 
 
-
-
-
 Public Sub ComboBoxDPI_Click()
 
   If ComboBoxDPI.Text = "Baja" Then
@@ -1004,7 +986,3 @@ Public Sub ComboBoxDPI_Click()
 
 
 End
-
-
-
-

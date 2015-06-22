@@ -20,7 +20,8 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
 
   Dim nombreRutaAntinua As String
   Dim fpensando As New FormPensando
-
+  Dim salida As String
+  
   fpensando.Show
   Wait 0.2
   'Operaciones a realizar
@@ -40,8 +41,10 @@ Public Sub AbrirFichero(nombre As String, NombreCarpetaPrograma As String) As Bo
 
   Shell "rm -r " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/home/" Wait
   ' extraer en algun lugar temporal...
-  Shell "cd " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & " && unzip \"" & nombre & "\"" Wait
+  Shell "cd " & User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & " && unzip \"" & nombre & "\"" Wait To salida
   'borro los datos temporales que haya
+  Print salida
+  
   ModuleIntermedio.BorradoDatosAnteriores()
   Wait 0.5
   rutaDescomprimida = User.Home & "/" & NombreCarpetaPrograma & "/trabajotmp/" & nombreRutaAntinua & "/" & NombreCarpetaPrograma & "/temporales/"
