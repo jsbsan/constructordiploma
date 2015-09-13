@@ -53,22 +53,8 @@ Public Sub Form_Open()
     pensando.parar = True
     pensando.Delete()
     Print "          --- Abriendo diplomas iniciales"
-    ' If Exist(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt") Then
-    '   versiondiplomas = File.load(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt")
-    ' Endif
-    '
-    ' If Val(versiondiplomas) < Val(File.Load("versiondiplomas.txt")) Then
-    Print "Copiando ficheros de plantilla......"
-    AbrirDiplomasIniciales(rutaficherosDiplomasTemporal)
-    ' Else
-    '   Print "No hace falta copiar ficheros plantillas de diplomas, ya estas copiados"
-    '   ModulePrincipal.AbrirFichero(rutaficherosDiplomasTemporal, ".ConstructorDiplomas")
-    '   ModulePrincipal.CargarDatos()
-    '   ModulePrincipal.RutaDatosDiplomas = Replace(rutaficherosDiplomasTemporal, ".ConstructorDiplomas", "")
-    '   Try Kill rutaficherosDiplomasTemporal
-    '   IconPanel1.index = 0
-    '   IconPanel1_click()
-    ' Endif
+
+    AbrirDiplomasIniciales()
 
     LabelNombreFichero.text = "/tmp/Base.ConstructorDiplomasPlus"
 
@@ -634,7 +620,7 @@ Public Sub ToolButtonCrear_Click()
     If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas") Then
       ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
       ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
-      AbrirDiplomasIniciales()
+      AbrirDiplomasIniciales() 'con datos
       nombreFicheroCrear = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas"
       'borrar datos de personas
       ModuleGestionAlumno.Lista.Registros.clear()
@@ -934,14 +920,16 @@ Public Sub ToolButtonNube_Click()
 
 End
 
-Public Sub AbrirDiplomasIniciales(rutacopia As String) As String
+Public Sub AbrirDiplomasIniciales() '(rutacopia As String) As String
 
   Dim resultado As Boolean
+  Dim rutacopia As String
 
+  rutacopia = "/tmp/Base.ConstructorDiplomas"
   If Exist(rutacopia) Then
     Kill rutacopia
   Endif
-  Try Copy File.Name(rutacopia) To rutacopia 'copia del interior del programa el fichero base de diplomas...
+  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
 
   resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
   If resultado Then
@@ -950,16 +938,14 @@ Public Sub AbrirDiplomasIniciales(rutacopia As String) As String
     Try Kill rutacopia
     IconPanel1.index = 0
     IconPanel1_click()
-    'para no repetir el paso de copiar fichero, solo lo hara cuando haya cambios en la version diplomas.txt
-    Try Kill User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt"
-    Copy "versiondiplomas.txt" To User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt"
+
   Else
     Message.Error(("Problemas al abrir el archivo..."))
     Try Kill rutacopia
     IconPanel1.Index = 0
     IconPanel1_Click()
 
-    Return "/tmp/Base.ConstructorDiplomasPlus"
+    Return
   Endif
 Catch
   ModuleMensajeError.SistemaDescripcionError()
