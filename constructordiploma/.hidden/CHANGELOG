@@ -1,0 +1,204 @@
+* Sun Sep 13 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.86
+-corregido problemas de abrir y crear archivos de diplomas
+
+* Tue Jun 23 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.85
+- rectificado diplomas
+
+* Mon Jun 22 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.84
+- copia de archivos diplomas nuevos prealizados por Antonio Sanchez
+
+* Mon Jun 22 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.84
+- copia de archivos de nuevos diplomas realizados por Antonio Sanchez
+
+* Sat Feb 07 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.78
+- anado alguna palabras no traducidas de portugues
+
+* Fri Feb 06 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.77
+
+* Fri Feb 06 2015 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.77
+- Añadido soporte idioma portugués
+
+* Sun Nov 23 2014 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.76
+- Admite nombres con espacios
+
+* Sat Nov 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.75
+- Mejoras al mostrar resultados. Ahora lo abre con "caja"
+
+* Fri Nov 22 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.74
+- Revision de problemas con guardar como y creacion codigo EAN
+
+* Fri Aug 30 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.73
+- Añadido idioma Catalán
+
+* Mon Aug 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.72
+-Corregida plantilla0  para que indique los datos y nombre de fotos
+
+* Mon Aug 12 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.70
+- Corregido pegado de datos de colegio
+
+* Thu Aug 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.69
+- Traduccion castellano y catalan (muy incompleta)
+
+* Wed Aug 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.68
+- Anadido idioma ingles y galledo. Catch para ejecucion de shell
+
+* Sun Aug 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.67
+- reparando paguete version 0.0.66
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.67
+- ing
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.66
+-traducido parcialmente al gallego
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- g3
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- g2
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- g
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- Añadido Gallego
+
+* Mon Jul 29 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.65
+- Añadido certificado de asistencia QR y traduccion al gallego
+
+* Sun Jul 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.63
+-Añadido certificado de asistencia
+
+* Sun Jul 14 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.62
+- Pegado de datos desde el portapapeles
+
+* Sun Jun 30 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.61
+-Añadido plantillas nuevas
+
+* Tue Jun 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.60
+- Corregido bug al ver diplomas por problemas con el indice
+
+* Sat Jun 15 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.59
+- Corregido bug al guardar los diplomas
+
+* Thu Jun 13 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.58
+- Corregido Previsualizaciones de Diplomas por fallos en el Id
+
+* Thu Jun 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.57
+- Corregido Bug de Asignar Diploma en Introduccion de Datos
+
+* Thu May 30 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.56
+- Corregido bug en supergridview al señalar linea y añadido logo de gambas
+
+* Tue May 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.54
+- Mejora de velocidad de minuaturas, usando scale en vez de resize
+
+* Tue May 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.53
+- Revision Id para editar y borrar diplomas y alumnos, para dejarlo con codigo mas claro
+
+* Mon May 27 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.52
+- Corregido error al borrar diploma y añado informacion sobre imagenes que no se pueden arrastrar y soltar
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.51
+-Revisado tipos de ficheros de filtro de imagenes
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.50
+- Se muestras el icono de carpetas en el filechoose
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.49
+-Cuando elege un archivo lo pasa de jpg a png
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.48
+- Miniaturas en filechoose
+
+* Sun May 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.47
+-Corregido exportar
+
+* Fri May 24 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.46
+-Corregido reflesco de Area de dibujo y borrado de plantillas.
+
+* Thu May 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.45
+- No crea previsualizacion de plantilla, si ya existe. Cambiado a gb.gui
+
+* Sun May 19 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.44
+-Corregido mensaje que salia cuando se cancelaba una edicion de diploma
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.43
+-Muestra un error si se produce un error en el sistema de Muestra de Errores
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.42
+- Ruta de trabajo en .ConstructorDiplomas 2
+
+* Sat May 18 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.42
+- Ruta de trabajo en .ConstructorDiplomas
+
+* Mon May 06 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.41
+- Añadido botón de  página web del proyecto
+
+* Sat May 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.40
+- Añadido enlace a web del proyecto
+
+* Sun Apr 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.39
+-Mejoras para no tener problemas al traducir en iconpanel
+
+* Thu Apr 04 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.38
+- Añadido hacer transparente fotos de registros
+
+* Tue Mar 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.37
+-Reloj pensando cuando empieza a comprobar tipos de letras
+
+* Tue Mar 26 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.36
+- Comprobar que esta instaladao inkscape
+
+* Fri Mar 22 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.35
+- Mejorar formulario "pensando" y mejorar la visibilidad de la fila
+
+* Wed Mar 20 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.34
+- Corregido error al intentatar crear nueva plantilla (quitar campos)
+- Mejorado la presentacion del gato pensando (dura un poco)
+
+* Sun Mar 10 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.32
+- Corregido formulario de introduccion de registro (repeticion de imagenes subidas)
+
+* Fri Mar 08 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.31
+- Mejora para pegar url en cuadros de dialogos de eleccion ficheros
+
+* Thu Mar 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.29
+- Mejora en los cuadros de dialogo de elección de ficheros
+
+* Thu Mar 07 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.27
+- Soltar archivos en los dos formularios
+
+* Tue Mar 05 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.25
+- Importar:comprobaciones de archivos
+
+* Tue Mar 05 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.24
+- Mejoras en soltar archivos al editor de plantillas
+
+* Sat Mar 02 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.22
+- Describo los pasos del inicio del programa
+
+* Sat Mar 02 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.21
+- Filtro de ficheros de imágenes en cuadros de dialogos
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.20
+-corregido error de resumen.pdf
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.19
+-corregido bug al intentar borrar miniatura
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.19
+- Exporta e Importa tipo de letras que use el diploma
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.18
+- a
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.18
+- asdf
+
+* Thu Feb 28 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.18
+- as
+
+* Sat Feb 23 2013 Julio Sanchez Berro <jusabejusabe@gmail.com> 0.0.13
+- Lanzamiento inicial
+

@@ -1,0 +1,1005 @@
+' Gambas class file
+
+Public nombreFicheroCrear As String 'nombre de fichero a crear
+Public listaTiposDeLetra As New ClassDatoLetra[] 'lista de letras que contiene el sistema
+
+Public GridViewRegistros As ClassSuperGridview
+Public Observador1 As Observer
+
+Public GridViewDiplomaTematico As ClassSuperGridview
+Public Observador2 As Observer
+
+Public contadorVistaPreliminar As Integer = 0
+
+Public longitudTrabajo As Float 'longitud de las fichas a convertir
+Public longitudPaginas As Float 'paginas que se iran creando en PDF
+
+Public Sub _new()
+
+End
+
+Public Sub Form_Open()
+
+  Dim versiondiplomas As String = "0" 'controla que version de diplomas tenemos instalada
+  Dim rutaficherosDiplomasTemporal As String = "/tmp/Base.ConstructorDiplomasPlus"
+  Dim pensando As New FormPensando
+
+  If ModuleUnicaVez.ejecutandoUnicaCopia("ConstructorDiplomas.gambas") <> True Then
+    pensando.Show()
+    Wait 0.5
+    Print "Iniciando... vientos tipos de letras"
+    listaTiposDeLetra = comun.ObtenerListaLetrasSistema()
+    Print "         ... comprobando version"
+    ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html", "no mensaje")
+    comun.comprobarEntorno()
+
+    Label16.text = "Versión: " & Application.Version
+    Me.Center
+
+    Print "          ... creando directorios y copiando archivos "
+    'inicio el programa: creo directorios y copio archivos...
+    ModuleIntermedio.IniciarLaPrimeraVez(ModulePrincipal.RutaPrograma)
+    'crear gridview y sus observadores....para  diplomas tematicos, registros alumnos
+    GridViewRegistros = New ClassSuperGridview(IconPanel1[3])
+    Observador1 = New Observer(GridViewRegistros) As "ObservadorGridViewRegistros"
+
+    GridViewDiplomaTematico = New ClassSuperGridview(IconPanel1[6])
+    Observador2 = New Observer(GridViewDiplomaTematico) As "ObservadorGridViewDiplomaTematico"
+    'definir los gridviews (dimensiones y columnas)
+
+    ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros)
+    ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico)
+
+    pensando.parar = True
+    pensando.Delete()
+    Print "          --- Abriendo diplomas iniciales"
+    ' If Exist(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt") Then
+    '   versiondiplomas = File.load(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt")
+    ' Endif
+    '
+    ' If Val(versiondiplomas) < Val(File.Load("versiondiplomas.txt")) Then
+    Print "Copiando ficheros de plantilla......"
+    AbrirDiplomasIniciales(rutaficherosDiplomasTemporal)
+    ' Else
+    '   Print "No hace falta copiar ficheros plantillas de diplomas, ya estas copiados"
+    '   ModulePrincipal.AbrirFichero(rutaficherosDiplomasTemporal, ".ConstructorDiplomas")
+    '   ModulePrincipal.CargarDatos()
+    '   ModulePrincipal.RutaDatosDiplomas = Replace(rutaficherosDiplomasTemporal, ".ConstructorDiplomas", "")
+    '   Try Kill rutaficherosDiplomasTemporal
+    '   IconPanel1.index = 0
+    '   IconPanel1_click()
+    ' Endif
+
+    LabelNombreFichero.text = "/tmp/Base.ConstructorDiplomasPlus"
+
+    ComboBoxDPI.Add("Baja")
+    ComboBoxDPI.Add("Media")
+    ComboBoxDPI.Add("Alta")
+
+    ComboBoxDPI.Text = "Media"
+
+  Else
+    'como ya hay una instancia de esta aplicacion abierta, salgo
+    ModuleGestionAlumno.Guardado = True
+    ModuleGestionDiploma.guardado = True
+    Me.Close()
+  Endif
+
+  Me.center
+
+End
+
+'editando al hacer doble click en gridview...
+Public Sub ObservadorGridViewRegistros_DblClick()
+
+  ToolButtonEditar_Click()
+
+End
+
+Public Sub ObservadorGridViewDiplomaTematico_Click()
+  ''
+  ''TODO: previsualiza al hacer click
+
+  ToolButtonPrevisualizar_Click()
+
+End
+
+Public Sub ObservadorGridViewDiplomaTematico_DblClick()
+
+  ToolButtonEditarTematico_Click()
+
+End
+
+'------------------------------------------------------------
+'Hacemos click en el Icon Panel
+'------------------------------------------------------------
+
+Public Sub IconPanel1_Click()
+
+  Dim resultado As Boolean
+
+  If IconPanel1.Index = 0 Then
+    Return
+  Endif
+
+  'buscar actualizaciones
+  If IconPanel1.index = 11 Then
+    ModuleUpdate.comprobar("constructordiploma", Application.Version, "http://constructordiploma.blogspot.com.es/2013/02/version.html")
+    IconPanel1.index = 0
+    IconPanel1_Click()
+    Return
+  Endif
+
+  'Crear Pdf para imprimir
+  If IconPanel1.index = 8 Then
+    ValueBoxHasta.value = ModuleGestionAlumno.Lista.Registros.Count
+    Return
+  Endif
+
+  'Abrir grupo
+  If IconPanel1.index = 2 Then
+    If ModuleGestionAlumno.guardado = False Or ModuleGestionDiploma.guardado = False Then
+      Message.Warning(("Los datos anteriores no se guardaron,") & "\n" & ("si crea un Grupo nuevo, se borrarán!!"))
+    Endif
+    Dialog.title = ("Indique archivo de datos para abrir...")
+    Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
+    If Not Dialog.OpenFile() Then
+      resultado = ModulePrincipal.AbrirFichero(Dialog.Path, ".ConstructorDiplomas")
+      nombreFicheroCrear = ""
+      If resultado Then
+        resultado = ModulePrincipal.CargarDatos()
+        ModulePrincipal.RutaDatosDiplomas = Replace(Dialog.Path, ".ConstructorDiplomas", "")
+        IconPanel1.index = 3 'voy a alumnos, en vez de diplomas 6
+        IconPanel1_click()
+        Return
+      Else
+        Message.Error(("Problemas al abrir el archivo..."))
+        IconPanel1.Index = 0
+        IconPanel1_Click()
+        Return
+
+      Endif
+    Else
+      IconPanel1.Index = 0
+      IconPanel1_Click()
+      Return
+    Endif
+  Endif
+
+  'Previsualizacion
+  If IconPanel1.index = 7 Then
+
+    ButtonPlantillaPrimeraReg_Click()
+    Return
+  Endif
+
+  'Salir
+  If IconPanel1.index = 9 Then
+    Me.close()
+    Return
+  Endif
+
+  'Gestor Plantillas de Diplomas
+  If IconPanel1.index = 6 Then
+    If ModulePrincipal.RutaDatosDiplomas <> "" Then
+      'cargalista de plantillas base
+      ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+      ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+      If GridViewDiplomaTematico.rows.count > 0 Then
+        GridViewDiplomaTematico.row = 0
+        'previsualizar 1º diploma
+        If GridViewDiplomaTematico.indice.count > 0 Then
+          ModuleImprimir.PrevisualizarPlantillaTematica(GridViewDiplomaTematico.indice[0], DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+          Return
+        Endif
+      Endif
+
+    Else
+      Message.Info(("Debe de Abrir o Crear un grupo"))
+      IconPanel1.index = 0
+      IconPanel1_click()
+      Return
+    Endif
+  Endif
+
+  'Introducir datos de alumnos
+  If IconPanel1.index = 3 Then
+    'comprobar que existe al menos un diploma tematico, si no, no deja añadir....
+    If ModuleGestionDiploma.lista.Registros.count = 0 Then
+      Message.Info(("No existen Diplomas Temático, debes definir al menos uno") & gb.CrLf & (" ve a la opción de:  Gestor Plantillas de Diplomas"))
+      IconPanel1.index = 6
+      IconPanel1_click()
+      Return
+    Else
+
+      'recarga el gridviews Registros
+      ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+      Return
+    Endif
+  Endif
+
+  'Guardar como....
+  If IconPanel1.index = 5 Then
+    ''TODO: guardar como....
+    If ModulePrincipal.RutaDatosDiplomas <> "" Then
+      If nombreFicheroCrear <> "" Then
+        'como el nmbre de esta vacio, sigue ejecutando el bucle...
+        ModulePrincipal.RutaDatosDiplomas = Replace$(nombreFicheroCrear, ".ConstructorDiplomas", "")
+      Else
+        Dialog.PATH = User.HOME & "/"
+        Dialog.Title = ("Guardar como....")
+        Dialog.Filter = ["*.ConstructorDiplomas", ".ConstructorDiplomas"]
+
+        If Not Dialog.SaveFile() Then
+          ModulePrincipal.RutaDatosDiplomas = Replace$(Dialog.Path, ".ConstructorDiplomas", "")
+          nombreFicheroCrear = ""
+        Else
+          IconPanel1.index = 0
+          IconPanel1_click()
+          Return 'cancelado guardar como...
+        Endif
+      Endif
+    Else
+      Message.Info(("Tienes que Crear un Grupo o Abrir un Grupo, para Guardarlo"))
+    Endif
+
+  Endif
+
+  'Guardar como o Guardar grupo
+  If IconPanel1.index = 4 Or IconPanel1.index = 5 Then
+
+    LabelNombreFichero.text = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "") & ".ConstructorDiplomas"
+
+    If LabelNombreFichero.text = "/tmp/Base.ConstructorDiplomas" Then
+      'tenemos que pedir nombre, para no machar al fichero que nos sirve de base..
+      IconPanel1.index = 5
+      IconPanel1_click()
+      Return
+    Else
+      resultado = ModulePrincipal.GuardarDatos()
+      If resultado Then
+        ModulePrincipal.RutaDatosDiplomas = Replace$(ModulePrincipal.RutaDatosDiplomas, ".ConstructorDiplomas", "")
+        Message.Info(("Guardado correctamente") & gb.CrLf & ModulePrincipal.RutaDatosDiplomas & ".ConstructorDiplomas")
+      Else
+        Message.Error(("No he podido guardar los datos"))
+      Endif
+      IconPanel1.index = 0
+      IconPanel1_Click()
+    Endif
+  Endif
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+'------------------------------------------------------
+'Boton Salir
+'-------------------------------------------------------
+Public Sub Form_Close()
+
+  If ModuleGestionAlumno.Guardado = False Or ModuleGestionDiploma.guardado = False Then
+    If Message.Warning(("¿Seguro que desea cerrar?") & "\n" & ("Todos cambios no guardados se perderan"),
+        ("Cerrar"), ("Cancelar")) = 1 Then
+      Me.Close
+    Else
+      Stop Event
+
+    Endif
+  Endif
+
+End
+
+Public Sub ToolButtonEditar_Click()
+
+  Dim feditar As New FormRegistroDiplomados
+
+  If GridViewRegistros.indice.count > GridViewRegistros.row And GridViewRegistros.row > -1 Then
+    feditar.modo = ModuleGestionAlumno.Lista.buscar(Val(GridViewRegistros[GridViewRegistros.row, 9].TEXT))
+    feditar.reg.NombreAlumno = ModuleGestionAlumno.Lista.Registros[feditar.modo].NombreAlumno ' GridViewRegistros[GridViewRegistros.row, 1].text
+    feditar.reg.NombreTutor = ModuleGestionAlumno.Lista.Registros[feditar.modo].NombreTutor 'GridViewRegistros[GridViewRegistros.row, 2].text
+    feditar.reg.Colegio = ModuleGestionAlumno.Lista.Registros[feditar.modo].Colegio 'GridViewRegistros[GridViewRegistros.row, 3].text
+    feditar.reg.Ciudad = ModuleGestionAlumno.Lista.Registros[feditar.modo].Ciudad ' GridViewRegistros[GridViewRegistros.row, 4].text
+    feditar.reg.Fecha = ModuleGestionAlumno.Lista.Registros[feditar.modo].Fecha
+    feditar.reg.FotoAlumno = ModuleGestionAlumno.Lista.Registros[feditar.modo].FotoAlumno ' GridViewRegistros[GridViewRegistros.row, 6].text
+    feditar.reg.Foto07 = ModuleGestionAlumno.Lista.Registros[feditar.modo].Foto07 'GridViewRegistros[GridViewRegistros.row, 7].text
+    feditar.reg.tag = ModuleGestionAlumno.Lista.Registros[feditar.modo].tag ' GridViewRegistros[GridViewRegistros.row, 8].text
+    feditar.reg.IdDiplomaTematico = extraeIdDiploma(GridViewRegistros[GridViewRegistros.row, 0].text)
+    feditar.Showmodal()
+
+    ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+  Else
+    Message.Info(("No se puede editar un registro vacío"))
+  Endif
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ToolButtonAnadir_Click()
+
+  Dim fregistro As New FormRegistroDiplomados
+  Dim regtemp As New ClassRegistroAlumno
+
+  fregistro.modo = fregistro.anadir
+
+  fregistro.reg = regtemp
+
+  fregistro.Showmodal()
+
+  ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+
+  regtemp = Null
+
+End
+
+Public Sub ToolButtonBorrar_Click()
+
+  Dim ID As Integer
+  Dim res As Integer
+
+  If GridViewRegistros.indice.count > GridViewRegistros.row Then
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then
+      id = ModuleGestionAlumno.Lista.buscar(Val(GridViewRegistros[GridViewRegistros.row, 9].text))
+      ModuleGestionAlumno.BorrarRegistro(id)
+      'refrescar el gridviews
+      ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.lista)
+    Endif
+  Endif
+
+End
+
+Public Sub ToolButtonPegar_Click()
+
+  FormPegar.ShowModal()
+  ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+
+End
+
+Public Sub ToolButtonCopiar_Click()
+
+End
+
+Public Sub ToolButtonAnadirTematico_Click()
+
+  Dim fdiplomatematico As New FormDiplomaTematico
+  Dim regtemp As New ClassDiplomaTematico
+
+  fdiplomatematico.modo = fdiplomatematico.anadir
+  fdiplomatematico.nuevaplantilla = True
+  fdiplomatematico.reg = regtemp
+
+  fdiplomatematico.Showmodal()
+  ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+
+  regtemp = Null
+
+End
+
+Public Sub ToolButtonEditarTematico_Click()
+
+  Dim a As Integer
+  Dim feditar As New FormDiplomaTematico
+
+  If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then
+    a = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
+    feditar.modo = a
+    ' Message.Info("feditar.modo=" & a) -> mensaje para ver valor que estaba editando (solo modo depuracion)
+    feditar.reg.Id = ModuleGestionDiploma.lista.Registros[a].Id
+    feditar.reg.NombrePlantilla = ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
+    feditar.reg.Tema = ModuleGestionDiploma.lista.Registros[a].Tema
+    feditar.reg.PlantillaBase = ModuleGestionDiploma.lista.Registros[a].plantillabase
+    feditar.reg.ImagenFondo = ModuleGestionDiploma.lista.Registros[a].ImagenFondo
+    feditar.reg.ImagenMarco = ModuleGestionDiploma.lista.Registros[a].ImagenMarco
+    feditar.reg.ImagenLogo = ModuleGestionDiploma.lista.Registros[a].ImagenLogo
+    feditar.reg.Foto04 = ModuleGestionDiploma.lista.Registros[a].Foto04
+    feditar.reg.Foto05 = ModuleGestionDiploma.lista.Registros[a].Foto05
+    feditar.reg.tag = ModuleGestionDiploma.lista.Registros[a].tag
+    feditar.Showmodal()
+    ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+    'realizar previsualizacion
+    ToolButtonPrevisualizar_Click()
+  Else
+    Message.Info(("Seleciones una fila que tenga información de un Diploma") & gb.CrLf & (" ¡¡¡ no tienes seleccionado nada!!!"))
+  Endif
+
+End
+
+Public Function devuelveIndice(valor As Integer, grid As ClassSuperGridview) As Integer
+
+  Dim a As Integer
+  Dim titulo As String
+
+  titulo = Grid[valor, 0].text
+  For a = 0 To ModuleGestionDiploma.Lista.Registros.count - 1
+    If ModuleGestionDiploma.Lista.Registros[a].NombrePlantilla = titulo Then
+
+      Return a
+
+    Endif
+  Next
+
+  Message.Error(("No he podido encontrar relacion entre fila y lista de registros"))
+  Return -1
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ToolButtonBorrarTematico_Click()
+
+  Dim IndiceDiploma As Integer
+  Dim res As Integer
+
+  If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row Then
+    res = Message.Question(("Seguro que desea borrar.."), ("Si"), ("Cancelar"))
+    If res = 1 Then
+      'Hacer comprobaciÃ³n de que no se borra ningun Diplomatematico que sea usado por los datos de alumnos...
+      IndiceDiploma = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
+      res = ModuleIntermedio.compruebaUso(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
+      If Not res Then
+        'ModuleGestionAlumno.Lista.buscar(feditar.modo) ->busco un id dentro de la lista...
+        ModuleGestionDiploma.BorrarRegistro(IndiceDiploma)
+        'refrescar el gridviews
+        ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+      Else
+        Message.Info(("No es posible borrar esta plantilla,") & gb.CrLf & (" ya que la esta usando, ") & gb.crlf & ("visite  la pestaña: Introducción de datos de Alumnos,") & gb.CrLf & (" y borre el registro que usa la plantilla para poder borrarla"))
+
+      Endif
+    Endif
+  Endif
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub CheckBoxTitulosDiplomaTematico_Click()
+
+  ModuleIntermedio.IniciarGridViewsTematico(GridViewDiplomaTematico, False)
+  ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub CheckBoxTitulos_Click()
+
+  ModuleIntermedio.IniciarGridViewsRegistros(GridViewRegistros, Not CheckBoxTitulos.Value)
+  ModuleIntermedio.RellenarGridViewsRegistro(GridViewRegistros, ModuleGestionAlumno.Lista)
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ToolButtonPrevisualizar_Click()
+
+  Dim id As Integer
+
+  If GridViewDiplomaTematico.row > -1 And GridViewDiplomaTematico.row < ModuleGestionDiploma.lista.Registros.count Then
+
+    id = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
+
+    Try ModuleImprimir.PrevisualizarPlantillaTematica(id, DrawingAreaPrevisualizarMini, FMain.GridViewDiplomaTematico)
+    If Error Then
+      Message.Info(("Se ha producido un error al intentar previsualizar una plantilla"))
+
+    Endif
+
+  Else
+    Message.Info(("Debe de seleccionar un Diploma Temático"))
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+'extraer primeros digitos del hasta llegar a la Barra Vertical.
+Private Function extraeIdDiploma(texto As String) As Integer
+
+  Dim cadena As String[]
+
+  cadena = Split(texto, "|")
+  Return Val(cadena[0])
+
+End
+
+Public Sub ButtonPlantillaPrimeraReg_Click()
+
+  Dim operacion As Boolean
+
+  contadorVistaPreliminar = 0
+
+  operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
+
+  If operacion = True Then
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
+  Else
+    'intento invalido de realizar la previsualizacion
+    contadorVistaPreliminar -= 1
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ButtonPlantillaAnteriorReg_Click()
+
+  Dim operacion As Boolean
+
+  contadorVistaPreliminar -= 1
+
+  If contadorVistaPreliminar > -1 Then
+
+    operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
+
+    If operacion = True Then
+      LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
+    Else
+      'intento invalido de realizar la previsualizacion
+      contadorVistaPreliminar += 1
+    Endif
+  Else
+    contadorVistaPreliminar += 1
+
+  Endif
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ButtonPlantillaSiguienteReg_Click()
+
+  Dim operacion As Boolean
+
+  contadorVistaPreliminar += 1
+
+  If contadorVistaPreliminar < ModuleGestionAlumno.Lista.Registros.count Then
+
+    operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
+
+    If operacion = True Then
+      LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
+    Else
+      'intento invalido de realizar la previsualizacion
+      contadorVistaPreliminar -= 1
+    Endif
+  Else
+    contadorVistaPreliminar -= 1
+  Endif
+
+End
+
+Public Sub ButtonPlantillaUltimaReg_Click()
+
+  Dim operacion As Boolean
+
+  contadorVistaPreliminar = ModuleGestionAlumno.Lista.Registros.count - 1
+  operacion = ModuleImprimir.PrevisualizarRegistro(contadorVistaPreliminar, DrawingAreaPrevisualizar, GridViewRegistros)
+
+  If operacion = True Then
+    LabelRegistro.text = ("Registro: ") & Str$(contadorVistaPreliminar + 1)
+  Else
+    'intento invalido de realizar la previsualizacion
+  Endif
+
+End
+
+Public Sub ToolButtonVerImagen_Click()
+
+  'de la previsualizacion actual, muestra imagen...
+
+  ' Dim rutasvg As String = ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
+  Dim proceso As Process
+  Dim nombreRegistro As String
+  Dim pensando As New FormPensando
+
+  If LabelRegistro.text <> ("Registro:") Then
+    pensando.Show()
+    'borrado de todas las imagenes del directorio temporal..
+    ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp/", "*.png")
+
+    'copiar las imagenes de la plantilla y de los datos al directorio temporal...
+    ModuleImprimir.copiarImagenesATmp(contadorVistaPreliminar)
+
+    nombreRegistro = Replace$(Replace$(LabelRegistro.text, " ", ""), ":", "_")
+
+    Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"
+    Wait 0.1
+    proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"] Wait
+    ModuleUtilidadesDisco.EsperarProceso(proceso)
+    Wait 0.2
+    'lo veo con el visor predeterminado...lxde
+    pensando.parar = True
+    pensando.Delete()
+    Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
+  Else
+    Message.Info(("Debe de tener al menos un registro"))
+  Endif
+
+End
+
+Public Sub ToolButtonCrear_Click()
+
+  Dim respuesta As Integer
+
+  If TextBoxNombreFicheroNuevo.Text = "" Then
+    Message.Error(("Necesita poner un nombre"))
+  Else
+    'comprobar que si existe...
+    If Not Exist(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas") Then
+      ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
+      ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+      AbrirDiplomasIniciales() 'con datos
+      nombreFicheroCrear = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas"
+      'borrar datos de personas
+      ModuleGestionAlumno.Lista.Registros.clear()
+      IconPanel1.index = 3 ' listas de alumnos ....6
+      IconPanel1_click()
+    Else
+      respuesta = Message.Question(("Existe el fichero:") & gb.CrLf & DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & gb.crlf & ("¿que desea hacer?"), (" SobreEscribir "), (" Cancelar "))
+      If respuesta = 1 Then
+        ModuleIntermedio.CrearGrupo(DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text)
+        ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+        AbrirDiplomasIniciales()
+        nombreFicheroCrear = DirChooserElegirDirectorioCrearGrupo.Value & "/" & TextBoxNombreFicheroNuevo.text & ".ConstructorDiplomas"
+        'borrar datos de personas
+        ModuleGestionAlumno.Lista.Registros.clear()
+        IconPanel1.index = 3 ' listas de alumnos ....6
+        IconPanel1_click()
+      Else
+        'ha cancelado la operacion...
+        'Print "Cancelado Crear Grupo"
+
+      Endif
+
+    Endif
+
+  Endif
+
+End
+
+Public Sub TextBoxNombreFicheroNuevo_KeyPress()
+
+  If Key.code = Key.enter Or Key.code = Key.return Then
+    ToolButtonCrear.SetFocus()
+  Endif
+
+End
+
+Public Sub ToolButtonCrear_KeyPress()
+
+  If Key.code = Key.return Or Key.code = Key.enter Then
+    ToolButtonCrear_Click()
+  Endif
+
+End
+
+Public Sub ToolButtonGenerar_Click()
+
+  Dim registroinicio As Integer
+  Dim registrofin As Integer
+  Dim valorInicialNumero As Integer
+  Dim fpen As New FormPensando
+
+  If ModuleGestionAlumno.Lista.Registros.count <= 0 Then
+    Message.Info(("Debe de tener al menos un registro (alumno)"))
+    Return
+  Endif
+
+  ProgressBarBarraEstado.Visible = True
+  ProgressBarBarraEstado.Value = 0
+  ''TODO: Barra de creación de páginas
+
+  ProgressBarBarraEstado.Refresh()
+  '---------------------------------------
+  '  condiciones... y opciones elegidas
+  '---------------------------------------
+  If RadioButtonTodo.Value = True Then
+    registroinicio = 0
+    registrofin = ModuleGestionAlumno.Lista.registros.count - 1
+    '  valorInicialNumero = ValueBoxNumeroInicialCarnet.Value
+  Endif
+
+  If RadioButtonUnRegistro.Value = True Then
+    registroinicio = ValueBoxNumeroRegistroImprimir.Value - 1
+    registrofin = ValueBoxNumeroRegistroImprimir.Value - 1
+    '  valorInicialNumero = ValueBoxNumeroInicialCarnet.Value - (ValueBoxNumeroRegistroImprimir.Value - 1)
+  Endif
+
+  If RadioButtonDesdeHasta.value = True Then
+    If ValueBoxDesde.value < ValueBoxHasta.Value Then
+      registroinicio = ValueBoxDesde.value - 1
+      registrofin = ValueBoxHasta.Value - 1
+      '   valorInicialNumero = ValueBoxNumeroInicialCarnet.Value - (ValueBoxNumeroRegistroImprimir.Value - 1)
+    Else
+      If ValueBoxDesde.value = ValueBoxHasta.value Then
+        registroinicio = ValueBoxDesde.value - 1
+        registrofin = ValueBoxHasta.Value - 1
+      Else
+        If ValueBoxDesde.value > ValueBoxHasta.Value Then
+          Message.Info(("Error: intervalo mal indicado"))
+          Return
+        Endif
+
+      Endif
+
+    Endif
+    If registroinicio < 0 Then registroinicio = 0
+    If registroinicio > ModuleGestionAlumno.Lista.registros.count - 1 Then registroinicio = ModuleGestionAlumno.Lista.registros.count - 1
+    If registrofin < 0 Then registroinicio = 0
+    If registrofin > ModuleGestionAlumno.Lista.registros.count - 1 Then registroinicio = ModuleGestionAlumno.Lista.registros.count - 1
+
+  Endif
+
+  'opcional numerar As Boolean, opcional inicionumerar As Integer, opcional formato As String
+  ' registroInicio As Integer, registrofin As Integer, geometria As String, tile As String
+  longitudTrabajo = registrofin - registroinicio
+  longitudPaginas = Round((registrofin + 2 - registroinicio) / (Val(TextBoxTileV.text) * Val(TextBoxTileH.text)), 0)
+  'relojes para controlar el estado de las barras...
+
+  Timer1.Start()
+  fpen.Show
+
+  ModuleImprimir.generarPdf(0, valorInicialNumero, TextBoxFormato.text, registroinicio, registrofin, TextBoxGeometria.text, TextBoxTileV.text, TextBoxTileH.text, CheckBoxUnir.value, TextBoxDPI.Text)
+  ProgressBarBarraEstado.Visible = False
+  fpen.parar = True
+  fpen.Delete()
+
+End
+
+Public Sub Timer1_Timer()
+
+  Try ProgressBarBarraEstado.Value = Moduleimprimir.EstadoDelTrabajo / longitudTrabajo
+  If ProgressBarBarraEstado.value >= 0.99 Or Moduleimprimir.EstadoDelTrabajo = -1 Then
+    ProgressBarBarraEstado.Visible = False
+    Timer1.Stop()
+    ProgressBarBarraEstado.Refresh()
+    Moduleimprimir.EstadoDelTrabajo = 0
+  Endif
+
+End
+
+Public Sub labelInkscape_MouseDown()
+
+  Desktop.Open("http://inkscape.org/")
+
+End
+
+Public Sub labelInkscape2_MouseDown()
+
+  Desktop.Open("http://minino.galpon.org/es/descargas")
+
+End
+
+Public Sub Labeljsbsan_MouseDown()
+
+  Desktop.Open("http://www.jsbsan.blogspot.com.es/")
+
+End
+
+Public Sub PictureBox1_MouseDown()
+
+  Desktop.Open("http://minino.galpon.org/es/descargas")
+
+End
+
+Public Sub PictureBoxIconoInkscape_MouseDown()
+
+  Desktop.Open("http://inkscape.org/")
+
+End
+
+Public Sub ToolButtonEditaPlantilla_Click()
+
+  Dim tex As String
+  Dim comando As String
+
+  tex = ToolButtonEditaPlantilla.Text
+  ToolButtonEditaPlantilla.Refresh()
+  ToolButtonEditaPlantilla.Text = "Espere..."
+  comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & ListBoxListaPlantillas.text
+  Shell comando
+  ToolButtonEditaPlantilla.Text = tex
+  ToolButtonEditaPlantilla.Refresh()
+
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub ToolButtonBorrarPlantilla_Click()
+
+  ModuleIntermedio.borradoElementoLista(ListBoxListaPlantillas)
+
+  If ListBoxListaPlantillas.index >= 0 Then
+    ListBoxListaPlantillas.index = 0 'elijo el primer elemento
+
+  Endif
+
+End
+
+Public Sub ToolButtonAnadirPlantilla_Click()
+
+  ModuleIntermedio.anadirPlantilla()
+  ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+
+End
+
+Public Sub HBox2_MouseDown()
+
+End
+
+Public Sub ToolButtonExportaDiploma_Click()
+
+  Dim IdDiplomaTematico As Integer
+  Dim indice As Integer
+  Dim resultado As Boolean
+  'miro que diploma esta seleccinado
+  If GridViewDiplomaTematico.indice.count > GridViewDiplomaTematico.row And GridViewDiplomaTematico.row > -1 Then
+    Dialog.Title = ("Exportar diploma: Introduzca nombre")
+    IdDiplomaTematico = ModuleGestionDiploma.lista.buscar(Val(GridViewDiplomaTematico[GridViewDiplomaTematico.row, 1].text))
+    Dialog.Path = User.home & "/" & ModuleGestionDiploma.lista.Registros[IdDiplomaTematico].NombrePlantilla & ".Diploma"
+    If Not Dialog.SaveFile() Then
+
+      resultado = ModuleExportarImportarDiplomas.exportar(IdDiplomaTematico, Dialog.path)
+      If resultado Then
+        Message.Info(("Exportación realizada con éxito"))
+      Else
+        Message.Warning(("Ha fallado la exportación de datos del diploma"))
+      Endif
+    Else
+      'se ha cancelado la operacion por el usuario
+      'Print "Exportacion cancelada..."
+      Return
+    Endif
+  Else
+    Message.Info(("Debe de seleccionar un diploma a Exportar"))
+  Endif
+
+End
+
+Public Sub ToolButtonImportarDiploma_Click()
+
+  Dialog.path = User.Home & "/"
+  Dialog.Title = ("Importar diploma: Elija el archivo")
+  Dialog.Filter = ["*.Diploma", "*.Diploma"]
+  If Not Dialog.OpenFile() Then
+    ModuleExportarImportarDiplomas.importar(Dialog.path)
+    ModuleIntermedio.CARGALISTA(ListBoxListaPlantillas, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
+    ModuleIntermedio.RellenarGridViewsTematico(GridViewDiplomaTematico, ModuleGestionDiploma.lista)
+
+  Else
+    'Debug "El usuario a cancelado la operacion"
+
+  Endif
+
+End
+
+Public Sub ValueBoxHasta_GotFocus()
+
+  RadioButtonDesdeHasta.Value = True
+
+End
+
+Public Sub ValueBoxDesde_GotFocus()
+
+  RadioButtonDesdeHasta.Value = True
+
+End
+
+Public Sub ValueBoxNumeroRegistroImprimir_GotFocus()
+
+  RadioButtonUnRegistro.value = True
+
+End
+'--------------------------------------------
+'comprobar entorno de programas necearios
+' -------------------------------------------
+'
+
+Public Sub comprobarEntorno()
+
+  Dim texto As String
+  Dim falta As Boolean = False
+
+  If Not comun.instalado("zip") Then
+    texto = ("zip") & "\n"
+    falta = True
+  Endif
+
+  If Not comun.instalado("pdftk") Then
+    texto &= ("pdftk") & "\n"
+    falta = True
+  Endif
+
+  If Not comun.instalado("imagemagick") Then
+    texto &= ("imagemagick") & "\n"
+    falta = True
+  Endif
+
+  If falta = True Then
+    Message.Info(("Falta los siguientes programas por instarlar:") & "\n" & texto & ("Instalelos para poder ejecutar el programa correctamente"))
+  Endif
+
+End
+
+Public Sub ToolButtonNube_Click()
+
+  Desktop.Open("https://docs.google.com/folder/d/0B7uxDVszpXK2VHhFMDdleW1HMGM/edit?usp=sharing")
+
+End
+
+Public Sub AbrirDiplomasIniciales() '(rutacopia As String) As String
+
+  Dim resultado As Boolean
+  Dim rutacopia As String
+
+  rutacopia = "/tmp/Base.ConstructorDiplomas"
+  If Exist(rutacopia) Then
+    Kill rutacopia
+  Endif
+  Try Copy "Base.ConstructorDiplomas" To rutacopia 'copia del interior del programa el fichero base de diplomas...
+
+  resultado = ModulePrincipal.AbrirFichero(rutacopia, ".ConstructorDiplomas")
+  If resultado Then
+    resultado = ModulePrincipal.CargarDatos()
+    ModulePrincipal.RutaDatosDiplomas = Replace(rutacopia, ".ConstructorDiplomas", "")
+    Try Kill rutacopia
+    IconPanel1.index = 0
+    IconPanel1_click()
+
+  Else
+    Message.Error(("Problemas al abrir el archivo..."))
+    Try Kill rutacopia
+    IconPanel1.Index = 0
+    IconPanel1_Click()
+
+    Return
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+
+End
+
+Public Sub PictureBox2_MouseDown()
+
+  Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
+
+End
+
+Public Sub Labeljsbsan2_MouseDown()
+
+  Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
+
+End
+
+Public Sub ToolButtonAccesoPaginaWeb_Click()
+
+  Desktop.Open("http://constructordiploma.blogspot.com.es/p/presentacion.html")
+
+End
+
+Public Sub RadioButtonDesdeHasta_Click()
+
+End
+
+Public Sub ComboBoxDPI_Click()
+
+  If ComboBoxDPI.Text = "Baja" Then
+    TextBoxDPI.Text = 100
+  Endif
+
+  If ComboBoxDPI.Text = "Media" Then
+    TextBoxDPI.Text = 200
+  Endif
+
+  If ComboBoxDPI.Text = "Alta" Then
+    TextBoxDPI.Text = 300
+  Endif
+
+End

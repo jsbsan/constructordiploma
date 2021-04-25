@@ -1,0 +1,26 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  
+  Dim a As Integer
+  Dim diploma As String
+  'carga los distintos tipos de diplomas tematicos que haya....
+  For a = 0 To ModuleGestionDiploma.lista.Registros.count - 1
+    diploma = ModuleGestionDiploma.lista.Registros[a].Id & " | " & ModuleGestionDiploma.lista.Registros[a].NombrePlantilla
+    ComboBoxDiplomas.Add(diploma)  
+  Next
+  
+End
+
+Public Sub ToolButtonCancelar_Click()
+  
+  Me.Close()
+  
+End
+
+Public Sub ToolButtonAceptar_Click()
+  
+  ModulePrincipal.PegarDatosPortapapelesGridViews(ComboBoxDiplomas.Text)
+  Me.Close()
+
+End

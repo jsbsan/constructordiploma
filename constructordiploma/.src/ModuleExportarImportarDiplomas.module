@@ -1,0 +1,276 @@
+' Gambas module file
+
+Public Function exportar(indice As Integer, ruta As String) As Boolean
+  
+  Dim letrasUsadas As String[] 'tipos de letra que usa la plantilla.svg
+  Dim cambionombre As String
+  Dim zip As New ClassZip
+  Dim regtmp As New ClassDiplomaTematico
+  'borro los datos de la carpeta temporal.
+  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.RutaPrograma & "/trabajotmp/exportar")
+  'copio los datos de imagenes y plantilla, a una carpeta temporal de trabajo
+  regtmp.NombrePlantilla = ModuleGestionDiploma.lista.Registros[indice].NombrePlantilla
+  regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
+  regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].plantillabase
+  regtmp.ImagenFondo = ModuleGestionDiploma.lista.Registros[indice].ImagenFondo
+  regtmp.ImagenMarco = ModuleGestionDiploma.lista.Registros[indice].ImagenMarco
+  regtmp.ImagenLogo = ModuleGestionDiploma.lista.Registros[indice].ImagenLogo
+  regtmp.Foto04 = ModuleGestionDiploma.lista.Registros[indice].Foto04
+  regtmp.Foto05 = ModuleGestionDiploma.lista.Registros[indice].Foto05
+  regtmp.tag = ModuleGestionDiploma.lista.Registros[indice].tag
+  
+  File.Save(ModulePrincipal.RutaPrograma & "trabajotmp/exportar/diploma.txt", regtmp.Text())
+  
+  copiar(ModulePrincipal.rutaprograma & "temporales/PlantillasBases", regtmp.PlantillaBase)
+  copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.ImagenFondo)
+  copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.ImagenMarco)
+  copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.ImagenLogo)
+  copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.Foto04)
+  copiar(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica", regtmp.Foto05)
+  '--------------------------------------------
+  'copia de letras a la carpeta comprimida...
+  '--------------------------------------------
+  'averiguo cuantos tipos de letra usa el SVG
+  letrasUsadas = comun.ObtenerListaLetrasSVG(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & regtmp.PlantillaBase)
+  'tengo la lista de letras del sistema, obtengo la ruta de los ficheros de tipo de letras que uso, y las copio al directorio 
+  ' ModulePrincipal.RutaPrograma & "trabajotmp/exportar/"
+  copiarletras(letrasUsadas, FMain.listaTiposDeLetra)  
+  
+  '  ModuleUtilidadesDisco.CopiarFicheros(User.home & "/.fonts", ModulePrincipal.RutaPrograma & "trabajotmp/exportar/", "*.ttf")
+  
+  'comprimo
+  If Exist("/tmp/temporal.zip") Then Kill "/tmp/temporal.zip"
+  
+  zip.comprimirDatos(ModulePrincipal.RutaPrograma & "trabajotmp/exportar")
+  'cambio caracteres " " por "_", para validar el nombre
+  cambionombre = Replace$(ModuleUtilidadesDisco.extraedesdebarra(ruta), " ", "_")
+  
+  ruta = Mid$(ruta, 1, Len(ruta) - Len(cambionombre)) & cambionombre
+  'el archivo comprimido, le cambio al path que han introducido
+  If Exist(ruta) Then 
+    'existe, lo borro para actualizarlo
+    Try Kill ruta
+  Endif
+  
+  Try Copy "/tmp/temporal.zip" To ruta
+  If Error Then 
+    Message.Error(("Error al intentar copiar el archivo comprimido temporal al archivo final"))
+    Return False
+  Endif
+  Return True
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function importar(fichero As String) As Boolean
+  
+  Dim a As Integer
+  Dim regdiploma As New ClassDiplomaTematico
+  Dim regtmp As New ClassListaDiploma
+  Dim rutazip As String
+  Dim zip As New ClassZip
+  'borro los datos de la carpeta temporal.
+  '  ¡ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.RutaPrograma & "trabajotmp/importar")
+  Shell "rm -rf " & ModulePrincipal.RutaPrograma & "trabajotmp/importar" Wait
+  'creo el subdirectorio vacio
+  
+  Mkdir ModulePrincipal.RutaPrograma & "trabajotmp/importar"
+  'extraigo los ficheros
+  
+  Shell "cd " & ModulePrincipal.RutaPrograma & "/trabajotmp/importar/" & " && unzip " & fichero Wait
+  'creo un nuevo objeto tipo ClassDiplomaTematico
+  ''TODO: comprobar extraeRutaZip
+  If InStr(fichero, "(") <> 0 Or InStr(fichero, ")") <> 0 Then 
+    Message.Error(("Nombre no valido de archivo, contiene parentesis en su nombre"))
+    Return False
+  Endif
+  rutazip = ModulePrincipal.RutaPrograma & "trabajotmp/importar/" & zip.extraeRutaZip(fichero, ".ConstructorDiplomas")
+  
+  regtmp.LecturaDatos(Split(File.Load(rutazip & "/.ConstructorDiplomas/trabajotmp/exportar/diploma.txt"), "\n"))
+  regdiploma = regtmp.Registros[0]
+  
+  '-----------------------------------------
+  'copiar tipos de letras que no esten en el sistema....
+  '-----------------------------------------
+  copiarLetrasAlSistema(rutazip & "/.ConstructorDiplomas/trabajotmp/exportar", FMain.listaTiposDeLetra)
+  
+  'copio la plantilla y los ficheros de fotos,
+  'si alguno tiene el nombre igual a los que existen, lo cambio de nombre ->notifico ese cambio 
+  'de nombre al objeto classDiploma (regdiploma)
+  If regdiploma.foto04 <> "" Then regdiploma.Foto04 = copiarFicheroImagenDiploma(regdiploma.Foto04, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.foto05 <> "" Then regdiploma.Foto05 = copiarFicheroImagenDiploma(regdiploma.Foto05, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenFondo <> "" Then regdiploma.ImagenFondo = copiarFicheroImagenDiploma(regdiploma.ImagenFondo, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenLogo <> "" Then regdiploma.ImagenLogo = copiarFicheroImagenDiploma(regdiploma.ImagenLogo, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.ImagenMarco <> "" Then regdiploma.ImagenMarco = copiarFicheroImagenDiploma(regdiploma.ImagenMarco, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  If regdiploma.plantillabase <> "" Then regdiploma.PlantillaBase = copiarFicheroPlantillabase(regdiploma.Plantillabase, rutazip & "/.ConstructorDiplomas/trabajotmp/exportar")
+  'compruebo que nombr de la plantilla no sea igual a una existente)
+  For a = 0 To ModuleGestionDiploma.lista.Registros.count - 1
+    If regdiploma.NombrePlantilla = ModuleGestionDiploma.lista.Registros[a].NombrePlantilla Then 
+      regdiploma.NombrePlantilla &= "_importado"
+      a = 0
+    Endif
+  Next
+  
+  'añado a la lista de diplomas el nuevo objeto
+  ModuleGestionDiploma.anadirRegistro(regdiploma)
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function copiar(ruta As String, nombre As String) As Boolean
+  
+  ' Print "Realizando copia"
+  ' Print nombre
+  If nombre <> "" Then 
+    If Not (Exist(ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & nombre)) Then 
+      Try Copy ruta & "/" & nombre To ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & nombre 
+      
+    Endif
+  Endif
+  'Catch
+  ' ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function copiarFicheroImagenDiploma(nombrefichero As String, ruta As String) As String
+  
+  'copia el fichero importado,comprobando si existe , si existe le cambia el nombre, devolviendo el nombre cambiado
+  'para que se actualice el registro de diploma
+  Dim nombreInicial As String = nombrefichero
+  Dim extension As String
+  Dim copiar As String
+  Dim comparacion As String
+  Dim comando As String
+  
+  copiar = "si"
+  While (Exist(ModulePrincipal.RutaPrograma & "/temporales/FotosPlantillasTematica/" & nombrefichero))
+    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+    comando = "cmp " & ruta & "/" & nombreInicial & " " & ModulePrincipal.RutaPrograma & "/temporales/FotosPlantillasTematica/" & nombrefichero
+    Shell comando To comparacion
+    If comparacion = "" Then 
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
+      
+      Break
+    Endif
+    
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrefichero)
+    If extension <> "" Then 
+      nombrefichero = Mid$(nombrefichero, 1, Len(nombrefichero) - Len(extension) - 1) & "c" & "." & extension
+      '   copiar = "si"
+    Else
+      nombrefichero = Mid$(nombrefichero, 1, Len(nombrefichero) - Len(extension)) & "c" 
+      '  copiar = "si"
+    Endif
+  Wend
+  If Not Exist(ruta & "/" & nombreInicial) Then copiar = "no"
+  Print Exist(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillaTematica/")
+  If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombrefichero
+  
+  Return nombrefichero
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Public Function copiarFicheroPlantillabase(nombrefichero As String, ruta As String) As String
+  
+  'copia el fichero importado,comprobando si existe , si existe le cambia el nombre, devolviendo el nombre cambiado
+  'para que se actualice el registro de diploma
+  Dim nombreInicial As String = nombrefichero
+  Dim extension As String
+  Dim copiar As String
+  Dim comparacion As String
+  Dim comando As String
+  
+  copiar = "si"
+  While (Exist(ModulePrincipal.RutaPrograma & "/PlantillasBases/" & nombrefichero))
+    
+    'si existe fichero con el mismo nombre, 1º comprobar si es igual...
+    comando = "cmp " & ruta & "/" & nombreInicial & " " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrefichero
+    Shell comando To comparacion
+    If comparacion = "" Then 
+      'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
+      'no hago la copia
+      copiar = "no"
+      
+      Break
+    Endif
+    
+    extension = ModuleUtilidadesDisco.extraeExtension(nombrefichero)
+    If extension <> "" Then 
+      nombrefichero = Mid$(nombrefichero, 1, Len(nombrefichero) - Len(extension) - 1) & "c" & "." & extension
+      '   copiar = "si"
+    Else
+      nombrefichero = Mid$(nombrefichero, 1, Len(nombrefichero) - Len(extension)) & "c" 
+      '  copiar = "si"
+    Endif
+  Wend
+  Print "comprueba plantilla base..."
+  Print Exist(ruta & "/" & nombreInicial)
+  Print Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrefichero)
+  If copiar = "si" Then Copy ruta & "/" & nombreInicial To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrefichero
+  
+  Return nombrefichero
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End
+
+Private Sub copiarletras(lista As String[], listaTiposDeLetra As ClassDatoLetra[])
+  
+  Dim a As Integer
+  Dim tipoletra As ClassDatoLetra
+  
+  For Each tipoletra In listaTiposDeLetra 
+    For a = 0 To lista.Max
+      If tipoletra.nombre = lista[a] Then 
+        Copy tipoletra.ruta To ModulePrincipal.RutaPrograma & "trabajotmp/exportar/" & ModuleUtilidadesDisco.extraedesdebarra(tipoletra.ruta) 
+      Endif
+      
+    Next
+    
+  Next
+  
+End
+
+Public Sub copiarLetrasAlSistema(Directorioorigen As String, listaTiposDeLetra As ClassDatoLetra[])
+  'por cada fichero de tipo de letra .ttf que haya la ruta, lo compruebo si esta en listatiposdeletras del sistema
+  'si esta no lo copio y siesta, la compio a  User.home & "/.fonts"
+  
+  Dim tipoletra As ClassDatoLetra
+  Dim file As String
+  Dim encontrado As Boolean = False
+  
+  If Exist(Directorioorigen) Then 
+    For Each File In Dir(Directorioorigen, "*.ttf")
+      encontrado = False
+      
+      'lo miro en las letras del sistema...
+      For Each tipoletra In listaTiposDeLetra
+        If ModuleUtilidadesDisco.extraedesdebarra(tipoletra.ruta) = file Then 
+          encontrado = True 
+          'lo he encontrado, no la copia
+          Break
+        Endif
+        
+      Next
+      
+      If encontrado = False Then 
+        'si no existe en la carpeta de usuario de letras, la copia
+        If Not Exist(User.home & "/.fonts/" & file) Then 
+          Copy Directorioorigen & "/" & file To User.home & "/.fonts/" & file
+          Message.Warning(("Se ha añadido un nuevo tipo de letra al sistema:") & "\n" & file & "\n" & ("Debe reiniciar la aplicación para poderla ver"))
+        Endif
+      Endif
+      
+    Next
+    
+  Endif
+Catch
+  ModuleMensajeError.SistemaDescripcionError()
+  
+End

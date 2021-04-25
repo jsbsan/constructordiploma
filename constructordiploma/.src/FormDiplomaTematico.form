@@ -1,0 +1,293 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,103,93)
+  Icon = Picture["icon:/22/edit"]
+  Resizable = False
+  { TextLabel6 TextLabel
+    MoveScaled(44,70,34,17)
+    Text = ("Puede elegir otras plantillas de maquetacion, editar o crear nuevas para personalizar aún más los diplomas.")
+    Alignment = Align.Center
+  }
+  { TextBoxNombreDiploma TextBox
+    MoveScaled(30,0,49,5)
+    Font = Font["+2"]
+    ToolTip = ("Pon el nombre del diploma pero no use caracteres especiales por ejemplo los parentesis")
+  }
+  { Label14 Label
+    MoveScaled(4,1,24,4)
+    Font = Font["Bitstream Charter,+2"]
+    Text = ("Nombre del Diploma:")
+  }
+  { TextLabel2 TextLabel
+    MoveScaled(0,7,18,4)
+    Text = ("Texto Diploma :")
+    Alignment = Align.Right
+  }
+  { TextBoxTema TextBox
+    MoveScaled(19,7,37,4)
+    ToolTip = ("\"Al mejor Compañero\", \"Al mejor Ajedrecista\"")
+  }
+  { Label4 Label
+    MoveScaled(57,7,14,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("PLANTILLA01")
+  }
+  { ToolButtonPrevisualizar ToolButton
+    MoveScaled(78,7,18,5)
+    ToolTip = ("Hacer que la plantilla que se muestra sea la actual")
+    Text = ("Previsualizar")
+    Picture = Picture["ojo22.png"]
+    Border = True
+  }
+  { Label1 Label
+    MoveScaled(2,12,18,4)
+    Text = ("Imagen Fondo")
+    Alignment = Align.Center
+  }
+  { Label2 Label
+    MoveScaled(25,12,9,4)
+    Text = ("Marco")
+    Alignment = Align.Center
+  }
+  { Label3 Label
+    MoveScaled(43,11,22,4)
+    Font = Font["-1"]
+    Text = ("Logo Diploma")
+    Alignment = Align.Center
+  }
+  { DrawingAreaPrevisualizarMini DrawingArea
+    MoveScaled(69,13,32,22)
+    Background = &HFFFFFF&
+    Border = Border.Plain
+  }
+  { Label7 Label
+    MoveScaled(50,14,9,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("FOTO03")
+    Alignment = Align.Center
+  }
+  { Label5 Label
+    MoveScaled(2,15,20,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("FOTO01")
+    Alignment = Align.Center
+  }
+  { Label6 Label
+    MoveScaled(25,15,9,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("FOTO02")
+    Alignment = Align.Center
+  }
+  { PictureBoxFondo PictureBox
+    MoveScaled(2,19,20,13)
+    Tag = "foto01"
+    ToolTip = ("Haga click para elegir imagen")
+    Drop = True
+    Picture = Picture["icono_galeria2.jpg"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { PictureBoxMarco PictureBox
+    MoveScaled(25,18,9,7)
+    Tag = "foto02"
+    ToolTip = ("Haga click para elegir imagen")
+    Drop = True
+    Picture = Picture["icono_galeria2.jpg"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { PictureBoxLogo PictureBox
+    MoveScaled(50,18,11,12)
+    Tag = "foto03"
+    ToolTip = ("Haga click para elegir imagen")
+    Drop = True
+    Picture = Picture["icono_galeria2.jpg"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { ToolButton3 ToolButton botontransparente
+    Name = "ToolButton3"
+    MoveScaled(34,19,6,6)
+    Tag = "2"
+    ToolTip = ("Poner Fondo Transparente")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButton4 ToolButton botontransparente
+    Name = "ToolButton4"
+    MoveScaled(61,24,6,6)
+    Tag = "3"
+    ToolTip = ("Poner Fondo Transparente")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButton2 ToolButton botontransparente
+    Name = "ToolButton2"
+    MoveScaled(22,26,6,6)
+    Tag = "1"
+    ToolTip = ("Poner Fondo Transparente")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { Label9 Label
+    MoveScaled(4,32,17,4)
+    Text = ("imagen opcional")
+    Alignment = Align.Center
+  }
+  { Label11 Label
+    MoveScaled(44,32,17,3)
+    Text = ("imagen opcional")
+    Alignment = Align.Center
+  }
+  { Label10 Label
+    MoveScaled(7,34,9,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("FOTO004")
+    Alignment = Align.Center
+  }
+  { Label12 Label
+    MoveScaled(47,34,9,3)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("FOTO05")
+    Alignment = Align.Center
+  }
+  { PictureBoxFoto04 PictureBox
+    MoveScaled(7,37,11,12)
+    Tag = "foto04"
+    ToolTip = ("Haga click para elegir imagen")
+    Drop = True
+    Picture = Picture["icono_galeria2.jpg"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { PictureBoxFoto05 PictureBox
+    MoveScaled(46,37,11,12)
+    Tag = "foto05"
+    ToolTip = ("Haga click para elegir imagen")
+    Drop = True
+    Picture = Picture["icono_galeria2.jpg"]
+    Stretch = True
+    Border = Border.Plain
+  }
+  { ToolButtonCancelarDiploma2 ToolButton
+    MoveScaled(74,37,20,4)
+    ToolTip = ("Salir sin guardar los cambios")
+    Text = ("Cancelar")
+    Picture = Picture["icon:/22/cancel"]
+    Border = True
+  }
+  { ToolButton1 ToolButton botontransparente
+    Name = "ToolButton1"
+    MoveScaled(18,43,6,6)
+    Tag = "4"
+    ToolTip = ("Poner Fondo Transparente")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButton5 ToolButton botontransparente
+    Name = "ToolButton5"
+    MoveScaled(57,43,7,6)
+    Tag = "5"
+    ToolTip = ("Poner Fondo Transparente")
+    Picture = Picture["icono_transparente.png"]
+    Border = True
+  }
+  { ToolButtonAceptarDiploma ToolButton
+    MoveScaled(74,43,20,4)
+    ToolTip = ("guarda las modificaciones en la plantilla actual")
+    Text = ("Guardar")
+    Picture = Picture["icon:/22/save"]
+    Border = True
+  }
+  { ToolButtonAceptarDiploma2 ToolButton
+    MoveScaled(74,49,20,4)
+    ToolTip = ("guarda las modificaciones como un nuevo diploma")
+    Text = ("Guardar Como....")
+    Picture = Picture["icon:/22/save-as"]
+    Border = True
+  }
+  { TextLabel3 TextLabel
+    MoveScaled(1,57,18,4)
+    Text = ("Texto Opcional: :")
+    Alignment = Align.Right
+  }
+  { TextBoxTag TextBox
+    MoveScaled(23,57,27,4)
+    ToolTip = ("\"Al mejor Compañero\", \"Al mejor Ajedrecista\"")
+  }
+  { Label8 Label
+    MoveScaled(50,57,14,4)
+    Font = Font["Bitstream Charter,Italic,-1"]
+    Text = ("PLANTILLA02")
+  }
+  { ExpanderMaquetacion Expander
+    MoveScaled(0,62,97,29)
+    Text = ("Maquetación de la Plantilla / Distribución")
+    Hidden = True
+    { Label13 Label
+      MoveScaled(1,0,15,4)
+      Text = ("Maquetación:")
+    }
+    { TextBoxMaquetacion TextBox
+      MoveScaled(15,0,23,4)
+      ReadOnly = True
+    }
+    { ToolButtonAnadirPlantilla ToolButton
+      MoveScaled(1,6,14,5)
+      ToolTip = ("Añadir una plantilla .svg existente a la lista")
+      Text = ("Añadir")
+      Picture = Picture["icon:/22/add"]
+      Border = True
+    }
+    { ToolButtonCrearPlantilla ToolButton
+      MoveScaled(24,6,14,5)
+      ToolTip = ("Crea una plantilla con todas las opciones posibles")
+      Text = ("Crear ")
+      Picture = Picture["icon:/22/edit"]
+      Border = True
+    }
+    { ToolButtonBorrarPlantilla ToolButton
+      MoveScaled(1,14,14,5)
+      ToolTip = ("borra una plantilla")
+      Text = ("Quitar")
+      Picture = Picture["icon:/22/trash"]
+      Border = True
+    }
+    { ToolButtonEditaPlantilla ToolButton
+      MoveScaled(24,14,14,5)
+      ToolTip = ("Edita plantilla de maquetacion")
+      Text = ("Editar")
+      Picture = Picture["icon:/22/pen"]
+      Border = True
+    }
+    { Panel1 Panel
+      MoveScaled(41,0,39,24)
+      { Panel2 Panel
+        MoveScaled(0,0,39,24)
+        { Panel3 Panel
+          MoveScaled(0,0,38,24)
+          { ListBoxPlantillasBase ListBox
+            MoveScaled(0,1,38,22)
+            Font = Font["-1"]
+            ToolTip = ("Haga doble click para seleccionar plantilla")
+          }
+        }
+        { TextLabel4 TextLabel
+          MoveScaled(39,2,1,1)
+          Text = ("TextLabel4")
+        }
+      }
+    }
+    { TextLabel5 TextLabel
+      MoveScaled(81,1,13,22)
+      Font = Font["Arial,-1"]
+      Text = ("Puede elegir otras plantillas de maquetacion, editar o crear nuevas para personalizar aún más los diplomas.")
+    }
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(79,0,24,6)
+    Font = Font["Bitstream Charter,-2"]
+    Text = ("<b>Nota:</b> En el nombre del diploma pero no use caracteres especiales, por ejemplo los parentesis")
+  }
+}

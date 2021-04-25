@@ -1,0 +1,37 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,66,32)
+  { ComboBoxDiplomas ComboBox
+    MoveScaled(14,19,39,4)
+    Font = Font["Bitstream Charter,-1"]
+    ReadOnly = True
+    Text = ("ComboBox1")
+  }
+  { ToolButtonAceptar ToolButton
+    MoveScaled(1,26,22,5)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Aceptar Pegar")
+    Picture = Picture["icon:/16/apply"]
+    Border = True
+  }
+  { ToolButtonCancelar ToolButton
+    MoveScaled(46,26,19,5)
+    Font = Font["Bitstream Charter,-1"]
+    Text = ("Cancelar")
+    Picture = Picture["icon:/16/cancel"]
+    Border = True
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(10,14,46,5)
+    Font = Font["Bitstream Charter"]
+    Text = ("Todos los datos pegados, serán asignado al diploma:")
+    Alignment = Align.Center
+  }
+  { TextLabel2 TextLabel
+    MoveScaled(1,1,63,11)
+    Font = Font["Bitstream Charter"]
+    Text = ("Los datos que va a pegar debe de estar organizados en la siguientes columnas: <br>\n<i>NombreAlumno, NombreTutor, Colegio, Ciudad, Fecha, Comentario<i> <br>\n")
+    Alignment = Align.Center
+  }
+}
