@@ -5,44 +5,44 @@ Public RutaFicheroDatosAlumno As String ''ruta donde se va a guardar el fichero 
 Public guardado As Boolean '' true: esta guardado , false, no estan guardado los datos
 
 Public Sub CrearGrupo(ruta As String) As Boolean ''crear grupo dado una ruta, devuelve true si todo ha ido bien
-  'El borrado se encarga el módulo de GestionDiploma... 
+  'El borrado se encarga el módulo de GestionDiploma...
   '  ModuleUtilidadesDisco.vaciarDirectori(ModulePrincipal.RutaPrograma & "/temporales/fotos", "*.*")
   '  ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.RutaPrograma & "/temporales/plantillas", "*.*")
   'limpio datos contenidos en el Lista
-  
+
   Lista.registros.Clear()
-  
+
   RutaFicheroDatosAlumno = ruta
   guardado = False
   Return True
-  
+
 End
 
 Public Sub anadirRegistro(registro As ClassRegistroAlumno)
-  
+
   registro.id = Lista.generarId()
   Lista.registros.Add(registro)
   Guardado = False
-  
+
 End
 
 Public Sub EditarRegistro(reg As ClassRegistroAlumno, id As Integer)
-  
+
   Dim listaArrayReg As New ClassRegistroAlumno[]
-  
+
   reg.id = iD
   listaArrayReg.add(reg)
   Lista.registros.Delete(iD)
   Lista.registros.Insert(listaArrayReg, iD)
   guardado = False
-  
+
 End
 
 Public Sub BorrarRegistro(id As Integer)
-  
+
   Lista.registros.Delete(iD)
   guardado = False
-  
+
 End
 
 '---------------------------------------------
@@ -51,21 +51,21 @@ End
 Public Sub CargarDatos() As Boolean
   'NombreFicheroDatos: seria "datos.txt"
   ' NombreCarpetaPrograma: "GeneradorCarnets"
-  
+
   '  Dim resultado As Boolean
   Dim contenido As String
   Dim cadenas As New String[]
-  
+
   contenido = file.Load(ModulePrincipal.rutaprograma & "temporales/datosRegistros.txt")
   cadenas = Split(contenido, "\n")
-  
+
   If cadenas[0] = "version 1" Then
     cadenas.Delete(0) 'borro la primera linea,que solo me sirve para averiguar la version
     Return Lista.LecturaDatos(cadenas)
-    
+
   Else
     Message.Error(("El fichero no lo puedo leer.\n Versión Desconocida."))
     Return False
   Endif
-  
+
 End

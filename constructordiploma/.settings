@@ -10,6 +10,9 @@ Count=0
 [DebugWindow]
 Count=0
 
+[DebugWindow/Classes]
+Geometry=[1600,37,203,259]
+
 [DebugWindow/ComboBoxDiplomaTematico]
 Geometry=[1296,66,210,210]
 
@@ -164,6 +167,11 @@ Geometry=[1397,80,777,666]
 [DebugWindow/tipoletra]
 Geometry=[1288,358,210,210]
 
+[Executable]
+DoNotIncrementVersion=False
+NoTestModule=False
+Path="constructordiploma.gambas"
+
 [FCommit]
 LastCommit="añadido soporte idioma portugués, gracias a Portano\n---- Esta línea y las siguientes serán ignoradas ----\n\nM       .lang/#project.pot\nM       .lang/es.po\nA       .lang/pt.mo\nA       .lang/pt.po\nA       .lang/pt_BR.mo\nA       .lang/pt_BR.po"
 
@@ -173,28 +181,28 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-Active=6
-File[6]=".src/FMain.class:622.16"
-File[7]=".src/ModulePrincipal.module:104.34"
-File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:110.0"
-File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:25.6"
+Active=20
+File[6]=".src/FMain.class:22.602"
+File[7]=".src/ModulePrincipal.module:70.34"
+File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:19.0"
+File[9]=".src/Clases/Diplomas/ClassListaDiploma.class:0.6"
 File[10]=".src/Clases/ClassSuperGridview.class:0.0"
-File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:52.36"
+File[11]=".src/Clases/FichasRegistrosAlumnos/ClassRegistroAlumno.class:25.36"
 File[12]=".src/Clases/FichasRegistrosAlumnos/ClassListaRegistroAlumno.class:12.45"
 File[13]="Readme.txt definicion de etiquetas para SVG:1.0"
-File[14]=".src/ModuleUtilidadesDisco.module:100.0"
+File[14]=".src/ModuleUtilidadesDisco.module:20.0"
 File[15]=".src/Clases/FichasRegistrosAlumnos/ModuleGestionAlumno.module:45.3"
-File[16]=".src/Clases/ClassZip.class:78.3"
+File[16]=".src/Clases/ClassZip.class:10.3"
 File[17]="imagenes/marco.png"
 File[18]="imagenes/logo.png"
 File[19]="imagenes/fondo.png"
-File[20]=".src/ModuleImprimir.module:49.0"
-File[21]=".src/ModuleIntermedio.module:285.2"
+File[20]=".src/ModuleImprimir.module:13.48"
+File[21]=".src/ModuleIntermedio.module:1.2"
 File[22]=".src/FormDiplomaTematico.class:17.0"
 File[23]="icono_galeria2.jpg"
 File[24]="previsualizar.png"
 File[25]=".src/FormRegistroDiplomados.form"
-File[26]=".src/FormRegistroDiplomados.class:236.2"
+File[26]=".src/FormRegistroDiplomados.class:55.2"
 File[27]="transparente.png"
 File[28]="inkscape-icono.png"
 File[29]="mininopicaros2012.png"
@@ -212,38 +220,41 @@ File[40]="importar.png"
 File[41]="exportar.png"
 File[42]="bg_removal:4.3"
 File[43]=".src/ModuleExportarImportarDiplomas.module:0.0"
-File[44]="magicwand:126.8"
+File[44]="magicwand:1.8"
 File[45]="icono_transparente.png"
 File[46]=".src/ModuleHacerTransparente.module:14.0"
 File[47]=".src/comun.module:4.2"
 File[48]="googledriveacceso.png"
-File[49]=".src/ModuleUpdate.module:42.8"
+File[49]=".src/ModuleUpdate.module:20.8"
 File[50]=".src/ClassDatoLetra.class:17.0"
 File[51]=".src/FormError.form"
-File[52]=".src/FormError.class:12.17"
+File[52]=".src/FormError.class:0.17"
 File[53]=".src/ModuleMensajeError.module:16.0"
 File[54]=".src/FormDiplomaTematico.form"
 File[55]=".src/ModuleDescargaImagen.module:5.35"
 File[56]=".src/FormElegirFichero.form"
-File[57]=".src/FormElegirFichero.class:90.9"
-File[58]=".src/Clases/ClassDato.class:13.15"
+File[57]=".src/FormElegirFichero.class:0.9"
+File[58]=".src/Clases/ClassDato.class:3.15"
 File[59]=".src/ModuleUnicaVez.module:15.6"
 File[60]=".src/Clases/ClassPensando.class:19.0"
 File[61]="relojarena.gif"
 File[62]=".src/FormPensando.form"
 File[63]="icoLoading.gif"
 File[64]="icono_web.jpg"
-File[65]=".src/FormPensando.class:18.3"
+File[65]=".src/FormPensando.class:0.5"
 File[66]=".src/Clases/Diplomas/ModuleGestionDiploma.module:33.14"
 File[67]="logoGambas.png"
 File[68]=".src/FormPegar.form"
 File[69]=".src/FormPegar.class:22.2"
 File[70]="plantillas/plantilla0.svg:0.0"
-File[71]=".src/ModuleAbrirResultados.module:29.3"
+File[71]=".src/ModuleAbrirResultados.module:0.3"
 File[72]=".src/FormRutaResultados.form"
 File[73]=".src/FormRutaResultados.class:15.2"
-File[74]="versiondiplomas.txt:0.1"
+File[74]="versiondiplomas.txt:1.0"
 Count=74
+
+[Package]
+Dir="~/Descargas/"
 
 [VersionControl]
 RememberPassword=1

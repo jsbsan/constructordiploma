@@ -596,7 +596,14 @@ Public Sub ToolButtonVerImagen_Click()
 
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"
     Wait 0.1
-    proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"] Wait
+
+    If ModuleInkscape.version() = 0 Then
+      proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"] Wait
+    Else
+      proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-type=png"] Wait
+      Move ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png" To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"
+    Endif
+
     ModuleUtilidadesDisco.EsperarProceso(proceso)
     Wait 0.2
     'lo veo con el visor predeterminado...lxde

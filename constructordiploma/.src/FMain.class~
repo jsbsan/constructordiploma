@@ -53,22 +53,8 @@ Public Sub Form_Open()
     pensando.parar = True
     pensando.Delete()
     Print "          --- Abriendo diplomas iniciales"
-    ' If Exist(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt") Then
-    '   versiondiplomas = File.load(User.Home &/ ".ConstructorDiplomas/versiondiplomas.txt")
-    ' Endif
-    '
-    ' If Val(versiondiplomas) < Val(File.Load("versiondiplomas.txt")) Then
-    Print "Copiando ficheros de plantilla......"
-    AbrirDiplomasIniciales(rutaficherosDiplomasTemporal)
-    ' Else
-    '   Print "No hace falta copiar ficheros plantillas de diplomas, ya estas copiados"
-    '   ModulePrincipal.AbrirFichero(rutaficherosDiplomasTemporal, ".ConstructorDiplomas")
-    '   ModulePrincipal.CargarDatos()
-    '   ModulePrincipal.RutaDatosDiplomas = Replace(rutaficherosDiplomasTemporal, ".ConstructorDiplomas", "")
-    '   Try Kill rutaficherosDiplomasTemporal
-    '   IconPanel1.index = 0
-    '   IconPanel1_click()
-    ' Endif
+
+    AbrirDiplomasIniciales()
 
     LabelNombreFichero.text = "/tmp/Base.ConstructorDiplomasPlus"
 

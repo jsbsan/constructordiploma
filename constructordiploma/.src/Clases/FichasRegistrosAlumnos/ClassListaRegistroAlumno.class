@@ -1,24 +1,24 @@
 ' Gambas class file
 
 Property Registros As ClassRegistroAlumno[] ''Array de registtro de alumnos....
-Private hRegistroAlumno As New ClassRegistroAlumno[] 
+Private hRegistroAlumno As New ClassRegistroAlumno[]
 
 Public Sub generarId() As Integer
-  
+
   Dim a As Integer
   Dim valor As Integer
-  
+
   valor = -1
   For a = 0 To hRegistroAlumno.Max
-    valor = Max(valor, hRegistroAlumno[a].Id) 
+    valor = Max(valor, hRegistroAlumno[a].Id)
   Next
-  
+
   Return (valor + 1)
-  
+
 End
 
 Public Sub buscar(id As Integer) As Integer
-  
+
   Dim a As Integer
   'recorremos todos los indices hasta encontrar el id, devolviendo la posicion del array donde esta (a)
   For a = 0 To hRegistroAlumno.Max
@@ -26,81 +26,81 @@ Public Sub buscar(id As Integer) As Integer
   Next
   Message.info(("se ha producido un error al buscar el indice"))
   Return -1
-  
+
 End
 
 Public Sub contenido() As String
-  
+
   Dim regtmp As ClassRegistroAlumno
   Dim texto As String
-  
+
   For Each regtmp In hRegistroAlumno
     texto &= regtmp.Text()
   Next
   Return texto
-  
+
 End
 
 Public Sub LecturaDatos(cadenas As String[]) As Boolean
-  
+
   Dim a As Integer
   Dim regtmp As New ClassRegistroAlumno
-  
+
   For a = 0 To cadenas.count - 2
     If cadenas[A] <> "" Then
       regtmp.IdDiplomaTematico = Val(cadenas[a])
     Else
-      regtmp.IdDiplomaTematico = 0 
-      
+      regtmp.IdDiplomaTematico = 0
+
     Endif
     a += 1
-    
+
     regtmp.NombreAlumno = cadenas[a]
     a += 1
-    
+
     regtmp.NombreTutor = cadenas[a]
     a += 1
-    
+
     regtmp.Colegio = cadenas[a]
     a += 1
-    
+
     regtmp.Ciudad = cadenas[a]
     a += 1
-    
+
     regtmp.Fecha = cadenas[a]
     a += 1
-    
+
     regtmp.FotoAlumno = cadenas[a]
     a += 1
-    
+
     regtmp.Foto07 = cadenas[a]
     a += 1
-    
+
     regtmp.tag = cadenas[a]
     a += 1
-    
-    If cadenas[a] <> "" Then 
+
+    If cadenas[a] <> "" Then
       regtmp.id = Val(cadenas[a])
     Else
       regtmp.id = 0
     Endif
-    
+
     hRegistroAlumno.Add(regtmp)
     regtmp = New ClassRegistroAlumno
-    
+
   Next
   Return True 'lectura correcta
-  
+
 End
 
-Private Function Registros_read() As ClassRegistroAlumno[] 
-  
-  Return hRegistroAlumno 
-  
-End  
+Private Function Registros_read() As ClassRegistroAlumno[]
+
+  Return hRegistroAlumno
+
+End
 
 Private Sub Registros_write(Valor As ClassRegistroAlumno[])
-  
-  hRegistroAlumno = Valor 
-  
+
+  hRegistroAlumno = Valor
+
 End

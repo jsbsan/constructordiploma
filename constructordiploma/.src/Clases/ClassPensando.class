@@ -5,7 +5,7 @@ Private timer1 As Timer
 Private movi As Moviebox
 
 Public Sub _new(contenedor As Container)
-  
+
   timer1.delay = 100
   timer1.enabled = True
   timer1 = New Timer(contenedor)
@@ -17,14 +17,14 @@ Public Sub _new(contenedor As Container)
   movi.w = 50
   movi.h = 75
   Wait 0.5
-  
+
 End
 
 Public Sub Timer1_Timer()
-  
+
   If parar = True Then
     Timer1.delay = False
     Me.close
   Endif
-  
+
 End

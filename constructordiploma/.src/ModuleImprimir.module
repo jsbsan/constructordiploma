@@ -5,78 +5,84 @@ Public EstadoDelTrabajo As Integer 'para el control del proceso del avance de un
 Public EstadoDelTrabajoPaginas As Integer 'para el control del proceso del avance impresion de paginas
 
 Public Sub creandoPNG(regAlumnotmp As ClassRegistroAlumno, a As Integer, formato As String, numerar As Boolean, valorinicialNumeroCarnet As Integer, dpi As String) As String
-  
+
   'de la previsualizacion actual, muestra imagen...
-  
+
   '  Dim rutasvg As String = ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Dim proceso As Process
   Dim nombreRegistro As String
   Dim regDiplomaTmp As ClassDiplomaTematico
   Dim plantillabase As String
-  
+
   '0º Paso: borrado de archivos anteriores
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
-  
+
   'REVISADO EN LA 0.0.58
   regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
   ' ModuleGestionDiploma.lista.Registros[regAlumnotmp.IdDiplomaTematico]
-  
+
   plantillabase = regDiplomaTmp.PlantillaBase
-  
+
   Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
-  
+
   '1º Paso: añadir DiplomaTematico -> .svg
   rellenarPlantillaConValoresDiplomaTematico(regDiplomaTmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
   '2º Paso: añadir datos alumnos
   rellenarPlantillaConValoresRegristroAlumnos(regAlumnotmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
-  
+
   'borrado de todas las imagenes del directorio temporal..
   ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp/", "*.png")
-  
+
   'copiar las imagenes de la plantilla y de los datos al directorio temporal...
   ModuleImprimir.copiarImagenesATmp(a)
-  
-  nombreRegistro = "trabajo" & Str$(a + 1) 
-  
+
+  nombreRegistro = "trabajo" & Str$(a + 1)
+
   Try Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro
   Wait 0.1
-  proceso = Exec ["inkscape", "--export-dpi=" & dpi, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png=" & ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"] Wait
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg") Then  
+  If ModuleInkscape.version() = 0 Then
+    proceso = Exec ["inkscape", "--export-dpi=" & dpi, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png=" & ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"] Wait
+
+  Else
+    proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-type=png", "--export-dpi=" & dpi] Wait
+    Move ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png" To ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"
+  Endif
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg") Then
     Kill ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".svg"
-  Endif  
+  Endif
   Copy ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg" To ModulePrincipal.rutaprograma & "trabajotmp/pdf/" & nombreRegistro & ".svg"
   Wait 0.2
-  
+
   'lo veo con el visor predeterminado...lxde
   '  Exec ["gpicview", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp" & nombreRegistro & ".png"]
-  
+
   Return ModulePrincipal.rutaprograma & "trabajotmp/" & nombreRegistro & ".png"
-  
+
 End
 
 Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, formato As String, inicioRegistro As Integer, inicioFin As Integer, geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, unir As Boolean, dpi As String) As Boolean
-  
+
   Dim a As Integer 'bucle
   Dim regtmp As ClassRegistroAlumno
-  Dim nombrefinal As String 
+  Dim nombrefinal As String
   Dim comando As String
-  
+
   Moduleimprimir.EstadoDelTrabajo = 0
-  
+
   ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp")
   ModuleUtilidadesDisco.vaciarDirectorio(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
-  
+
   For a = inicioRegistro To inicioFin
     regtmp = New ClassRegistroAlumno
     regtmp = ModuleGestionAlumno.Lista.Registros[a]
-    
+
     'TODO: imprimiendo
     nombrefinal = creandoPNg(regtmp, a, formato, numerar, valorinicialNumeroCarnet, dpi)
     montaje(geometriaArgumento, tileArgumentoV, tileArgumentoH, nombrefinal)
@@ -84,17 +90,16 @@ Public Sub generarPdf(numerar As Boolean, valorinicialNumeroCarnet As Integer, f
   Next
   'unir todos los pdf en uno...
   Wait 0.1
-  If unir = True Then 
+  If unir = True Then
     comando = "pdftk " & User.Home & "/.ConstructorDiplomas/trabajotmp/pdf/*.pdf cat output " & User.home & "/.ConstructorDiplomas/trabajotmp/pdf/O_Todos.pdf"
     Shell comando Wait
   Endif
-  
+
   'aqui
   ModuleAbrirResultados.abrir(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
-  
-  
+
   'Desktop.Open(ModulePrincipal.rutaprograma & "trabajotmp/pdf")
-  
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 
@@ -104,40 +109,40 @@ End
 'montando imagenes
 '--------------------------
 Public Sub montaje(geometriaArgumento As String, tileArgumentoV As String, tileArgumentoH As String, nombrefinal As String)
-  
+
   Dim proceso As Process
-  Dim nombrepdf As String 
+  Dim nombrepdf As String
   Dim nombredesplazadopdf As String
-  
+
   nombrepdf = Replace$(nombrefinal, ".png", "") & ".pdf"
   proceso = Exec ["convert", nombrefinal, nombrepdf]
   ModuleUtilidadesDisco.EsperarProceso(proceso, 1, 0)
   nombredesplazadopdf = Replace(nombrepdf, "/trabajotmp/", "/trabajotmp/pdf/")
-  
-  If Exist(nombredesplazadopdf) Then 
+
+  If Exist(nombredesplazadopdf) Then
     Kill nombredesplazadopdf
   Endif
   Move nombrepdf To nombredesplazadopdf
-  
+
 End
 '--------------------------
 'Rellenar plantillas con valores... Dibujar
 '--------------------------
 
 Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematico, fichero As String, Optional formatofecha As String) As String 'devuelvo el contenido del fichero svg, cambiado...
-  
+
   '  Dim cadenasub As String
   Dim Contenido As String
-  
-  Dim rutafotos As String = ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" 
-  
+
+  Dim rutafotos As String = ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/"
+
   contenido = File.Load(fichero)
-  
+
   'intercambio valores...
   ' contenido = Replace$(contenido, "", reg)
   contenido = Replace$(contenido, "PLANTILLA01", reg.Tema)
-  If reg.ImagenFondo <> "" Then 
-    If Exist(rutafotos & reg.ImagenFondo) Then 
+  If reg.ImagenFondo <> "" Then
+    If Exist(rutafotos & reg.ImagenFondo) Then
       contenido = Replace$(contenido, "FOTO01", rutafotos & reg.ImagenFondo)
     Else
       contenido = Replace$(contenido, "FOTO01", "transparente.png")
@@ -146,7 +151,7 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
     contenido = Replace$(contenido, "FOTO01", "transparente.png")
   Endif
   If reg.ImagenMarco <> "" Then
-    If Exist(rutafotos & reg.ImagenMarco) Then 
+    If Exist(rutafotos & reg.ImagenMarco) Then
       contenido = Replace$(contenido, "FOTO02", rutafotos & reg.ImagenMarco)
     Else
       contenido = Replace$(contenido, "FOTO02", "transparente.png")
@@ -155,7 +160,7 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
     contenido = Replace$(contenido, "FOTO02", "transparente.png")
   Endif
   If reg.Imagenlogo <> "" Then
-    If Exist(rutafotos & reg.ImagenLogo) Then 
+    If Exist(rutafotos & reg.ImagenLogo) Then
       contenido = Replace$(contenido, "FOTO03", rutafotos & reg.ImagenLogo)
     Else
       contenido = Replace$(contenido, "FOTO03", "transparente.png")
@@ -163,54 +168,54 @@ Public Sub rellenarPlantillaConValoresDiplomaTematico(reg As ClassDiplomaTematic
   Else
     contenido = Replace$(contenido, "FOTO03", "transparente.png")
   Endif
-  
-  If reg.Foto04 <> "" Then 
-    If Exist(rutafotos & reg.Foto04) Then 
+
+  If reg.Foto04 <> "" Then
+    If Exist(rutafotos & reg.Foto04) Then
       contenido = Replace$(contenido, "FOTO04", rutafotos & reg.Foto04)
     Else
-      contenido = Replace$(contenido, "FOTO04", "transparente.png")  
+      contenido = Replace$(contenido, "FOTO04", "transparente.png")
     Endif
   Else
-    contenido = Replace$(contenido, "FOTO04", "transparente.png")  
+    contenido = Replace$(contenido, "FOTO04", "transparente.png")
   Endif
-  
+
   If reg.Foto05 <> "" Then
-    If Exist(rutafotos & reg.Foto05) Then 
+    If Exist(rutafotos & reg.Foto05) Then
       contenido = Replace$(contenido, "FOTO05", rutafotos & reg.Foto05)
     Else
       contenido = Replace$(contenido, "FOTO05", "transparente.png")
     Endif
   Else
-    
+
     contenido = Replace$(contenido, "FOTO05", "transparente.png")
   Endif
-  
+
   contenido = Replace$(contenido, "PLANTILLA02", reg.Tag)
-  
+
   File.Save(fichero, contenido)
   Return contenido
-  
+
 End
 
 Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumno, fichero As String, Optional formatofecha As String) As String 'devuelvo el contenido del fichero svg, cambiado...
-  
+
   Dim comando As String
-  
+
   Dim cadenasub As String
   Dim Contenido As String
   Dim opcion As Integer 'para comprobar el caso de codigo de barras, qr u otro
   Dim rutafotos As String = ModulePrincipal.rutaprograma & "temporales/FotosRegistros/"
-  
+
   If formatofecha = "" Then formatofecha = "dd mmmm yyyy" 'formato predefinido
-  
+
   If reg.Fecha <> "" Then
-    
+
     Try cadenasub = Replace$(Format(Val(reg.Fecha), "dd mmmm yyyy"), " ", (" de ")) 'convierto formato de la fecha
-    
+
   Endif
-  
+
   contenido = File.Load(fichero)
-  
+
   'intercambio valores...
   ' contenido = Replace$(contenido, "", reg)
   contenido = Replace$(contenido, "CAMPO01", reg.NombreAlumno)
@@ -218,24 +223,24 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
   contenido = Replace$(contenido, "CAMPO03", reg.Colegio)
   contenido = Replace$(contenido, "CAMPO04", reg.Ciudad)
   contenido = Replace$(contenido, "CAMPO05", cadenasub)
-  If reg.FotoAlumno <> "" Then 
+  If reg.FotoAlumno <> "" Then
     contenido = Replace$(contenido, "FOTO06", rutafotos & reg.FotoAlumno)
   Else
     contenido = Replace$(contenido, "FOTO06", "transparente.png")
   Endif
-  
+
   'analizo el contenido del campo CAMPO006, (reg.tag) y si tiene EAN13 o QR, entonces creo el codigo grafico y lo pongo en FOTOO07)
   opcion = 0
-  If InStr(reg.tag, "EAN13:") <> 0 Then 
+  If InStr(reg.tag, "EAN13:") <> 0 Then
     opcion = 1
-  Else If InStr(reg.tag, "QR:") <> 0 Then 
+  Else If InStr(reg.tag, "QR:") <> 0 Then
     opcion = 2
   Endif
-  
+
   Select Case opcion
     Case 0
       contenido = Replace$(contenido, "CAMPO06", reg.tag)
-      If reg.Foto07 <> "" Then 
+      If reg.Foto07 <> "" Then
         contenido = Replace$(contenido, "FOTO07", rutafotos & reg.Foto07)
       Else
         contenido = Replace$(contenido, "FOTO07", "transparente.png")
@@ -243,44 +248,44 @@ Public Sub rellenarPlantillaConValoresRegristroAlumnos(reg As ClassRegistroAlumn
     Case 1
       'Creo un codigo y lo pongo en FOTO07
       operacion = "fallida" 'variable para controlar si se ha producido un error a la hora de crear el codigo
-      
+
       Shell User.home & "/.ConstructorDiplomas/./ean13.gambas " & Replace$(reg.tag, "EAN13:", "") To operacion
       'espera que el proceso termine..
       '   Do While proceso.State = Process.Running
       '    Wait 0.1
       '  Loop
-      
-      If InStr(operacion, "Bien") <> 0 Then 
+
+      If InStr(operacion, "Bien") <> 0 Then
         contenido = Replace$(contenido, "FOTO07", "/tmp/codigoBarras.png")
         contenido = Replace$(contenido, "CAMPO06", " ")
       Endif
     Case 2
-      
+
       ''NOTE: Creando qr
       'creando codigo QR
       comando = "qrencode  -s 6 \"" & Replace$(reg.tag, "QR:", "") & "\" -o /tmp/codigoQR.png"
       Shell comando To operacion
-      
-      If InStr(operacion, "El programa «qrencode» no") <> 0 Then 
-        Message.Error("No esta instalado el progra qrencode/nNo se puede crear codigos QR")  
+
+      If InStr(operacion, "El programa «qrencode» no") <> 0 Then
+        Message.Error("No esta instalado el progra qrencode/nNo se puede crear codigos QR")
       Else
         contenido = Replace$(contenido, "FOTO07", "/tmp/codigoQR.png")
         contenido = Replace$(contenido, "CAMPO06", " ")
       Endif
-      
+
     Case Else
       contenido = Replace$(contenido, "CAMPO06", reg.tag)
-      If reg.Foto07 <> "" Then 
+      If reg.Foto07 <> "" Then
         contenido = Replace$(contenido, "FOTO07", rutafotos & reg.Foto07)
       Else
         contenido = Replace$(contenido, "FOTO07", "transparente.png")
       Endif
-      
+
   End Select
-  
+
   File.Save(fichero, contenido)
   Return contenido
-  
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 
@@ -290,50 +295,50 @@ End
 '--------------------------
 
 Public Sub dibujarSVG(fichero As String, AreaDibujo As DrawingArea)
-  
+
   Dim escalax As Float
   Dim dra As SvgImage
   Dim ancho, alto As Integer
-  
+
   dra = New SvgImage
   AreaDibujo.Cached = False
   ancho = areadibujo.W
   alto = areadibujo.H
-  
+
   areadibujo.w = 1
   areadibujo.h = 1
-  
+
   AreaDibujo.Cached = True
   areadibujo.W = ancho
   areadibujo.H = alto
   AreaDibujo.Border = 1
-  
+
   'AreaDibujo.Painted = True
-  
-  If Exist(fichero) Then 
+
+  If Exist(fichero) Then
     dra = dra.Load(fichero)
   Endif
-  
+
   Paint.Begin(AreaDibujo)
   escalax = AreaDibujo.W / dra.Width
-  
+
   paint.Scale(escalax, escalax)
   dra.Paint
   Paint.End
-  
+
 End
 
 '--------------------------
 ' Previsualizacion
 '--------------------------
 Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As DrawingArea, rejilla As ClassSuperGridview) As Boolean
-  
+
   Dim comando As String
   Dim regtmp As New ClassDiplomaTematico
   Dim rutamini As String
   Dim fpensando As New FormPensando
   Dim nombreReemplazo As String
-  
+
   regtmp.PlantillaBase = ModuleGestionDiploma.lista.Registros[indice].PlantillaBase
   regtmp.Tema = ModuleGestionDiploma.lista.Registros[indice].Tema
   regtmp.ImagenFondo = ModuleGestionDiploma.lista.Registros[indice].ImagenFondo
@@ -343,44 +348,44 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   regtmp.foto05 = ModuleGestionDiploma.lista.Registros[indice].Foto05
   regtmp.tag = ModuleGestionDiploma.lista.Registros[indice].tag
   regtmp.NombrePlantilla = ModuleGestionDiploma.lista.Registros[indice].NombrePlantilla
-  
+
   'Reemplazos de caracters problematicos...
   nombreReemplazo = Replace$(regtmp.NombrePlantilla, " ", "_")
   nombreReemplazo = Replace$(nombreReemplazo, "(", "_")
   nombreReemplazo = Replace$(nombreReemplazo, ")", "_")
-  
+
   rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(regtmp.PlantillaBase, ".svg", "") & Replace$(nombreReemplazo, " ", "_") & "mini.png"
   'comprueba si existe el archivo para realizar carga del archivo y no generar dibujo
   If Exist(rutamini) Then
     dibujarPNG(areadibujo, rutamini)
     Return
   Endif
-  
+
   'solo muestro el dialogo de pensar cuando tengo que crear el png...
   fpensando.Show
   Wait 0.5
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
-  
+
   Try Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
-  
+
   rellenarPlantillaConValoresDiplomaTematico(regtmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
-  
+
   ' proceso = Exec ["inkscape", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", "--export-png", ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"] Wait
-  
+
   '  ModuleUtilidadesDisco.EsperarProceso(proceso)
   'Areadibujo.Picture = Null
   'Areadibujo.Picture = Picture[ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"]
   'AreaDibujo.Refresh()
-  
+
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
-  
+
   '  convierto la plantilla en imagen...aumento a 400
   comando = "convert -resize 400x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg \"" & rutamini & "\""
   Shell comando
@@ -388,61 +393,61 @@ Public Sub PrevisualizarPlantillaTematica(indice As Integer, Areadibujo As Drawi
   fpensando.Delete
 Catch
   mensajeErrorPrevisualizacion(Error.Text, Error.Where)
-  
+
 End
 
 Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, rejilla As ClassSuperGridview) As Boolean
-  
+
   '  Dim proceso As Process
-  'Dim contadorPosicionFilaGrid As Integer  
+  'Dim contadorPosicionFilaGrid As Integer
   Dim plantillaBase As String
   Dim regDiplomaTmp As ClassDiplomaTematico
   Dim regAlumnotmp As ClassRegistroAlumno
   Dim fpensando As New FormPensando
-  
+
   fpensando.Show
   Wait 0.5
   '0º Paso: borrado de archivos anteriores
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then
     Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
-  
+
   Try regAlumnotmp = ModuleGestionAlumno.Lista.Registros[indice]
-  If Error Then 
+  If Error Then
     fpensando.parar = True
     fpensando.Delete
     Message.Error("No se pueden mostrar previsualizaciones, necesita añadir datos en los registros de alumnos")
-    
+
     Return False
   Endif
   'NOTE: correpción  0.0.58
   regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
-  
+
   plantillabase = regDiplomaTmp.PlantillaBase
-  
+
   Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
-  
+
   '1º Paso: añadir DiplomaTematico -> .svg
   rellenarPlantillaConValoresDiplomaTematico(regDiplomaTmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
   '2º Paso: añadir datos alumnos
   rellenarPlantillaConValoresRegristroAlumnos(regAlumnotmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
-  
+
   '4º Carga de imagen en Area de dibujo
   '
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
-    
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then
+
     dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
-    
+
     Wait 0.01
     fpensando.parar = True
     fpensando.Delete
     Return True
   Else
-    
+
     Message.Error(("No se ha podido crear la imagen de la previsualización"))
     fpensando.parar = True
     fpensando.Delete
@@ -452,48 +457,48 @@ Public Sub PrevisualizarRegistro(indice As Integer, Areadibujo As DrawingArea, r
   fpensando.Delete
 Catch
   mensajeErrorPrevisualizacion(Error.Text, Error.Where)
-  
+
 End
 
 Public Sub copiarImagenesATmp(indice As Integer)
-  
+
   Dim regDiplomaTmp As ClassDiplomaTematico
   Dim regAlumnotmp As ClassRegistroAlumno
-  Dim rutafotosDiploma As String = ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" 
+  Dim rutafotosDiploma As String = ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/"
   Dim rutafotosRegistros As String = ModulePrincipal.rutaprograma & "temporales/FotosRegistros/"
   Dim rutaTrabajoTmp As String = ModulePrincipal.rutaprograma & "trabajotmp/"
-  
+
   Try regAlumnotmp = ModuleGestionAlumno.Lista.Registros[indice]
-  If Error Then 
+  If Error Then
     Message.Error(("No puedo presentar ese diploma"))
-  Else 
-    
+  Else
+
     regDiplomaTmp = ModuleGestionDiploma.lista.Registros[ModuleGestionDiploma.lista.buscar(regAlumnotmp.IdDiplomaTematico)]
     Try Copy "transparente.png" To rutaTrabajoTmp & "transparente.png"
     If Not regDiplomaTmp.ImagenFondo = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.ImagenFondo To rutaTrabajoTmp & regDiplomaTmp.ImagenFondo
     If Not regDiplomaTmp.ImagenMarco = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.Imagenmarco To rutaTrabajoTmp & regDiplomaTmp.ImagenMarco
     If Not regDiplomaTmp.ImagenLogo = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.Imagenlogo To rutaTrabajoTmp & regDiplomaTmp.ImagenLogo
-    
+
     If Not regDiplomaTmp.Foto04 = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.Foto04 To rutaTrabajoTmp & regDiplomaTmp.Foto04
-    
+
     If Not regDiplomaTmp.Foto05 = "" Then Try Copy rutafotosDiploma & regDiplomaTmp.Foto04 To rutaTrabajoTmp & regDiplomaTmp.Foto05
-    
+
     If Not regAlumnotmp.FotoAlumno = "" Then Try Copy rutafotosRegistros & regAlumnotmp.FotoAlumno To rutaTrabajoTmp & regAlumnotmp.FotoAlumno
     If Not regAlumnotmp.Foto07 = "" Then Try Copy rutafotosRegistros & regAlumnotmp.Foto07 To rutaTrabajoTmp & regAlumnotmp.Foto07
   Endif
-  
+
 Catch
   mensajeErrorPrevisualizacion(Error.Text, Error.Where)
-  
+
 End
 
 Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, Areadibujo As DrawingArea) As Boolean
-  
+
   Dim regtmp As New ClassDiplomaTematico
   Dim fpensando As New FormPensando
   Dim rutamini As String
   Dim comando As String
-  
+
   fpensando.Show
   Wait 0.5
   regtmp.PlantillaBase = reg.PlantillaBase
@@ -504,77 +509,77 @@ Public Sub PrevisualizarPlantillaTematicaRegistro(reg As ClassDiplomaTematico, A
   regtmp.Foto04 = reg.Foto04
   regtmp.foto05 = reg.Foto05
   regtmp.tag = reg.tag
-  
+
   rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace$(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & Replace$(regtmp.PlantillaBase, ".svg", "") & Replace$(regtmp.NombrePlantilla, " ", "_"))) & "mini.png"
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg") Then
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
   Endif
-  
-  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then 
+
+  If Exist(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png") Then
     Try Kill ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.png"
   Endif
-  
+
   Try Copy ModulePrincipal.rutaprograma & "PlantillasBases/" & regtmp.PlantillaBase To ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg"
-  
+
   rellenarPlantillaConValoresDiplomaTematico(regtmp, ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg")
-  
+
   dibujarSVG(ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg", AreaDibujo)
   '  convierto la plantilla en imagen...
   comando = "convert -resize 200x " & ModulePrincipal.rutaprograma & "trabajotmp/plantillaTmp.svg " & rutamini
   Shell comando
-  
+
   fpensando.parar = True
   fpensando.Delete
 Catch
   mensajeErrorPrevisualizacion(Error.Text, Error.Where)
-  
+
 End
 
 Public Sub dibujarPNG(areadibujo As DrawingArea, ruta As String)
-  
+
   Dim hbrush As PaintBrush
   Dim himage As Image
   Dim escalax As Float
-  
+
   himage = Image.Load(ruta)
-  
+
   AreaDibujo.Cached = True
   AreaDibujo.Border = 1
   '  AreaDibujo.Painted = True
-  
+
   Paint.Begin(AreaDibujo)
-  
+
   hbrush = Paint.Image(himage)
   hbrush.Translate(0, 0)
   escalax = AreaDibujo.W / himage.Width
   paint.Scale(escalax, escalax)
-  
+
   Paint.Brush = hbrush
   Paint.Rectangle(0, 0, himage.w, himage.h)
   Paint.Fill()
   Paint.End
-  
+
 End
 
 Public Sub mensajeErrorPrevisualizacion(textoerror As String, textocadena As String)
-  
+
   Message.Info(("Se ha producido un error al intentar crear una previsualizacion") & "\n" & textoerror & "\n" & textocadena)
-  
+
 End
 '-----------------------------
 'comprobar salida del proceso
 '-----------------------------
 
 Public Sub proceso_Read()
-  
+
   Dim sLine As String
-  
+
   Read #Last, sLine, -256
-  
+
   Print sLine;
-  If InStr(sline, "Bien") <> 0 Then 
+  If InStr(sline, "Bien") <> 0 Then
     operacion = "valido"
   Endif
-  
+
 End

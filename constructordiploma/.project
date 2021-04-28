@@ -1,9 +1,8 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.4
 Title=ConstructorDiplomas
 Startup=FMain
 Icon=diploma-icono.png
-Version=0.0.86
+Version=0.0.88
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -17,12 +16,11 @@ Authors="Julio Sánchez Berro (JsbSan) (Programación)\nAntonio Sánchez (Planti
 TabSize=2
 Translate=1
 Language=es
-ExecPath=/home/minino/constructordiploma.gambas
 Maintainer=Julio Sanchez Berro
 Address=jusabejusabe@gmail.com
 Url=http://jsbsan.blogspot.com.es/
 License=General Public License
-PackageName=constructordiploma-0.0.86
+PackageName=constructordiploma-0.0.88
 CreateEachDirectory=1
 Packager=1
 Systems=debian

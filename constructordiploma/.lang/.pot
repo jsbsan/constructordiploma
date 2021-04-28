@@ -1,11 +1,202 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-11-01 04:27+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"#-#-#-#-#  #project.pot (constructordiploma 3.16.0)  #-#-#-#-#\n"
+"Project-Id-Version: constructordiploma 3.16.0\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassDato.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassDatoLetra.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassDiplomaTematico.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassListaDiploma.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassListaRegistroAlumno.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassPensando.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassRegistroAlumno.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassSuperGridview.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ClassZip.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormDiplomaTematico.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormElegirFichero.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormError.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormPegar.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormPensando.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormRegistroDiplomados.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  FormRutaResultados.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleAbrirResultados.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleDescargaImagen.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleExportarImportarDiplomas.pot ($(PACKAGE) $(VERSION))  #-#-#-"
+"#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleGestionAlumno.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleGestionDiploma.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleHacerTransparente.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleImprimir.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleInkscape.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleIntermedio.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleMensajeError.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModulePrincipal.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleUnicaVez.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleUpdate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ModuleUtilidadesDisco.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  comun.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
+"Project-Id-Version: $(PACKAGE) $(VERSION)\n"
+"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -523,75 +714,75 @@ msgstr ""
 msgid "Registro: "
 msgstr ""
 
-#: FMain.class:607
+#: FMain.class:614
 msgid "Debe de tener al menos un registro"
 msgstr ""
 
-#: FMain.class:617
+#: FMain.class:624
 msgid "Necesita poner un nombre"
 msgstr ""
 
-#: FMain.class:630
+#: FMain.class:637
 msgid "Existe el fichero:"
 msgstr ""
 
-#: FMain.class:630
+#: FMain.class:637
 msgid "¿que desea hacer?"
 msgstr ""
 
-#: FMain.class:630
+#: FMain.class:637
 msgid " SobreEscribir "
 msgstr ""
 
-#: FMain.class:630
+#: FMain.class:637
 msgid " Cancelar "
 msgstr ""
 
-#: FMain.class:676
+#: FMain.class:683
 msgid "Debe de tener al menos un registro (alumno)"
 msgstr ""
 
-#: FMain.class:711
+#: FMain.class:718
 msgid "Error: intervalo mal indicado"
 msgstr ""
 
-#: FMain.class:830
+#: FMain.class:837
 msgid "Exportar diploma: Introduzca nombre"
 msgstr ""
 
-#: FMain.class:837
+#: FMain.class:844
 msgid "Exportación realizada con éxito"
 msgstr ""
 
-#: FMain.class:839
+#: FMain.class:846
 msgid "Ha fallado la exportación de datos del diploma"
 msgstr ""
 
-#: FMain.class:847
+#: FMain.class:854
 msgid "Debe de seleccionar un diploma a Exportar"
 msgstr ""
 
-#: FMain.class:855
+#: FMain.class:862
 msgid "Importar diploma: Elija el archivo"
 msgstr ""
 
-#: FMain.class:897 comun.module:14
+#: FMain.class:904 comun.module:14
 msgid "zip"
 msgstr ""
 
-#: FMain.class:902 comun.module:19
+#: FMain.class:909 comun.module:19
 msgid "pdftk"
 msgstr ""
 
-#: FMain.class:907 comun.module:24
+#: FMain.class:914 comun.module:24
 msgid "imagemagick"
 msgstr ""
 
-#: FMain.class:912 comun.module:39
+#: FMain.class:919 comun.module:39
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: FMain.class:912 comun.module:39
+#: FMain.class:919 comun.module:39
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 
@@ -827,10 +1018,6 @@ msgid ""
 "<i>NombreAlumno, NombreTutor, Colegio, Ciudad, Fecha, Comentario<i> <br>\n"
 msgstr ""
 
-#: FormPensando.form:21
-msgid "Pensando..."
-msgstr ""
-
 #: FormPensando.class:7
 msgid "Espere por favor..."
 msgstr ""
@@ -949,19 +1136,19 @@ msgid ""
 " Versión Desconocida."
 msgstr ""
 
-#: ModuleImprimir.module:208
+#: ModuleImprimir.module:213
 msgid " de "
 msgstr ""
 
-#: ModuleImprimir.module:446
+#: ModuleImprimir.module:451
 msgid "No se ha podido crear la imagen de la previsualización"
 msgstr ""
 
-#: ModuleImprimir.module:468
+#: ModuleImprimir.module:473
 msgid "No puedo presentar ese diploma"
 msgstr ""
 
-#: ModuleImprimir.module:562
+#: ModuleImprimir.module:567
 msgid "Se ha producido un error al intentar crear una previsualizacion"
 msgstr ""
 

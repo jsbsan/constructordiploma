@@ -1,34 +1,34 @@
 ' Gambas class file
 
 Property NombrePlantilla As String ''Nombre de la plantilla para que sepa si es de "a la deportividad", "torneo de ajedrez"...
-Private hNombrePlantilla As String 
+Private hNombrePlantilla As String
 
 Property Tema As String '' PLANTILLA01 Texto Tipo de diploma: ajedrez, mejor compañero
-Private hTema As String 
+Private hTema As String
 
 Property PlantillaBase As String  '' indice de la plantillabase que se usa Plantilla Base que usa el diploma
-Private hPlantillaBase As String 
+Private hPlantillaBase As String
 
 Property ImagenFondo As String '' FOTO01 Imagen que forma el fondo
-Private hImagenFondo As String 
+Private hImagenFondo As String
 
 Property ImagenMarco As String '' FOTO02 Imagen que forma el marco
-Private hImagenMarco As String 
+Private hImagenMarco As String
 
 Property ImagenLogo As String '' FOTO03 Imagen logo del diploma (ficha de ajedrez, por ejmplo)
-Private hImagenLogo As String 
+Private hImagenLogo As String
 
 Property Foto04 As String '' FOTO04 Foto Auxiliar
-Private hFoto04 As String 
+Private hFoto04 As String
 
 Property Foto05 As String ''FOTO05 Foto Auxiliar
-Private hFoto05 As String 
+Private hFoto05 As String
 
 Property Tag As String '' PLANTILLA02 campo extra para texto
-Private hTag As String 
+Private hTag As String
 
 Property Id As Integer '' para control interno (eliminar, editar, etc..)
-Private hId As Integer 
+Private hId As Integer
 
 'Metodos
 Public Sub vacio()
@@ -42,11 +42,11 @@ Public Sub vacio()
   hFoto04 = ""
   hFoto05 = ""
   hTag = ""
-  
+
 End
 
 Public Sub Text() As String
-  
+
   Dim cadena As String
 
   cadena = hNombrePlantilla & "\n"
@@ -59,125 +59,127 @@ Public Sub Text() As String
   cadena &= hFoto05 & "\n"
   cadena &= htag & "\n"
   cadena &= hid & "\n"
-  
+
   Return cadena
-  
+
 End
 
-Private Function Id_read() As Integer 
-  
-  Return hId 
-  
-End  
+Private Function Id_read() As Integer
+
+  Return hId
+
+End
 
 Private Sub Id_write(Valor As Integer)
-  
-  hId = Valor 
-  
+
+  hId = Valor
+
 End
 
-Private Function Tag_read() As String 
-  
-  Return hTag 
-  
-End  
+Private Function Tag_read() As String
+
+  Return hTag
+
+End
 
 Private Sub Tag_write(Valor As String)
-  
-  hTag = Valor 
-  
+
+  hTag = Valor
+
 End
 
-Private Function Foto05_read() As String 
-  
-  Return hFoto05 
-  
-End  
+Private Function Foto05_read() As String
+
+  Return hFoto05
+
+End
 
 Private Sub Foto05_write(Valor As String)
-  
-  hFoto05 = Valor 
-  
+
+  hFoto05 = Valor
+
 End
 
-Private Function Foto04_read() As String 
-  
-  Return hFoto04 
-  
-End  
+Private Function Foto04_read() As String
+
+  Return hFoto04
+
+End
 
 Private Sub Foto04_write(Valor As String)
-  
-  hFoto04 = Valor 
-  
+
+  hFoto04 = Valor
+
 End
 
-Private Function ImagenLogo_read() As String 
-  
-  Return hImagenLogo 
-  
-End  
+Private Function ImagenLogo_read() As String
+
+  Return hImagenLogo
+
+End
 
 Private Sub ImagenLogo_write(Valor As String)
-  
-  hImagenLogo = Valor 
-  
+
+  hImagenLogo = Valor
+
 End
 
-Private Function ImagenMarco_read() As String 
-  
-  Return hImagenMarco 
-  
-End  
+Private Function ImagenMarco_read() As String
+
+  Return hImagenMarco
+
+End
 
 Private Sub ImagenMarco_write(Valor As String)
-  
-  hImagenMarco = Valor 
-  
+
+  hImagenMarco = Valor
+
 End
 
-Private Function PlantillaBase_read() As String 
-  
-  Return hPlantillaBase 
-  
-End  
+Private Function PlantillaBase_read() As String
+
+  Return hPlantillaBase
+
+End
 
 Private Sub ImagenFondo_write(Valor As String)
-  
-  hImagenFondo = Valor 
-  
+
+  hImagenFondo = Valor
+
 End
 
-Private Function ImagenFondo_read() As String 
-  
+Private Function ImagenFondo_read() As String
+
   Return hImagenFondo
-  
-End  
+
+End
 
 Private Sub PlantillaBase_write(Valor As String)
-  
-  hPlantillaBase = Valor 
-  
+
+  hPlantillaBase = Valor
+
 End
 
-Private Function Tema_read() As String 
-  
-  Return hTema 
-  
-End  
+Private Function Tema_read() As String
+
+  Return hTema
+
+End
 
 Private Sub Tema_write(Valor As String)
-  
-  hTema = Valor 
-  
+
+  hTema = Valor
+
 End
 
-Private Function NombrePlantilla_read() As String 
+Private Function NombrePlantilla_read() As String
 
-  Return hNombrePlantilla 
+  Return hNombrePlantilla
 
-End  
+End
 
 Private Sub NombrePlantilla_write(Valor As String)
-  hNombrePlantilla = Valor 
+
+  hNombrePlantilla = Valor
+
 End

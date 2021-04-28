@@ -10,37 +10,37 @@ Private nombreInicial As String
 
 Public Sub Form_Open()
   'cargar en el combo los ficheros plantillaBase que haya...
-  
+
   If nuevaplantilla = True Then ExpanderMaquetacion.Hidden = False
   '
-  
-  If modo > -1 Then 
-    
-    If reg.ImagenFondo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo) Then 
+
+  If modo > -1 Then
+
+    If reg.ImagenFondo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo) Then
       PictureBoxFondo.tag = reg.ImagenFondo
       PictureBoxFondo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
     Endif
-    
-    If reg.ImagenMarco <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco) Then 
+
+    If reg.ImagenMarco <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco) Then
       PictureBoxMarco.tag = reg.ImagenMarco
       PictureBoxMarco.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
     Endif
-    
-    If reg.ImagenLogo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo) Then 
+
+    If reg.ImagenLogo <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo) Then
       PictureBoxLogo.tag = reg.ImagenLogo
       PictureBoxLogo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenLogo)
     Endif
-    
-    If reg.Foto04 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04) Then 
+
+    If reg.Foto04 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04) Then
       PictureBoxFoto04.tag = reg.Foto04
       PictureBoxFoto04.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto04)
     Endif
-    
-    If reg.Foto05 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05) Then 
+
+    If reg.Foto05 <> "" And Exist(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05) Then
       PictureBoxFoto05.tag = reg.Foto05
       PictureBoxFoto05.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
     Endif
-    
+
     TextBoxTema.text = reg.Tema
     TextBoxTag.text = reg.Tag
     TextBoxMaquetacion.text = reg.PlantillaBase
@@ -48,38 +48,38 @@ Public Sub Form_Open()
     nombreInicial = reg.NombrePlantilla
   Else
     TextBoxMaquetacion.text = reg.PlantillaBase
-    
+
   Endif
-  
+
   ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
-  
+
   ToolButtonPrevisualizar_Click()
   sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase)
   Me.center
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 Public Sub ToolButtonCancelarDiploma2_Click()
   'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
-  
+
   borradoMiniatura()
-  
+
   Me.Close
-  
+
 Catch
-  
+
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 Public Sub ToolButtonAceptarDiploma_Click()
-  
-  If TextBoxNombreDiploma.text <> nombreInicial Then 
+
+  If TextBoxNombreDiploma.text <> nombreInicial Then
     modo = anadir 'guardar como...
   Endif
-  
+
   borradoMiniatura()
   reg.NombrePlantilla = TextBoxNombreDiploma.text
   reg.PlantillaBase = TextBoxMaquetacion.text
@@ -90,167 +90,167 @@ Public Sub ToolButtonAceptarDiploma_Click()
   reg.ImagenMarco = PictureBoxMarco.Tag
   reg.Foto04 = PictureBoxFoto04.Tag
   reg.Foto05 = PictureBoxFoto05.Tag
-  
+
   'comprobar si la plantilla esta en el directorio del temporal....
   If Not Exist(ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & TextBoxMaquetacion.text) Then
     'realizo copia de la plantilla
     Copy ModulePrincipal.RutaPrograma & "PlantillasBases/" & TextBoxMaquetacion.text To ModulePrincipal.RutaPrograma & "temporales/PlantillasBases/" & TextBoxMaquetacion.text
   Endif
-  
+
   If modo = anadir Then
     ModuleGestionDiploma.anadirRegistro(reg)
-    
+
   Else
     'editando...
     ModuleGestionDiploma.EditarRegistro(reg, modo)
   Endif
   Me.Close
-  
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 Public Sub PictureBoxFondo_MouseDown()
-  
+
   reg.ImagenFondo = asignaImagen(PictureBoxFondo)
   PictureBoxFondo.tag = reg.ImagenFondo
-  
+
 End
 
 Private Sub asignaImagen(PictureBoxElegido As Picturebox) As String
-  
+
   Dim dialogofile As New FormElegirFichero
   Dim dat As New ClassDato
-  
+
   dialogofile.valor = dat
-  
+
   dialogofile.Titulo = ("Elija el archivo gráfico")
   dialogofile.Filtro = ["*.png;*.jpg;*.jpeg;*.bmp", ("Ficheros de Imágenes")]
   dialogofile.ShowModal()
-  
+
   If dat.dato = "-1" Then Return
-  
+
   Return asignaImagen2Paso(dat.dato, PictureBoxElegido)
-  
+
 End
 
 Public Function asignaImagen2Paso(ruta As String, PictureBoxElegido As Picturebox) As String
-  
+
   Dim nombrecopia As String
   Dim extension As String
   Dim comparacion As String 'añadido para comprobar si existe un fichero con el mismo nombre y es igual
   Dim copiar As String
   Dim comando As String
   Dim nombresimple As String
-  
+
   If Not Exist(ruta) Then
-    Message.Info(("No se ha podido descargarse el archivo")) 
-    Return 
+    Message.Info(("No se ha podido descargarse el archivo"))
+    Return
   Endif
-  
+
   PictureBoxElegido.Picture = Picture["importar.png"]
   Wait 0.1
   Print "FICHERO: "; RUTA
-  If Not Exist(ruta) Then 
+  If Not Exist(ruta) Then
     Message.Info(("No se ha podido descargar la imagen, pruebe de otra manera"))
-    
-    Return 
+
+    Return
   Endif
   If Upper$(ModuleUtilidadesDisco.extraeExtension(ruta)) = "PNG" Or Upper$(ModuleUtilidadesDisco.extraeExtension(ruta)) = "JPG" Then
-    
+
     PictureBoxElegido.Picture = Picture.Load(ruta)
     PictureBoxElegido.tag = ruta
     copiar = "si"
-    
+
     nombresimple = ModuleUtilidadesDisco.VerificarNombreEtiqueta(Replace(ModuleUtilidadesDisco.extraedesdebarra(PictureBoxElegido.tag), " ", "_"), ["FOTO", "PLANTILLA", "CAMPO"], ["Imagen", "PLA_TILLA", "CA_PO"])
     nombrecopia = ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & nombresimple
-    
+
     While (Exist(nombrecopia))
       'si existe fichero con el mismo nombre, 1º comprobar si es igual...
       comando = "cmp " & nombrecopia & " " & PictureBoxElegido.tag
       Shell comando To comparacion
-      If comparacion = "" Then 
+      If comparacion = "" Then
         'son iguales-> no hace falta cambiar de nombre ya que lo tengo...
         'no hago la copia
         copiar = "no"
-        
+
         Break
       Endif
-      
+
       'para que no machaque nombres de fichros...
       extension = ModuleUtilidadesDisco.extraeExtension(nombrecopia)
-      If extension <> "" Then 
+      If extension <> "" Then
         nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension) - 1) & "c" & "." & extension
         copiar = "si"
       Else
-        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c" 
+        nombrecopia = Mid$(nombrecopia, 1, Len(nombrecopia) - Len(extension)) & "c"
         copiar = "si"
       Endif
-      
+
     Wend
-    
-    If copiar = "si" Then 
-      
+
+    If copiar = "si" Then
+
       Exec ["cp", PictureBoxElegido.tag, nombrecopia] Wait
       PictureBoxElegido.Picture = Picture["importar.png"]
       Wait 0.1
       PictureBoxElegido.Picture = Picture[nombrecopia]
       PictureBoxElegido.tag = nombrecopia
-      
+
     Endif
   Else
     Message.Info(("No se ha podido descargar la imagen, no es un fichero .jpg o .png"))
-    
+
   Endif
-  
+
   Return ModuleUtilidadesDisco.extraedesdebarra(nombrecopia)
-  
+
 Catch
-  
-  If error.Text = "Unable to load picture" Then 
+
+  If error.Text = "Unable to load picture" Then
     Message.Error(("No ha sido posible descargar o usar la imagen, pruebe  descargandola al disco duro "))
   Else
     ModuleMensajeError.SistemaDescripcionError()
   Endif
-  
+
 End
 
 Public Sub PictureBoxMarco_MouseDown()
-  
+
   reg.ImagenMarco = asignaImagen(PictureBoxMarco)
   PictureBoxMarco.tag = reg.ImagenMarco
-  
+
 End
 
 Public Sub PictureBoxLogo_MouseDown()
-  
+
   reg.ImagenLogo = asignaImagen(PictureBoxlogo)
   PictureBoxlogo.tag = reg.ImagenLogo
-  
+
 End
 
 Public Sub PictureBoxFoto04_MouseDown()
-  
+
   reg.Foto04 = asignaImagen(PictureBoxFoto04)
   PictureBoxfoto04.tag = reg.Foto04
-  
+
 End
 
 Public Sub PictureBoxFoto05_MouseDown()
-  
+
   reg.Foto05 = asignaImagen(PictureBoxFoto05)
   PictureBoxfoto05.tag = reg.Foto05
-  
+
 End
 
 Public Sub ToolButton1_Click()
-  
+
 End
 
 Public Sub ToolButtonPrevisualizar_Click()
-  
-  If reg.PlantillaBase <> "" Then 
+
+  If reg.PlantillaBase <> "" Then
     'cojo los datos actuales y hago la presentacion de los mismos...
     reg.NombrePlantilla = TextBoxNombreDiploma.text
     reg.PlantillaBase = TextBoxMaquetacion.text
@@ -265,73 +265,73 @@ Public Sub ToolButtonPrevisualizar_Click()
   Else
     Message.Error(("Deberá especificar una maquetación para el Diploma"))
   Endif
-  
+
 End
 
 Public Sub ListBoxPlantillasBase_Click()
-  
-  If actualizarMaq = "no" Then 
+
+  If actualizarMaq = "no" Then
     actualizarMaq = "Si"
   Else
-    
+
     TextBoxMaquetacion.text = ListBoxPlantillasBase.List[ListBoxPlantillasBase.index]
     reg.PlantillaBase = TextBoxMaquetacion.text
     sistemadeocultacion(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase)
     ModuleImprimir.PrevisualizarPlantillaTematicaRegistro(reg, DrawingAreaPrevisualizarMini)
   Endif
-  
+
 End
 
 Public Sub ToolButtonEditaPlantilla_Click()
-  
+
   '  Dim tex As String
   Dim comando As String
   Dim f As New FormPensando
-  
+
   f.Show
-  Wait 0.2 
+  Wait 0.2
   comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & ListBoxPlantillasBase.text
   Shell comando Wait
-  
+
   f.parar = True
-  
+
   f.delete()
-  
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
 
 End
 
 Public Sub ToolButtonAnadirPlantilla_Click()
-  
+
   ModuleIntermedio.anadirPlantilla()
   ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
-  
+
 End
 
 Public Sub ToolButtonCrearPlantilla_Click()
   '  Dim tex As String
-  
+
   Dim fpensando As New FormPensando
   Dim salir As Boolean = True
   Dim comando As String
   Dim nombrePlantillaNueva As String
   'repetir hasta conseguir un nombre que no sea igual...
   While (salir = True)
-    
+
     nombrePlantillaNueva = Replace(InputBox("Introduce un nombre de la nueva plantilla:", "Crear una plantilla", "personalizada.svg"), " ", "_")
-    If nombrePlantillaNueva = "" Then Return 
+    If nombrePlantillaNueva = "" Then Return
     If Lower(nombrePlantillaNueva) Not Ends ".svg" Then nombrePlantillaNueva = Lower(nombrePlantillaNueva) & ".svg"
-    If Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva) Then 
+    If Exist(ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva) Then
       Message.Error(("Existe una plantilla con el mismo nombre"))
-      
+
     Else
       salir = False
     Endif
   Wend
-  
+
   Try Copy ModulePrincipal.RutaPrograma & "PlantillasBases/plantilla0.svg" To ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
-  If Not Error Then 
+  If Not Error Then
     fpensando.show()
     Wait 0.1
     comando = "inkscape " & ModulePrincipal.RutaPrograma & "PlantillasBases/" & nombrePlantillaNueva
@@ -339,45 +339,45 @@ Public Sub ToolButtonCrearPlantilla_Click()
     ModuleIntermedio.CARGALISTA(ListBoxPlantillasBase, ModulePrincipal.RutaPrograma & "PlantillasBases", "*.svg")
     fpensando.parar = True
     fpensando.Delete()
-    
+
   Else
-    
+
     Message.Info(("Error al copiar palntilla"))
   Endif
-  
+
 End
 
 Public Sub ToolButtonBorrarPlantilla_Click()
-  
+
   ModuleIntermedio.borradoElementoLista(ListBoxPlantillasBase)
-  
-  If ListBoxPlantillasBase.index >= 0 Then 
+
+  If ListBoxPlantillasBase.index >= 0 Then
     ListBoxPlantillasBase.index = 0 'elijo el primer elemento
-    
+
   Endif
-  
+
 End
 
 Public Sub ToolButtonAceptarDiploma2_Click()
   'borra la previsualizacion, por si ha cambiado algo, repitera la creacion de la previsualizacion
-  
+
   'Guardamo como un registro nuevo...
   modo = anadir
   ToolButtonAceptarDiploma_Click()
-  
+
 End
 
 Public Sub botontransparente_Click()
-  
+
   Dim numero As Integer
-  
+
   numero = Val(Last.tag)
-  
+
   Select numero
     Case 1
       reg.ImagenFondo = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
       PictureBoxFondo.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenFondo)
-      PictureBoxFondo.tag = reg.ImagenFondo 
+      PictureBoxFondo.tag = reg.ImagenFondo
     Case 2
       reg.ImagenMarco = ModuleHacerTransparente.convertirTransparente(ModulePrincipal.RutaPrograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
       PictureBoxMarco.Picture = Picture.Load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.ImagenMarco)
@@ -395,35 +395,35 @@ Public Sub botontransparente_Click()
       PictureBoxFoto05.Picture = Picture.load(ModulePrincipal.rutaprograma & "temporales/FotosPlantillasTematica/" & reg.Foto05)
       PictureBoxfoto05.tag = reg.Foto05
   End Select
-  
+
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 Public Sub borradoMiniatura()
-  
+
   Dim rutamini As String
-  
+
   'rutamini = String.Mid(ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"), 1, String.Len(ModulePrincipal.rutaprograma & "PlantillasBases/" & reg.PlantillaBase & Replace$(reg.tema, " ", "_"))) & "mini.png"
-  
+
   rutamini = ModulePrincipal.rutaprograma & "temporales/PlantillasBases/" & Replace(reg.PlantillaBase, ".svg", "") & Replace$(reg.NombrePlantilla, " ", "_") & "mini.png"
-  
-  If Exist(rutamini) Then Kill rutamini 
+
+  If Exist(rutamini) Then Kill rutamini
 Catch
   Message.Error(("Se ha producido un error al intentar borrar una minuatura:") & "\n" & rutamini)
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 Public Sub TextBoxNombreDiploma_LostFocus()
-  
+
   If TextBoxNombreDiploma.text <> nombreInicial Then
     'anulo boton guardar, y solo dejo boton guardar como
     ToolButtonAceptarDiploma.Enabled = False
     '
   Endif
-  
+
 End
 
 '--------------------------------------------------------------------------------------
@@ -431,33 +431,33 @@ End
 '--------------------------------------------------------------------------------------
 
 Public Sub sistemadeocultacion(plantillaactual As String)
-  
+
   Dim a As Integer
   Dim contenido As String
   Dim listadeEtiquetas As String[] = ["PLANTILLA01", "FOTO01", "FOTO02", "FOTO03", "FOTO04", "FOTO05", "PLANTILLA02"]
-  
+
   'Inicialmente: poner todas las etiquetas como ocultas
   For a = 0 To listadeEtiquetas.max
     mostrarEtiquetas(a, False)
   Next
-  
+
   'si no existe plantilla actual no muestra ninguna etiqueta... (es un directorio lo q nos han pasado)
   If IsDir(plantillaactual) Then Return
-  
+
   'cargamos la platillas
-  
+
   contenido = Upper$(file.load(plantillaactual))
-  'comprobamos uno por uno los campo, si existe, activamos 
+  'comprobamos uno por uno los campo, si existe, activamos
   For a = 0 To listadeEtiquetas.max
-    If InStr(contenido, listadeEtiquetas[a]) <> 0 Then 
+    If InStr(contenido, listadeEtiquetas[a]) <> 0 Then
       'existe la etiqueta en la plantilla
-      'mostrar label/textbox/picturebox        
+      'mostrar label/textbox/picturebox
       mostrarEtiquetas(a, True)
     Endif
   Next
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 '----------------------------------------------
@@ -467,7 +467,7 @@ End
 Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
   'el parametro "a" indica que grupo se va a modificar la vision
   'el parametro "mostrar", es del tipo boolean, y asignara el valor true o false a las propiedades del mostrar.
-  
+
   Select Case a
     Case 0
       TextBoxTema.visible = mostrar
@@ -477,72 +477,72 @@ Public Sub mostrarEtiquetas(a As Integer, mostrar As Boolean)
     Case 2
       PictureBoxMarco.visible = mostrar
       ToolButton3.visible = mostrar
-      
+
     Case 3
       PictureBoxLogo.visible = mostrar
       ToolButton4.visible = mostrar
     Case 4
       PictureBoxFoto04.visible = mostrar
       ToolButton1.Visible = mostrar
-      
+
     Case 5
       PictureBoxFoto05.visible = mostrar
       ToolButton5.Visible = mostrar
     Case 6
       TextBoxTag.visible = mostrar
-      
+
   End Select
 Catch
   ModuleMensajeError.SistemaDescripcionError()
-  
+
 End
 
 '---------------------------------------------
 'Soltar imagenes....
 '---------------------------------------------
 Public Sub PictureBoxFondo_Drop()
-  'Url de referencia: 
+  'Url de referencia:
   'http://www.gambas-es.org/viewtopic.php?f=1&t=2054&highlight=drag+drop&start=10
-  
+
   reg.ImagenFondo = suelta(PictureBoxFondo)
-  PictureBoxFondo.tag = reg.ImagenFondo  
-  
+  PictureBoxFondo.tag = reg.ImagenFondo
+
 End
 
 Public Sub suelta(cajapicture As PictureBox) As String
-  
+
   Dim nombre As String
   Dim a As String
   Dim b As String[]
   Dim fpensando As New FormPensando
-  
+
   a = Drag.data ' limitamos el tipo de los datos pegados
   b = Split(a, gb.CrLf, "", True) ' cargamos la lista de rutas en un array b
   ' escapando las terminaciones de línea
   Try b[0] = Replace(b[0], "\x00", "")
-  
-  If Left(b[0], 7) = "file://" Then 
+
+  If Left(b[0], 7) = "file://" Then
     a = Null  ' reutilizamos la variable "a"
-    
+
     a = Right$(b[0], -7) ' quitamos "file://"
     a = URLDecode(a)  ' descodificamos las cadenas
-    
+
     'fichero de ruta...
     Return asignaImagen2Paso(a, cajapicture)
-    
+
   Else
-    'comprobar si proviene de navegador http 
+    'comprobar si proviene de navegador http
     a = Replace(a, "\x00", "")
-    If InStr(a, "www.google") <> 0 Then 
-      a = comun.Between(a, "imgurl=", "&")  
+    If InStr(a, "www.google") <> 0 Then
+      a = comun.Between(a, "imgurl=", "&")
       a = URLDecode(a)  ' descodificamos las cadenas
-      
-      If cajapicture.tag = "1." & Right$(a, 3) Then 
-        nombre = "1" 
+
+      If cajapicture.tag = "1." & Right$(a, 3) Then
+        nombre = "1"
       Else
         nombre = "2"
       Endif
-      
+
       nombre = "/tmp/" & nombre & "." & Right$(a, 3)
       Try Kill nombre 'borro nombre anterior
       cajapicture.Picture = Picture["importar.png"]
@@ -554,25 +554,25 @@ Public Sub suelta(cajapicture As PictureBox) As String
       'fichero de ruta...
       Wait 0.1
       fpensando.Delete()
-      
+
       Return asignaImagen2Paso(nombre, cajapicture)
-      
+
     Endif
   Endif
-  
+
 End
 
 Private Function URLDecode(txt As String) As String
   ''' Descodifica los caracteres hexadecimales en las URI's recorriendo la cadena dada
   ''' Params: txt la URI a descodificar
   ''' Return: la URI descodificada
-  
+
   Dim txt_len As Integer
   Dim i As Integer
   Dim ch As String
   Dim digits As String
   Dim resultado As String
-  
+
   resultado = ""
   txt_len = Len(txt)
   i = 1
@@ -598,35 +598,35 @@ Private Function URLDecode(txt As String) As String
     Endif
     i = i + 1
   Loop
-  
+
   Return resultado
-  
+
 End
 
 Public Sub PictureBoxMarco_Drop()
-  
+
   reg.ImagenMarco = suelta(PictureBoxMarco)
   PictureBoxMarco.tag = reg.ImagenMarco
-  
+
 End
 
 Public Sub PictureBoxLogo_Drop()
-  
+
   reg.ImagenLogo = suelta(PictureBoxlogo)
   PictureBoxlogo.tag = reg.ImagenLogo
-  
+
 End
 
 Public Sub PictureBoxFoto04_Drop()
-  
+
   reg.Foto04 = suelta(PictureBoxFoto04)
   PictureBoxfoto04.tag = reg.Foto04
-  
+
 End
 
 Public Sub PictureBoxFoto05_Drop()
-  
+
   reg.Foto05 = suelta(PictureBoxFoto05)
   PictureBoxfoto05.tag = reg.Foto05
-  
+
 End

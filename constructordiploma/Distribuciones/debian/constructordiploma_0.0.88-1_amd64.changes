@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Wed, 28 Apr 2021 12:00:00 +0000
+Source: constructordiploma
+Binary: constructordiploma
+Architecture: source all
+Version: 0.0.88-1
+Distribution: unstable
+Urgency: low
+Maintainer: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Changed-By: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Description:
+ constructordiploma - Crea diplomas personalizados fácilmente
+Changes:
+ constructordiploma (0.0.88-1) unstable; urgency=low
+ .
+   * version para 3.16 e inkscape 1.0
+Checksums-Sha1:
+ 0504d741de936abbf9407036adeefbc1e52cb5b0 1460 constructordiploma_0.0.88-1.dsc
+ 298c2b5085b16d2700173315dc783fca4f0ecc1f 3306 constructordiploma_0.0.88-1.diff.gz
+ d3b80cd1b5e8fe2dcf9da9fdfadd05179816a3d0 24343236 constructordiploma_0.0.88-1_all.deb
+ c74165d5edbb9b2a7096e5a90076e066cca87259 20144 constructordiploma_0.0.88-1_amd64.buildinfo
+Checksums-Sha256:
+ 15a24994e7ff8f3525bb774a8343f6d0cb454d01800bac4690c794d2e6714279 1460 constructordiploma_0.0.88-1.dsc
+ 79aae9fe1d405a8985b42fe90eea2cb42e869d570b169456a8f02fb4f6231d91 3306 constructordiploma_0.0.88-1.diff.gz
+ 6d695303f63b194a0ef6d776d1027a708df26d2294b50741723590bb585cfc79 24343236 constructordiploma_0.0.88-1_all.deb
+ b97fa6887f033dab217e3da9ec982bb06e56198349ebd48ddeaaadd3c642c107 20144 constructordiploma_0.0.88-1_amd64.buildinfo
+Files:
+ 463c47da29f4112d43bf1b060dfa7d1f 1460 contrib/graphics optional constructordiploma_0.0.88-1.dsc
+ f160364755b8e39aa6caf581d3f8182d 3306 contrib/graphics optional constructordiploma_0.0.88-1.diff.gz
+ 8467758fef19e31f4c3720e5a6abb49e 24343236 contrib/graphics optional constructordiploma_0.0.88-1_all.deb
+ e50bc09d0c106b7dd83aa21977dcfbb0 20144 contrib/graphics optional constructordiploma_0.0.88-1_amd64.buildinfo

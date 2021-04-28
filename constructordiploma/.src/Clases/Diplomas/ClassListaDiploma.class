@@ -1,25 +1,25 @@
 ' Gambas class file
 
 Property Registros As ClassDiplomaTematico[]  ''registro tipo classDiplomaTematico
-Private hDiplomaTematico As New ClassDiplomaTematico[] 
+Private hDiplomaTematico As New ClassDiplomaTematico[]
 
 Public Sub generarId() As Integer
-  
+
   Dim a As Integer
   Dim valor As Integer
-  
+
   valor = -1
   For a = 0 To hDiplomaTematico.Max
     valor = Max(valor, hDiplomaTematico[a].Id)
-    
+
   Next
-  
+
   Return (valor + 1)
-  
+
 End
 
 Public Sub buscar(id As Integer) As Integer
-  
+
   Dim a As Integer
   'recorremos todos los indices hasta encontrar el id, devolviendo la posicion del array donde esta (a)
   For a = 0 To hDiplomaTematico.Max
@@ -27,30 +27,30 @@ Public Sub buscar(id As Integer) As Integer
   Next
   Message.info(("se ha producido un error al buscar el indice"))
   Return -1
-  
+
 End
 
 Public Sub contenido() As String
-  
+
   Dim regtmp As ClassDiplomaTematico
   Dim texto As String
-  
+
   For Each regtmp In hDiplomaTematico
     texto &= regtmp.Text()
   Next
   Return texto
-  
+
 End
 
 Public Sub LecturaDatos(cadenas As String[]) As Boolean
-  
+
   Dim a As Integer
   Dim regtmp As New ClassDiplomaTematico
-  
+
   For a = 0 To cadenas.count - 2
     regtmp.NombrePlantilla = cadenas[a]
     a += 1
-    
+
     regtmp.Tema = cadenas[a]
     a += 1
     regtmp.PlantillaBase = cadenas[a]
@@ -67,29 +67,29 @@ Public Sub LecturaDatos(cadenas As String[]) As Boolean
     a += 1
     regtmp.Tag = cadenas[a]
     a += 1
-    
-    If cadenas[a] <> "" Then 
+
+    If cadenas[a] <> "" Then
       regtmp.id = Val(cadenas[a])
     Else
       regtmp.id = 0
     Endif
-    
+
     hDiplomaTematico.Add(regtmp)
     regtmp = New ClassDiplomaTematico
   Next
-  
+
   Return True 'lectura correcta
-  
+
 End
 
-Private Function Registros_read() As ClassDiplomaTematico[] 
-  
-  Return hDiplomaTematico 
-  
-End  
+Private Function Registros_read() As ClassDiplomaTematico[]
+
+  Return hDiplomaTematico
+
+End
 
 Private Sub Registros_write(Valor As ClassDiplomaTematico[])
-  
-  hDiplomaTematico = Valor 
-  
+
+  hDiplomaTematico = Valor
+
 End

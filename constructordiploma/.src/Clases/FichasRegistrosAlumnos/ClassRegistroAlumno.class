@@ -1,39 +1,39 @@
 ' Gambas class file
 
 Property IdDiplomaTematico As Integer ''id del diplomatematico con el que esta relacionado
-Private hIdDiplomaTematico As Integer 
+Private hIdDiplomaTematico As Integer
 
 Property NombreAlumno As String ''CAMPO01 nombre del alumno
-Private hNombreAlumno As String 
+Private hNombreAlumno As String
 
 Property NombreTutor As String ''CAMPO02 nombre del tutor/a
-Private hNombreTutor As String 
+Private hNombreTutor As String
 
 Property Colegio As String ''CAMPO03 nombre del colegio
-Private hColegio As String 
+Private hColegio As String
 
 Property Ciudad As String ''CAMPO04 nombre de la ciudad
-Private hCiudad As String 
+Private hCiudad As String
 
 Property Fecha As String '' CAMPO05 fecha en la que se da el diploma
-Private hFecha As String 
+Private hFecha As String
 
-Property FotoAlumno As String '' FOTO06: foto del alumno (opcional) 
-Private hFotoAlumno As String 
+Property FotoAlumno As String '' FOTO06: foto del alumno (opcional)
+Private hFotoAlumno As String
 
 Property Foto07 As String ''FOTO07: Foto opcional, por ejemplo del tutor, de los otros alumnos...
-Private hFoto07 As String 
+Private hFoto07 As String
 
 Property tag As String ''CAMPO06: texto opcional
-Private htag As String 
+Private htag As String
 
 Property Id As Integer  '' para control interno (eliminar, editar, etc..)
-Private hId As Integer 
+Private hId As Integer
 
 'Metodos
 
 Public Sub vacio()
-  
+
   hIdDiplomaTematico = -1
   hNombreAlumno = ""
   hNombreTutor = ""
@@ -43,13 +43,13 @@ Public Sub vacio()
   hFotoAlumno = ""
   hFoto07 = ""
   htag = ""
-  
+
 End
 
 Public Sub Text() As String
-  
+
   Dim cadena As String
-  
+
   cadena = hIdDiplomaTematico & "\n"
   cadena &= hNombreAlumno & "\n"
   cadena &= hNombreTutor & "\n"
@@ -60,126 +60,127 @@ Public Sub Text() As String
   cadena &= hFoto07 & "\n"
   cadena &= htag & "\n"
   cadena &= hid & "\n"
-  
+
   Return cadena
-  
+
 End
 
-Private Function Id_read() As Integer 
-  
-  Return hId 
-  
-End  
+Private Function Id_read() As Integer
+
+  Return hId
+
+End
 
 Private Sub Id_write(Valor As Integer)
-  
-  hId = Valor 
-  
+
+  hId = Valor
+
 End
 
-Private Function tag_read() As String 
-  
-  Return htag 
-  
-End  
+Private Function tag_read() As String
+
+  Return htag
+
+End
 
 Private Sub tag_write(Valor As String)
-  
-  htag = Valor 
-  
+
+  htag = Valor
+
 End
 
-Private Function Foto07_read() As String 
-  
-  Return hFoto07 
-  
-End  
+Private Function Foto07_read() As String
+
+  Return hFoto07
+
+End
 
 Private Sub Foto07_write(Valor As String)
-  
-  hFoto07 = Valor 
-  
+
+  hFoto07 = Valor
+
 End
 
-Private Function FotoAlumno_read() As String 
-  
-  Return hFotoAlumno 
-  
-End  
+Private Function FotoAlumno_read() As String
+
+  Return hFotoAlumno
+
+End
 
 Private Sub FotoAlumno_write(Valor As String)
-  
-  hFotoAlumno = Valor 
-  
+
+  hFotoAlumno = Valor
+
 End
 
-Private Function Fecha_read() As String 
-  
-  Return hFecha 
-  
-End  
+Private Function Fecha_read() As String
+
+  Return hFecha
+
+End
 
 Private Sub Fecha_write(Valor As String)
-  
-  hFecha = Valor 
-  
+
+  hFecha = Valor
+
 End
 
-Private Function Ciudad_read() As String 
-  
-  Return hCiudad 
-  
-End  
+Private Function Ciudad_read() As String
+
+  Return hCiudad
+
+End
 
 Private Sub Ciudad_write(Valor As String)
-  
-  hCiudad = Valor 
-  
+
+  hCiudad = Valor
+
 End
 
-Private Function Colegio_read() As String 
-  
-  Return hColegio 
-  
-End  
+Private Function Colegio_read() As String
+
+  Return hColegio
+
+End
 
 Private Sub Colegio_write(Valor As String)
-  
-  hColegio = Valor 
-  
+
+  hColegio = Valor
+
 End
 
-Private Function NombreTutor_read() As String 
-  
-  Return hNombreTutor 
-  
-End  
+Private Function NombreTutor_read() As String
+
+  Return hNombreTutor
+
+End
 
 Private Sub NombreTutor_write(Valor As String)
-  
-  hNombreTutor = Valor 
-  
+
+  hNombreTutor = Valor
+
 End
 
-Private Function IdDiplomaTematico_read() As Integer 
-  
-  Return hIdDiplomaTematico 
-  
-End  
+Private Function IdDiplomaTematico_read() As Integer
+
+  Return hIdDiplomaTematico
+
+End
 
 Private Sub IdDiplomaTematico_write(Valor As Integer)
-  
-  hIdDiplomaTematico = Valor 
-  
+
+  hIdDiplomaTematico = Valor
+
 End
 
-Private Function NombreAlumno_read() As String 
+Private Function NombreAlumno_read() As String
 
-  Return hNombreAlumno 
+  Return hNombreAlumno
 
-End  
+End
 
 Private Sub NombreAlumno_write(Valor As String)
 
-  hNombreAlumno = Valor 
+  hNombreAlumno = Valor
+
 End
