@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-28 08:25 UTC\n"
+"POT-Creation-Date: 2021-04-29 06:52 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,30 +15,34 @@ msgid "inkscape"
 msgstr ""
 
 #: comun.module:14
-msgid "zip"
+msgid "unzip"
 msgstr ""
 
 #: comun.module:19
-msgid "pdftk"
+msgid "zip"
 msgstr ""
 
 #: comun.module:24
-msgid "imagemagick"
+msgid "pdftk"
 msgstr ""
 
 #: comun.module:29
-msgid "qrencode"
+msgid "imagemagick"
 msgstr ""
 
 #: comun.module:34
+msgid "qrencode"
+msgstr ""
+
+#: comun.module:39
 msgid "pcmanfm"
 msgstr ""
 
-#: comun.module:39
+#: comun.module:44
 msgid "Falta los siguientes programas por instarlar:"
 msgstr ""
 
-#: comun.module:39
+#: comun.module:44
 msgid "Instalelos para poder ejecutar el programa correctamente"
 msgstr ""
 

@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Thu, 29 Apr 2021 12:00:00 +0000
+Source: constructordiploma-gtk3
+Binary: constructordiploma-gtk3
+Architecture: source all
+Version: 0.0.88-1
+Distribution: unstable
+Urgency: low
+Maintainer: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Changed-By: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Description:
+ constructordiploma-gtk3 - gtk3 package for ConstructorDiplomas
+Changes:
+ constructordiploma-gtk3 (0.0.88-1) unstable; urgency=low
+ .
+   * unzip compruebo que se haya instalado
+Checksums-Sha1:
+ d03ab97710fac412d00f588619b43848bc146a27 622 constructordiploma-gtk3_0.0.88-1.dsc
+ 513e329f15a0f85c84d2787e48bf72c274eec192 2611 constructordiploma-gtk3_0.0.88-1.tar.gz
+ 65f80eda780321d38b670aa08f4e98d623b8b924 3152 constructordiploma-gtk3_0.0.88-1_all.deb
+ 7a7f1408d7521299aadf64a78112d95b3f3ee914 13509 constructordiploma-gtk3_0.0.88-1_amd64.buildinfo
+Checksums-Sha256:
+ d77616c082faf85c747a136517fa69c971b0d419467322614e0c985ff50e3728 622 constructordiploma-gtk3_0.0.88-1.dsc
+ 0bcb8b2924b0ea927d4fdd3362db260488d432a6ced26a34ed5ce94b67df8d75 2611 constructordiploma-gtk3_0.0.88-1.tar.gz
+ 41c494188eb7e881b1caf24de2899e4f46d282055bea637898cccca4dd32fd17 3152 constructordiploma-gtk3_0.0.88-1_all.deb
+ d09029028ccf0f225841090067dd088c6e5208cf58d5d54566c62c5057aaff2a 13509 constructordiploma-gtk3_0.0.88-1_amd64.buildinfo
+Files:
+ aa640ff209c54eb7243a7e282b420716 622 contrib/graphics optional constructordiploma-gtk3_0.0.88-1.dsc
+ d613fc32e913ad59cab47f9b897af20a 2611 contrib/graphics optional constructordiploma-gtk3_0.0.88-1.tar.gz
+ a6a7afdce618725f80bf5b54831e1dc1 3152 contrib/graphics optional constructordiploma-gtk3_0.0.88-1_all.deb
+ de444ac100267ffa8109fbe050545515 13509 contrib/graphics optional constructordiploma-gtk3_0.0.88-1_amd64.buildinfo

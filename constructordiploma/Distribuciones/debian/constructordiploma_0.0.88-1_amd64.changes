@@ -1,5 +1,5 @@
 Format: 1.8
-Date: Wed, 28 Apr 2021 12:00:00 +0000
+Date: Thu, 29 Apr 2021 12:00:00 +0000
 Source: constructordiploma
 Binary: constructordiploma
 Architecture: source all
@@ -13,19 +13,19 @@ Description:
 Changes:
  constructordiploma (0.0.88-1) unstable; urgency=low
  .
-   * version para 3.16 e inkscape 1.0
+   * unzip compruebo que se haya instalado
 Checksums-Sha1:
- 0504d741de936abbf9407036adeefbc1e52cb5b0 1460 constructordiploma_0.0.88-1.dsc
- 298c2b5085b16d2700173315dc783fca4f0ecc1f 3306 constructordiploma_0.0.88-1.diff.gz
- d3b80cd1b5e8fe2dcf9da9fdfadd05179816a3d0 24343236 constructordiploma_0.0.88-1_all.deb
- c74165d5edbb9b2a7096e5a90076e066cca87259 20144 constructordiploma_0.0.88-1_amd64.buildinfo
+ 5e20ca46bcf1bc2b76a4a0756f39465fbbb45796 1351 constructordiploma_0.0.88-1.dsc
+ bf05593df1cf07be3948321948253a53be60783b 3315 constructordiploma_0.0.88-1.diff.gz
+ c4bba6d441d036885277df40c9b6e1de79811fb3 75096240 constructordiploma_0.0.88-1_all.deb
+ 310853c76fd579fc09ec687f1e5329d6484fe079 20001 constructordiploma_0.0.88-1_amd64.buildinfo
 Checksums-Sha256:
- 15a24994e7ff8f3525bb774a8343f6d0cb454d01800bac4690c794d2e6714279 1460 constructordiploma_0.0.88-1.dsc
- 79aae9fe1d405a8985b42fe90eea2cb42e869d570b169456a8f02fb4f6231d91 3306 constructordiploma_0.0.88-1.diff.gz
- 6d695303f63b194a0ef6d776d1027a708df26d2294b50741723590bb585cfc79 24343236 constructordiploma_0.0.88-1_all.deb
- b97fa6887f033dab217e3da9ec982bb06e56198349ebd48ddeaaadd3c642c107 20144 constructordiploma_0.0.88-1_amd64.buildinfo
+ a954eca1b6c632f9453c7df460836c37f92e50860bda25019bfe83e727592933 1351 constructordiploma_0.0.88-1.dsc
+ aa0c8af49d7284ff46c3f6fc9cd4bbdc96feaf9cbf8ab1591c3856793694cacf 3315 constructordiploma_0.0.88-1.diff.gz
+ b1e4e346b80f5f72c28e17194cf95d73a46206711fb449ef10fcc1c51a1e0daf 75096240 constructordiploma_0.0.88-1_all.deb
+ 2963360ac51b30eac0eedb9063b9429f93e4c05148297555b560e453a3f6b47b 20001 constructordiploma_0.0.88-1_amd64.buildinfo
 Files:
- 463c47da29f4112d43bf1b060dfa7d1f 1460 contrib/graphics optional constructordiploma_0.0.88-1.dsc
- f160364755b8e39aa6caf581d3f8182d 3306 contrib/graphics optional constructordiploma_0.0.88-1.diff.gz
- 8467758fef19e31f4c3720e5a6abb49e 24343236 contrib/graphics optional constructordiploma_0.0.88-1_all.deb
- e50bc09d0c106b7dd83aa21977dcfbb0 20144 contrib/graphics optional constructordiploma_0.0.88-1_amd64.buildinfo
+ 4e37a80a49179246e54c09c6979930e4 1351 contrib/graphics optional constructordiploma_0.0.88-1.dsc
+ 0deef40208296698721b1d7377fcc7f6 3315 contrib/graphics optional constructordiploma_0.0.88-1.diff.gz
+ 36957f391d23438106c181813bc6d75f 75096240 contrib/graphics optional constructordiploma_0.0.88-1_all.deb
+ bb9b28be2580c1ffc2685f166959be1e 20001 contrib/graphics optional constructordiploma_0.0.88-1_amd64.buildinfo

@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Thu, 29 Apr 2021 12:00:00 +0000
+Source: constructordiploma-qt5
+Binary: constructordiploma-qt5
+Architecture: source all
+Version: 0.0.88-1
+Distribution: unstable
+Urgency: low
+Maintainer: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Changed-By: Julio Sanchez Berro <jusabejusabe@gmail.com>
+Description:
+ constructordiploma-qt5 - qt5 package for ConstructorDiplomas
+Changes:
+ constructordiploma-qt5 (0.0.88-1) unstable; urgency=low
+ .
+   * unzip compruebo que se haya instalado
+Checksums-Sha1:
+ cc5f2bdb20c45409341781825b31f33169c4d26a 616 constructordiploma-qt5_0.0.88-1.dsc
+ dd55a48f26d354f7995940a56a4a0709922c21a3 2611 constructordiploma-qt5_0.0.88-1.tar.gz
+ 1fea758e4444ffb9c2ee65b90710ae379737f825 3156 constructordiploma-qt5_0.0.88-1_all.deb
+ e7f6b58d5ae4a63940c074ae884c41cff0d22899 13501 constructordiploma-qt5_0.0.88-1_amd64.buildinfo
+Checksums-Sha256:
+ 103c220ab484afbebe0174b42f67e62994d0b2de097e13b360d4fd9f39b36a10 616 constructordiploma-qt5_0.0.88-1.dsc
+ 63203c402fbad9933a4a6d0bbee7a34dbf5f878b172c9e9f4568927b91703942 2611 constructordiploma-qt5_0.0.88-1.tar.gz
+ efbaf51ace7ae2c0af9d534e48d775f56e9e07cf733f329a56111d1e2171c292 3156 constructordiploma-qt5_0.0.88-1_all.deb
+ ed35948e56ca3b539e1c5da09e219204b869d0f39f5ac0e0320f3e9e8a428a07 13501 constructordiploma-qt5_0.0.88-1_amd64.buildinfo
+Files:
+ ced9523588791544aa3af4883498e4ac 616 contrib/graphics optional constructordiploma-qt5_0.0.88-1.dsc
+ a53dc4cbf7d138204784a87a3ce969e3 2611 contrib/graphics optional constructordiploma-qt5_0.0.88-1.tar.gz
+ 5b67cdafc7ad22391f443778bfc81ea9 3156 contrib/graphics optional constructordiploma-qt5_0.0.88-1_all.deb
+ f9e264a6fc1a1dac1f0daa236961b230 13501 contrib/graphics optional constructordiploma-qt5_0.0.88-1_amd64.buildinfo

@@ -4,17 +4,17 @@ Binary: constructordiploma
 Architecture: all source
 Version: 0.0.88-1
 Checksums-Md5:
- 463c47da29f4112d43bf1b060dfa7d1f 1460 constructordiploma_0.0.88-1.dsc
- 8467758fef19e31f4c3720e5a6abb49e 24343236 constructordiploma_0.0.88-1_all.deb
+ 4e37a80a49179246e54c09c6979930e4 1351 constructordiploma_0.0.88-1.dsc
+ 36957f391d23438106c181813bc6d75f 75096240 constructordiploma_0.0.88-1_all.deb
 Checksums-Sha1:
- 0504d741de936abbf9407036adeefbc1e52cb5b0 1460 constructordiploma_0.0.88-1.dsc
- d3b80cd1b5e8fe2dcf9da9fdfadd05179816a3d0 24343236 constructordiploma_0.0.88-1_all.deb
+ 5e20ca46bcf1bc2b76a4a0756f39465fbbb45796 1351 constructordiploma_0.0.88-1.dsc
+ c4bba6d441d036885277df40c9b6e1de79811fb3 75096240 constructordiploma_0.0.88-1_all.deb
 Checksums-Sha256:
- 15a24994e7ff8f3525bb774a8343f6d0cb454d01800bac4690c794d2e6714279 1460 constructordiploma_0.0.88-1.dsc
- 6d695303f63b194a0ef6d776d1027a708df26d2294b50741723590bb585cfc79 24343236 constructordiploma_0.0.88-1_all.deb
+ a954eca1b6c632f9453c7df460836c37f92e50860bda25019bfe83e727592933 1351 constructordiploma_0.0.88-1.dsc
+ b1e4e346b80f5f72c28e17194cf95d73a46206711fb449ef10fcc1c51a1e0daf 75096240 constructordiploma_0.0.88-1_all.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Wed, 28 Apr 2021 10:26:12 +0200
+Build-Date: Thu, 29 Apr 2021 08:51:42 +0200
 Installed-Build-Depends:
  adduser (= 3.116ubuntu1),
  adwaita-icon-theme (= 3.28.0-1ubuntu1),
@@ -78,7 +78,6 @@ Installed-Build-Depends:
  gambas3-gb-net (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
  gambas3-gb-net-curl (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
  gambas3-gb-qt4 (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
- gambas3-gb-qt4-ext (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
  gambas3-gb-qt5 (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
  gambas3-gb-qt5-wayland (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
  gambas3-gb-qt5-x11 (= 3.16.0+git2021041914202.4564c5fa6+build13~ubuntu18.04.1),
@@ -351,9 +350,7 @@ Installed-Build-Depends:
  libpython3.6-minimal (= 3.6.9-1~18.04ubuntu1.4),
  libpython3.6-stdlib (= 3.6.9-1~18.04ubuntu1.4),
  libqt4-declarative (= 4:4.8.7+dfsg-7ubuntu1),
- libqt4-designer (= 4:4.8.7+dfsg-7ubuntu1),
  libqt4-network (= 4:4.8.7+dfsg-7ubuntu1),
- libqt4-qt3support (= 4:4.8.7+dfsg-7ubuntu1),
  libqt4-script (= 4:4.8.7+dfsg-7ubuntu1),
  libqt4-sql (= 4:4.8.7+dfsg-7ubuntu1),
  libqt4-svg (= 4:4.8.7+dfsg-7ubuntu1),
@@ -529,6 +526,7 @@ Installed-Build-Depends:
  ttf-bitstream-vera (= 1.10-8),
  ubuntu-mono (= 16.10+18.04.20181005-0ubuntu1),
  ucf (= 3.0038),
+ unzip (= 6.0-21ubuntu1.1),
  util-linux (= 2.31.1-0.4ubuntu3.7),
  x11-common (= 1:7.7+19ubuntu7.1),
  x11-xkb-utils (= 7.7+3ubuntu0.18.04.1),
@@ -542,4 +540,4 @@ Environment:
  DEB_BUILD_OPTIONS="parallel=4"
  LANG="es_ES.UTF-8"
  LC_ALL="es_ES.UTF-8"
- SOURCE_DATE_EPOCH="1619611200"
+ SOURCE_DATE_EPOCH="1619697600"
