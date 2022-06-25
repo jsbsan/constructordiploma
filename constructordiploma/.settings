@@ -4,12 +4,6 @@ ClassSuperGridview=[8]
 ModulePrincipal=[225]
 FMain=[642]
 
-[Breakpoints]
-Count=3
-Breakpoint[1]="FMain.26"
-Breakpoint[2]="ModuleUpdate.48"
-Breakpoint[3]="comun.141"
-
 [DebugWindow]
 Count=0
 
@@ -184,7 +178,7 @@ File[2]="diploma-icono.png"
 File[3]="diploma-icono24.png"
 File[4]="icono_diplomados22.png"
 File[5]="ojo22.png"
-Active=47
+Active=1
 File[6]=".src/FMain.class:12.33"
 File[7]=".src/ModulePrincipal.module:70.34"
 File[8]=".src/Clases/Diplomas/ClassDiplomaTematico.class:19.0"
@@ -228,7 +222,7 @@ File[45]="icono_transparente.png"
 File[46]=".src/ModuleHacerTransparente.module:14.0"
 File[47]=".src/comun.module:16.13"
 File[48]="googledriveacceso.png"
-File[49]=".src/ModuleUpdate.module:3.50"
+File[49]=".src/ModuleUpdate.module:77.10"
 File[50]=".src/ClassDatoLetra.class:3.17"
 File[51]=".src/FormError.form"
 File[52]=".src/FormError.class:0.17"

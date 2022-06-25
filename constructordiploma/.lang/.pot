@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  #project.pot (constructordiploma 3.16.0)  #-#-#-#-#\n"
-"Project-Id-Version: constructordiploma 3.16.0\n"
-"POT-Creation-Date: 2021-04-29 06:52 UTC\n"
+"#-#-#-#-#  #project.pot (constructordiploma 3.17.2)  #-#-#-#-#\n"
+"Project-Id-Version: constructordiploma 3.17.2\n"
+"POT-Creation-Date: 2022-06-25 16:25 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +63,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  FMain.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-29 06:52 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:25 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -154,7 +154,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ModuleInkscape.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-29 06:52 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:23 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -184,7 +184,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  ModuleUpdate.pot ($(PACKAGE) $(VERSION))  #-#-#-#-#\n"
 "Project-Id-Version: $(PACKAGE) $(VERSION)\n"
-"POT-Creation-Date: 2021-04-29 06:52 UTC\n"
+"POT-Creation-Date: 2022-06-25 16:24 UTC\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Constructor de Diplomas"
 msgstr ""
 
-#: FMain.form:108
+#: FMain.form:109
 msgid ""
 "<h1>Constructor de Diplomas</h1><br>\n"
 "\n"
@@ -251,11 +251,11 @@ msgid ""
 "\n"
 msgstr ""
 
-#: FMain.form:115
+#: FMain.form:116
 msgid "Crea tus propias plantillas con:"
 msgstr ""
 
-#: FMain.form:130 comun.module:9
+#: FMain.form:131 comun.module:9
 msgid "inkscape"
 msgstr ""
 
@@ -263,15 +263,15 @@ msgstr ""
 msgid "Creado especialmente para:"
 msgstr ""
 
-#: FMain.form:144
+#: FMain.form:145
 msgid "minino.galpon.org"
 msgstr ""
 
-#: FMain.form:159
+#: FMain.form:160
 msgid "http://www.jsbsan.blogspot.com.es/"
 msgstr ""
 
-#: FMain.form:186
+#: FMain.form:187
 msgid "Web del Proyecto"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid ".ConstructorDiplomas"
 msgstr ""
 
-#: FMain.form:217 FormRegistroDiplomados.form:78
+#: FMain.form:218 FormRegistroDiplomados.form:78
 msgid "Nombre:"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid ""
 "diploma."
 msgstr ""
 
-#: FMain.form:444
+#: FMain.form:445
 msgid "Registro:"
 msgstr ""
 
@@ -456,7 +456,7 @@ msgstr ""
 msgid "Parámetros Avanzados"
 msgstr ""
 
-#: FMain.form:499
+#: FMain.form:500
 msgid "geometría:"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "1052x744+10"
 msgstr ""
 
-#: FMain.form:511
+#: FMain.form:512
 msgid "Diplomas Horizontales"
 msgstr ""
 
@@ -472,7 +472,7 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: FMain.form:525
+#: FMain.form:526
 msgid "Diplomas Verticales"
 msgstr ""
 
@@ -537,27 +537,27 @@ msgstr ""
 msgid "ValueBox1"
 msgstr ""
 
-#: FMain.form:621
+#: FMain.form:620
 msgid "Desde el número"
 msgstr ""
 
-#: FMain.form:632
+#: FMain.form:630
 msgid "al número"
 msgstr ""
 
-#: FMain.form:637
+#: FMain.form:635
 msgid "ValueBox2"
 msgstr ""
 
-#: FMain.form:641 FormError.form:24
+#: FMain.form:639 FormError.form:24
 msgid "Salir"
 msgstr ""
 
-#: FMain.form:644
+#: FMain.form:642
 msgid "Ayuda"
 msgstr ""
 
-#: FMain.form:649
+#: FMain.form:647
 msgid ""
 "<b>Estructura de una plantilla:</b><br>\n"
 "Si usted quiere hacer sus propias plantillas, puede usar como base un "
@@ -591,15 +591,15 @@ msgid ""
 "CAMPO06.................................. texto<br>"
 msgstr ""
 
-#: FMain.form:655
+#: FMain.form:653
 msgid "Visite la página del proyecto para más ayuda"
 msgstr ""
 
-#: FMain.form:660
+#: FMain.form:658
 msgid "Buscar Actualizaciones"
 msgstr ""
 
-#: FMain.form:665
+#: FMain.form:663
 msgid ""
 "<h2>Espere por favor, estoy buscando actualizaciones \n"
 " <br>en internet</h2>"
@@ -1184,55 +1184,55 @@ msgstr ""
 msgid "Ya se esta ejecutando este programa"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:22
 msgid "No ha sido posible conectarse al servidor"
 msgstr ""
 
-#: ModuleUpdate.module:20
+#: ModuleUpdate.module:22
 msgid "No puedo comprobar si hay nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:33
+#: ModuleUpdate.module:35
 msgid "El archivo de versión no es para este programa"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Existe una nueva versión"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Programa:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Versión encontrada:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Mejoras:"
 msgstr ""
 
-#: ModuleUpdate.module:36
+#: ModuleUpdate.module:38
 msgid "Dirección Url de descarga:"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "Ir a la página de descarga"
 msgstr ""
 
-#: ModuleUpdate.module:37
+#: ModuleUpdate.module:39
 msgid "No actualización"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "La versión actual:"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "es igual o superior que la que hay en el servidor"
 msgstr ""
 
-#: ModuleUpdate.module:45
+#: ModuleUpdate.module:47
 msgid "No necesita actualizarla"
 msgstr ""
 

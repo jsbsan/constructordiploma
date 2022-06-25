@@ -8,6 +8,8 @@ Public Sub comprobar(nombreprograma As String, actualversion As String, rutaUrl 
   Dim Buffer, programa, VersionEnInternet, mensaje, mejoras, direccion As String
   Dim res As Integer
 
+  If True Then Return ' no hago comprobacion de actualizacion de la antigua web
+
   MiHttp.url = rutaUrl
   MiHttp.Get()
 

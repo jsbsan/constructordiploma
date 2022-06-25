@@ -12,30 +12,30 @@
     Text = ("Constructor de Diplomas")
     Picture = Picture["diploma-icono24.png"]
     { TextLabelPantallaPresentacion3 TextLabel
-      MoveScaled(5,2,66,51)
+      MoveScaled(5,3,66,51)
       Font = Font["Arial,-1"]
       Background = Color.Background
+      Border = Border.Sunken
       Text = ("<h1>Constructor de Diplomas</h1><br>\n\n<h3>Autor: Julio Sánchez Berro</h3><br>\n\n<h3>Licencia: GPL, Softwarelibre</h3><br>\n\nRealizado en Gambas3.4.1 <br>\n\nPara usar este programa, instala:<br>\nzip <br>\npdftk<br>\ninkscape (para editar y crear nuevas plantillas)<br>\nimagemagick <br>\n<br>\nPara empezar a trabajar, tienes que \"Crear Grupo\" o \"Abrir Grupo\".\n\n")
       Alignment = Align.Center
-      Border = Border.Sunken
     }
     { Label1 Label
       MoveScaled(3,56,33,6)
-      Text = ("Crea tus propias plantillas con:")
       Alignment = Align.Center
+      Text = ("Crea tus propias plantillas con:")
     }
     { PictureBoxIconoInkscape PictureBox
       MoveScaled(38,55,6.8571,6.8571)
-      Mouse = Mouse.Pointing
-      Picture = Picture["inkscape-icono.png"]
+      Mouse = Cursor.Pointing
+      Picture = Picture.Load("inkscape-icono.png")
     }
     { labelInkscape Label
       MoveScaled(49,57,14,3)
       Font = Font["Underline"]
       Foreground = &H1F57FF&
-      Mouse = Mouse.Pointing
-      Text = ("inkscape")
+      Mouse = Cursor.Pointing
       Alignment = Align.Center
+      Text = ("inkscape")
     }
     { Label2 Label
       MoveScaled(6,70,31,4)
@@ -45,35 +45,35 @@
       MoveScaled(50,70,24,3)
       Font = Font["Underline"]
       Foreground = &H1F57FF&
-      Mouse = Mouse.Pointing
-      Text = ("minino.galpon.org")
+      Mouse = Cursor.Pointing
       Alignment = Align.Center
+      Text = ("minino.galpon.org")
     }
     { PictureBox1 PictureBox
       MoveScaled(36,68,14,10)
-      Picture = Picture["picaruelo.png"]
+      Picture = Picture.Load("picaruelo.png")
       Stretch = True
     }
     { Labeljsbsan Label
-      MoveScaled(21,19,37,3)
+      MoveScaled(19,4,37,3)
       Font = Font["Bitstream Charter,Underline"]
       Foreground = &H1F57FF&
-      Mouse = Mouse.Pointing
-      Text = ("http://www.jsbsan.blogspot.com.es/")
+      Mouse = Cursor.Pointing
       Alignment = Align.Center
+      Text = ("http://www.jsbsan.blogspot.com.es/")
     }
     { PictureBox2 PictureBox
       MoveScaled(9,6,9,9)
-      Picture = Picture["diploma-icono.png"]
+      Picture = Picture.Load("diploma-icono.png")
       Stretch = True
     }
     { PictureBox3 PictureBox
       MoveScaled(9,20,9,12)
-      Picture = Picture["logoGambas.png"]
+      Picture = Picture.Load("logoGambas.png")
       Stretch = True
     }
     { Label16 Label
-      MoveScaled(44,10,19,3)
+      MoveScaled(60,13,19,3)
       Font = Font["Bitstream Charter,Bold,+2"]
       AutoResize = True
     }
@@ -81,9 +81,9 @@
       MoveScaled(7,15,13,3)
       Font = Font["Bitstream Charter,Italic,Underline,-1"]
       Foreground = &H1F57FF&
-      Mouse = Mouse.Pointing
-      Text = ("Web del Proyecto")
+      Mouse = Cursor.Pointing
       Alignment = Align.Center
+      Text = ("Web del Proyecto")
     }
     { Label17 Label
       MoveScaled(34,78,16,4)
@@ -108,8 +108,8 @@
     { Label4 Label
       MoveScaled(-1,74,11,5)
       Font = Font["-1"]
-      Text = ("Nombre:")
       Alignment = Align.Right
+      Text = ("Nombre:")
     }
     { ToolButtonCrear ToolButton
       MoveScaled(63,74,11,5)
@@ -303,8 +303,8 @@
     }
     { LabelRegistro Label
       MoveScaled(21,69,35,5)
-      Text = ("Registro:")
       Alignment = Align.Center
+      Text = ("Registro:")
     }
     { ButtonPlantillaAnteriorReg Button
       MoveScaled(13,69,7,5)
@@ -349,8 +349,8 @@
       Text = ("Parámetros Avanzados")
       { Label5 Label
         MoveScaled(1,29,14,4)
-        Text = ("geometría:")
         Alignment = Align.Right
+        Text = ("geometría:")
       }
       { TextBoxGeometria TextBox
         MoveScaled(16,29,18,4)
@@ -359,8 +359,8 @@
       { Label6 Label
         MoveScaled(4,25,24,4)
         Visible = False
-        Text = ("Diplomas Horizontales")
         Alignment = Align.Right
+        Text = ("Diplomas Horizontales")
       }
       { TextBoxTileH TextBox
         MoveScaled(29,25,5,4)
@@ -371,8 +371,8 @@
       { Label9 Label
         MoveScaled(5,21,23,4)
         Visible = False
-        Text = ("Diplomas Verticales")
         Alignment = Align.Right
+        Text = ("Diplomas Verticales")
       }
       { TextBoxTileV TextBox
         MoveScaled(29,21,5,4)
@@ -447,7 +447,6 @@
       { ValueBoxNumeroRegistroImprimir ValueBox
         MoveScaled(29,8,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { RadioButtonDesdeHasta RadioButton
         MoveScaled(7,12,21,3)
@@ -456,7 +455,6 @@
       { ValueBoxDesde ValueBox
         MoveScaled(29,12,5,3)
         Text = ("ValueBox1")
-        Value = "1"
       }
       { Label3 Label
         MoveScaled(35,12,11,3)
